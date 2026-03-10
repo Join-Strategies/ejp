@@ -1,0 +1,2351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EJP — Employment &amp; Job Placement | Wireframe v2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ========================================
+       EJP Brand Tokens
+       ======================================== */
+    :root {
+      /* Primary — Burgundy/Maroon */
+      --color-primary-950: #3a0f16;
+      --color-primary-900: #4e1520;
+      --color-primary-800: #6b1e2b;
+      --color-primary-700: #852633;
+      --color-primary-600: #a03040;
+      --color-primary-500: #b8404f;
+      --color-primary-400: #cc6170;
+      --color-primary-300: #dd8e99;
+      --color-primary-200: #eab8bf;
+      --color-primary-100: #f4d8dc;
+      --color-primary-50: #fbeff1;
+
+      /* Secondary — Navy Blue */
+      --color-secondary-800: #031f73;
+      --color-secondary-700: #0a2e8a;
+      --color-secondary-600: #1240a8;
+      --color-secondary-500: #1a54c4;
+      --color-secondary-100: #d4e3fb;
+      --color-secondary-50: #eef4fd;
+
+      /* Accent — Gold */
+      --color-accent-700: #a68400;
+      --color-accent-600: #d4a900;
+      --color-accent-500: #fecb00;
+      --color-accent-400: #fed733;
+      --color-accent-100: #fef4c4;
+      --color-accent-50: #fffbe6;
+
+      /* Neutrals (warm undertone) */
+      --color-neutral-950: #1a0f10;
+      --color-neutral-900: #2d2122;
+      --color-neutral-800: #3d3233;
+      --color-neutral-700: #514546;
+      --color-neutral-600: #6b5e5f;
+      --color-neutral-500: #897b7c;
+      --color-neutral-400: #a69899;
+      --color-neutral-300: #c4b9ba;
+      --color-neutral-200: #ddd5d6;
+      --color-neutral-100: #eee9ea;
+      --color-neutral-50: #f8f6f6;
+
+      /* Spacing */
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+      --space-4xl: 96px;
+
+      /* Typography */
+      --font-family: 'Roboto', sans-serif;
+      --font-weight-light: 300;
+      --font-weight-regular: 400;
+      --font-weight-medium: 500;
+      --font-weight-semibold: 600;
+      --font-weight-bold: 700;
+
+      /* Layout */
+      --max-width: 1200px;
+      --border-radius: 8px;
+      --border-radius-md: 8px;
+      --border-radius-lg: 12px;
+    }
+
+    /* ========================================
+       Reset & Base
+       ======================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-family);
+      font-weight: var(--font-weight-light);
+      color: var(--color-neutral-900);
+      background: var(--color-neutral-50);
+      line-height: 1.5;
+      letter-spacing: -0.1px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-weight: var(--font-weight-semibold);
+      line-height: 1.2;
+    }
+
+    a { color: var(--color-primary-500); text-decoration: none; }
+    a:hover { color: var(--color-primary-600); }
+
+    /* ========================================
+       Wireframe Annotation Layer
+       ======================================== */
+    .wireframe-label {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--color-neutral-500);
+      background: var(--color-neutral-100);
+      border: 1px dashed var(--color-neutral-300);
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: var(--space-sm);
+    }
+
+    /* ========================================
+       Page-based Navigation
+       ======================================== */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ========================================
+       Header / Navigation
+       ======================================== */
+    .site-header {
+      background: var(--color-primary-800);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-top {
+      background: var(--color-primary-900);
+      padding: var(--space-sm) var(--space-lg);
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .header-top a { color: var(--color-primary-200); }
+
+    .header-main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: clamp(1.125rem, 1.125rem + 0.37vw, 1.375rem);
+      font-weight: var(--font-weight-bold);
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      cursor: pointer;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      background: var(--color-accent-500);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 16px;
+      color: var(--color-primary-900);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: var(--space-lg);
+      list-style: none;
+      font-size: 15px;
+      font-weight: var(--font-weight-medium);
+    }
+
+    .nav-links a { color: var(--color-primary-100); cursor: pointer; }
+    .nav-links a:hover { color: white; }
+    .nav-links a.nav-active {
+      color: white;
+      border-bottom: 2px solid var(--color-accent-500);
+      padding-bottom: 2px;
+    }
+
+    .nav-cta {
+      background: var(--color-accent-500);
+      color: var(--color-primary-900) !important;
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--border-radius);
+      font-weight: var(--font-weight-bold);
+      font-size: 14px;
+      border-bottom: none !important;
+    }
+
+    .nav-cta:hover { background: var(--color-accent-400); color: var(--color-primary-900) !important; }
+
+    /* ========================================
+       Buttons
+       ======================================== */
+    .btn {
+      display: inline-block;
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--border-radius);
+      font-weight: var(--font-weight-semibold);
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      transition: background 0.15s, transform 0.1s;
+    }
+
+    .btn:active { transform: scale(0.98); }
+
+    .btn-primary {
+      background: var(--color-primary-700);
+      color: white;
+    }
+    .btn-primary:hover { background: var(--color-primary-600); color: white; }
+
+    .btn-accent {
+      background: var(--color-accent-500);
+      color: var(--color-primary-900);
+    }
+    .btn-accent:hover { background: var(--color-accent-400); color: var(--color-primary-900); }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--color-primary-700);
+      color: var(--color-primary-700);
+    }
+    .btn-outline:hover { background: var(--color-primary-50); }
+
+    .btn-secondary {
+      background: var(--color-secondary-800);
+      color: white;
+    }
+    .btn-secondary:hover { background: var(--color-secondary-700); color: white; }
+
+    .btn-lg {
+      padding: var(--space-md) var(--space-2xl);
+      font-size: 1rem;
+    }
+
+    /* ========================================
+       Content Sections
+       ======================================== */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+    }
+
+    .section {
+      padding: var(--space-3xl) 0;
+    }
+
+    .section-header {
+      margin-bottom: var(--space-2xl);
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.75rem, 1.75rem + 0.37vw, 2.25rem);
+      color: var(--color-primary-800);
+      margin-bottom: var(--space-sm);
+    }
+
+    .section-header p {
+      color: var(--color-neutral-600);
+      font-size: 1.05rem;
+      max-width: 600px;
+    }
+
+    .section-divider {
+      width: 48px;
+      height: 3px;
+      background: var(--color-accent-500);
+      border-radius: 2px;
+      margin: var(--space-md) 0;
+    }
+
+    .section-header.centered {
+      text-align: center;
+    }
+
+    .section-header.centered p {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-header.centered .section-divider {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ========================================
+       Hero Section (Home)
+       ======================================== */
+    .hero {
+      background: linear-gradient(135deg, var(--color-primary-700) 0%, var(--color-primary-900) 60%, var(--color-secondary-800) 100%);
+      color: white;
+      padding: var(--space-4xl) var(--space-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('assets/page-hero-bg.jpg') center/cover no-repeat;
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    .hero-inner {
+      max-width: 640px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--color-accent-500);
+      margin-bottom: var(--space-lg);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.15rem, 2.15rem + 1.259vw, 3.5rem);
+      font-weight: var(--font-weight-bold);
+      margin-bottom: var(--space-xs);
+      line-height: 1.1;
+    }
+
+    .hero .hero-italic {
+      display: block;
+      font-size: clamp(1.75rem, 1.75rem + 1vw, 2.75rem);
+      font-weight: var(--font-weight-light);
+      font-style: italic;
+      color: var(--color-primary-200);
+      margin-bottom: var(--space-lg);
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 1rem + 0.15vw, 1.15rem);
+      color: var(--color-primary-200);
+      margin-bottom: var(--space-2xl);
+      font-weight: var(--font-weight-regular);
+      line-height: 1.6;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      align-items: flex-start;
+    }
+
+    .hero-ctas .btn-accent {
+      padding: var(--space-md) var(--space-2xl);
+      font-size: 1rem;
+    }
+
+    .hero-ctas .hero-link {
+      color: white;
+      font-weight: var(--font-weight-bold);
+      font-size: 0.95rem;
+    }
+
+    .hero-ctas .hero-link:hover {
+      color: var(--color-accent-400);
+    }
+
+    /* ========================================
+       CPT Callout Banner
+       ======================================== */
+    .cpt-callout {
+      background: var(--color-primary-900);
+      color: white;
+      padding: var(--space-md) var(--space-lg);
+      text-align: center;
+    }
+
+    .cpt-callout-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+
+    .cpt-callout strong {
+      color: var(--color-accent-500);
+      font-weight: var(--font-weight-semibold);
+    }
+
+    .cpt-callout span {
+      color: var(--color-primary-200);
+    }
+
+    .cpt-callout .btn {
+      padding: var(--space-sm) var(--space-lg);
+      font-size: 0.85rem;
+    }
+
+    /* ========================================
+       Page Section Heroes
+       ======================================== */
+    .page-hero {
+      position: relative;
+      padding: var(--space-3xl) var(--space-xl);
+      color: white;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('assets/page-hero-bg.jpg') center/cover no-repeat;
+      z-index: 0;
+    }
+
+    .page-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        134.88deg,
+        rgba(78, 21, 32, 0.92) 0%,
+        rgba(58, 15, 22, 0.88) 50%,
+        rgba(3, 31, 115, 0.85) 100%
+      );
+      z-index: 1;
+    }
+
+    .page-hero .container {
+      position: relative;
+      z-index: 2;
+      max-width: 640px;
+    }
+
+    .page-hero h2 {
+      font-size: 2.4rem;
+      font-weight: var(--font-weight-bold);
+      color: white;
+      margin-bottom: var(--space-sm);
+      letter-spacing: -0.1px;
+      line-height: 1.2;
+    }
+
+    .page-hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.5;
+      margin: 0;
+      letter-spacing: -0.1px;
+    }
+
+    /* ========================================
+       Three Pillars / What EJP Does
+       ======================================== */
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+    }
+
+    .pillar-card {
+      background: white;
+      border-radius: var(--border-radius-lg);
+      padding: var(--space-xl);
+      border: 1px solid var(--color-neutral-100);
+      text-align: center;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .pillar-card:hover {
+      box-shadow: 0 4px 24px rgba(133, 38, 51, 0.08);
+      border-color: var(--color-primary-100);
+    }
+
+    .pillar-card .pillar-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      margin: 0 auto var(--space-md);
+      background: var(--color-primary-50);
+    }
+
+    .pillar-card h3 {
+      font-size: 1.1rem;
+      color: var(--color-neutral-900);
+      margin-bottom: var(--space-sm);
+    }
+
+    .pillar-card p {
+      color: var(--color-neutral-600);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: var(--space-md);
+    }
+
+    .pillar-card .card-link {
+      font-size: 0.875rem;
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-primary-600);
+    }
+
+    /* ========================================
+       Service Cards (reusable)
+       ======================================== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-lg);
+    }
+
+    .services-grid.grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .service-card {
+      background: white;
+      border-radius: var(--border-radius-lg);
+      padding: var(--space-xl);
+      border: 1px solid var(--color-neutral-100);
+      transition: box-shadow 0.2s, border-color 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 4px 24px rgba(133, 38, 51, 0.08);
+      border-color: var(--color-primary-100);
+    }
+
+    .service-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      margin-bottom: var(--space-md);
+    }
+
+    .service-card-icon.primary { background: var(--color-primary-50); color: var(--color-primary-700); }
+    .service-card-icon.secondary { background: var(--color-secondary-50); color: var(--color-secondary-800); }
+    .service-card-icon.accent { background: var(--color-accent-50); color: var(--color-accent-700); }
+
+    .service-card h3 {
+      font-size: 1.1rem;
+      color: var(--color-neutral-900);
+      margin-bottom: var(--space-sm);
+    }
+
+    .service-card p {
+      color: var(--color-neutral-600);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .service-card .card-link {
+      display: inline-block;
+      margin-top: auto;
+      padding-top: var(--space-md);
+      font-size: 0.875rem;
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-primary-600);
+    }
+
+    .service-card .btn {
+      margin-top: auto;
+    }
+
+    /* ========================================
+       Audience Path Cards (Job Seeker)
+       ======================================== */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+    }
+
+    .audience-card {
+      background: white;
+      border-radius: var(--border-radius-lg);
+      padding: var(--space-xl);
+      border: 1px solid var(--color-neutral-100);
+      transition: box-shadow 0.2s, border-color 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .audience-card:hover {
+      box-shadow: 0 4px 24px rgba(133, 38, 51, 0.08);
+      border-color: var(--color-primary-100);
+    }
+
+    .audience-card:last-child {
+      background: var(--color-accent-50);
+      border-color: var(--color-accent-100);
+    }
+
+    .audience-card .audience-icon {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-md);
+    }
+
+    .audience-card h3 {
+      font-size: 1.1rem;
+      color: var(--color-neutral-900);
+      margin-bottom: var(--space-sm);
+    }
+
+    .audience-card > p {
+      color: var(--color-neutral-600);
+      font-size: 0.875rem;
+      line-height: 1.5;
+      margin-bottom: var(--space-md);
+    }
+
+    .audience-card ul {
+      list-style: none;
+      margin-bottom: var(--space-lg);
+      flex: 1;
+    }
+
+    .audience-card ul li {
+      padding: var(--space-xs) 0;
+      font-size: 0.825rem;
+      color: var(--color-neutral-600);
+    }
+
+    .audience-card ul li::before {
+      content: "\2192\00a0";
+      color: var(--color-primary-400);
+    }
+
+    .audience-card .btn {
+      align-self: flex-start;
+    }
+
+    /* ========================================
+       Typeform-style Path Finder (NEW)
+       ======================================== */
+    .path-finder {
+      background: white;
+      border-radius: var(--border-radius-lg);
+      border: 1px solid var(--color-neutral-100);
+      max-width: 640px;
+      margin: 0 auto;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+
+    .path-finder-progress {
+      height: 4px;
+      background: var(--color-neutral-100);
+    }
+
+    .path-finder-progress-bar {
+      height: 100%;
+      background: var(--color-accent-500);
+      transition: width 0.4s ease;
+      border-radius: 0 2px 2px 0;
+    }
+
+    .path-step {
+      display: none;
+      padding: var(--space-2xl) var(--space-xl);
+      text-align: center;
+      animation: fadeInStep 0.35s ease;
+    }
+
+    .path-step.active { display: block; }
+
+    @keyframes fadeInStep {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .path-step-label {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: var(--font-weight-semibold);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-neutral-400);
+      margin-bottom: var(--space-sm);
+    }
+
+    .path-step h3 {
+      font-size: 1.5rem;
+      color: var(--color-neutral-900);
+      margin-bottom: var(--space-xs);
+      font-weight: var(--font-weight-bold);
+    }
+
+    .path-step .step-subtitle {
+      color: var(--color-neutral-500);
+      font-size: 0.95rem;
+      margin-bottom: var(--space-xl);
+    }
+
+    .path-options {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .path-option {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      padding: var(--space-md) var(--space-lg);
+      border: 1.5px solid var(--color-neutral-100);
+      border-radius: var(--border-radius-md);
+      background: white;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: left;
+      font-size: 0.95rem;
+      color: var(--color-neutral-800);
+    }
+
+    .path-option:hover {
+      border-color: var(--color-primary-300);
+      background: var(--color-primary-50);
+    }
+
+    .path-option .option-icon { font-size: 1.3rem; flex-shrink: 0; }
+    .path-option .option-text strong { display: block; font-weight: var(--font-weight-semibold); color: var(--color-neutral-900); }
+    .path-option .option-text span { font-size: 0.8rem; color: var(--color-neutral-500); }
+
+    .path-step-back {
+      display: inline-block;
+      margin-top: var(--space-lg);
+      font-size: 0.8rem;
+      color: var(--color-neutral-400);
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .path-step-back:hover { color: var(--color-neutral-600); }
+
+    .path-endpoint {
+      padding: var(--space-xl);
+      text-align: center;
+    }
+
+    .path-endpoint h4 {
+      font-size: 1.15rem;
+      margin-bottom: var(--space-xs);
+      color: var(--color-neutral-900);
+    }
+
+    .path-endpoint p {
+      font-size: 0.9rem;
+      color: var(--color-neutral-500);
+      margin-bottom: var(--space-lg);
+    }
+
+    /* ========================================
+       Union Benefits Section (NEW)
+       ======================================== */
+    .union-benefits {
+      background: linear-gradient(135deg, var(--color-primary-900) 0%, var(--color-primary-800) 100%);
+      color: white;
+    }
+
+    .union-benefits .section-header h2 { color: white; }
+    .union-benefits .section-header p { color: rgba(255,255,255,0.8); }
+    .union-benefits .section-divider { background: var(--color-accent-500); }
+
+    .benefits-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2xl);
+      align-items: start;
+    }
+
+    .benefits-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .benefit-item {
+      display: flex;
+      gap: var(--space-md);
+      align-items: flex-start;
+      padding: var(--space-md);
+      background: rgba(255,255,255,0.08);
+      border-radius: var(--border-radius-md);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .benefit-item .benefit-icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+    }
+
+    .benefit-item h4 { font-size: 0.95rem; font-weight: var(--font-weight-semibold); margin-bottom: 2px; }
+    .benefit-item p { font-size: 0.8rem; color: rgba(255,255,255,0.7); margin: 0; }
+
+    .benefits-cta-panel {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--border-radius-lg);
+      padding: var(--space-xl);
+      text-align: center;
+    }
+
+    .benefits-cta-panel h3 { font-size: 1.25rem; margin-bottom: var(--space-sm); }
+    .benefits-cta-panel p { font-size: 0.9rem; color: rgba(255,255,255,0.75); margin-bottom: var(--space-lg); }
+    .benefits-cta-panel .btn { margin-bottom: var(--space-md); }
+
+    .layoff-callout {
+      margin-top: var(--space-lg);
+      padding-top: var(--space-lg);
+      border-top: 1px solid rgba(255,255,255,0.15);
+      text-align: left;
+    }
+
+    .layoff-callout h4 { font-size: 0.95rem; margin-bottom: var(--space-xs); color: var(--color-accent-400); }
+    .layoff-callout p { font-size: 0.8rem; color: rgba(255,255,255,0.65); margin-bottom: var(--space-sm); }
+    .layoff-callout a { font-size: 0.85rem; color: var(--color-accent-400); font-weight: var(--font-weight-semibold); }
+
+    /* ========================================
+       Employer Section
+       ======================================== */
+    .employer-section {
+      background: var(--color-secondary-50);
+    }
+
+    .employer-card {
+      background: white;
+      border-left: 3px solid var(--color-secondary-800);
+    }
+
+    .employer-card .service-card-icon { background: var(--color-secondary-50); color: var(--color-secondary-800); }
+    .employer-card .card-link { color: var(--color-secondary-600); }
+
+    /* ========================================
+       Stats / By the Numbers
+       ======================================== */
+    .stats-section {
+      background: var(--color-primary-50);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-lg);
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: var(--space-xl) var(--space-md);
+      background: white;
+      border-radius: var(--border-radius-lg);
+      border: 1px solid var(--color-primary-100);
+    }
+
+    .stat-card .stat-number {
+      font-size: 2.5rem;
+      font-weight: var(--font-weight-bold);
+      color: var(--color-primary-700);
+      line-height: 1;
+      margin-bottom: var(--space-sm);
+    }
+
+    .stat-card h4 {
+      font-size: 1rem;
+      margin-bottom: var(--space-xs);
+      color: var(--color-neutral-800);
+    }
+
+    .stat-card p {
+      font-size: 0.85rem;
+      color: var(--color-neutral-500);
+    }
+
+    /* ========================================
+       Events — Detailed Cards
+       ======================================== */
+    .event-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    .event-card {
+      background: white;
+      border-radius: var(--border-radius-lg);
+      padding: var(--space-xl);
+      border: 1px solid var(--color-neutral-100);
+      display: flex;
+      gap: var(--space-xl);
+      transition: box-shadow 0.2s;
+    }
+
+    .event-card:hover {
+      box-shadow: 0 4px 24px rgba(133, 38, 51, 0.08);
+    }
+
+    .event-date {
+      width: 72px;
+      height: 72px;
+      background: var(--color-primary-50);
+      border-radius: var(--border-radius);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid var(--color-primary-100);
+    }
+
+    .event-date .month {
+      font-size: 0.65rem;
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--color-primary-600);
+    }
+
+    .event-date .day {
+      font-size: 1.5rem;
+      font-weight: var(--font-weight-bold);
+      color: var(--color-primary-800);
+      line-height: 1;
+    }
+
+    .event-details { flex: 1; }
+    .event-details h3 { font-size: 1.1rem; color: var(--color-neutral-900); margin-bottom: var(--space-sm); }
+
+    .event-meta {
+      display: flex;
+      gap: var(--space-lg);
+      margin-bottom: var(--space-sm);
+      font-size: 0.85rem;
+      color: var(--color-neutral-600);
+    }
+
+    .event-details > p {
+      color: var(--color-neutral-600);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: var(--space-md);
+    }
+
+    .event-details .card-link {
+      font-size: 0.875rem;
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-primary-600);
+      padding: var(--space-sm) var(--space-lg);
+      border: 1.5px solid var(--color-primary-600);
+      border-radius: var(--border-radius);
+      display: inline-block;
+    }
+
+    .event-details .card-link:hover {
+      background: var(--color-primary-50);
+    }
+
+    .event-note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--color-neutral-500);
+      margin-top: var(--space-lg);
+    }
+
+    /* ========================================
+       Employer CTA Section
+       ======================================== */
+    .employer-cta-section {
+      background: var(--color-secondary-50);
+      text-align: center;
+      padding: var(--space-3xl) var(--space-lg);
+    }
+
+    .employer-cta-section h2 {
+      font-size: clamp(1.5rem, 1.5rem + 0.37vw, 2rem);
+      color: var(--color-primary-800);
+      margin-bottom: var(--space-sm);
+    }
+
+    .employer-cta-section p {
+      color: var(--color-neutral-600);
+      font-size: 1rem;
+      max-width: 500px;
+      margin: 0 auto var(--space-xl);
+    }
+
+    /* ========================================
+       About EJP
+       ======================================== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2xl);
+      align-items: start;
+    }
+
+    .about-content h3 {
+      font-size: 1.15rem;
+      color: var(--color-primary-800);
+      margin-bottom: var(--space-sm);
+      margin-top: var(--space-xl);
+    }
+
+    .about-content h3:first-child { margin-top: 0; }
+
+    .about-content p {
+      color: var(--color-neutral-600);
+      font-size: 0.95rem;
+    }
+
+    .about-pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+    }
+
+    .about-pillar-card {
+      background: white;
+      border-radius: var(--border-radius);
+      padding: var(--space-lg);
+      border: 1px solid var(--color-neutral-100);
+    }
+
+    .about-pillar-card h4 {
+      font-size: 0.95rem;
+      color: var(--color-primary-700);
+      margin-bottom: var(--space-xs);
+    }
+
+    .about-pillar-card p {
+      font-size: 0.8rem;
+      color: var(--color-neutral-500);
+    }
+
+    /* ========================================
+       Contact / Get Help
+       ======================================== */
+    .contact-section { background: white; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+    }
+
+    .contact-card {
+      padding: var(--space-xl);
+      border-radius: var(--border-radius-lg);
+      border: 1px solid var(--color-neutral-100);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-card h4 { font-size: 1rem; color: var(--color-neutral-800); margin-bottom: var(--space-sm); }
+    .contact-card p { font-size: 0.875rem; color: var(--color-neutral-500); margin-bottom: var(--space-md); flex: 1; }
+    .contact-card .btn { margin-top: auto; }
+
+    /* ========================================
+       MyTEF Portal
+       ======================================== */
+    .mytef-section { background: var(--color-primary-50); }
+
+    .mytef-features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-lg);
+    }
+
+    .mytef-feature {
+      background: white;
+      padding: var(--space-lg);
+      border-radius: var(--border-radius);
+      border: 1px solid var(--color-primary-100);
+      text-align: center;
+    }
+
+    .mytef-feature h4 { font-size: 0.95rem; color: var(--color-primary-800); margin-bottom: var(--space-xs); }
+    .mytef-feature p { font-size: 0.8rem; color: var(--color-neutral-500); }
+
+    /* ========================================
+       Events Preview (Home page)
+       ======================================== */
+    .events-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-lg);
+      margin-bottom: var(--space-2xl);
+    }
+
+    .event-preview-card {
+      text-align: center;
+      padding: var(--space-xl) var(--space-md);
+      background: white;
+      border-radius: var(--border-radius-lg);
+      border: 1px solid var(--color-primary-100);
+    }
+
+    .event-preview-card .event-preview-icon {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-sm);
+    }
+
+    .event-preview-card h4 {
+      font-size: 1rem;
+      margin-bottom: var(--space-xs);
+      color: var(--color-neutral-800);
+    }
+
+    .event-preview-card p {
+      font-size: 0.85rem;
+      color: var(--color-neutral-500);
+    }
+
+    /* ========================================
+       Footer
+       ======================================== */
+    .site-footer {
+      background: var(--color-primary-950);
+      color: var(--color-primary-200);
+      padding: var(--space-2xl) var(--space-lg);
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-lg);
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .footer-brand .logo-mark { width: 28px; height: 28px; font-size: 12px; }
+    .footer-brand span { font-weight: var(--font-weight-semibold); color: white; font-size: 0.95rem; }
+
+    .footer-links {
+      display: flex;
+      gap: var(--space-lg);
+      list-style: none;
+      font-size: 0.85rem;
+    }
+
+    .footer-links a { color: var(--color-primary-300); }
+    .footer-links a:hover { color: white; }
+
+    .footer-bottom {
+      max-width: var(--max-width);
+      margin: var(--space-lg) auto 0;
+      padding-top: var(--space-lg);
+      border-top: 1px solid var(--color-primary-900);
+      font-size: 0.8rem;
+      color: var(--color-primary-300);
+      text-align: center;
+    }
+
+    /* ========================================
+       Mobile Navigation
+       ======================================== */
+    .mobile-nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: var(--space-sm);
+      margin-right: calc(-1 * var(--space-sm));
+    }
+
+    .mobile-nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: white;
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .mobile-nav-toggle span + span { margin-top: 6px; }
+
+    .mobile-nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .mobile-nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .mobile-nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    .mobile-nav {
+      display: none;
+      background: var(--color-primary-900);
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.35s ease;
+    }
+
+    .mobile-nav.is-open { max-height: 500px; }
+    .mobile-nav ul { list-style: none; padding: var(--space-sm) var(--space-lg) var(--space-lg); }
+    .mobile-nav li { border-bottom: 1px solid var(--color-primary-800); }
+    .mobile-nav li:last-child { border-bottom: none; padding-top: var(--space-sm); }
+    .mobile-nav a { display: block; padding: var(--space-md) 0; color: var(--color-primary-100); font-size: 1rem; font-weight: var(--font-weight-medium); cursor: pointer; }
+    .mobile-nav a:hover { color: white; }
+    .mobile-nav .nav-cta { display: inline-block; text-align: center; width: 100%; }
+
+    /* ========================================
+       Responsive
+       ======================================== */
+    @media (max-width: 1024px) {
+      .pillar-grid { grid-template-columns: repeat(3, 1fr); }
+      .audience-grid { grid-template-columns: repeat(3, 1fr); }
+      .services-grid, .services-grid.grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: repeat(2, 1fr); }
+      .events-preview-grid { grid-template-columns: repeat(2, 1fr); }
+      .mytef-features { grid-template-columns: repeat(2, 1fr); }
+      .about-pillars { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .header-top { display: none; }
+      .mobile-nav-toggle { display: block; }
+      .mobile-nav { display: block; }
+
+      .pillar-grid { grid-template-columns: 1fr; }
+      .audience-grid { grid-template-columns: 1fr; }
+      .services-grid, .services-grid.grid-3 { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; }
+      .events-preview-grid { grid-template-columns: repeat(2, 1fr); }
+      .mytef-features { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-pillars { grid-template-columns: 1fr; }
+      .benefits-layout { grid-template-columns: 1fr; }
+
+      .hero { padding: var(--space-3xl) var(--space-md); }
+      .section { padding: var(--space-2xl) 0; }
+
+      .event-card { flex-direction: column; }
+      .event-meta { flex-direction: column; gap: var(--space-xs); }
+
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 0 var(--space-md); }
+      .stats-grid { grid-template-columns: 1fr; }
+      .events-preview-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 1.75rem; }
+      .hero .hero-italic { font-size: 1.5rem; }
+      .section-header h2 { font-size: 1.5rem; }
+      .mytef-features { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       HEADER (shared across all pages)
+       ============================================ -->
+  <header class="site-header">
+    <div class="header-top">
+      <span>An 1199SEIU Training &amp; Employment Fund Program</span>
+      <div>
+        <a href="#" onclick="navigateTo('seekers')">MyTEF Portal</a>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <a href="#">Espa&ntilde;ol</a>
+      </div>
+    </div>
+    <div class="header-main">
+      <div class="logo" onclick="navigateTo('home')">
+        <div class="logo-mark">EJP</div>
+        Employment &amp; Job Placement
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a data-page="seekers" onclick="navigateTo('seekers')">For Job Seekers</a></li>
+          <li><a data-page="employers" onclick="navigateTo('employers')">For Employers</a></li>
+          <li><a data-page="home" onclick="navigateTo('home', 'about')">About</a></li>
+          <li><a data-page="events" onclick="navigateTo('events')">Events</a></li>
+          <li><a data-page="home" onclick="navigateTo('home', 'contact')">Contact</a></li>
+          <li><a class="nav-cta" onclick="navigateTo('seekers')">Get Started</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav">
+      <ul>
+        <li><a onclick="navigateTo('seekers')">For Job Seekers</a></li>
+        <li><a onclick="navigateTo('employers')">For Employers</a></li>
+        <li><a onclick="navigateTo('home', 'about')">About</a></li>
+        <li><a onclick="navigateTo('events')">Events</a></li>
+        <li><a onclick="navigateTo('home', 'contact')">Contact</a></li>
+        <li><a class="nav-cta" onclick="navigateTo('seekers')">Get Started</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <!-- ============================================================
+       PAGE: HOME
+       ============================================================ -->
+  <div class="page active" id="page-home">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-eyebrow">1199SEIU Training &amp; Employment Fund</div>
+        <h1>More Than Just a Job.</h1>
+        <span class="hero-italic">We build careers.</span>
+        <p>EJP is your long-term partner in building a career that lasts &mdash; with personalized services, expert guidance, and a network that's been supporting New York's workforce for decades.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-accent btn-lg" onclick="navigateTo('seekers')">Find Career Services &rarr;</a>
+          <a class="hero-link" onclick="navigateTo('employers')">Hire Qualified Candidates</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CPT CALLOUT -->
+    <div class="cpt-callout">
+      <div class="cpt-callout-inner">
+        <strong>Completing your CPT training?</strong>
+        <span>Your career services team is ready to help you find placement.</span>
+        <a class="btn btn-accent" onclick="navigateTo('seekers')">Start Here &rarr;</a>
+      </div>
+    </div>
+
+    <!-- WHAT EJP DOES — Three Pillars -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header centered">
+          <span class="wireframe-label">What We Do</span>
+          <h2>Three Pillars. One Mission.</h2>
+          <div class="section-divider"></div>
+          <p>EJP brings together career services, employer partnerships, and workforce training under one roof &mdash; connecting people to purpose in New York's healthcare system.</p>
+        </div>
+
+        <div class="pillar-grid">
+          <div class="pillar-card">
+            <div class="pillar-icon">&#x1F91D;</div>
+            <h3>Career Services &amp; Support</h3>
+            <p>Resume assistance, career counseling, interview prep, and workshops &mdash; personalized guidance to help you succeed.</p>
+            <a class="card-link" onclick="navigateTo('seekers')">For Job Seekers &rarr;</a>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon">&#x1F3E2;</div>
+            <h3>Employer Partnerships</h3>
+            <p>We work with healthcare employers across New York to understand their staffing needs and match them with qualified candidates.</p>
+            <a class="card-link" onclick="navigateTo('employers')">For Employers &rarr;</a>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon">&#x1F393;</div>
+            <h3>Training-to-Career Pipeline</h3>
+            <p>From CPT training through placement, we support the full journey from education to meaningful healthcare employment.</p>
+            <a class="card-link" href="#">Learn More &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT EJP -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <h2>About EJP</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-content">
+            <h3>Mission &amp; Vision</h3>
+            <p>EJP is your long-term partner in healthcare employment. We support job seekers with career services, preparation, and guidance &mdash; and connect employers with motivated, qualified candidates from our network.</p>
+
+            <h3>Our Approach</h3>
+            <p>We believe in collaboration, empowerment, innovation, and impact. Every service we offer is designed to help job seekers prepare, grow, and thrive in New York's healthcare workforce.</p>
+
+            <h3>Success Stories</h3>
+            <blockquote style="border-left: 3px solid var(--color-accent-500); padding-left: var(--space-lg); margin-top: var(--space-md); font-style: italic; color: var(--color-neutral-700);">
+              <em style="font-size: 0.85rem; color: var(--color-neutral-400);">[Placeholder &mdash; real testimonial TBD, possibly from Danielle]</em><br><br>
+              "Quote from a real EJP participant about their experience with career services and how the support helped them navigate their career path."
+              <footer style="margin-top: var(--space-sm); font-style: normal; font-size: 0.85rem; color: var(--color-neutral-500);">
+                &mdash; <strong style="color: var(--color-neutral-700);">Name TBD</strong>, Role, CPT Class of 20XX
+              </footer>
+            </blockquote>
+          </div>
+
+          <div class="about-pillars">
+            <div class="about-pillar-card">
+              <h4>Collaborate</h4>
+              <p>Partnering across employers, training programs, and union support systems</p>
+            </div>
+            <div class="about-pillar-card">
+              <h4>Empower</h4>
+              <p>Giving job seekers the tools, prep, and confidence to succeed</p>
+            </div>
+            <div class="about-pillar-card">
+              <h4>Innovate</h4>
+              <p>Modernizing healthcare workforce placement through technology</p>
+            </div>
+            <div class="about-pillar-card">
+              <h4>Impact</h4>
+              <p>Measurable outcomes &mdash; placements, retention, career growth</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENTS PREVIEW — Meet Us in Person -->
+    <section class="section" style="background: var(--color-primary-50);">
+      <div class="container">
+        <div class="section-header centered">
+          <span class="wireframe-label">Events</span>
+          <h2>Meet Us in Person</h2>
+          <div class="section-divider"></div>
+          <p>Connect with EJP career counselors and employers at upcoming events.</p>
+        </div>
+
+        <div class="events-preview-grid">
+          <div class="event-preview-card">
+            <div class="event-preview-icon">&#x1F4C5;</div>
+            <h4>Spring Career Fair</h4>
+            <p>Date TBD &mdash; Location TBD</p>
+          </div>
+          <div class="event-preview-card">
+            <div class="event-preview-icon">&#x1F4C5;</div>
+            <h4>Healthcare Hiring Event</h4>
+            <p>Date TBD &mdash; Location TBD</p>
+          </div>
+          <div class="event-preview-card">
+            <div class="event-preview-icon">&#x1F4C5;</div>
+            <h4>CPT Graduation &amp; Placement</h4>
+            <p>Date TBD &mdash; Location TBD</p>
+          </div>
+          <div class="event-preview-card">
+            <div class="event-preview-icon">&#x1F4C5;</div>
+            <h4>Resume Workshop</h4>
+            <p>Date TBD &mdash; Location TBD</p>
+          </div>
+        </div>
+
+        <div style="text-align: center;">
+          <a class="btn btn-primary" onclick="navigateTo('events')">View All Events &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / GET HELP -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2>Contact / Get Help</h2>
+          <div class="section-divider"></div>
+          <p>We're here to help. Reach out to the right team.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h4>Job Seeker Inquiries</h4>
+            <p>Questions about jobs, resume help, or career services</p>
+            <a href="#" class="btn btn-primary">Contact Career Services</a>
+          </div>
+          <div class="contact-card">
+            <h4>Employer Inquiries</h4>
+            <p>Interested in hiring or partnering with EJP</p>
+            <a href="#" class="btn btn-secondary">Contact Employer Relations</a>
+          </div>
+          <div class="contact-card">
+            <h4>Partnership Inquiries</h4>
+            <p>Become a community-based organization or provider partner</p>
+            <a href="#" class="btn btn-outline">Contact Partnerships</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /page-home -->
+
+
+  <!-- ============================================================
+       PAGE: JOB SEEKERS
+       ============================================================ -->
+  <div class="page" id="page-seekers">
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="container">
+        <h2>Your Gateway to New York Healthcare Careers</h2>
+        <p>As part of the 1199SEIU Training and Employment Fund, EJP provides job seekers with resources and support to build a career in healthcare.</p>
+      </div>
+    </div>
+
+    <!-- CPT CALLOUT -->
+    <div class="cpt-callout">
+      <div class="cpt-callout-inner">
+        <strong>Completing your CPT training?</strong>
+        <span>Your career services team is ready to help you find placement.</span>
+        <a href="#" class="btn btn-accent">Start Here &rarr;</a>
+      </div>
+    </div>
+
+    <!-- HOW CAN WE HELP? — Audience Paths (Figma cards) -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="wireframe-label">Choose your path</span>
+          <h2>How Can We Help You?</h2>
+          <div class="section-divider"></div>
+          <p>EJP serves job seekers at every stage. Find the path that fits where you are right now.</p>
+        </div>
+
+        <!-- Figma-style audience path cards -->
+        <div class="audience-grid" id="audienceCards">
+          <div class="audience-card">
+            <div class="audience-icon">&#x1F393;</div>
+            <h3>CPT Graduates</h3>
+            <p>Completed your training? Your career services team is ready to support your next step.</p>
+            <ul>
+              <li>Career counselor connection</li>
+              <li>Placement support &amp; employer matching</li>
+              <li>Resume &amp; interview prep</li>
+              <li>myTEF Portal access</li>
+            </ul>
+            <a href="#" class="btn btn-primary">Connect with Your Counselor &rarr;</a>
+          </div>
+          <div class="audience-card">
+            <div class="audience-icon">&#x1F4CB;</div>
+            <h3>Union Members</h3>
+            <p>Access career services and tools available through your 1199SEIU membership.</p>
+            <ul>
+              <li>Career services &amp; counseling</li>
+              <li>Resume &amp; interview support</li>
+              <li>Workshops &amp; skill-building</li>
+              <li>myTEF Portal access</li>
+              <li>Laid-off member support</li>
+            </ul>
+            <a href="#" class="btn btn-primary">Access Career Services &rarr;</a>
+          </div>
+          <div class="audience-card">
+            <div class="audience-icon">&#x1F31F;</div>
+            <h3>New to Healthcare</h3>
+            <p>Interested in a healthcare career? Start here to learn what's possible and how to get involved.</p>
+            <ul>
+              <li>Submit your resume</li>
+              <li>Why healthcare / why 1199</li>
+              <li>How to become a member</li>
+            </ul>
+            <a href="#" class="btn btn-primary">Get Started &rarr;</a>
+          </div>
+        </div>
+
+        <!-- NEW: Typeform-style Path Finder (interactive alternative) -->
+        <div style="text-align: center; margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid var(--color-neutral-100);">
+          <p style="font-size: 0.9rem; color: var(--color-neutral-500); margin-bottom: var(--space-md);">Not sure where to start?</p>
+          <button class="btn btn-outline" id="launchPathFinder" onclick="togglePathFinder()">Help Me Find My Path &rarr;</button>
+        </div>
+
+        <div class="path-finder" id="pathFinder" style="display: none; margin-top: var(--space-xl);">
+          <div class="path-finder-progress">
+            <div class="path-finder-progress-bar" id="progressBar" style="width: 33%"></div>
+          </div>
+
+          <!-- Step 1: Are you a member? -->
+          <div class="path-step active" data-step="1">
+            <span class="path-step-label">Step 1 of 2</span>
+            <h3>Tell us about yourself</h3>
+            <p class="step-subtitle">Which best describes you?</p>
+            <div class="path-options">
+              <button class="path-option" data-next="union-intent">
+                <span class="option-icon">&#x1F4CB;</span>
+                <div class="option-text">
+                  <strong>I'm a Union Member</strong>
+                  <span>Active 1199SEIU member looking for career support</span>
+                </div>
+              </button>
+              <button class="path-option" data-next="cpt-intent">
+                <span class="option-icon">&#x1F393;</span>
+                <div class="option-text">
+                  <strong>I'm a CPT Graduate</strong>
+                  <span>I completed Career Pathways Training and need placement support</span>
+                </div>
+              </button>
+              <button class="path-option" data-next="nonunion-interest">
+                <span class="option-icon">&#x1F331;</span>
+                <div class="option-text">
+                  <strong>I'm Not a Union Member</strong>
+                  <span>I'm interested in healthcare careers and want to learn more</span>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2a: Union member -->
+          <div class="path-step" data-step="union-intent">
+            <span class="path-step-label">Step 2 of 2</span>
+            <h3>What are you looking for?</h3>
+            <p class="step-subtitle">Select the service that best matches your needs.</p>
+            <div class="path-options">
+              <button class="path-option" data-next="endpoint-portal">
+                <span class="option-icon">&#x1F50D;</span>
+                <div class="option-text">
+                  <strong>Job Search &amp; Placement</strong>
+                  <span>I'm looking for a new position or career change</span>
+                </div>
+              </button>
+              <button class="path-option" data-next="endpoint-portal">
+                <span class="option-icon">&#x1F4DD;</span>
+                <div class="option-text">
+                  <strong>Resume &amp; Interview Help</strong>
+                  <span>I need help preparing my application materials</span>
+                </div>
+              </button>
+              <button class="path-option" data-next="endpoint-portal">
+                <span class="option-icon">&#x1F4DA;</span>
+                <div class="option-text">
+                  <strong>Workshops &amp; Skill-Building</strong>
+                  <span>I want to develop new professional skills</span>
+                </div>
+              </button>
+              <button class="path-option" data-next="endpoint-layoff">
+                <span class="option-icon">&#x1F6E1;&#xFE0F;</span>
+                <div class="option-text">
+                  <strong>I've Been Laid Off</strong>
+                  <span>I need support and next steps after a layoff</span>
+                </div>
+              </button>
+            </div>
+            <button class="path-step-back" data-back="1">&larr; Go back</button>
+          </div>
+
+          <!-- Step 2b: CPT grad -->
+          <div class="path-step" data-step="cpt-intent">
+            <span class="path-step-label">Step 2 of 2</span>
+            <h3>What do you need right now?</h3>
+            <p class="step-subtitle">Your career services team is ready to help.</p>
+            <div class="path-options">
+              <button class="path-option" data-next="endpoint-portal">
+                <span class="option-icon">&#x1F91D;</span>
+                <div class="option-text">
+                  <strong>Connect with My Counselor</strong>
+                  <span>I want to start working with a career counselor</span>
+                </div>
+              </button>
+              <button class="path-option" data-next="endpoint-portal">
+                <span class="option-icon">&#x1F3AF;</span>
+                <div class="option-text">
+                  <strong>Placement &amp; Employer Matching</strong>
+                  <span>I'm ready to find a job in my field</span>
+                </div>
+              </button>
+              <button class="path-option" data-next="endpoint-portal">
+                <span class="option-icon">&#x1F4DD;</span>
+                <div class="option-text">
+                  <strong>Resume &amp; Interview Prep</strong>
+                  <span>I need to polish my application materials</span>
+                </div>
+              </button>
+            </div>
+            <button class="path-step-back" data-back="1">&larr; Go back</button>
+          </div>
+
+          <!-- Step 2c: Non-union -->
+          <div class="path-step" data-step="nonunion-interest">
+            <span class="path-step-label">Step 2 of 2</span>
+            <h3>Interested in healthcare careers?</h3>
+            <p class="step-subtitle">We can keep you in the loop on opportunities, events, and how to get started.</p>
+            <div class="path-options">
+              <button class="path-option" data-next="endpoint-newsletter">
+                <span class="option-icon">&#x2705;</span>
+                <div class="option-text">
+                  <strong>Yes, keep me updated</strong>
+                  <span>Sign up for our newsletter and career resources</span>
+                </div>
+              </button>
+              <button class="path-option" data-next="endpoint-newsletter">
+                <span class="option-icon">&#x1F4E4;</span>
+                <div class="option-text">
+                  <strong>I'd like to submit my resume</strong>
+                  <span>Drop your resume for future opportunities</span>
+                </div>
+              </button>
+              <button class="path-option" data-next="endpoint-learn">
+                <span class="option-icon">&#x1F4A1;</span>
+                <div class="option-text">
+                  <strong>Just browsing</strong>
+                  <span>I want to learn more about 1199 and healthcare careers</span>
+                </div>
+              </button>
+            </div>
+            <button class="path-step-back" data-back="1">&larr; Go back</button>
+          </div>
+
+          <!-- Endpoint: Portal Sign-In -->
+          <div class="path-step" data-step="endpoint-portal">
+            <div class="path-endpoint">
+              <span style="font-size:2.5rem;">&#x1F3AF;</span>
+              <h4>You're all set &mdash; let's get started</h4>
+              <p>Sign in to your EJP portal to connect with your counselor and access all your career services.</p>
+              <a href="#" class="btn btn-primary">Sign In to Your Portal &rarr;</a>
+              <br><br>
+              <span style="font-size:0.8rem; color:var(--color-neutral-400);">Don't have an account? <a href="#" style="color:var(--color-primary-500);">Create one here</a></span>
+            </div>
+            <button class="path-step-back" data-back="1">&larr; Start over</button>
+          </div>
+
+          <!-- Endpoint: Layoff Support -->
+          <div class="path-step" data-step="endpoint-layoff">
+            <div class="path-endpoint">
+              <span style="font-size:2.5rem;">&#x1F6E1;&#xFE0F;</span>
+              <h4>We're here to help</h4>
+              <p>As a union member, you have access to dedicated layoff support including career transition services, resume help, and job placement assistance.</p>
+              <a href="#" class="btn btn-primary">Access Layoff Support &rarr;</a>
+              <br><br>
+              <a href="#" class="btn btn-outline" style="font-size:0.85rem;">Or sign in to your portal</a>
+            </div>
+            <button class="path-step-back" data-back="union-intent">&larr; Go back</button>
+          </div>
+
+          <!-- Endpoint: Newsletter -->
+          <div class="path-step" data-step="endpoint-newsletter">
+            <div class="path-endpoint">
+              <span style="font-size:2.5rem;">&#x2709;&#xFE0F;</span>
+              <h4>Stay connected</h4>
+              <p>Sign up to receive healthcare career resources, job alerts, and information about upcoming events.</p>
+              <div style="display:flex; gap:var(--space-sm); max-width:360px; margin:0 auto;">
+                <input type="email" placeholder="Your email address" style="flex:1; padding:var(--space-sm) var(--space-md); border:1.5px solid var(--color-neutral-200); border-radius:var(--border-radius-md); font-size:0.9rem;">
+                <button class="btn btn-primary" style="white-space:nowrap;">Sign Up</button>
+              </div>
+            </div>
+            <button class="path-step-back" data-back="nonunion-interest">&larr; Go back</button>
+          </div>
+
+          <!-- Endpoint: Learn More -->
+          <div class="path-step" data-step="endpoint-learn">
+            <div class="path-endpoint">
+              <span style="font-size:2.5rem;">&#x1F4A1;</span>
+              <h4>Explore healthcare careers</h4>
+              <p>Learn why healthcare is one of New York's fastest-growing industries and how 1199SEIU members access exclusive career support.</p>
+              <a href="#" class="btn btn-primary">Why Healthcare &rarr;</a>
+              <br><br>
+              <a href="#" style="font-size:0.85rem; color:var(--color-primary-500); font-weight:600;">How to become a member &rarr;</a>
+            </div>
+            <button class="path-step-back" data-back="nonunion-interest">&larr; Go back</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW: WHAT YOU GET AS A UNION MEMBER -->
+    <section class="section union-benefits">
+      <div class="container">
+        <div class="section-header">
+          <span class="wireframe-label" style="background:rgba(255,255,255,0.15); color:rgba(255,255,255,0.8); border-color:rgba(255,255,255,0.3);">New Section</span>
+          <h2>What You Get as a Union Member</h2>
+          <div class="section-divider"></div>
+          <p>Your 1199SEIU membership gives you access to dedicated career services that most job seekers don't have. Here's what's included.</p>
+        </div>
+
+        <div class="benefits-layout">
+          <div class="benefits-list">
+            <div class="benefit-item">
+              <div class="benefit-icon">&#x1F91D;</div>
+              <div>
+                <h4>Dedicated Career Counselor</h4>
+                <p>Work one-on-one with an experienced counselor who knows healthcare inside and out.</p>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon">&#x1F4DD;</div>
+              <div>
+                <h4>Resume &amp; Interview Prep</h4>
+                <p>Get professional help crafting a resume that highlights your training, experience, and strengths.</p>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon">&#x1F3AF;</div>
+              <div>
+                <h4>Job Placement &amp; Employer Matching</h4>
+                <p>We connect you directly with healthcare employers looking for qualified candidates like you.</p>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon">&#x1F4DA;</div>
+              <div>
+                <h4>Workshops &amp; Skill-Building</h4>
+                <p>Group sessions on job search strategies, professional development, and workplace readiness.</p>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon">&#x1F4BB;</div>
+              <div>
+                <h4>myTEF Portal Access</h4>
+                <p>Track your services, appointments, and career progress all in one place.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="benefits-cta-panel">
+            <h3>Ready to access your benefits?</h3>
+            <p>Sign in to your EJP portal to get started with career services, or connect with a counselor today.</p>
+            <a href="#" class="btn btn-accent" style="display:block;">Sign In to Your Portal &rarr;</a>
+
+            <div class="layoff-callout">
+              <h4>&#x1F6E1;&#xFE0F; Been laid off?</h4>
+              <p>Union members facing layoffs have access to dedicated transition support, including priority placement, re-training resources, and financial guidance.</p>
+              <a href="#">Access Layoff Support &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAREER SERVICES -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Career Services</h2>
+          <div class="section-divider"></div>
+          <p>One-on-one support from experienced career counselors &mdash; available to all EJP participants.</p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-card-icon primary">&#x1F4DD;</div>
+            <h3>Resume Assistance</h3>
+            <p>Get help crafting a professional resume that highlights your training, experience, and strengths.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-card-icon primary">&#x1F4AC;</div>
+            <h3>Career Counseling</h3>
+            <p>Work with a dedicated counselor to identify your goals, explore options, and build a plan.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-card-icon primary">&#x1F3AF;</div>
+            <h3>Interview Preparation</h3>
+            <p>Practice interviews, get feedback, and build the confidence to make a strong impression.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-card-icon primary">&#x1F4DA;</div>
+            <h3>Workshops &amp; Skill-Building</h3>
+            <p>Join group sessions on job search strategies, professional development, and workplace readiness.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAID-OFF MEMBER SUPPORT -->
+    <section class="section" style="background: var(--color-neutral-50);">
+      <div class="container">
+        <div class="section-header">
+          <h2>Laid-off Member Support</h2>
+          <div class="section-divider"></div>
+          <p>If you've been laid off, the Job Security Fund has resources for you.</p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-card-icon accent">&#x1F6E1;&#xFE0F;</div>
+            <h3>Job Security Fund</h3>
+            <p>Access information and resources through the Job Security Fund for laid-off 1199SEIU members.</p>
+            <a href="#" class="card-link">Learn More &rarr;</a>
+          </div>
+          <div class="service-card">
+            <div class="service-card-icon accent">&#x1F504;</div>
+            <h3>Re-employment Assistance</h3>
+            <p>Get support finding your next role, including priority access to career services and job matching.</p>
+            <a href="#" class="card-link">Get Support &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MyTEF PORTAL -->
+    <section class="section mytef-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>MyTEF Portal</h2>
+          <div class="section-divider"></div>
+          <p>Your training and employment hub &mdash; manage your career development tools in one place.</p>
+        </div>
+
+        <div class="mytef-features">
+          <div class="mytef-feature">
+            <h4>Sign Up for Classes</h4>
+            <p>Browse and enroll in available training programs</p>
+          </div>
+          <div class="mytef-feature">
+            <h4>Apply for Programs</h4>
+            <p>Submit applications for career advancement opportunities</p>
+          </div>
+          <div class="mytef-feature">
+            <h4>Upload Resume</h4>
+            <p>Keep your resume on file for employer matching</p>
+          </div>
+          <div class="mytef-feature">
+            <h4>Check Reimbursement</h4>
+            <p>View the status of your tuition and expense reimbursements</p>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: var(--space-xl);">
+          <a href="#" class="btn btn-primary">Log In to MyTEF Portal &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /page-seekers -->
+
+
+  <!-- ============================================================
+       PAGE: EMPLOYERS
+       ============================================================ -->
+  <div class="page" id="page-employers">
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="container">
+        <h2>The Candidates You Need</h2>
+        <p>Every year, thousands of New Yorkers choose healthcare not because it's a job, but because it's a calling. EJP connects you with qualified, CPT-trained candidates who are motivated and ready to fill your open roles.</p>
+      </div>
+    </div>
+
+    <!-- WHY PARTNER WITH EJP -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Why Partner with EJP</h2>
+          <div class="section-divider"></div>
+          <p>We work with healthcare employers across New York to understand their specific staffing needs and match them with qualified candidates from our network.</p>
+        </div>
+
+        <div class="pillar-grid">
+          <div class="pillar-card">
+            <div class="pillar-icon">&#x1F393;</div>
+            <h3>CPT-Trained Candidates</h3>
+            <p>Access a pipeline of graduates trained across 10 healthcare occupations &mdash; from nursing and allied health to technical and administrative roles.</p>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon">&#x2705;</div>
+            <h3>Pre-Screened &amp; Prepared</h3>
+            <p>Our candidates have completed training, received career counseling, and are ready to work. No cold applicants &mdash; motivated professionals.</p>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon">&#x1F91D;</div>
+            <h3>Ongoing Partnership</h3>
+            <p>EJP isn't a one-time service. We build lasting relationships with employers to support continuous staffing and workforce development needs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO WORK WITH US -->
+    <section class="section employer-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>How to Work with Us</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card employer-card">
+            <div class="service-card-icon secondary">&#x1F4E4;</div>
+            <h3>Submit Job Openings</h3>
+            <p>Post your vacancies directly to our qualified candidate pool. We'll match you with CPT-trained professionals.</p>
+            <a href="#" class="btn btn-secondary" style="margin-top: auto; align-self: flex-start;">Submit a Vacancy &rarr;</a>
+          </div>
+          <div class="service-card employer-card">
+            <div class="service-card-icon secondary">&#x1F3E2;</div>
+            <h3>Become a Partner Provider</h3>
+            <p>Join our network of healthcare employers committed to workforce development and community hiring.</p>
+            <a href="#" class="card-link">Apply to Be a Partner &rarr;</a>
+          </div>
+          <div class="service-card employer-card">
+            <div class="service-card-icon secondary">&#x1F4C5;</div>
+            <h3>Attend Hiring Events</h3>
+            <p>Meet qualified candidates in person at our career fairs and hiring events throughout New York.</p>
+            <a href="#" class="card-link" onclick="navigateTo('events')">View Upcoming Events &rarr;</a>
+          </div>
+          <div class="service-card employer-card">
+            <div class="service-card-icon secondary">&#x1F4DE;</div>
+            <h3>Contact Employer Relations</h3>
+            <p>Have questions about partnering with EJP? Our employer relations team is here to help.</p>
+            <a href="#" class="card-link">Get in Touch &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS / BY THE NUMBERS -->
+    <section class="section stats-section">
+      <div class="container">
+        <div class="section-header centered">
+          <h2>By the Numbers</h2>
+          <div class="section-divider"></div>
+          <p style="font-style: italic;">[Real stats TBD from client]</p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">7,500+</div>
+            <h4>Trained Candidates</h4>
+            <p>CPT participants ready for healthcare careers</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">10</div>
+            <h4>Occupations</h4>
+            <p>Across nursing, technical, and allied health</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">&mdash;</div>
+            <h4>Placement Rate</h4>
+            <p>Stat TBD</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">&mdash;</div>
+            <h4>Employer Partners</h4>
+            <p>Stat TBD</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /page-employers -->
+
+
+  <!-- ============================================================
+       PAGE: EVENTS
+       ============================================================ -->
+  <div class="page" id="page-events">
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="container">
+        <h2>Events &amp; Career Fairs</h2>
+        <p>Meet EJP career counselors and healthcare employers in person. From career fairs to resume workshops, our events are designed to help you take the next step.</p>
+      </div>
+    </div>
+
+    <!-- UPCOMING EVENTS -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="wireframe-label">Upcoming</span>
+          <h2>Upcoming Events</h2>
+          <div class="section-divider"></div>
+          <p>Connect with employers and career counselors at our upcoming events across New York.</p>
+        </div>
+
+        <div class="event-list">
+
+          <div class="event-card">
+            <div class="event-date">
+              <span class="month">Jun</span>
+              <span class="day">14</span>
+            </div>
+            <div class="event-details">
+              <h3>Spring Career Fair 2026</h3>
+              <div class="event-meta">
+                <span>&#x1F4CD; 1199SEIU Headquarters, New York, NY</span>
+                <span>&#x1F552; 10:00 AM &ndash; 3:00 PM</span>
+              </div>
+              <p>Meet healthcare employers hiring across nursing, allied health, and administrative roles. Bring your resume and dress professionally &mdash; on-the-spot interviews available.</p>
+              <a href="#" class="card-link">Register &rarr;</a>
+            </div>
+          </div>
+
+          <div class="event-card">
+            <div class="event-date">
+              <span class="month">Jul</span>
+              <span class="day">09</span>
+            </div>
+            <div class="event-details">
+              <h3>Healthcare Hiring Event</h3>
+              <div class="event-meta">
+                <span>&#x1F4CD; Location TBD</span>
+                <span>&#x1F552; 11:00 AM &ndash; 2:00 PM</span>
+              </div>
+              <p>A focused hiring event with partner employers actively looking for CPT-trained candidates. Pre-registration recommended.</p>
+              <a href="#" class="card-link">Register &rarr;</a>
+            </div>
+          </div>
+
+          <div class="event-card">
+            <div class="event-date">
+              <span class="month">Jul</span>
+              <span class="day">23</span>
+            </div>
+            <div class="event-details">
+              <h3>Resume &amp; Interview Workshop</h3>
+              <div class="event-meta">
+                <span>&#x1F4CD; Virtual (Zoom)</span>
+                <span>&#x1F552; 1:00 PM &ndash; 3:00 PM</span>
+              </div>
+              <p>Join our career counselors for a hands-on workshop covering resume best practices, interview techniques, and how to stand out to healthcare employers.</p>
+              <a href="#" class="card-link">RSVP &rarr;</a>
+            </div>
+          </div>
+
+          <div class="event-card">
+            <div class="event-date">
+              <span class="month">Aug</span>
+              <span class="day">20</span>
+            </div>
+            <div class="event-details">
+              <h3>CPT Graduation &amp; Placement Ceremony</h3>
+              <div class="event-meta">
+                <span>&#x1F4CD; 1199SEIU Headquarters, New York, NY</span>
+                <span>&#x1F552; 5:00 PM &ndash; 8:00 PM</span>
+              </div>
+              <p>Celebrate the latest CPT graduates as they transition into healthcare careers. Includes employer networking and placement announcements.</p>
+              <a href="#" class="card-link">Learn More &rarr;</a>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="event-note">Registration details coming soon. Dates and locations are subject to change.</p>
+      </div>
+    </section>
+
+    <!-- WHAT TO EXPECT -->
+    <section class="section" style="background: white;">
+      <div class="container">
+        <div class="section-header centered">
+          <h2>What to Expect at Our Events</h2>
+          <div class="section-divider"></div>
+          <p>Whether you're a CPT graduate, a union member, or new to healthcare &mdash; our events are designed to help you connect, prepare, and advance.</p>
+        </div>
+
+        <div class="pillar-grid">
+          <div class="pillar-card">
+            <div class="pillar-icon">&#x1F91D;</div>
+            <h3>Meet Employers</h3>
+            <p>Connect directly with healthcare organizations hiring across New York. Many of our career fairs include on-the-spot interviews.</p>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon">&#x1F4DD;</div>
+            <h3>Get Career Support</h3>
+            <p>Our career counselors attend every event to provide resume reviews, guidance, and one-on-one support.</p>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon">&#x1F465;</div>
+            <h3>Build Your Network</h3>
+            <p>Meet other job seekers, learn from peers who've landed roles, and become part of a community invested in your success.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EMPLOYER CTA -->
+    <section class="employer-cta-section">
+      <h2>Are You an Employer?</h2>
+      <p>Participate in our career fairs and hiring events to meet qualified, CPT-trained healthcare candidates.</p>
+      <a class="btn btn-primary btn-lg" onclick="navigateTo('employers')">Partner with EJP &rarr;</a>
+    </section>
+
+  </div><!-- /page-events -->
+
+
+  <!-- ============================================
+       FOOTER (shared across all pages)
+       ============================================ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo-mark">EJP</div>
+        <span>Employment &amp; Job Placement</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#">1199SEIU Funds</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+        <li><a href="#">Accessibility</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 1199SEIU Training &amp; Employment Fund. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- ============================================
+       SCRIPTS
+       ============================================ -->
+  <script>
+    // Page-based navigation
+    function navigateTo(page, section) {
+      // Hide all pages
+      document.querySelectorAll('.page').forEach(function(p) {
+        p.classList.remove('active');
+      });
+
+      // Show target page
+      var target = document.getElementById('page-' + page);
+      if (target) target.classList.add('active');
+
+      // Update nav active state
+      document.querySelectorAll('.nav-links a[data-page]').forEach(function(a) {
+        a.classList.remove('nav-active');
+      });
+      document.querySelectorAll('.nav-links a[data-page="' + page + '"]').forEach(function(a) {
+        if (!a.classList.contains('nav-cta')) a.classList.add('nav-active');
+      });
+
+      // Close mobile nav
+      var mobileNav = document.getElementById('mobile-nav');
+      var toggle = document.querySelector('.mobile-nav-toggle');
+      if (mobileNav) mobileNav.classList.remove('is-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+
+      // Scroll to top or specific section
+      if (section) {
+        setTimeout(function() {
+          var el = document.getElementById(section);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      } else {
+        window.scrollTo(0, 0);
+      }
+
+      // Update URL hash
+      history.replaceState(null, '', '#' + page + (section ? '/' + section : ''));
+    }
+
+    // Handle initial load from URL hash
+    (function() {
+      var hash = window.location.hash.replace('#', '');
+      if (hash) {
+        var parts = hash.split('/');
+        navigateTo(parts[0], parts[1]);
+      }
+    })();
+
+    // Mobile nav toggle
+    (function() {
+      var toggle = document.querySelector('.mobile-nav-toggle');
+      var nav = document.getElementById('mobile-nav');
+
+      toggle.addEventListener('click', function() {
+        var open = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', open);
+      });
+    })();
+
+    // Path Finder toggle
+    function togglePathFinder() {
+      var finder = document.getElementById('pathFinder');
+      var btn = document.getElementById('launchPathFinder');
+      if (finder.style.display === 'none') {
+        finder.style.display = 'block';
+        btn.textContent = 'Close Path Finder';
+        finder.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        finder.style.display = 'none';
+        btn.textContent = 'Help Me Find My Path \u2192';
+      }
+    }
+
+    // Path Finder navigation
+    (function() {
+      var finder = document.getElementById('pathFinder');
+      var bar = document.getElementById('progressBar');
+      if (!finder) return;
+
+      var steps = finder.querySelectorAll('.path-step');
+      var history = ['1'];
+
+      function showStep(stepId) {
+        steps.forEach(function(s) { s.classList.remove('active'); });
+        var target = finder.querySelector('[data-step="' + stepId + '"]');
+        if (target) target.classList.add('active');
+
+        var isEndpoint = stepId.indexOf('endpoint') === 0;
+        bar.style.width = isEndpoint ? '100%' : (stepId === '1' ? '33%' : '66%');
+      }
+
+      finder.addEventListener('click', function(e) {
+        var option = e.target.closest('.path-option');
+        if (option) {
+          var next = option.getAttribute('data-next');
+          if (next) {
+            history.push(next);
+            showStep(next);
+          }
+          return;
+        }
+
+        var back = e.target.closest('.path-step-back');
+        if (back) {
+          var target = back.getAttribute('data-back');
+          if (target) {
+            history = history.slice(0, history.indexOf(target) + 1);
+            if (history.length === 0) history = ['1'];
+            showStep(target);
+          }
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
