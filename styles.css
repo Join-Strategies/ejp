@@ -209,7 +209,7 @@ a:hover { color: var(--color-primary-600); }
   margin: 0 auto;
   width: 100%;
   text-align: left;
-  padding-left: var(--space-3xl);
+  padding-left: var(--space-2xl);
 }
 
 .hero-kicker {
