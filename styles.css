@@ -672,6 +672,119 @@ blockquote footer {
 }
 
 /* ========================================
+   Wizard Flow
+   ======================================== */
+.wizard-step { transition: opacity 0.3s ease; }
+.wizard-step--hidden { display: none; }
+
+.wizard-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+.wizard-card {
+  background: white;
+  border: 2px solid var(--color-neutral-100);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-2xl) var(--space-xl);
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.wizard-card:hover {
+  border-color: var(--color-primary-400);
+  box-shadow: 0 6px 32px rgba(133, 38, 51, 0.12);
+  transform: translateY(-2px);
+  color: inherit;
+}
+
+.wizard-card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: var(--color-primary-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: var(--space-lg);
+}
+
+.wizard-card h3 {
+  font-size: 1.25rem;
+  color: var(--color-primary-800);
+  margin-bottom: var(--space-sm);
+}
+
+.wizard-card-sub {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-neutral-500);
+  margin-bottom: var(--space-sm);
+}
+
+.wizard-card p {
+  color: var(--color-neutral-600);
+  font-size: 0.9rem;
+  margin-bottom: var(--space-lg);
+}
+
+.wizard-card .btn {
+  margin-top: auto;
+}
+
+.wizard-back {
+  background: none;
+  border: none;
+  color: var(--color-primary-500);
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  margin-bottom: var(--space-lg);
+  padding: 0;
+  font-family: inherit;
+}
+
+.wizard-back:hover { color: var(--color-primary-700); }
+
+.wizard-result {
+  text-align: center;
+  padding: var(--space-2xl);
+  background: white;
+  border-radius: var(--border-radius-lg);
+  border: 2px solid var(--color-neutral-100);
+}
+
+.wizard-result h3 {
+  font-size: 1.25rem;
+  color: var(--color-primary-800);
+  margin-bottom: var(--space-sm);
+}
+
+.wizard-result p {
+  color: var(--color-neutral-600);
+  margin-bottom: var(--space-xl);
+}
+
+/* Member CTA Row */
+.member-cta-row {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--space-2xl);
+}
+
+/* ========================================
    Utilities
    ======================================== */
 .text-center { text-align: center; }
@@ -762,6 +875,7 @@ blockquote footer {
   .mobile-nav { display: block; }
   .about-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
+  .wizard-cards { grid-template-columns: 1fr; }
   .services-grid, .services-grid.grid-2 { grid-template-columns: 1fr; }
   .cpt-banner-inner { flex-direction: column; text-align: center; }
   .about-pillars { grid-template-columns: 1fr; }

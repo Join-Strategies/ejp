@@ -57,85 +57,78 @@
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="page-hero-inner">
-      <h1>Your Gateway to New York Healthcare Careers</h1>
+      <h1>Building the Healthcare Workforce of Tomorrow</h1>
       <p>As part of the 1199SEIU Training and Employment Fund, EJP provides job seekers with resources and support to build a career in healthcare.</p>
     </div>
   </section>
 
-  <!-- CPT CALLOUT -->
-  <div class="cpt-banner" id="cpt">
-    <div class="cpt-banner-inner">
-      <strong>Completing your CPT training?</strong>
-      <span>Your career services team is ready to help you find placement.</span>
-      <a href="#cpt-path" class="btn btn-primary">Start Here &rarr;</a>
-    </div>
-  </div>
-
-  <!-- AUDIENCE PATHS -->
-  <section class="section">
+  <!-- WIZARD FLOW -->
+  <section class="section" id="get-started">
     <div class="container">
       <div class="section-header">
-        <span class="section-kicker">Choose your path</span>
+        <span class="section-kicker">Get started</span>
         <h2>How Can We Help You?</h2>
         <div class="section-divider"></div>
-        <p>EJP serves job seekers at every stage. Find the path that fits where you are right now.</p>
+        <p>Select the option that best describes what you're looking for.</p>
       </div>
 
-      <div class="services-grid">
-
-        <!-- CPT Graduate -->
-        <div id="cpt-path" class="service-card service-card--accent-top">
-          <div class="service-card-icon accent" aria-hidden="true">&#x1F393;</div>
-          <h3>CPT Graduates</h3>
-          <p>Completed your training? Your career services team is ready to support your next step.</p>
-          <ul>
-            <li>Career counselor connection</li>
-            <li>Placement support &amp; employer matching</li>
-            <li>Resume &amp; interview prep</li>
-            <li>myTEF Portal access</li>
-          </ul>
-          <a href="#" class="btn btn-accent">Connect with Your Counselor &rarr;</a>
+      <!-- Step 1: Intent -->
+      <div class="wizard-step" id="wizard-step-1">
+        <div class="wizard-cards">
+          <button class="wizard-card" data-next="wizard-step-jobs" onclick="wizardGo('wizard-step-jobs')">
+            <div class="wizard-card-icon" aria-hidden="true">&#x1F4BC;</div>
+            <h3>I'm Looking for a Job</h3>
+            <p>Browse open healthcare positions and submit your resume to employers across New York.</p>
+          </button>
+          <button class="wizard-card" data-next="wizard-step-2" onclick="wizardGo('wizard-step-2')">
+            <div class="wizard-card-icon" aria-hidden="true">&#x1F4CB;</div>
+            <h3>I'm Looking for Career Support</h3>
+            <p>Access career counseling, resume help, interview prep, training programs, and more.</p>
+          </button>
         </div>
-
-        <!-- Union Member -->
-        <div class="service-card service-card--primary-top">
-          <div class="service-card-icon primary" aria-hidden="true">&#x1F4CB;</div>
-          <h3>Union Members</h3>
-          <p>Access career services and tools available through your 1199SEIU membership.</p>
-          <ul>
-            <li>Career services &amp; counseling</li>
-            <li>Resume &amp; interview support</li>
-            <li>Workshops &amp; skill-building</li>
-            <li>myTEF Portal access</li>
-            <li>Laid-off member support</li>
-          </ul>
-          <a href="#" class="btn btn-primary">Access Career Services &rarr;</a>
-        </div>
-
-        <!-- New to Healthcare -->
-        <div class="service-card service-card--secondary-top">
-          <div class="service-card-icon secondary" aria-hidden="true">&#x1F31F;</div>
-          <h3>New to Healthcare</h3>
-          <p>Interested in a healthcare career? Start here to learn what's possible and how to get involved.</p>
-          <ul>
-            <li>Submit your resume</li>
-            <li>Why healthcare / why 1199</li>
-            <li>How to become a member</li>
-          </ul>
-          <a href="#" class="btn btn-secondary">Get Started &rarr;</a>
-        </div>
-
       </div>
+
+      <!-- Step 2: Membership (career support only) -->
+      <div class="wizard-step wizard-step--hidden" id="wizard-step-2">
+        <button class="wizard-back" onclick="wizardGo('wizard-step-1')">&larr; Back</button>
+        <div class="wizard-cards">
+          <a href="#" class="wizard-card wizard-card--result">
+            <div class="wizard-card-icon" aria-hidden="true">&#x2705;</div>
+            <h3>I'm a Union Member</h3>
+            <span class="wizard-card-sub">Including CPT graduates</span>
+            <p>Log in to myTEF to access your full career services: counseling, job matching, workshops, and more.</p>
+            <span class="btn btn-primary">Log In to MyTEF &rarr;</span>
+          </a>
+          <a href="#" class="wizard-card wizard-card--result">
+            <div class="wizard-card-icon" aria-hidden="true">&#x1F31F;</div>
+            <h3>I'm Not a Union Member</h3>
+            <p>Learn about the benefits of 1199SEIU membership and how to access career services.</p>
+            <span class="btn btn-secondary">Learn More &rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Job browsing destination -->
+      <div class="wizard-step wizard-step--hidden" id="wizard-step-jobs">
+        <button class="wizard-back" onclick="wizardGo('wizard-step-1')">&larr; Back</button>
+        <div class="wizard-result">
+          <h3>Browse Open Positions</h3>
+          <p>Search healthcare job openings and submit your resume directly to employers.</p>
+          <a href="https://www.1199careers.org/careers-home/jobs" class="btn btn-primary btn-lg" target="_blank">Browse Jobs &rarr;</a>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- CAREER SERVICES DETAIL -->
-  <section class="section section--neutral">
+  <!-- MEMBER BENEFITS PITCH -->
+  <section class="section section--neutral" id="member-benefits">
     <div class="container">
       <div class="section-header">
-        <h2>Career Services</h2>
+        <span class="section-kicker">Why join 1199SEIU</span>
+        <h2>Career Services That Set You Apart</h2>
         <div class="section-divider"></div>
-        <p>One-on-one support from experienced career counselors &mdash; available to all EJP participants.</p>
+        <p>Union members and CPT graduates get access to a full suite of career support &mdash; from one-on-one counseling to job placement and beyond.</p>
       </div>
 
       <div class="services-grid grid-2">
@@ -159,32 +152,21 @@
           <h3>Workshops &amp; Skill-Building</h3>
           <p>Join group sessions on job search strategies, professional development, and workplace readiness.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- LAID-OFF MEMBER SUPPORT -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Laid-off Member Support</h2>
-        <div class="section-divider"></div>
-        <p>If you've been laid off, the Job Security Fund has resources for you.</p>
-      </div>
-
-      <div class="services-grid grid-2">
+        <div class="service-card">
+          <div class="service-card-icon primary" aria-hidden="true">&#x1F91D;</div>
+          <h3>Placement Support</h3>
+          <p>Get matched with employers looking for qualified healthcare professionals through our network.</p>
+        </div>
         <div class="service-card">
           <div class="service-card-icon primary" aria-hidden="true">&#x1F6E1;</div>
           <h3>Job Security Fund</h3>
-          <p>Access information and resources through the Job Security Fund for laid-off 1199SEIU members.</p>
-          <a href="#" class="card-link">Learn More &rarr;</a>
+          <p>If you've been laid off, access re-employment assistance and priority career services.</p>
         </div>
-        <div class="service-card">
-          <div class="service-card-icon primary" aria-hidden="true">&#x1F504;</div>
-          <h3>Re-employment Assistance</h3>
-          <p>Get support finding your next role, including priority access to career services and job matching.</p>
-          <a href="#" class="card-link">Get Support &rarr;</a>
-        </div>
+      </div>
+
+      <div class="member-cta-row">
+        <a href="#" class="btn btn-primary btn-lg">Already a Member? Log In to MyTEF &rarr;</a>
+        <a href="#" class="btn btn-secondary btn-lg">Not a Member? Learn How to Join &rarr;</a>
       </div>
     </div>
   </section>
@@ -245,6 +227,14 @@
   </footer>
 
   <script src="nav.js"></script>
+  <script>
+    function wizardGo(stepId) {
+      document.querySelectorAll('.wizard-step').forEach(function(step) {
+        step.classList.add('wizard-step--hidden');
+      });
+      document.getElementById(stepId).classList.remove('wizard-step--hidden');
+    }
+  </script>
 
 </body>
 </html>
