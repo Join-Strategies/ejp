@@ -79,7 +79,6 @@
         <span id="returning-banner-msg"></span>
         <div class="banner-actions">
           <button id="returning-continue" class="btn btn-primary btn-sm">Start where you left off &rarr;</button>
-          <button id="returning-restart" class="btn btn-ghost btn-sm">Start over</button>
         </div>
       </div>
 
@@ -357,7 +356,6 @@
       var banner = document.getElementById('returning-banner');
       var msg    = document.getElementById('returning-banner-msg');
       var contBtn = document.getElementById('returning-continue');
-      var restartBtn = document.getElementById('returning-restart');
 
       var destStep = session.memberStatus === 'non-member' ? 'wizard-step-nonmember' : 'wizard-step-member';
       var statusLabel = session.memberStatus === 'non-member' ? 'not a member yet' : 'a union member';
@@ -368,10 +366,6 @@
       contBtn.addEventListener('click', function() {
         banner.style.display = 'none';
         wizardGo(destStep);
-      });
-      restartBtn.addEventListener('click', function() {
-        banner.style.display = 'none';
-        wizardGo('wizard-step-1');
       });
     })();
 

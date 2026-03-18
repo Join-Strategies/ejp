@@ -538,6 +538,35 @@ a:hover { color: var(--color-brand-hover); }
   font-weight: var(--font-weight-semibold);
 }
 
+.home-returning-nudge {
+  background: var(--color-surface-raised);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-sm) var(--space-lg);
+}
+
+.home-returning-nudge-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.home-returning-nudge .nudge-actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .home-returning-nudge-inner { flex-direction: column; align-items: flex-start; }
+  .home-returning-nudge .nudge-actions { margin-left: 0; }
+}
+
 
 /* ========================================
    Buttons

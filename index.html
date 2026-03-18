@@ -79,6 +79,17 @@
     </div>
   </div>
 
+  <!-- RETURNING VISITOR NUDGE (shown by JS if ejp_session exists) -->
+  <div id="home-returning-nudge" class="home-returning-nudge" style="display:none;">
+    <div class="home-returning-nudge-inner">
+      <span id="home-returning-msg">Welcome back.</span>
+      <div class="nudge-actions">
+        <a href="why-join.html" class="btn btn-primary btn-sm">Learn About Membership &rarr;</a>
+        <a href="#contact" class="btn btn-ghost btn-sm">Stay in Touch</a>
+      </div>
+    </div>
+  </div>
+
   <!-- WHAT EJP DOES -->
   <section class="section">
     <div class="container">
@@ -256,6 +267,23 @@
   <script src="ejp-forms.js"></script>
   <script src="nav.js?v=2"></script>
   <script src="animations.js"></script>
+  <script>
+    // Returning visitor nudge — show if they previously submitted the wizard form
+    (function() {
+      try {
+        var raw = localStorage.getItem('ejp_session');
+        if (!raw) return;
+        var session = JSON.parse(raw);
+        var age = Date.now() - (session.timestamp || 0);
+        if (age > 30 * 24 * 60 * 60 * 1000) return; // expire after 30 days
+        if (!session.firstName) return;
+        var nudge = document.getElementById('home-returning-nudge');
+        var msg   = document.getElementById('home-returning-msg');
+        msg.textContent = 'Welcome back, ' + session.firstName + '.';
+        nudge.style.display = '';
+      } catch(e) {}
+    })();
+  </script>
 
 </body>
 </html>
