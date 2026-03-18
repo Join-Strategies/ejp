@@ -14,26 +14,26 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="header-top">
-      <span>An 1199SEIU Training &amp; Employment Funds Program</span>
+      <span data-i18n="header-tagline">An 1199SEIU Training &amp; Employment Funds Program</span>
       <div>
-        <a href="#">MyTEF Portal</a>
+        <a href="#" class="nav-cta">MyTEF Portal</a>
         &nbsp;&nbsp;|&nbsp;&nbsp;
-        <a href="#">Espa&ntilde;ol</a>
+        <a href="#" class="js-lang-toggle">Espa&ntilde;ol</a>
       </div>
     </div>
     <div class="header-main">
       <a href="index.html" class="logo">
         <div class="logo-mark">EJP</div>
-        Employment &amp; Job Placement
+        <span data-i18n="logo-sub">Employment &amp; Job Placement</span>
       </a>
       <nav aria-label="Main navigation">
         <ul class="nav-links">
-          <li><a href="job-seekers.html">For Job Seekers</a></li>
-          <li><a href="employers.html">For Employers</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="events.html">Events</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="#" class="nav-cta">My TEF</a></li>
+          <li><a href="job-seekers.html" data-i18n="nav-job-seekers">For Job Seekers</a></li>
+          <li><a href="employers.html" data-i18n="nav-employers">For Employers</a></li>
+          <li><a href="#about" data-i18n="nav-about">About</a></li>
+          <li><a href="events.html" data-i18n="nav-events">Events</a></li>
+          <li><a href="#contact" data-i18n="nav-contact">Contact</a></li>
+          <li><a href="#" class="nav-cta" data-i18n="nav-mytef">My TEF</a></li>
         </ul>
       </nav>
       <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle navigation">
@@ -43,12 +43,12 @@
     <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
       <div class="mobile-nav-inner">
       <ul>
-        <li><a href="job-seekers.html">For Job Seekers</a></li>
-        <li><a href="employers.html">For Employers</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#" class="nav-cta">My TEF</a></li>
+        <li><a href="job-seekers.html" data-i18n="nav-job-seekers">For Job Seekers</a></li>
+        <li><a href="employers.html" data-i18n="nav-employers">For Employers</a></li>
+        <li><a href="#about" data-i18n="nav-about">About</a></li>
+        <li><a href="events.html" data-i18n="nav-events">Events</a></li>
+        <li><a href="#contact" data-i18n="nav-contact">Contact</a></li>
+        <li><a href="#" class="nav-cta" data-i18n="nav-mytef">My TEF</a></li>
       </ul>
       </div>
     </nav>
@@ -59,13 +59,13 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-inner editorial">
-      <span class="hero-kicker">1199SEIU Training &amp; Employment Funds</span>
-      <h1>More Than<br>Just a Job.</h1>
-      <p class="hero-subtitle">We build careers.</p>
-      <p class="hero-deck">EJP is your long-term partner in building a career that lasts — with personalized services, expert guidance, and a network that's been supporting New York's workforce for decades.</p>
+      <span class="hero-kicker" data-i18n="index-hero-kicker">1199SEIU Training &amp; Employment Funds</span>
+      <h1><span data-i18n="index-hero-h1-1">More Than</span><br><span data-i18n="index-hero-h1-2">Just a Job.</span></h1>
+      <p class="hero-subtitle" data-i18n="index-hero-subtitle">We build careers.</p>
+      <p class="hero-deck" data-i18n="index-hero-deck">EJP is your long-term partner in building a career that lasts — with personalized services, expert guidance, and a network that's been supporting New York's workforce for decades.</p>
       <div class="hero-actions">
-        <a href="job-seekers.html" class="btn btn-accent btn-lg">Find Career Services &rarr;</a>
-        <a href="employers.html" class="btn btn-hero-outline btn-lg">Hire Qualified Candidates</a>
+        <a href="job-seekers.html" class="btn btn-accent btn-lg" data-i18n="index-hero-btn-primary">Find Career Services &rarr;</a>
+        <a href="employers.html" class="btn btn-hero-outline btn-lg" data-i18n="index-hero-btn-secondary">Hire Qualified Candidates</a>
       </div>
     </div>
   </section>
@@ -73,9 +73,9 @@
   <!-- CPT CALLOUT -->
   <div class="cpt-banner">
     <div class="cpt-banner-inner">
-      <strong>Completing your CPT training?</strong>
-      <span>Your career services team is ready to help you find placement.</span>
-      <a href="job-seekers.html#cpt" class="btn btn-primary">Start Here &rarr;</a>
+      <strong data-i18n="index-cpt-strong">Completing your CPT training?</strong>
+      <span data-i18n="index-cpt-span">Your career services team is ready to help you find placement.</span>
+      <a href="job-seekers.html#cpt" class="btn btn-primary" data-i18n="index-cpt-btn">Start Here &rarr;</a>
     </div>
   </div>
 
@@ -85,10 +85,10 @@
       <button class="modal-close" id="returning-modal-close" aria-label="Close">&times;</button>
       <div class="returning-modal-icon" aria-hidden="true">👋</div>
       <h2 class="returning-modal-title" id="returning-modal-title">Welcome back<span id="returning-modal-name"></span>.</h2>
-      <p class="returning-modal-body">Good to see you again. EJP is here whenever you're ready — whether you want to learn more about your union benefits or stay connected with what's happening.</p>
+      <p class="returning-modal-body" data-i18n="index-returning-body">Good to see you again. EJP is here whenever you're ready — whether you want to learn more about your union benefits or stay connected with what's happening.</p>
       <div class="returning-modal-actions">
-        <a href="why-join.html" class="btn btn-primary">Learn About Membership &rarr;</a>
-        <a href="#contact" class="btn btn-outline" id="returning-modal-contact">Stay in Touch</a>
+        <a href="why-join.html" class="btn btn-primary" data-i18n="index-returning-btn1">Learn About Membership &rarr;</a>
+        <a href="#contact" class="btn btn-outline" id="returning-modal-contact" data-i18n="index-returning-btn2">Stay in Touch</a>
       </div>
     </div>
   </div>
@@ -97,32 +97,32 @@
   <section class="section">
     <div class="container">
       <div class="section-header section-header--centered reveal">
-        <span class="section-kicker">What We Do</span>
-        <h2>Three Pillars. One Mission.</h2>
+        <span class="section-kicker" data-i18n="index-services-kicker">What We Do</span>
+        <h2 data-i18n="index-services-h2">Three Pillars. One Mission.</h2>
         <div class="section-divider"></div>
-        <p>EJP brings together career services, employer partnerships, and workforce training under one roof — connecting people to purpose in New York's healthcare system.</p>
+        <p data-i18n="index-services-intro">EJP brings together career services, employer partnerships, and workforce training under one roof — connecting people to purpose in New York's healthcare system.</p>
       </div>
 
       <div class="services-grid reveal-stagger">
         <div class="service-card service-card--centered">
           <div class="service-card-icon primary" aria-hidden="true">&#x1F91D;</div>
-          <h3>Career Services &amp; Support</h3>
-          <p>Resume assistance, career counseling, interview prep, and workshops — personalized guidance to help you succeed.</p>
-          <a href="job-seekers.html" class="card-link">For Job Seekers &rarr;</a>
+          <h3 data-i18n="index-svc-1-h3">Career Services &amp; Support</h3>
+          <p data-i18n="index-svc-1-p">Resume assistance, career counseling, interview prep, and workshops — personalized guidance to help you succeed.</p>
+          <a href="job-seekers.html" class="card-link" data-i18n="index-svc-1-link">For Job Seekers &rarr;</a>
         </div>
 
         <div class="service-card service-card--centered">
           <div class="service-card-icon secondary" aria-hidden="true">&#x1F3E2;</div>
-          <h3>Employer Partnerships</h3>
-          <p>We work with healthcare employers across New York to understand their staffing needs and match them with qualified candidates.</p>
-          <a href="employers.html" class="card-link">For Employers &rarr;</a>
+          <h3 data-i18n="index-svc-2-h3">Employer Partnerships</h3>
+          <p data-i18n="index-svc-2-p">We work with healthcare employers across New York to understand their staffing needs and match them with qualified candidates.</p>
+          <a href="employers.html" class="card-link" data-i18n="index-svc-2-link">For Employers &rarr;</a>
         </div>
 
         <div class="service-card service-card--centered">
           <div class="service-card-icon accent" aria-hidden="true">&#x1F393;</div>
-          <h3>Training-to-Career Pipeline</h3>
-          <p>From CPT training through placement, we support the full journey from education to meaningful healthcare employment.</p>
-          <a href="job-seekers.html#cpt" class="card-link">Learn More &rarr;</a>
+          <h3 data-i18n="index-svc-3-h3">Training-to-Career Pipeline</h3>
+          <p data-i18n="index-svc-3-p">From CPT training through placement, we support the full journey from education to meaningful healthcare employment.</p>
+          <a href="job-seekers.html#cpt" class="card-link" data-i18n="index-svc-3-link">Learn More &rarr;</a>
         </div>
       </div>
     </div>
@@ -132,19 +132,19 @@
   <section id="about" class="section section--neutral">
     <div class="container">
       <div class="section-header reveal">
-        <h2>About EJP</h2>
+        <h2 data-i18n="index-about-h2">About EJP</h2>
         <div class="section-divider"></div>
       </div>
 
       <div class="about-grid">
         <div class="about-content">
-          <h3>Mission &amp; Vision</h3>
-          <p>EJP is your long-term partner in healthcare employment. We support job seekers with career services, preparation, and guidance &mdash; and connect employers with motivated, qualified candidates from our network.</p>
+          <h3 data-i18n="index-about-mission-h3">Mission &amp; Vision</h3>
+          <p data-i18n="index-about-mission-p">EJP is your long-term partner in healthcare employment. We support job seekers with career services, preparation, and guidance &mdash; and connect employers with motivated, qualified candidates from our network.</p>
 
-          <h3>Our Approach</h3>
-          <p>We believe in collaboration, empowerment, innovation, and impact. Every service we offer is designed to help job seekers prepare, grow, and thrive in New York's healthcare workforce.</p>
+          <h3 data-i18n="index-about-approach-h3">Our Approach</h3>
+          <p data-i18n="index-about-approach-p">We believe in collaboration, empowerment, innovation, and impact. Every service we offer is designed to help job seekers prepare, grow, and thrive in New York's healthcare workforce.</p>
 
-          <h3>Success Stories</h3>
+          <h3 data-i18n="index-about-stories-h3">Success Stories</h3>
           <blockquote>
             <em class="text-placeholder">[Placeholder &mdash; real testimonial TBD, possibly from Danielle]</em><br><br>
             "Quote from a real EJP participant about their experience with career services and how the support helped them navigate their career path."
@@ -156,20 +156,20 @@
 
         <div class="about-pillars reveal-stagger">
           <div class="pillar-card">
-            <h4>Collaborate</h4>
-            <p>Partnering across employers, training programs, and union support systems</p>
+            <h4 data-i18n="index-pillar-1-h4">Collaborate</h4>
+            <p data-i18n="index-pillar-1-p">Partnering across employers, training programs, and union support systems</p>
           </div>
           <div class="pillar-card">
-            <h4>Empower</h4>
-            <p>Giving job seekers the tools, prep, and confidence to succeed</p>
+            <h4 data-i18n="index-pillar-2-h4">Empower</h4>
+            <p data-i18n="index-pillar-2-p">Giving job seekers the tools, prep, and confidence to succeed</p>
           </div>
           <div class="pillar-card">
-            <h4>Innovate</h4>
-            <p>Modernizing healthcare workforce placement through technology</p>
+            <h4 data-i18n="index-pillar-3-h4">Innovate</h4>
+            <p data-i18n="index-pillar-3-p">Modernizing healthcare workforce placement through technology</p>
           </div>
           <div class="pillar-card">
-            <h4>Impact</h4>
-            <p>Measurable outcomes — placements, retention, career growth</p>
+            <h4 data-i18n="index-pillar-4-h4">Impact</h4>
+            <p data-i18n="index-pillar-4-p">Measurable outcomes — placements, retention, career growth</p>
           </div>
         </div>
       </div>
@@ -180,35 +180,35 @@
   <section id="events" class="section value-prop">
     <div class="container">
       <div class="section-header section-header--centered reveal">
-        <span class="section-kicker">Events</span>
-        <h2>Meet Us in Person</h2>
+        <span class="section-kicker" data-i18n="index-events-kicker">Events</span>
+        <h2 data-i18n="index-events-h2">Meet Us in Person</h2>
         <div class="section-divider"></div>
-        <p>Connect with EJP career counselors and employers at upcoming events.</p>
+        <p data-i18n="index-events-intro">Connect with EJP career counselors and employers at upcoming events.</p>
       </div>
       <div class="value-grid reveal-stagger">
         <div class="value-item">
           <div class="value-item-icon" aria-hidden="true">&#x1F4C5;</div>
-          <h3>Spring Career Fair</h3>
-          <p>Date TBD &mdash; Location TBD</p>
+          <h3 data-i18n="index-evt-1-h3">Spring Career Fair</h3>
+          <p data-i18n="index-evt-1-p">Date TBD &mdash; Location TBD</p>
         </div>
         <div class="value-item">
           <div class="value-item-icon" aria-hidden="true">&#x1F4C5;</div>
-          <h3>Healthcare Hiring Event</h3>
-          <p>Date TBD &mdash; Location TBD</p>
+          <h3 data-i18n="index-evt-2-h3">Healthcare Hiring Event</h3>
+          <p data-i18n="index-evt-2-p">Date TBD &mdash; Location TBD</p>
         </div>
         <div class="value-item">
           <div class="value-item-icon" aria-hidden="true">&#x1F4C5;</div>
-          <h3>CPT Graduation &amp; Placement</h3>
-          <p>Date TBD &mdash; Location TBD</p>
+          <h3 data-i18n="index-evt-3-h3">CPT Graduation &amp; Placement</h3>
+          <p data-i18n="index-evt-3-p">Date TBD &mdash; Location TBD</p>
         </div>
         <div class="value-item">
           <div class="value-item-icon" aria-hidden="true">&#x1F4C5;</div>
-          <h3>Resume Workshop</h3>
-          <p>Date TBD &mdash; Location TBD</p>
+          <h3 data-i18n="index-evt-4-h3">Resume Workshop</h3>
+          <p data-i18n="index-evt-4-p">Date TBD &mdash; Location TBD</p>
         </div>
       </div>
       <div class="text-center">
-        <a href="events.html" class="btn btn-primary">View All Events &rarr;</a>
+        <a href="events.html" class="btn btn-primary" data-i18n="index-events-btn">View All Events &rarr;</a>
       </div>
     </div>
   </section>
@@ -217,26 +217,26 @@
   <section id="contact" class="section contact-section">
     <div class="container">
       <div class="section-header reveal">
-        <h2>Contact / Get Help</h2>
+        <h2 data-i18n="index-contact-h2">Contact / Get Help</h2>
         <div class="section-divider"></div>
-        <p>We're here to help. Reach out to the right team.</p>
+        <p data-i18n="index-contact-intro">We're here to help. Reach out to the right team.</p>
       </div>
 
       <div class="contact-grid reveal-stagger">
         <div class="contact-card">
-          <h3>Job Seeker Inquiries</h3>
-          <p>Questions about career services, resume help, or getting started</p>
-          <a href="#" class="btn btn-primary">Contact Career Services</a>
+          <h3 data-i18n="index-contact-1-h3">Job Seeker Inquiries</h3>
+          <p data-i18n="index-contact-1-p">Questions about career services, resume help, or getting started</p>
+          <a href="#" class="btn btn-primary" data-i18n="index-contact-1-btn">Contact Career Services</a>
         </div>
         <div class="contact-card">
-          <h3>Employer Inquiries</h3>
-          <p>Interested in hiring or partnering with EJP</p>
-          <a href="#" class="btn btn-secondary">Contact Employer Relations</a>
+          <h3 data-i18n="index-contact-2-h3">Employer Inquiries</h3>
+          <p data-i18n="index-contact-2-p">Interested in hiring or partnering with EJP</p>
+          <a href="#" class="btn btn-secondary" data-i18n="index-contact-2-btn">Contact Employer Relations</a>
         </div>
         <div class="contact-card">
-          <h3>Partnership Inquiries</h3>
-          <p>Become a community-based organization or provider partner</p>
-          <a href="#" class="btn btn-outline">Contact Partnerships</a>
+          <h3 data-i18n="index-contact-3-h3">Partnership Inquiries</h3>
+          <p data-i18n="index-contact-3-p">Become a community-based organization or provider partner</p>
+          <a href="#" class="btn btn-outline" data-i18n="index-contact-3-btn">Contact Partnerships</a>
         </div>
       </div>
     </div>
@@ -249,17 +249,17 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="logo-mark">EJP</div>
-        <span>Employment &amp; Job Placement</span>
+        <span data-i18n="footer-brand-sub">Employment &amp; Job Placement</span>
       </div>
       <ul class="footer-links">
-        <li><a href="#">1199SEIU Funds</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Use</a></li>
-        <li><a href="#">Accessibility</a></li>
+        <li><a href="#" data-i18n="footer-funds">1199SEIU Funds</a></li>
+        <li><a href="#" data-i18n="footer-privacy">Privacy Policy</a></li>
+        <li><a href="#" data-i18n="footer-terms">Terms of Use</a></li>
+        <li><a href="#" data-i18n="footer-a11y">Accessibility</a></li>
         <li><a href="admin.html">Admin</a></li>
       </ul>
     </div>
-    <div class="footer-bottom">
+    <div class="footer-bottom" data-i18n="footer-copy">
       &copy; 2026 1199SEIU Training &amp; Employment Funds. All rights reserved.
     </div>
   </footer>
@@ -270,6 +270,7 @@
   <script src="ejp-forms.js"></script>
   <script src="nav.js?v=2"></script>
   <script src="animations.js"></script>
+  <script src="lang.js"></script>
   <script>
     // Returning visitor modal — show once per session if ejp_session exists
     (function() {

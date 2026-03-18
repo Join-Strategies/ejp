@@ -14,26 +14,26 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="header-top">
-      <span>An 1199SEIU Training &amp; Employment Funds Program</span>
+      <span data-i18n="header-tagline">An 1199SEIU Training &amp; Employment Funds Program</span>
       <div>
-        <a href="#">MyTEF Portal</a>
+        <a href="#" class="nav-cta">MyTEF Portal</a>
         &nbsp;&nbsp;|&nbsp;&nbsp;
-        <a href="#">Espa&ntilde;ol</a>
+        <a href="#" class="js-lang-toggle">Espa&ntilde;ol</a>
       </div>
     </div>
     <div class="header-main">
       <a href="index.html" class="logo">
         <div class="logo-mark">EJP</div>
-        Employment &amp; Job Placement
+        <span data-i18n="logo-sub">Employment &amp; Job Placement</span>
       </a>
       <nav aria-label="Main navigation">
         <ul class="nav-links">
-          <li><a href="job-seekers.html">For Job Seekers</a></li>
-          <li><a href="employers.html">For Employers</a></li>
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="events.html" class="active">Events</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-          <li><a href="#" class="nav-cta">My TEF</a></li>
+          <li><a href="job-seekers.html" data-i18n="nav-job-seekers">For Job Seekers</a></li>
+          <li><a href="employers.html" data-i18n="nav-employers">For Employers</a></li>
+          <li><a href="index.html#about" data-i18n="nav-about">About</a></li>
+          <li><a href="events.html" class="active" data-i18n="nav-events">Events</a></li>
+          <li><a href="index.html#contact" data-i18n="nav-contact">Contact</a></li>
+          <li><a href="#" class="nav-cta" data-i18n="nav-mytef">My TEF</a></li>
         </ul>
       </nav>
       <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle navigation">
@@ -43,12 +43,12 @@
     <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
       <div class="mobile-nav-inner">
       <ul>
-        <li><a href="job-seekers.html">For Job Seekers</a></li>
-        <li><a href="employers.html">For Employers</a></li>
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-        <li><a href="#" class="nav-cta">My TEF</a></li>
+        <li><a href="job-seekers.html" data-i18n="nav-job-seekers">For Job Seekers</a></li>
+        <li><a href="employers.html" data-i18n="nav-employers">For Employers</a></li>
+        <li><a href="index.html#about" data-i18n="nav-about">About</a></li>
+        <li><a href="events.html" data-i18n="nav-events">Events</a></li>
+        <li><a href="index.html#contact" data-i18n="nav-contact">Contact</a></li>
+        <li><a href="#" class="nav-cta" data-i18n="nav-mytef">My TEF</a></li>
       </ul>
       </div>
     </nav>
@@ -59,8 +59,8 @@
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="page-hero-inner">
-      <h1>Events &amp; Career Fairs</h1>
-      <p>Meet EJP career counselors and healthcare employers in person. From career fairs to resume workshops, our events are designed to help you take the next step.</p>
+      <h1 data-i18n="evt-hero-h1">Events &amp; Career Fairs</h1>
+      <p data-i18n="evt-hero-p">Meet EJP career counselors and healthcare employers in person. From career fairs to resume workshops, our events are designed to help you take the next step.</p>
     </div>
   </section>
 
@@ -68,82 +68,82 @@
   <section class="section">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-kicker">Upcoming</span>
-        <h2>Upcoming Events</h2>
+        <span class="section-kicker" data-i18n="evt-kicker">Upcoming</span>
+        <h2 data-i18n="evt-h2">Upcoming Events</h2>
         <div class="section-divider"></div>
-        <p>Connect with employers and career counselors at our upcoming events across New York.</p>
+        <p data-i18n="evt-intro">Connect with employers and career counselors at our upcoming events across New York.</p>
       </div>
 
       <div class="events-grid reveal-stagger">
 
         <div class="event-card">
           <div class="event-date-badge" aria-hidden="true">
-            <span class="event-month">Jun</span>
+            <span class="event-month" data-i18n="evt-month-jun">Jun</span>
             <span class="event-day">14</span>
           </div>
           <div class="event-details">
-            <h3>Spring Career Fair 2026</h3>
+            <h3 data-i18n="evt-1-h3">Spring Career Fair 2026</h3>
             <div class="event-meta">
               <span>&#x1F4CD; 1199SEIU Headquarters, New York, NY</span>
               <span>&#x1F552; 10:00 AM &ndash; 3:00 PM</span>
             </div>
-            <p>Meet healthcare employers hiring across nursing, allied health, and administrative roles. Bring your resume and dress professionally &mdash; on-the-spot interviews available.</p>
+            <p data-i18n="evt-1-p">Meet healthcare employers hiring across nursing, allied health, and administrative roles. Bring your resume and dress professionally &mdash; on-the-spot interviews available.</p>
             <!-- E1: wired to shared modal -->
-            <button class="btn btn-primary" onclick="openEventModal('spring-career-fair-2026', 'Spring Career Fair 2026', 'Jun 14')">Register &rarr;</button>
+            <button class="btn btn-primary" onclick="openEventModal('spring-career-fair-2026', 'Spring Career Fair 2026', 'Jun 14')" data-i18n="evt-1-btn">Register &rarr;</button>
           </div>
         </div>
 
         <div class="event-card">
           <div class="event-date-badge" aria-hidden="true">
-            <span class="event-month">Jul</span>
+            <span class="event-month" data-i18n="evt-month-jul-1">Jul</span>
             <span class="event-day">09</span>
           </div>
           <div class="event-details">
-            <h3>Healthcare Hiring Event</h3>
+            <h3 data-i18n="evt-2-h3">Healthcare Hiring Event</h3>
             <div class="event-meta">
               <span>&#x1F4CD; Location TBD</span>
               <span>&#x1F552; 11:00 AM &ndash; 2:00 PM</span>
             </div>
-            <p>A focused hiring event with partner employers actively looking for CPT-trained candidates. Pre-registration recommended.</p>
-            <button class="btn btn-primary" onclick="openEventModal('healthcare-hiring-event-jul-2026', 'Healthcare Hiring Event', 'Jul 9')">Register &rarr;</button>
+            <p data-i18n="evt-2-p">A focused hiring event with partner employers actively looking for CPT-trained candidates. Pre-registration recommended.</p>
+            <button class="btn btn-primary" onclick="openEventModal('healthcare-hiring-event-jul-2026', 'Healthcare Hiring Event', 'Jul 9')" data-i18n="evt-2-btn">Register &rarr;</button>
           </div>
         </div>
 
         <div class="event-card">
           <div class="event-date-badge" aria-hidden="true">
-            <span class="event-month">Jul</span>
+            <span class="event-month" data-i18n="evt-month-jul-2">Jul</span>
             <span class="event-day">23</span>
           </div>
           <div class="event-details">
-            <h3>Resume &amp; Interview Workshop</h3>
+            <h3 data-i18n="evt-3-h3">Resume &amp; Interview Workshop</h3>
             <div class="event-meta">
               <span>&#x1F4CD; Virtual (Zoom)</span>
               <span>&#x1F552; 1:00 PM &ndash; 3:00 PM</span>
             </div>
-            <p>Join our career counselors for a hands-on workshop covering resume best practices, interview techniques, and how to stand out to healthcare employers.</p>
-            <button class="btn btn-primary" onclick="openEventModal('resume-interview-workshop-jul-2026', 'Resume &amp; Interview Workshop', 'Jul 23')">RSVP &rarr;</button>
+            <p data-i18n="evt-3-p">Join our career counselors for a hands-on workshop covering resume best practices, interview techniques, and how to stand out to healthcare employers.</p>
+            <button class="btn btn-primary" onclick="openEventModal('resume-interview-workshop-jul-2026', 'Resume &amp; Interview Workshop', 'Jul 23')" data-i18n="evt-3-btn">RSVP &rarr;</button>
           </div>
         </div>
 
         <div class="event-card">
           <div class="event-date-badge" aria-hidden="true">
-            <span class="event-month">Aug</span>
+            <span class="event-month" data-i18n="evt-month-aug">Aug</span>
             <span class="event-day">20</span>
           </div>
           <div class="event-details">
-            <h3>CPT Graduation &amp; Placement Ceremony</h3>
+            <h3 data-i18n="evt-4-h3">CPT Graduation &amp; Placement Ceremony</h3>
             <div class="event-meta">
               <span>&#x1F4CD; 1199SEIU Headquarters, New York, NY</span>
               <span>&#x1F552; 5:00 PM &ndash; 8:00 PM</span>
             </div>
-            <p>Celebrate the latest CPT graduates as they transition into healthcare careers. Includes employer networking and placement announcements.</p>
-            <button class="btn btn-primary" onclick="openEventModal('cpt-graduation-aug-2026', 'CPT Graduation &amp; Placement Ceremony', 'Aug 20')">Learn More &rarr;</button>
+            <p data-i18n="evt-4-p">Celebrate the latest CPT graduates as they transition into healthcare careers. Includes employer networking and placement announcements.</p>
+            <button class="btn btn-primary" onclick="openEventModal('cpt-graduation-aug-2026', 'CPT Graduation &amp; Placement Ceremony', 'Aug 20')" data-i18n="evt-4-btn">Learn More &rarr;</button>
           </div>
         </div>
 
       </div>
 
-      <p class="disclaimer-text text-center">Registration details coming soon. Dates and locations are subject to change.</p>
+      <p class="disclaimer-text text-center" data-i18n="evt-disclaimer">Registration details coming soon. Dates and locations are subject to change.</p>
     </div>
   </section>
 
@@ -151,26 +151,26 @@
   <section class="section section--neutral">
     <div class="container">
       <div class="section-header section-header--centered reveal">
-        <h2>What to Expect at Our Events</h2>
+        <h2 data-i18n="evt-expect-h2">What to Expect at Our Events</h2>
         <div class="section-divider"></div>
-        <p>Whether you're a CPT graduate, a union member, or new to healthcare &mdash; our events are designed to help you connect, prepare, and advance.</p>
+        <p data-i18n="evt-expect-intro">Whether you're a CPT graduate, a union member, or new to healthcare &mdash; our events are designed to help you connect, prepare, and advance.</p>
       </div>
 
       <div class="services-grid reveal-stagger">
         <div class="service-card service-card--centered">
           <div class="service-card-icon primary" aria-hidden="true">&#x1F91D;</div>
-          <h3>Meet Employers</h3>
-          <p>Connect directly with healthcare organizations hiring across New York. Many of our career fairs include on-the-spot interviews.</p>
+          <h3 data-i18n="evt-exp-1-h3">Meet Employers</h3>
+          <p data-i18n="evt-exp-1-p">Connect directly with healthcare organizations hiring across New York. Many of our career fairs include on-the-spot interviews.</p>
         </div>
         <div class="service-card service-card--centered">
           <div class="service-card-icon accent" aria-hidden="true">&#x1F4DD;</div>
-          <h3>Get Career Support</h3>
-          <p>Our career counselors attend every event to provide resume reviews, guidance, and one-on-one support.</p>
+          <h3 data-i18n="evt-exp-2-h3">Get Career Support</h3>
+          <p data-i18n="evt-exp-2-p">Our career counselors attend every event to provide resume reviews, guidance, and one-on-one support.</p>
         </div>
         <div class="service-card service-card--centered">
           <div class="service-card-icon secondary" aria-hidden="true">&#x1F465;</div>
-          <h3>Build Your Network</h3>
-          <p>Meet other job seekers, learn from peers who've landed roles, and become part of a community invested in your success.</p>
+          <h3 data-i18n="evt-exp-3-h3">Build Your Network</h3>
+          <p data-i18n="evt-exp-3-p">Meet other job seekers, learn from peers who've landed roles, and become part of a community invested in your success.</p>
         </div>
       </div>
     </div>
@@ -180,10 +180,10 @@
   <section class="section section--secondary">
     <div class="container text-center">
       <div class="section-header section-header--centered reveal">
-        <h2>Are You an Employer?</h2>
-        <p>Participate in our career fairs and hiring events to meet qualified, CPT-trained healthcare candidates.</p>
+        <h2 data-i18n="evt-employer-h2">Are You an Employer?</h2>
+        <p data-i18n="evt-employer-p">Participate in our career fairs and hiring events to meet qualified, CPT-trained healthcare candidates.</p>
       </div>
-      <a href="employers.html" class="btn btn-secondary btn-lg">Partner with EJP &rarr;</a>
+      <a href="employers.html" class="btn btn-secondary btn-lg" data-i18n="evt-employer-btn">Partner with EJP &rarr;</a>
     </div>
   </section>
 
@@ -194,17 +194,17 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="logo-mark">EJP</div>
-        <span>Employment &amp; Job Placement</span>
+        <span data-i18n="footer-brand-sub">Employment &amp; Job Placement</span>
       </div>
       <ul class="footer-links">
-        <li><a href="#">1199SEIU Funds</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Use</a></li>
-        <li><a href="#">Accessibility</a></li>
+        <li><a href="#" data-i18n="footer-funds">1199SEIU Funds</a></li>
+        <li><a href="#" data-i18n="footer-privacy">Privacy Policy</a></li>
+        <li><a href="#" data-i18n="footer-terms">Terms of Use</a></li>
+        <li><a href="#" data-i18n="footer-a11y">Accessibility</a></li>
         <li><a href="admin.html">Admin</a></li>
       </ul>
     </div>
-    <div class="footer-bottom">
+    <div class="footer-bottom" data-i18n="footer-copy">
       &copy; 2026 1199SEIU Training &amp; Employment Funds. All rights reserved.
     </div>
   </footer>
@@ -213,7 +213,7 @@
   <div id="event-registration-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="event-modal-title">
     <div class="modal-box">
       <button class="modal-close" onclick="closeModal('event-registration-modal')" aria-label="Close">&times;</button>
-      <h2 id="event-modal-title">Register for This Event</h2>
+      <h2 id="event-modal-title" data-i18n="evt-modal-h2">Register for This Event</h2>
       <h3 id="event-name-display" style="color:var(--color-text-secondary);font-size:var(--text-base);font-weight:500;margin-bottom:var(--space-xl);"></h3>
       <div id="event-form-container">
         <form id="event-registration-form" novalidate>
@@ -225,34 +225,34 @@
           <input type="hidden" id="field-member-status" name="00NdL00002447vf" value="">
 
           <div class="form-group">
-            <label for="event-first-name">First Name <span aria-hidden="true">*</span></label>
+            <label for="event-first-name"><span data-i18n="evt-label-first">First Name</span> <span aria-hidden="true">*</span></label>
             <input type="text" id="event-first-name" name="first_name" required autocomplete="given-name">
           </div>
           <div class="form-group">
-            <label for="event-last-name">Last Name <span aria-hidden="true">*</span></label>
+            <label for="event-last-name"><span data-i18n="evt-label-last">Last Name</span> <span aria-hidden="true">*</span></label>
             <input type="text" id="event-last-name" name="last_name" required autocomplete="family-name">
           </div>
           <div class="form-group">
-            <label for="event-email">Email <span aria-hidden="true">*</span></label>
+            <label for="event-email"><span data-i18n="evt-label-email">Email</span> <span aria-hidden="true">*</span></label>
             <input type="email" id="event-email" name="email" required autocomplete="email">
           </div>
           <div class="form-group">
-            <label for="event-phone">Phone</label>
+            <label for="event-phone" data-i18n="evt-label-phone">Phone</label>
             <input type="tel" id="event-phone" name="phone" autocomplete="tel">
           </div>
           <div class="form-group">
-            <label>Are you a union member? <span aria-hidden="true">*</span></label>
+            <label><span data-i18n="evt-label-member-q">Are you a union member?</span> <span aria-hidden="true">*</span></label>
             <div class="form-group--radio-group">
-              <label><input type="radio" name="_eventMemberStatus" value="Member" required> Yes &mdash; 1199SEIU member</label>
-              <label><input type="radio" name="_eventMemberStatus" value="Member"> Yes &mdash; CPT graduate</label>
-              <label><input type="radio" name="_eventMemberStatus" value="Non-Member"> No &mdash; not yet a member</label>
-              <label><input type="radio" name="_eventMemberStatus" value="Non-Member"> Not sure</label>
+              <label><input type="radio" name="_eventMemberStatus" value="Member" required> <span data-i18n="evt-radio-yes-member">Yes &mdash; 1199SEIU member</span></label>
+              <label><input type="radio" name="_eventMemberStatus" value="Member"> <span data-i18n="evt-radio-yes-cpt">Yes &mdash; CPT graduate</span></label>
+              <label><input type="radio" name="_eventMemberStatus" value="Non-Member"> <span data-i18n="evt-radio-no">No &mdash; not yet a member</span></label>
+              <label><input type="radio" name="_eventMemberStatus" value="Non-Member"> <span data-i18n="evt-radio-not-sure">Not sure</span></label>
             </div>
           </div>
           <div class="form-group">
-            <label for="event-occupation">What occupation are you interested in?</label>
+            <label for="event-occupation" data-i18n="evt-label-occupation">What occupation are you interested in?</label>
             <select id="event-occupation" name="description">
-              <option value="">-- Select one --</option>
+              <option value="" data-i18n="evt-opt-select">-- Select one --</option>
               <option>Registered Nurse (RN)</option>
               <option>Licensed Practical Nurse (LPN)</option>
               <option>Certified Nursing Assistant (CNA)</option>
@@ -260,11 +260,11 @@
               <option>Medical Assistant</option>
               <option>Allied Health</option>
               <option>Administrative / Non-Clinical</option>
-              <option>Still figuring it out</option>
+              <option data-i18n="evt-opt-figuring">Still figuring it out</option>
             </select>
           </div>
           <div class="form-actions">
-            <button type="submit" class="btn btn-primary">Complete Registration &rarr;</button>
+            <button type="submit" class="btn btn-primary" data-i18n="evt-btn-register">Complete Registration &rarr;</button>
           </div>
         </form>
       </div>
@@ -332,6 +332,7 @@
     _attachEventFormListener();
   </script>
   <script src="animations.js"></script>
+  <script src="lang.js"></script>
 
 </body>
 </html>

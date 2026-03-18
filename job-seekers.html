@@ -14,26 +14,26 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="header-top">
-      <span>An 1199SEIU Training &amp; Employment Funds Program</span>
+      <span data-i18n="header-tagline">An 1199SEIU Training &amp; Employment Funds Program</span>
       <div>
-        <a href="#">MyTEF Portal</a>
+        <a href="#" class="nav-cta">MyTEF Portal</a>
         &nbsp;&nbsp;|&nbsp;&nbsp;
-        <a href="#">Espa&ntilde;ol</a>
+        <a href="#" class="js-lang-toggle">Espa&ntilde;ol</a>
       </div>
     </div>
     <div class="header-main">
       <a href="index.html" class="logo">
         <div class="logo-mark">EJP</div>
-        Employment &amp; Job Placement
+        <span data-i18n="logo-sub">Employment &amp; Job Placement</span>
       </a>
       <nav aria-label="Main navigation">
         <ul class="nav-links">
-          <li><a href="job-seekers.html" class="active">For Job Seekers</a></li>
-          <li><a href="employers.html">For Employers</a></li>
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="events.html">Events</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-          <li><a href="#" class="nav-cta">My TEF</a></li>
+          <li><a href="job-seekers.html" class="active" data-i18n="nav-job-seekers">For Job Seekers</a></li>
+          <li><a href="employers.html" data-i18n="nav-employers">For Employers</a></li>
+          <li><a href="index.html#about" data-i18n="nav-about">About</a></li>
+          <li><a href="events.html" data-i18n="nav-events">Events</a></li>
+          <li><a href="index.html#contact" data-i18n="nav-contact">Contact</a></li>
+          <li><a href="#" class="nav-cta" data-i18n="nav-mytef">My TEF</a></li>
         </ul>
       </nav>
       <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle navigation">
@@ -43,12 +43,12 @@
     <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
       <div class="mobile-nav-inner">
       <ul>
-        <li><a href="job-seekers.html">For Job Seekers</a></li>
-        <li><a href="employers.html">For Employers</a></li>
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-        <li><a href="#" class="nav-cta">My TEF</a></li>
+        <li><a href="job-seekers.html" data-i18n="nav-job-seekers">For Job Seekers</a></li>
+        <li><a href="employers.html" data-i18n="nav-employers">For Employers</a></li>
+        <li><a href="index.html#about" data-i18n="nav-about">About</a></li>
+        <li><a href="events.html" data-i18n="nav-events">Events</a></li>
+        <li><a href="index.html#contact" data-i18n="nav-contact">Contact</a></li>
+        <li><a href="#" class="nav-cta" data-i18n="nav-mytef">My TEF</a></li>
       </ul>
       </div>
     </nav>
@@ -59,8 +59,8 @@
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="page-hero-inner">
-      <h1>Building the Healthcare Workforce of Tomorrow</h1>
-      <p>As part of the 1199SEIU Training and Employment Funds, EJP provides job seekers with resources and support to build a career in healthcare.</p>
+      <h1 data-i18n="js-hero-h1">Building the Healthcare Workforce of Tomorrow</h1>
+      <p data-i18n="js-hero-p">As part of the 1199SEIU Training and Employment Funds, EJP provides job seekers with resources and support to build a career in healthcare.</p>
     </div>
   </section>
 
@@ -68,10 +68,10 @@
   <section class="section" id="get-started">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-kicker">Get started</span>
-        <h2>How Can We Help You?</h2>
+        <span class="section-kicker" data-i18n="js-kicker-get-started">Get started</span>
+        <h2 data-i18n="js-wizard-h2">How Can We Help You?</h2>
         <div class="section-divider"></div>
-        <p>Select the option that best describes what you're looking for.</p>
+        <p data-i18n="js-wizard-intro">Select the option that best describes what you're looking for.</p>
       </div>
 
       <!-- G2: Returning visitor banner (shown by JS if session exists) -->
@@ -87,53 +87,53 @@
         <div class="wizard-cards">
           <button class="wizard-card" onclick="wizardGo('wizard-step-jobs')">
             <div class="wizard-card-icon" aria-hidden="true">&#x1F4BC;</div>
-            <h3>I'm Looking for a Job</h3>
-            <p>Browse open healthcare positions and submit your resume to employers across New York.</p>
+            <h3 data-i18n="js-wizard-jobs-h3">I'm Looking for a Job</h3>
+            <p data-i18n="js-wizard-jobs-p">Browse open healthcare positions and submit your resume to employers across New York.</p>
           </button>
           <button class="wizard-card" onclick="wizardGo('wizard-step-2')">
             <div class="wizard-card-icon" aria-hidden="true">&#x1F4CB;</div>
-            <h3>I'm Looking for Career Support</h3>
-            <p>Access career counseling, resume help, interview prep, training programs, and more.</p>
+            <h3 data-i18n="js-wizard-support-h3">I'm Looking for Career Support</h3>
+            <p data-i18n="js-wizard-support-p">Access career counseling, resume help, interview prep, training programs, and more.</p>
           </button>
         </div>
       </div>
 
       <!-- Step 2: Membership check -->
       <div class="wizard-step wizard-step--hidden" id="wizard-step-2">
-        <button class="wizard-back" onclick="wizardGo('wizard-step-1')">&larr; Back</button>
+        <button class="wizard-back" onclick="wizardGo('wizard-step-1')" data-i18n="js-wizard-back">&larr; Back</button>
         <div class="wizard-cards">
           <button class="wizard-card wizard-card--result" onclick="wizardGo('wizard-step-member')">
             <div class="wizard-card-icon" aria-hidden="true">&#x2705;</div>
-            <h3>I'm a Union Member</h3>
-            <span class="wizard-card-sub">Including CPT graduates</span>
-            <p>Connect with a career counselor who can help with job placement, counseling, and more.</p>
-            <span class="btn btn-primary">Get Career Support &rarr;</span>
+            <h3 data-i18n="js-wizard-member-h3">I'm a Union Member</h3>
+            <span class="wizard-card-sub" data-i18n="js-wizard-member-sub">Including CPT graduates</span>
+            <p data-i18n="js-wizard-member-p">Connect with a career counselor who can help with job placement, counseling, and more.</p>
+            <span class="btn btn-primary" data-i18n="js-wizard-member-btn">Get Career Support &rarr;</span>
           </button>
           <button class="wizard-card wizard-card--result" onclick="wizardGo('wizard-step-nonmember')">
             <div class="wizard-card-icon" aria-hidden="true">&#x1F31F;</div>
-            <h3>I'm Not a Union Member</h3>
-            <p>Learn about the benefits of 1199SEIU membership and how to access career services.</p>
-            <span class="btn btn-secondary">Learn More &rarr;</span>
+            <h3 data-i18n="js-wizard-nonmember-h3">I'm Not a Union Member</h3>
+            <p data-i18n="js-wizard-nonmember-p">Learn about the benefits of 1199SEIU membership and how to access career services.</p>
+            <span class="btn btn-secondary" data-i18n="js-wizard-nonmember-btn">Learn More &rarr;</span>
           </button>
         </div>
       </div>
 
       <!-- Step: Job browsing destination -->
       <div class="wizard-step wizard-step--hidden" id="wizard-step-jobs">
-        <button class="wizard-back" onclick="wizardGo('wizard-step-1')">&larr; Back</button>
+        <button class="wizard-back" onclick="wizardGo('wizard-step-1')" data-i18n="js-wizard-back">&larr; Back</button>
         <div class="wizard-result">
-          <h3>Browse Open Positions</h3>
-          <p>Search healthcare job openings and submit your resume directly to employers.</p>
-          <a href="https://www.1199careers.org/careers-home/jobs" class="btn btn-primary btn-lg" target="_blank">Browse Jobs &rarr;</a>
+          <h3 data-i18n="js-wizard-browse-h3">Browse Open Positions</h3>
+          <p data-i18n="js-wizard-browse-p">Search healthcare job openings and submit your resume directly to employers.</p>
+          <a href="https://www.1199careers.org/careers-home/jobs" class="btn btn-primary btn-lg" target="_blank" data-i18n="js-wizard-browse-btn">Browse Jobs &rarr;</a>
         </div>
       </div>
 
       <!-- C1: Union member intake form -->
       <div class="wizard-step wizard-step--hidden" id="wizard-step-member">
-        <button class="wizard-back" onclick="wizardGo('wizard-step-2')">&larr; Back</button>
+        <button class="wizard-back" onclick="wizardGo('wizard-step-2')" data-i18n="js-wizard-back">&larr; Back</button>
         <div class="wizard-form" id="member-form-container">
-          <h3>Let's connect you with career services</h3>
-          <p>Fill out the form below and a career counselor will reach out within 2 business days to get you started.</p>
+          <h3 data-i18n="js-form-member-h3">Let's connect you with career services</h3>
+          <p data-i18n="js-form-member-p">Fill out the form below and a career counselor will reach out within 2 business days to get you started.</p>
           <form id="member-intake-form" novalidate>
             <input type="hidden" name="oid" value="00DdL00000rNMCb">
             <input type="hidden" name="retURL" value="https://toolnyc.github.io/ejp/thank-you.html">
@@ -143,40 +143,40 @@
             <input type="hidden" id="member-support-needs" name="00NdL0000248phx" value="">
 
             <div class="form-group">
-              <label for="member-first-name">First Name <span aria-hidden="true">*</span></label>
+              <label for="member-first-name"><span data-i18n="js-label-first-name">First Name</span> <span aria-hidden="true">*</span></label>
               <input type="text" id="member-first-name" name="first_name" required autocomplete="given-name">
             </div>
             <div class="form-group">
-              <label for="member-last-name">Last Name <span aria-hidden="true">*</span></label>
+              <label for="member-last-name"><span data-i18n="js-label-last-name">Last Name</span> <span aria-hidden="true">*</span></label>
               <input type="text" id="member-last-name" name="last_name" required autocomplete="family-name">
             </div>
             <div class="form-group">
-              <label for="member-email">Email <span aria-hidden="true">*</span></label>
+              <label for="member-email"><span data-i18n="js-label-email">Email</span> <span aria-hidden="true">*</span></label>
               <input type="email" id="member-email" name="email" required autocomplete="email">
             </div>
             <div class="form-group">
-              <label for="member-phone">Phone</label>
+              <label for="member-phone" data-i18n="js-label-phone">Phone</label>
               <input type="tel" id="member-phone" name="phone" autocomplete="tel">
             </div>
             <div class="form-group">
-              <label>Member Status <span aria-hidden="true">*</span></label>
+              <label><span data-i18n="js-label-member-status">Member Status</span> <span aria-hidden="true">*</span></label>
               <div class="form-group--radio-group">
-                <label><input type="radio" name="_memberStatus" value="Member" required> Active Union Member</label>
-                <label><input type="radio" name="_memberStatus" value="Member"> CPT Graduate</label>
+                <label><input type="radio" name="_memberStatus" value="Member" required> <span data-i18n="js-radio-active-member">Active Union Member</span></label>
+                <label><input type="radio" name="_memberStatus" value="Member"> <span data-i18n="js-radio-cpt-grad">CPT Graduate</span></label>
               </div>
             </div>
             <div class="form-group">
-              <label>What kind of support are you looking for?</label>
+              <label data-i18n="js-label-support-type">What kind of support are you looking for?</label>
               <div class="form-group--checkbox-group">
-                <label><input type="checkbox" name="_support" value="Resume Assistance"> Resume Assistance</label>
-                <label><input type="checkbox" name="_support" value="Career Counseling"> Career Counseling</label>
-                <label><input type="checkbox" name="_support" value="Interview Preparation"> Interview Preparation</label>
-                <label><input type="checkbox" name="_support" value="Job Placement / Matching"> Job Placement / Matching</label>
-                <label><input type="checkbox" name="_support" value="Workshop / Training"> Workshop / Training</label>
+                <label><input type="checkbox" name="_support" value="Resume Assistance"> <span data-i18n="js-checkbox-resume">Resume Assistance</span></label>
+                <label><input type="checkbox" name="_support" value="Career Counseling"> <span data-i18n="js-checkbox-counseling">Career Counseling</span></label>
+                <label><input type="checkbox" name="_support" value="Interview Preparation"> <span data-i18n="js-checkbox-interview">Interview Preparation</span></label>
+                <label><input type="checkbox" name="_support" value="Job Placement / Matching"> <span data-i18n="js-checkbox-placement">Job Placement / Matching</span></label>
+                <label><input type="checkbox" name="_support" value="Workshop / Training"> <span data-i18n="js-checkbox-workshop">Workshop / Training</span></label>
               </div>
             </div>
             <div class="form-actions">
-              <button type="submit" class="btn btn-primary">Connect Me with a Counselor &rarr;</button>
+              <button type="submit" class="btn btn-primary" data-i18n="js-btn-connect">Connect Me with a Counselor &rarr;</button>
             </div>
           </form>
         </div>
@@ -184,10 +184,10 @@
 
       <!-- C2: Non-member capture form -->
       <div class="wizard-step wizard-step--hidden" id="wizard-step-nonmember">
-        <button class="wizard-back" onclick="wizardGo('wizard-step-2')">&larr; Back</button>
+        <button class="wizard-back" onclick="wizardGo('wizard-step-2')" data-i18n="js-wizard-back">&larr; Back</button>
         <div class="wizard-form" id="nonmember-form-container">
-          <h3>You're in the right place</h3>
-          <p>Leave your email and we'll send you information about how to access career services &mdash; no membership required to start.</p>
+          <h3 data-i18n="js-form-nonmember-h3">You're in the right place</h3>
+          <p data-i18n="js-form-nonmember-p">Leave your email and we'll send you information about how to access career services &mdash; no membership required to start.</p>
           <form id="nonmember-intake-form" novalidate>
             <input type="hidden" name="oid" value="00DdL00000rNMCb">
             <input type="hidden" name="retURL" value="https://toolnyc.github.io/ejp/thank-you.html">
@@ -196,26 +196,26 @@
             <input type="hidden" name="00NdL00002447vf" value="Non-Member">
 
             <div class="form-group">
-              <label for="nonmember-first-name">First Name <span aria-hidden="true">*</span></label>
+              <label for="nonmember-first-name"><span data-i18n="js-label-first-name">First Name</span> <span aria-hidden="true">*</span></label>
               <input type="text" id="nonmember-first-name" name="first_name" required autocomplete="given-name">
             </div>
             <div class="form-group">
-              <label for="nonmember-email">Email <span aria-hidden="true">*</span></label>
+              <label for="nonmember-email"><span data-i18n="js-label-email">Email</span> <span aria-hidden="true">*</span></label>
               <input type="email" id="nonmember-email" name="email" required autocomplete="email">
             </div>
             <div class="form-group">
-              <label for="nonmember-reason">What brought you here?</label>
+              <label for="nonmember-reason" data-i18n="js-label-what-brought">What brought you here?</label>
               <select id="nonmember-reason" name="description">
-                <option value="">-- Select one --</option>
-                <option value="I'm looking for a healthcare job">I'm looking for a healthcare job</option>
-                <option value="I want to explore training programs">I want to explore training programs</option>
-                <option value="I heard about 1199SEIU and want to learn more">I heard about 1199SEIU and want to learn more</option>
-                <option value="Other">Other</option>
+                <option value="" data-i18n="js-opt-select-one">-- Select one --</option>
+                <option value="I'm looking for a healthcare job" data-i18n="js-opt-looking-job">I'm looking for a healthcare job</option>
+                <option value="I want to explore training programs" data-i18n="js-opt-training">I want to explore training programs</option>
+                <option value="I heard about 1199SEIU and want to learn more" data-i18n="js-opt-heard">I heard about 1199SEIU and want to learn more</option>
+                <option value="Other" data-i18n="js-opt-other">Other</option>
               </select>
             </div>
             <div class="form-actions">
-              <button type="submit" class="btn btn-primary">Send Me More Info &rarr;</button>
-              <a href="why-join.html" class="btn btn-ghost">Skip &mdash; just show me what's available &rarr;</a>
+              <button type="submit" class="btn btn-primary" data-i18n="js-btn-send-info">Send Me More Info &rarr;</button>
+              <a href="why-join.html" class="btn btn-ghost" data-i18n="js-btn-skip">Skip &mdash; just show me what's available &rarr;</a>
             </div>
           </form>
         </div>
@@ -228,48 +228,48 @@
   <section class="section section--neutral" id="member-benefits">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-kicker">Why join 1199SEIU</span>
-        <h2>Career Services That Set You Apart</h2>
+        <span class="section-kicker" data-i18n="js-benefits-kicker">Why join 1199SEIU</span>
+        <h2 data-i18n="js-benefits-h2">Career Services That Set You Apart</h2>
         <div class="section-divider"></div>
-        <p>Union members and CPT graduates get access to a full suite of career support &mdash; from one-on-one counseling to job placement and beyond.</p>
+        <p data-i18n="js-benefits-intro">Union members and CPT graduates get access to a full suite of career support &mdash; from one-on-one counseling to job placement and beyond.</p>
       </div>
 
       <div class="services-grid grid-2 reveal-stagger">
         <div class="service-card">
           <div class="service-card-icon primary" aria-hidden="true">&#x1F4DD;</div>
-          <h3>Resume Assistance</h3>
-          <p>Get help crafting a professional resume that highlights your training, experience, and strengths.</p>
+          <h3 data-i18n="js-svc-resume-h3">Resume Assistance</h3>
+          <p data-i18n="js-svc-resume-p">Get help crafting a professional resume that highlights your training, experience, and strengths.</p>
         </div>
         <div class="service-card">
           <div class="service-card-icon primary" aria-hidden="true">&#x1F4AC;</div>
-          <h3>Career Counseling</h3>
-          <p>Work with a dedicated counselor to identify your goals, explore options, and build a plan.</p>
+          <h3 data-i18n="js-svc-counseling-h3">Career Counseling</h3>
+          <p data-i18n="js-svc-counseling-p">Work with a dedicated counselor to identify your goals, explore options, and build a plan.</p>
         </div>
         <div class="service-card">
           <div class="service-card-icon primary" aria-hidden="true">&#x1F3AF;</div>
-          <h3>Interview Preparation</h3>
-          <p>Practice interviews, get feedback, and build the confidence to make a strong impression.</p>
+          <h3 data-i18n="js-svc-interview-h3">Interview Preparation</h3>
+          <p data-i18n="js-svc-interview-p">Practice interviews, get feedback, and build the confidence to make a strong impression.</p>
         </div>
         <div class="service-card">
           <div class="service-card-icon primary" aria-hidden="true">&#x1F4DA;</div>
-          <h3>Workshops &amp; Skill-Building</h3>
-          <p>Join group sessions on job search strategies, professional development, and workplace readiness.</p>
+          <h3 data-i18n="js-svc-workshops-h3">Workshops &amp; Skill-Building</h3>
+          <p data-i18n="js-svc-workshops-p">Join group sessions on job search strategies, professional development, and workplace readiness.</p>
         </div>
         <div class="service-card">
           <div class="service-card-icon primary" aria-hidden="true">&#x1F91D;</div>
-          <h3>Placement Support</h3>
-          <p>Get matched with employers looking for qualified healthcare professionals through our network.</p>
+          <h3 data-i18n="js-svc-placement-h3">Placement Support</h3>
+          <p data-i18n="js-svc-placement-p">Get matched with employers looking for qualified healthcare professionals through our network.</p>
         </div>
         <div class="service-card">
           <div class="service-card-icon primary" aria-hidden="true">&#x1F6E1;</div>
-          <h3>Job Security Fund</h3>
-          <p>If you've been laid off, access re-employment assistance and priority career services.</p>
+          <h3 data-i18n="js-svc-security-h3">Job Security Fund</h3>
+          <p data-i18n="js-svc-security-p">If you've been laid off, access re-employment assistance and priority career services.</p>
         </div>
       </div>
 
       <div class="member-cta-row">
-        <a href="#" class="btn btn-primary btn-lg">Already a Member? Log In to MyTEF &rarr;</a>
-        <a href="why-join.html" class="btn btn-secondary btn-lg">Not a Member? Learn How to Join &rarr;</a>
+        <a href="#" class="btn btn-primary btn-lg js-mytef-btn" data-i18n="js-member-btn-login">Already a Member? Log In to MyTEF &rarr;</a>
+        <a href="why-join.html" class="btn btn-secondary btn-lg" data-i18n="js-member-btn-join">Not a Member? Learn How to Join &rarr;</a>
       </div>
     </div>
   </section>
@@ -278,32 +278,32 @@
   <section class="section mytef-section">
     <div class="container">
       <div class="section-header reveal">
-        <h2>MyTEF Portal</h2>
+        <h2 data-i18n="js-mytef-h2">MyTEF Portal</h2>
         <div class="section-divider"></div>
-        <p>Your training and employment hub &mdash; manage your career development tools in one place.</p>
+        <p data-i18n="js-mytef-intro">Your training and employment hub &mdash; manage your career development tools in one place.</p>
       </div>
 
       <div class="mytef-features">
         <div class="mytef-feature">
-          <h3>Sign Up for Classes</h3>
-          <p>Browse and enroll in available training programs</p>
+          <h3 data-i18n="js-mytef-f1-h3">Sign Up for Classes</h3>
+          <p data-i18n="js-mytef-f1-p">Browse and enroll in available training programs</p>
         </div>
         <div class="mytef-feature">
-          <h3>Apply for Programs</h3>
-          <p>Submit applications for career advancement opportunities</p>
+          <h3 data-i18n="js-mytef-f2-h3">Apply for Programs</h3>
+          <p data-i18n="js-mytef-f2-p">Submit applications for career advancement opportunities</p>
         </div>
         <div class="mytef-feature">
-          <h3>Upload Resume</h3>
-          <p>Keep your resume on file for employer matching</p>
+          <h3 data-i18n="js-mytef-f3-h3">Upload Resume</h3>
+          <p data-i18n="js-mytef-f3-p">Keep your resume on file for employer matching</p>
         </div>
         <div class="mytef-feature">
-          <h3>Check Reimbursement</h3>
-          <p>View the status of your tuition and expense reimbursements</p>
+          <h3 data-i18n="js-mytef-f4-h3">Check Reimbursement</h3>
+          <p data-i18n="js-mytef-f4-p">View the status of your tuition and expense reimbursements</p>
         </div>
       </div>
 
       <div class="text-center mt-xl">
-        <a href="#" class="btn btn-primary btn-lg js-mytef-btn">Log In to MyTEF Portal &rarr;</a>
+        <a href="#" class="btn btn-primary btn-lg js-mytef-btn" data-i18n="js-mytef-login-btn">Log In to MyTEF Portal &rarr;</a>
       </div>
     </div>
   </section>
@@ -315,17 +315,17 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="logo-mark">EJP</div>
-        <span>Employment &amp; Job Placement</span>
+        <span data-i18n="footer-brand-sub">Employment &amp; Job Placement</span>
       </div>
       <ul class="footer-links">
-        <li><a href="#">1199SEIU Funds</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Use</a></li>
-        <li><a href="#">Accessibility</a></li>
+        <li><a href="#" data-i18n="footer-funds">1199SEIU Funds</a></li>
+        <li><a href="#" data-i18n="footer-privacy">Privacy Policy</a></li>
+        <li><a href="#" data-i18n="footer-terms">Terms of Use</a></li>
+        <li><a href="#" data-i18n="footer-a11y">Accessibility</a></li>
         <li><a href="admin.html">Admin</a></li>
       </ul>
     </div>
-    <div class="footer-bottom">
+    <div class="footer-bottom" data-i18n="footer-copy">
       &copy; 2026 1199SEIU Training &amp; Employment Funds. All rights reserved.
     </div>
   </footer>
@@ -446,6 +446,7 @@
     });
   </script>
   <script src="animations.js"></script>
+  <script src="lang.js"></script>
 
 </body>
 </html>
