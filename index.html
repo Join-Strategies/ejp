@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
 
@@ -41,6 +41,7 @@
       </button>
     </div>
     <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+      <div class="mobile-nav-inner">
       <ul>
         <li><a href="job-seekers.html">For Job Seekers</a></li>
         <li><a href="employers.html">For Employers</a></li>
@@ -49,6 +50,7 @@
         <li><a href="#contact">Contact</a></li>
         <li><a href="job-seekers.html" class="nav-cta">My TEF</a></li>
       </ul>
+      </div>
     </nav>
   </header>
 
@@ -80,14 +82,14 @@
   <!-- WHAT EJP DOES -->
   <section class="section">
     <div class="container">
-      <div class="section-header section-header--centered">
+      <div class="section-header section-header--centered reveal">
         <span class="section-kicker">What We Do</span>
         <h2>Three Pillars. One Mission.</h2>
         <div class="section-divider"></div>
         <p>EJP brings together career services, employer partnerships, and workforce training under one roof — connecting people to purpose in New York's healthcare system.</p>
       </div>
 
-      <div class="services-grid">
+      <div class="services-grid reveal-stagger">
         <div class="service-card service-card--centered">
           <div class="service-card-icon primary" aria-hidden="true">&#x1F91D;</div>
           <h3>Career Services &amp; Support</h3>
@@ -115,7 +117,7 @@
   <!-- ABOUT EJP -->
   <section id="about" class="section section--neutral">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <h2>About EJP</h2>
         <div class="section-divider"></div>
       </div>
@@ -138,7 +140,7 @@
           </blockquote>
         </div>
 
-        <div class="about-pillars">
+        <div class="about-pillars reveal-stagger">
           <div class="pillar-card">
             <h4>Collaborate</h4>
             <p>Partnering across employers, training programs, and union support systems</p>
@@ -163,13 +165,13 @@
   <!-- EVENTS -->
   <section id="events" class="section value-prop">
     <div class="container">
-      <div class="section-header section-header--centered">
+      <div class="section-header section-header--centered reveal">
         <span class="section-kicker">Events</span>
         <h2>Meet Us in Person</h2>
         <div class="section-divider"></div>
         <p>Connect with EJP career counselors and employers at upcoming events.</p>
       </div>
-      <div class="value-grid">
+      <div class="value-grid reveal-stagger">
         <div class="value-item">
           <div class="value-item-icon" aria-hidden="true">&#x1F4C5;</div>
           <h3>Spring Career Fair</h3>
@@ -200,13 +202,13 @@
   <!-- CONTACT -->
   <section id="contact" class="section contact-section">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <h2>Contact / Get Help</h2>
         <div class="section-divider"></div>
         <p>We're here to help. Reach out to the right team.</p>
       </div>
 
-      <div class="contact-grid">
+      <div class="contact-grid reveal-stagger">
         <div class="contact-card">
           <h3>Job Seeker Inquiries</h3>
           <p>Questions about career services, resume help, or getting started</p>
@@ -240,6 +242,7 @@
         <li><a href="#">Privacy Policy</a></li>
         <li><a href="#">Terms of Use</a></li>
         <li><a href="#">Accessibility</a></li>
+        <li><a href="admin.html">Admin</a></li>
       </ul>
     </div>
     <div class="footer-bottom">
@@ -247,7 +250,12 @@
     </div>
   </footer>
 
+  <!-- GSAP Animation Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="ejp-forms.js"></script>
   <script src="nav.js?v=2"></script>
+  <script src="animations.js"></script>
 
 </body>
 </html>

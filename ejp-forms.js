@@ -139,6 +139,9 @@
     var modal = document.getElementById(modalId);
     if (!modal) return;
     modal.classList.remove('hidden');
+    // Force a reflow so the transition plays from the initial (opacity:0) state
+    modal.offsetHeight; // eslint-disable-line no-unused-expressions
+    modal.classList.add('is-open');
     document.body.classList.add('modal-open');
 
     // Focus first input
@@ -170,8 +173,14 @@
   window.closeModal = function (modalId) {
     var modal = document.getElementById(modalId);
     if (!modal) return;
-    modal.classList.add('hidden');
+    modal.classList.remove('is-open');
     document.body.classList.remove('modal-open');
+    // Wait for CSS transition to finish before hiding from DOM/AT
+    setTimeout(function() {
+      if (!modal.classList.contains('is-open')) {
+        modal.classList.add('hidden');
+      }
+    }, 320);
   };
 
   // ─── showFormSuccess ──────────────────────────────────────────────────────

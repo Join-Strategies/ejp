@@ -105,12 +105,19 @@
   --shadow-card-lift: 0 6px 32px rgba(133, 38, 51, 0.12);
   --shadow-lg:        0 12px 40px rgba(26, 15, 16, 0.15);
 
+  /* — Easing Curves — */
+  --ease-spring:   cubic-bezier(0.16, 1, 0.30, 1);   /* spring-like, fast in, settles */
+  --ease-standard: cubic-bezier(0.40, 0, 0.20, 1);   /* material standard in-out */
+  --ease-enter:    cubic-bezier(0.00, 0, 0.20, 1);   /* decelerate — for entering elements */
+  --ease-exit:     cubic-bezier(0.40, 0, 1.00, 1);   /* accelerate — for exiting elements */
+
   /* — Transitions — */
-  --transition-fast:  0.1s ease;
-  --transition-base:  0.15s ease;
-  --transition-slow:  0.2s ease;
-  --transition-xslow: 0.3s ease;
-  --transition-nav:   0.35s ease;
+  --transition-fast:   0.15s var(--ease-standard);
+  --transition-base:   0.20s var(--ease-standard);
+  --transition-slow:   0.22s var(--ease-standard);
+  --transition-xslow:  0.30s var(--ease-standard);
+  --transition-reveal: 0.50s var(--ease-spring);
+  --transition-nav:    0.28s var(--ease-exit);
 
   /* — Z-index — */
   --z-base:     0;
@@ -384,6 +391,21 @@ a:hover { color: var(--color-brand-hover); }
   min-height: 520px;
   display: flex;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hero ambient dot-drift background */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(254, 203, 0, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+  animation: dot-drift 28s ease-in-out infinite;
+  pointer-events: none;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 65%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 65%);
 }
 
 .hero-inner.editorial {
@@ -393,6 +415,16 @@ a:hover { color: var(--color-brand-hover); }
   text-align: left;
   padding-left: var(--space-2xl);
 }
+
+/* Hero entry stagger — children animate in sequence on page load */
+.hero-inner > * {
+  animation: blur-reveal 0.8s var(--ease-spring) both;
+}
+.hero-inner > *:nth-child(1) { animation-delay:   0ms; }
+.hero-inner > *:nth-child(2) { animation-delay: 120ms; }
+.hero-inner > *:nth-child(3) { animation-delay: 240ms; }
+.hero-inner > *:nth-child(4) { animation-delay: 360ms; }
+.hero-inner > *:nth-child(5) { animation-delay: 480ms; }
 
 .hero-kicker {
   display: inline-block;
@@ -873,7 +905,25 @@ blockquote footer {
 /* ========================================
    Wizard Flow
    ======================================== */
-.wizard-step { transition: opacity var(--transition-xslow); }
+.wizard-step {
+  transition:
+    opacity   0.25s var(--ease-enter),
+    transform 0.25s var(--ease-enter);
+}
+.wizard-step:not(.active) {
+  opacity: 0;
+  transform: translateX(16px);
+  pointer-events: none;
+}
+.wizard-step.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+.wizard-step.exiting {
+  opacity: 0;
+  transform: translateX(-16px);
+}
 .wizard-step--hidden { display: none; }
 
 .wizard-cards {
@@ -1034,6 +1084,96 @@ blockquote footer {
 
 
 /* ========================================
+   Motion — @keyframes Library
+   ======================================== */
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blur-reveal {
+  from { opacity: 0; filter: blur(4px); transform: translateY(12px); }
+  to   { opacity: 1; filter: blur(0px); transform: translateY(0); }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-in-bottom {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-top {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ambient-breathe {
+  0%, 100% { opacity: 0; }
+  50%       { opacity: 1; }
+}
+
+@keyframes dot-drift {
+  0%   { background-position: 0 0; }
+  50%  { background-position: 4px 3px; }
+  100% { background-position: 0 0; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fade-scale-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ========================================
+   Motion — Animation Utility Classes
+   ======================================== */
+
+.animate-fade-in        { animation: fade-in        var(--transition-base)   var(--ease-standard) both; }
+.animate-fade-in-up     { animation: fade-in-up      var(--transition-xslow)  var(--ease-enter)    both; }
+.animate-blur-reveal    { animation: blur-reveal      var(--transition-reveal) var(--ease-spring)   both; }
+.animate-slide-in-right { animation: slide-in-right  var(--transition-xslow)  var(--ease-enter)    both; }
+.animate-slide-in-bottom{ animation: slide-in-bottom var(--transition-xslow)  var(--ease-enter)    both; }
+.animate-slide-in-top   { animation: slide-in-top    var(--transition-base)   var(--ease-enter)    both; }
+
+/* Stagger delay utilities — 50ms increments */
+.stagger-1 { animation-delay:  50ms; }
+.stagger-2 { animation-delay: 100ms; }
+.stagger-3 { animation-delay: 150ms; }
+.stagger-4 { animation-delay: 200ms; }
+.stagger-5 { animation-delay: 250ms; }
+.stagger-6 { animation-delay: 300ms; }
+
+/* ========================================
+   Motion — Scroll Reveal States
+   ======================================== */
+
+/* Elements start hidden; JS adds .is-visible via IntersectionObserver / GSAP ScrollTrigger */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  filter: blur(3px);
+}
+
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(12px);
+  filter: blur(3px);
+}
+
+/* ========================================
    Utilities
    ======================================== */
 .text-center { text-align: center; }
@@ -1103,14 +1243,16 @@ blockquote footer {
   padding: var(--space-sm);
   margin-right: calc(-1 * var(--space-sm));
 }
-.mobile-nav-toggle span { display: block; width: 24px; height: 2px; background: var(--color-text-inverse); border-radius: var(--radius-xs); transition: transform var(--transition-xslow), opacity var(--transition-xslow); }
+.mobile-nav-toggle span { display: block; width: 24px; height: 2px; background: var(--color-text-inverse); border-radius: var(--radius-xs); transition: transform var(--transition-xslow) var(--ease-spring), opacity var(--transition-base); }
 .mobile-nav-toggle span + span { margin-top: 6px; }
 .mobile-nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
 .mobile-nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .mobile-nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-.mobile-nav { display: none; background: var(--color-header-top-bg); overflow: hidden; max-height: 0; transition: max-height var(--transition-nav); }
-.mobile-nav.is-open { max-height: 500px; }
+.mobile-nav { display: none; background: var(--color-header-top-bg); }
+.mobile-nav-inner { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--transition-nav); overflow: hidden; }
+.mobile-nav.is-open .mobile-nav-inner { grid-template-rows: 1fr; }
+.mobile-nav-inner > ul { overflow: hidden; }
 .mobile-nav ul { list-style: none; padding: var(--space-sm) var(--space-lg) var(--space-lg); }
 .mobile-nav li { border-bottom: 1px solid var(--color-header-bg); }
 .mobile-nav li:last-child { border-bottom: none; padding-top: var(--space-sm); }
@@ -1178,10 +1320,20 @@ blockquote footer {
   align-items: center;
   justify-content: center;
   padding: var(--space-lg);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--transition-xslow), visibility var(--transition-xslow);
 }
 
 .modal-overlay.hidden {
   display: none;
+}
+
+.modal-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .modal-box {
@@ -1194,6 +1346,16 @@ blockquote footer {
   overflow-y: auto;
   box-shadow: var(--shadow-lg);
   position: relative;
+  transform: scale(0.95) translateY(8px);
+  opacity: 0;
+  transition:
+    transform var(--transition-xslow) var(--ease-spring),
+    opacity   var(--transition-xslow);
+}
+
+.modal-overlay.is-open .modal-box {
+  transform: scale(1) translateY(0);
+  opacity: 1;
 }
 
 .modal-close {
@@ -1293,6 +1455,7 @@ body.modal-open {
 .form-success {
   text-align: center;
   padding: var(--space-2xl);
+  animation: fade-scale-in 0.35s var(--ease-spring) both;
 }
 
 .form-success-icon {
@@ -1350,4 +1513,16 @@ body.modal-open {
 .returning-banner .btn-sm {
   font-size: var(--text-xs);
   padding: var(--space-xs) var(--space-md);
+}
+
+/* ========================================
+   Accessibility — Reduced Motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration:        0.01ms !important;
+    animation-iteration-count: 1      !important;
+    transition-duration:       0.01ms !important;
+    scroll-behavior:           auto   !important;
+  }
 }

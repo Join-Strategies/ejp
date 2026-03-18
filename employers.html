@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
 
@@ -33,7 +33,7 @@
           <li><a href="index.html#about">About</a></li>
           <li><a href="events.html">Events</a></li>
           <li><a href="index.html#contact">Contact</a></li>
-          <li><a href="job-seekers.html" class="nav-cta">My TEF</a></li>
+          <li><a href="#" class="nav-cta">My TEF</a></li>
         </ul>
       </nav>
       <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle navigation">
@@ -41,14 +41,16 @@
       </button>
     </div>
     <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+      <div class="mobile-nav-inner">
       <ul>
         <li><a href="job-seekers.html">For Job Seekers</a></li>
         <li><a href="employers.html">For Employers</a></li>
         <li><a href="index.html#about">About</a></li>
         <li><a href="events.html">Events</a></li>
         <li><a href="index.html#contact">Contact</a></li>
-        <li><a href="job-seekers.html" class="nav-cta">My TEF</a></li>
+        <li><a href="#" class="nav-cta">My TEF</a></li>
       </ul>
+      </div>
     </nav>
   </header>
 
@@ -65,13 +67,13 @@
   <!-- WHY PARTNER -->
   <section class="section">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <h2>Why Partner with EJP</h2>
         <div class="section-divider"></div>
         <p>We work with healthcare employers across New York to understand their specific staffing needs and match them with qualified candidates from our network.</p>
       </div>
 
-      <div class="services-grid">
+      <div class="services-grid reveal-stagger">
         <div class="service-card service-card--centered">
           <div class="service-card-icon secondary" aria-hidden="true">&#x1F393;</div>
           <h3>CPT-Trained Candidates</h3>
@@ -94,12 +96,12 @@
   <!-- EMPLOYER SERVICES -->
   <section class="section employer-section">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <h2>How to Work with Us</h2>
         <div class="section-divider"></div>
       </div>
 
-      <div class="services-grid grid-2">
+      <div class="services-grid grid-2 reveal-stagger">
         <div class="service-card employer-card">
           <div class="service-card-icon secondary" aria-hidden="true">&#x1F4E4;</div>
           <h3>Submit Job Openings</h3>
@@ -136,13 +138,13 @@
   <!-- STATS / SOCIAL PROOF -->
   <section class="section section--secondary">
     <div class="container">
-      <div class="section-header section-header--centered">
+      <div class="section-header section-header--centered reveal">
         <h2>By the Numbers</h2>
         <div class="section-divider"></div>
         <p><em class="text-placeholder">[Real stats TBD from client]</em></p>
       </div>
 
-      <div class="value-grid">
+      <div class="value-grid reveal-stagger">
         <div class="value-item value-item--secondary">
           <div class="value-item-number">7,500+</div>
           <h3>Trained Candidates</h3>
@@ -181,6 +183,7 @@
         <li><a href="#">Privacy Policy</a></li>
         <li><a href="#">Terms of Use</a></li>
         <li><a href="#">Accessibility</a></li>
+        <li><a href="admin.html">Admin</a></li>
       </ul>
     </div>
     <div class="footer-bottom">
@@ -200,8 +203,6 @@
           <input type="hidden" name="retURL" value="https://toolnyc.github.io/ejp/thank-you.html">
           <input type="hidden" name="lead_source" value="Employer - Vacancy Submission">
           <input type="hidden" name="00NdL0000248yOf" value="employers">
-          <input type="hidden" id="vacancy-role-field" name="00NdL0000248tAT" value="">
-          <input type="hidden" id="vacancy-count-field" name="00NdL0000248vAf" value="">
 
           <div class="form-group">
             <label for="vacancy-org">Organization Name <span aria-hidden="true">*</span></label>
@@ -225,7 +226,7 @@
           </div>
           <div class="form-group">
             <label for="vacancy-role">Type of Role Needed <span aria-hidden="true">*</span></label>
-            <select id="vacancy-role" required>
+            <select id="vacancy-role" name="00NdL0000248tAT" required>
               <option value="">-- Select --</option>
               <option>Registered Nurse (RN)</option>
               <option>Licensed Practical Nurse (LPN)</option>
@@ -239,7 +240,7 @@
           </div>
           <div class="form-group">
             <label for="vacancy-count">Number of Openings <span aria-hidden="true">*</span></label>
-            <input type="number" id="vacancy-count" min="1" required>
+            <input type="number" id="vacancy-count" name="00NdL0000248vAf" min="1" required>
           </div>
           <div class="form-group">
             <label for="vacancy-notes">Additional Notes</label>
@@ -303,6 +304,9 @@
     </div>
   </div>
 
+  <!-- GSAP Animation Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="nav.js"></script>
   <script src="ejp-forms.js"></script>
   <script>
@@ -311,11 +315,8 @@
       e.preventDefault();
       var form = this;
 
-      // Mirror non-standard fields into hidden inputs
       var roleVal = document.getElementById('vacancy-role').value;
       var countVal = document.getElementById('vacancy-count').value;
-      document.getElementById('vacancy-role-field').value = roleVal;
-      document.getElementById('vacancy-count-field').value = countVal;
 
       // Split full name into first/last
       var nameParts = (document.getElementById('vacancy-name').value.trim()).split(' ');
@@ -382,6 +383,7 @@
       });
     });
   </script>
+  <script src="animations.js"></script>
 
 </body>
 </html>
