@@ -37,42 +37,65 @@
   window.submitToSalesforce = function (formEl, options) {
     options = options || {};
 
-    var data = new FormData(formEl);
-
-    // Standard required hidden fields
-    data.set('oid',    SF_ORG_ID);
-    data.set('retURL', SITE_BASE_URL + '/thank-you.html');
+    // Collect form data for callbacks and logging
+    var formData = {};
+    new FormData(formEl).forEach(function (val, key) { formData[key] = val; });
 
     // Override source page if provided
     if (options.sourcePage) {
-      data.set(SF_FIELDS.ejpSourcePage, options.sourcePage);
+      formData[SF_FIELDS.ejpSourcePage] = options.sourcePage;
+      _setHidden(formEl, SF_FIELDS.ejpSourcePage, options.sourcePage);
     }
 
-    // Collect plain object for callbacks and logging
-    var formData = {};
-    data.forEach(function (val, key) { formData[key] = val; });
+    // Ensure oid and retURL are set
+    _setHidden(formEl, 'oid', SF_ORG_ID);
+    _setHidden(formEl, 'retURL', SITE_BASE_URL + '/thank-you.html');
 
-    fetch(SF_ENDPOINT, {
-      method: 'POST',
-      mode: 'no-cors', // SF Web-to-Lead doesn't support CORS — treat opaque response as success
-      body: data
-    })
-    .then(function () {
-      // Log to submissions store
-      _logSubmission(formData, options);
+    // Use hidden iframe submit instead of fetch — avoids tracker-blocking
+    // in Firefox/Brave which blocks no-cors POSTs to webto.salesforce.com.
+    // Native form submission to a different origin via iframe is always allowed.
+    var iframeId = 'sf-submit-iframe';
+    var iframe = document.getElementById(iframeId);
+    if (!iframe) {
+      iframe = document.createElement('iframe');
+      iframe.id   = iframeId;
+      iframe.name = iframeId;
+      iframe.style.cssText = 'display:none;width:0;height:0;border:0;position:absolute;';
+      document.body.appendChild(iframe);
+    }
 
-      if (typeof options.onSuccess === 'function') {
-        options.onSuccess(formData);
-      }
-    })
-    .catch(function (err) {
-      if (typeof options.onError === 'function') {
-        options.onError(err);
-      } else {
-        console.error('EJP form submission error:', err);
-      }
-    });
+    var prevAction = formEl.action;
+    var prevMethod = formEl.method;
+    var prevTarget = formEl.target;
+
+    formEl.action = SF_ENDPOINT;
+    formEl.method = 'POST';
+    formEl.target = iframeId;
+    formEl.submit();
+
+    // Restore form attributes immediately after submit
+    formEl.action = prevAction;
+    formEl.method = prevMethod;
+    formEl.target = prevTarget;
+
+    // Treat as success — SF Web-to-Lead gives no success signal cross-origin
+    _logSubmission(formData, options);
+    if (typeof options.onSuccess === 'function') {
+      options.onSuccess(formData);
+    }
   };
+
+  // Set or update a hidden input on formEl
+  function _setHidden(formEl, name, value) {
+    var el = formEl.querySelector('[name="' + name + '"]');
+    if (!el) {
+      el = document.createElement('input');
+      el.type = 'hidden';
+      el.name = name;
+      formEl.appendChild(el);
+    }
+    el.value = value;
+  }
 
   // ─── saveSession ──────────────────────────────────────────────────────────
   // Persists visitor identity to localStorage for personalization.
