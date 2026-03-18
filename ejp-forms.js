@@ -19,14 +19,31 @@
     ejpSourcePage:      '00NdL0000248yOf'
   };
 
+  // Human-readable labels for custom SF field IDs (used in debug output)
+  var SF_FIELD_LABELS = {
+    '00NdL00002447vf': 'memberStatus',
+    '00NdL0000248phx': 'careerSupportNeeds',
+    '00NdL0000248tAT': 'roleTypesNeeded',
+    '00NdL0000248vAf': 'openPositionsCount',
+    '00NdL0000248x2n': 'eventName',
+    '00NdL0000248yOf': 'ejpSourcePage'
+  };
+
   // Expose field IDs so per-page code can use them in hidden inputs
   window.SF_FIELDS = SF_FIELDS;
   window.SF_ORG_ID = SF_ORG_ID;
   window.SITE_BASE_URL = SITE_BASE_URL;
 
+  // ─── Debug mode ───────────────────────────────────────────────────────────
+  // Enable by adding ?debug=sf to any page URL.
+  // Shows a floating debug panel and logs all submission details to console.
+
+  var SF_DEBUG = /[?&]debug=sf/.test(window.location.search);
+  window.SF_DEBUG = SF_DEBUG;
+
   // ─── submitToSalesforce ────────────────────────────────────────────────────
   // Collects all named inputs from formEl, appends standard hidden fields,
-  // and POSTs to Salesforce Web-to-Lead via no-cors fetch.
+  // and POSTs to Salesforce Web-to-Lead via hidden iframe.
   //
   // options:
   //   onSuccess(formData)  — called after submission (SF doesn't return JSON)
@@ -36,6 +53,8 @@
 
   window.submitToSalesforce = function (formEl, options) {
     options = options || {};
+
+    var submissionId = 'sf-' + Date.now();
 
     // Collect form data for callbacks and logging
     var formData = {};
@@ -51,6 +70,40 @@
     _setHidden(formEl, 'oid', SF_ORG_ID);
     _setHidden(formEl, 'retURL', SITE_BASE_URL + '/thank-you.html');
 
+    // Re-snapshot formData after hidden fields are set
+    var finalFormData = {};
+    new FormData(formEl).forEach(function (val, key) { finalFormData[key] = val; });
+
+    // ── Debug: log all fields being submitted ──
+    if (SF_DEBUG) {
+      _debugLog(submissionId, 'PREPARING SUBMISSION', options, finalFormData);
+    }
+    console.group('[EJP SF] Submission — ' + (options.submissionType || 'unknown') + ' (' + submissionId + ')');
+    console.log('Form element:', formEl.id || formEl);
+    console.log('Submission type:', options.submissionType || '(not set)');
+    console.log('Source page:', options.sourcePage || finalFormData[SF_FIELDS.ejpSourcePage] || '(not set)');
+    console.log('Fields being sent:');
+    var displayFields = {};
+    Object.keys(finalFormData).forEach(function (k) {
+      var label = SF_FIELD_LABELS[k] ? SF_FIELD_LABELS[k] + ' (' + k + ')' : k;
+      displayFields[label] = finalFormData[k];
+    });
+    console.table(displayFields);
+
+    // Check for commonly missing required fields
+    var warnings = [];
+    if (!finalFormData.oid)        warnings.push('❌ MISSING: oid (org ID)');
+    if (!finalFormData.retURL)     warnings.push('❌ MISSING: retURL');
+    if (!finalFormData.first_name) warnings.push('⚠️  MISSING: first_name');
+    if (!finalFormData.email)      warnings.push('⚠️  MISSING: email');
+    if (!finalFormData.lead_source) warnings.push('⚠️  MISSING: lead_source');
+    if (!finalFormData[SF_FIELDS.ejpSourcePage]) warnings.push('⚠️  MISSING: ejpSourcePage custom field');
+    if (warnings.length) {
+      console.warn('[EJP SF] Validation warnings:\n  ' + warnings.join('\n  '));
+    } else {
+      console.log('✅ Required fields look OK');
+    }
+
     // Use hidden iframe submit instead of fetch — avoids tracker-blocking
     // in Firefox/Brave which blocks no-cors POSTs to webto.salesforce.com.
     // Native form submission to a different origin via iframe is always allowed.
@@ -64,6 +117,32 @@
       document.body.appendChild(iframe);
     }
 
+    // ── Debug: watch the iframe for load/error events ──
+    // onload fires when SF responds (even with a redirect/error page).
+    // If it never fires, the network request itself was blocked.
+    var iframeLoadTimer = setTimeout(function () {
+      console.warn('[EJP SF] ⚠️  Iframe did not fire onload within 10s — request may be blocked by browser or network. Check: (1) tracker-blocking extensions, (2) network tab for the POST to webto.salesforce.com, (3) firewall/proxy.');
+      if (SF_DEBUG) _debugUpdateStatus(submissionId, 'TIMEOUT — iframe never loaded (>10s). Check network tab.');
+    }, 10000);
+
+    iframe.onload = function () {
+      clearTimeout(iframeLoadTimer);
+      var loadTime = Date.now();
+      console.log('[EJP SF] ✅ Iframe loaded — SF request completed at', new Date(loadTime).toISOString());
+      console.log('[EJP SF] ℹ️  Note: iframe loaded = request reached SF servers. It does NOT confirm the lead was accepted. Check SF Web-to-Lead setup if leads are missing despite this firing.');
+      if (SF_DEBUG) _debugUpdateStatus(submissionId, '✅ Iframe loaded — SF received the request at ' + new Date(loadTime).toISOString());
+      iframe.onload = null;
+      iframe.onerror = null;
+    };
+
+    iframe.onerror = function () {
+      clearTimeout(iframeLoadTimer);
+      console.error('[EJP SF] ❌ Iframe onerror — network-level failure. The POST to webto.salesforce.com was blocked or failed.');
+      if (SF_DEBUG) _debugUpdateStatus(submissionId, '❌ Iframe onerror — POST was blocked or failed at network level.');
+      iframe.onload = null;
+      iframe.onerror = null;
+    };
+
     var prevAction = formEl.action;
     var prevMethod = formEl.method;
     var prevTarget = formEl.target;
@@ -71,6 +150,8 @@
     formEl.action = SF_ENDPOINT;
     formEl.method = 'POST';
     formEl.target = iframeId;
+
+    console.log('[EJP SF] Submitting to:', SF_ENDPOINT);
     formEl.submit();
 
     // Restore form attributes immediately after submit
@@ -78,10 +159,12 @@
     formEl.method = prevMethod;
     formEl.target = prevTarget;
 
+    console.groupEnd();
+
     // Treat as success — SF Web-to-Lead gives no success signal cross-origin
-    _logSubmission(formData, options);
+    _logSubmission(finalFormData, options, submissionId);
     if (typeof options.onSuccess === 'function') {
-      options.onSuccess(formData);
+      options.onSuccess(finalFormData);
     }
   };
 
@@ -198,21 +281,111 @@
 
   // ─── _logSubmission (private) ─────────────────────────────────────────────
   // Appends submission record to ejp_submissions in localStorage (for admin dashboard).
+  // Also stores rawFields for debugging — so you can see exactly what was sent to SF.
 
-  function _logSubmission(formData, options) {
+  function _logSubmission(formData, options, submissionId) {
     try {
+      // Build a human-readable version of rawFields (replace custom IDs with labels)
+      var rawFields = {};
+      Object.keys(formData).forEach(function (k) {
+        var label = SF_FIELD_LABELS[k] ? SF_FIELD_LABELS[k] + ' [' + k + ']' : k;
+        rawFields[label] = formData[k];
+      });
+
       var submissions = JSON.parse(localStorage.getItem('ejp_submissions') || '[]');
       submissions.unshift({
+        id:           submissionId || ('sf-' + Date.now()),
         timestamp:    new Date().toISOString(),
         name:         (formData.first_name || '') + ' ' + (formData.last_name || ''),
         email:        formData.email || '',
         type:         options.submissionType || 'unknown',
         sourcePage:   options.sourcePage || formData[SF_FIELDS.ejpSourcePage] || '',
         memberStatus: formData[SF_FIELDS.memberStatus] || '',
-        notes:        formData.description || ''
+        notes:        formData.description || '',
+        rawFields:    rawFields,   // full snapshot of every field sent to SF
+        iframeStatus: 'pending'    // updated to 'loaded' or 'timeout' by iframe events
       });
       localStorage.setItem('ejp_submissions', JSON.stringify(submissions.slice(0, 50)));
     } catch (e) {}
+  }
+
+  // ─── Debug panel helpers ───────────────────────────────────────────────────
+  // These only run when ?debug=sf is in the URL.
+
+  function _debugLog(submissionId, status, options, formData) {
+    var panel = _getOrCreateDebugPanel();
+    var entry = document.createElement('div');
+    entry.id = 'dbg-' + submissionId;
+    entry.style.cssText = 'border:1px solid #555;border-radius:4px;padding:10px;margin-bottom:10px;background:#1a1a2e;';
+
+    var rows = ['<b style="color:#7ecfff">ID:</b> ' + submissionId,
+                '<b style="color:#7ecfff">Type:</b> ' + (options.submissionType || '—'),
+                '<b style="color:#7ecfff">Source:</b> ' + (options.sourcePage || '—'),
+                '<b style="color:#7ecfff">Status:</b> <span id="dbg-status-' + submissionId + '" style="color:#ffd700">Submitting…</span>',
+                '<b style="color:#7ecfff">Fields:</b>'];
+
+    Object.keys(formData).forEach(function (k) {
+      var label = SF_FIELD_LABELS[k] ? SF_FIELD_LABELS[k] + ' (' + k + ')' : k;
+      var val = String(formData[k]);
+      // Redact org ID from display but flag if missing
+      if (k === 'oid') val = val ? '✅ ' + val : '❌ MISSING';
+      rows.push('  <span style="color:#aaa">' + label + ':</span> <span style="color:#fff">' + _esc(val) + '</span>');
+    });
+
+    entry.innerHTML = rows.join('<br>');
+    panel.querySelector('#dbg-entries').prepend(entry);
+  }
+
+  function _debugUpdateStatus(submissionId, statusText) {
+    var el = document.getElementById('dbg-status-' + submissionId);
+    if (el) {
+      el.textContent = statusText;
+      el.style.color = statusText.indexOf('✅') === 0 ? '#4caf50' : '#ff5252';
+    }
+    // Also update localStorage entry
+    try {
+      var submissions = JSON.parse(localStorage.getItem('ejp_submissions') || '[]');
+      var entry = submissions.find(function (s) { return s.id === submissionId; });
+      if (entry) {
+        entry.iframeStatus = statusText;
+        localStorage.setItem('ejp_submissions', JSON.stringify(submissions));
+      }
+    } catch (e) {}
+  }
+
+  function _getOrCreateDebugPanel() {
+    var existing = document.getElementById('sf-debug-panel');
+    if (existing) return existing;
+
+    var panel = document.createElement('div');
+    panel.id = 'sf-debug-panel';
+    panel.style.cssText = [
+      'position:fixed;bottom:16px;right:16px;z-index:99999',
+      'width:420px;max-height:60vh;overflow-y:auto',
+      'background:#0d1117;color:#e6edf3;font:12px/1.5 monospace',
+      'border:1px solid #30363d;border-radius:8px;padding:12px',
+      'box-shadow:0 8px 32px rgba(0,0,0,0.6)'
+    ].join(';');
+
+    panel.innerHTML =
+      '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">' +
+        '<b style="color:#7ecfff;font-size:13px">⚡ EJP SF Debug</b>' +
+        '<span style="color:#888;font-size:10px">?debug=sf active</span>' +
+        '<button onclick="document.getElementById(\'sf-debug-panel\').remove()" ' +
+          'style="background:none;border:none;color:#888;cursor:pointer;font-size:14px;padding:0 4px">✕</button>' +
+      '</div>' +
+      '<div style="font-size:10px;color:#888;margin-bottom:8px;">' +
+        'Check browser console for full details.<br>' +
+        'Iframe load = SF received the POST (not that the lead was accepted).' +
+      '</div>' +
+      '<div id="dbg-entries"></div>';
+
+    document.body.appendChild(panel);
+    return panel;
+  }
+
+  function _esc(str) {
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
 
 })();
