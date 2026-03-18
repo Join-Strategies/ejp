@@ -79,13 +79,16 @@
     </div>
   </div>
 
-  <!-- RETURNING VISITOR NUDGE (shown by JS if ejp_session exists) -->
-  <div id="home-returning-nudge" class="home-returning-nudge" style="display:none;">
-    <div class="home-returning-nudge-inner">
-      <span id="home-returning-msg">Welcome back.</span>
-      <div class="nudge-actions">
-        <a href="why-join.html" class="btn btn-primary btn-sm">Learn About Membership &rarr;</a>
-        <a href="#contact" class="btn btn-ghost btn-sm">Stay in Touch</a>
+  <!-- RETURNING VISITOR MODAL (shown by JS if ejp_session exists) -->
+  <div id="returning-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="returning-modal-title">
+    <div class="modal-box returning-modal-box">
+      <button class="modal-close" id="returning-modal-close" aria-label="Close">&times;</button>
+      <div class="returning-modal-icon" aria-hidden="true">👋</div>
+      <h2 class="returning-modal-title" id="returning-modal-title">Welcome back<span id="returning-modal-name"></span>.</h2>
+      <p class="returning-modal-body">Good to see you again. EJP is here whenever you're ready — whether you want to learn more about your union benefits or stay connected with what's happening.</p>
+      <div class="returning-modal-actions">
+        <a href="why-join.html" class="btn btn-primary">Learn About Membership &rarr;</a>
+        <a href="#contact" class="btn btn-outline" id="returning-modal-contact">Stay in Touch</a>
       </div>
     </div>
   </div>
@@ -268,19 +271,53 @@
   <script src="nav.js?v=2"></script>
   <script src="animations.js"></script>
   <script>
-    // Returning visitor nudge — show if they previously submitted the wizard form
+    // Returning visitor modal — show once per session if ejp_session exists
     (function() {
       try {
+        if (sessionStorage.getItem('returning_modal_shown')) return;
         var raw = localStorage.getItem('ejp_session');
         if (!raw) return;
         var session = JSON.parse(raw);
         var age = Date.now() - (session.timestamp || 0);
-        if (age > 30 * 24 * 60 * 60 * 1000) return; // expire after 30 days
+        if (age > 30 * 24 * 60 * 60 * 1000) return;
         if (!session.firstName) return;
-        var nudge = document.getElementById('home-returning-nudge');
-        var msg   = document.getElementById('home-returning-msg');
-        msg.textContent = 'Welcome back, ' + session.firstName + '.';
-        nudge.style.display = '';
+
+        var overlay = document.getElementById('returning-modal');
+        var nameEl  = document.getElementById('returning-modal-name');
+        var closeBtn = document.getElementById('returning-modal-close');
+        var contactLink = document.getElementById('returning-modal-contact');
+
+        nameEl.textContent = ', ' + session.firstName;
+
+        function openModal() {
+          overlay.classList.remove('hidden');
+          requestAnimationFrame(function() {
+            overlay.classList.add('is-open');
+            document.body.classList.add('modal-open');
+          });
+          sessionStorage.setItem('returning_modal_shown', '1');
+        }
+
+        function closeModal() {
+          overlay.classList.remove('is-open');
+          document.body.classList.remove('modal-open');
+          overlay.addEventListener('transitionend', function handler() {
+            overlay.classList.add('hidden');
+            overlay.removeEventListener('transitionend', handler);
+          });
+        }
+
+        closeBtn.addEventListener('click', closeModal);
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) closeModal();
+        });
+        contactLink.addEventListener('click', closeModal);
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') closeModal();
+        });
+
+        // Small delay so the page settles before the modal appears
+        setTimeout(openModal, 900);
       } catch(e) {}
     })();
   </script>

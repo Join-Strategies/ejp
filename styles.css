@@ -538,33 +538,34 @@ a:hover { color: var(--color-brand-hover); }
   font-weight: var(--font-weight-semibold);
 }
 
-.home-returning-nudge {
-  background: var(--color-surface-raised);
-  border-bottom: 1px solid var(--color-border);
-  padding: var(--space-sm) var(--space-lg);
+.returning-modal-box {
+  text-align: center;
+  max-width: 420px;
 }
 
-.home-returning-nudge-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: var(--space-md);
-  flex-wrap: wrap;
-  font-size: var(--text-sm);
+.returning-modal-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-md);
+  line-height: 1;
+}
+
+.returning-modal-title {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-sm);
+}
+
+.returning-modal-body {
   color: var(--color-text-secondary);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  margin-bottom: var(--space-2xl);
 }
 
-.home-returning-nudge .nudge-actions {
+.returning-modal-actions {
   display: flex;
+  flex-direction: column;
   gap: var(--space-sm);
-  margin-left: auto;
-  flex-shrink: 0;
-}
-
-@media (max-width: 600px) {
-  .home-returning-nudge-inner { flex-direction: column; align-items: flex-start; }
-  .home-returning-nudge .nudge-actions { margin-left: 0; }
 }
 
 
