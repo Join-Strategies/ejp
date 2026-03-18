@@ -71,6 +71,14 @@
     formEl.action = SF_ENDPOINT;
     formEl.method = 'POST';
     formEl.target = iframeId;
+
+    // DEBUG — log every field being submitted. Remove before go-live.
+    console.group('EJP form submit');
+    console.log('endpoint:', SF_ENDPOINT);
+    var debugData = new FormData(formEl);
+    debugData.forEach(function(v, k) { console.log(k, '=', v); });
+    console.groupEnd();
+
     formEl.submit();
 
     // Restore form attributes immediately after submit
