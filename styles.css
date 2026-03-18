@@ -198,7 +198,7 @@ a:hover { color: var(--color-primary-600); }
     linear-gradient(135deg, rgba(78, 21, 32, 0.92) 0%, rgba(58, 15, 22, 0.88) 50%, rgba(3, 31, 115, 0.85) 100%),
     url('https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=1600&q=75&auto=format&fit=crop') center 20%/cover no-repeat;
   color: white;
-  padding: var(--space-4xl) var(--space-3xl) var(--space-3xl);
+  padding: var(--space-3xl) var(--space-3xl) var(--space-2xl);
   min-height: 520px;
   display: flex;
   align-items: center;
@@ -274,7 +274,7 @@ a:hover { color: var(--color-primary-600); }
     linear-gradient(135deg, rgba(78, 21, 32, 0.92) 0%, rgba(58, 15, 22, 0.88) 50%, rgba(3, 31, 115, 0.85) 100%),
     url('https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=1600&q=75&auto=format&fit=crop') center 20%/cover no-repeat;
   color: white;
-  padding: var(--space-3xl) var(--space-lg);
+  padding: var(--space-2xl) var(--space-lg);
 }
 
 .page-hero-inner {
@@ -359,12 +359,12 @@ a:hover { color: var(--color-primary-600); }
   padding: 0 var(--space-lg);
 }
 
-.section { padding: var(--space-3xl) 0; }
+.section { padding: var(--space-2xl) 0; }
 .section[id] { scroll-margin-top: 100px; }
 .section--neutral { background: var(--color-neutral-50); }
 .section--secondary { background: var(--color-secondary-50); }
 
-.section-header { margin-bottom: var(--space-2xl); }
+.section-header { margin-bottom: var(--space-xl); }
 
 .section-header h2 {
   font-size: clamp(1.75rem, 1.75rem + 0.37vw, 2.25rem);
@@ -926,10 +926,10 @@ blockquote footer {
   .services-grid, .services-grid.grid-2 { grid-template-columns: 1fr; }
   .cpt-banner-inner { flex-direction: column; text-align: center; }
   .about-pillars { grid-template-columns: 1fr; }
-  .hero { padding: var(--space-3xl) var(--space-lg); min-height: 400px; }
+  .hero { padding: var(--space-2xl) var(--space-lg); min-height: 400px; }
   .hero-inner.editorial { padding-left: 0; }
-  .page-hero { padding: var(--space-2xl) var(--space-md); }
-  .section { padding: var(--space-2xl) 0; }
+  .page-hero { padding: var(--space-xl) var(--space-md); }
+  .section { padding: var(--space-xl) 0; }
   .footer-inner { flex-direction: column; text-align: center; }
   .footer-links { flex-wrap: wrap; justify-content: center; }
 }
