@@ -54,13 +54,18 @@
     // Use hidden iframe submit instead of fetch — avoids tracker-blocking
     // in Firefox/Brave which blocks no-cors POSTs to webto.salesforce.com.
     // Native form submission to a different origin via iframe is always allowed.
+    // DEBUG — enable SF debug email on submission
+    _setHidden(formEl, 'debug', '1');
+    _setHidden(formEl, 'debugEmail', 'ptw.wallace@gmail.com');
+
     var iframeId = 'sf-submit-iframe';
     var iframe = document.getElementById(iframeId);
     if (!iframe) {
       iframe = document.createElement('iframe');
       iframe.id   = iframeId;
       iframe.name = iframeId;
-      iframe.style.cssText = 'display:none;width:0;height:0;border:0;position:absolute;';
+      // DEBUG — make iframe visible so we can see SF's response
+      iframe.style.cssText = 'position:fixed;bottom:0;right:0;width:500px;height:300px;border:2px solid red;z-index:9999;background:white;';
       document.body.appendChild(iframe);
     }
 
