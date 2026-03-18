@@ -28,21 +28,20 @@
   }
 
   // ─── Hero entry stagger ────────────────────────────────────────────────────
-  // Stagger hero children in with blur-reveal effect.
-  // CSS already animates these on load via .hero-inner > * keyframes,
-  // but if GSAP is available it takes over for more control.
-  // We override the CSS animation by setting will-change and using GSAP.
+  // CSS has a fallback blur-reveal keyframe on .hero-inner > * for no-JS environments.
+  // When GSAP is available, we cancel that CSS animation per-element and run GSAP instead.
   var heroChildren = document.querySelectorAll('.hero-inner > *');
   if (heroChildren.length) {
-    gsap.set(heroChildren, { opacity: 0, y: 12, filter: 'blur(4px)', clearProps: 'animation' });
+    // Cancel the CSS keyframe animation — GSAP is taking over
+    heroChildren.forEach(function (el) { el.style.animation = 'none'; });
+    gsap.set(heroChildren, { opacity: 0, y: 12, filter: 'blur(4px)' });
     gsap.to(heroChildren, {
       opacity: 1,
       y: 0,
       filter: 'blur(0px)',
-      duration: 0.8,
+      duration: 0.7,
       ease: 'power2.out',
-      stagger: 0.12,
-      clearProps: 'filter',  // clean up filter after animation to avoid compositing cost
+      stagger: 0.1,
       delay: 0.05
     });
   }
@@ -132,7 +131,9 @@
           filter: 'blur(0px)',
           duration: opts.duration,
           ease: 'power2.out',
-          clearProps: 'filter',
+          // Note: no clearProps here — GSAP's inline filter:blur(0px) must persist
+          // to override the .reveal CSS class's filter:blur(3px). Clearing it causes
+          // the CSS rule to reassert, making elements blur back out after reveal.
           scrollTrigger: {
             trigger: el,
             start: 'top 88%',
@@ -154,7 +155,7 @@
           duration: opts.duration,
           ease: 'power2.out',
           stagger: 0.07,
-          clearProps: 'filter',
+          // Same as above — no clearProps to avoid blur revert
           scrollTrigger: {
             trigger: container,
             start: 'top 88%',

@@ -416,15 +416,17 @@ a:hover { color: var(--color-brand-hover); }
   padding-left: var(--space-2xl);
 }
 
-/* Hero entry stagger — children animate in sequence on page load */
+/* Hero entry stagger — CSS-only fallback when GSAP is unavailable.
+   When GSAP loads, animations.js sets el.style.animation = 'none' per child,
+   cancelling this keyframe so only GSAP runs (prevents double-animation fight). */
 .hero-inner > * {
-  animation: blur-reveal 0.8s var(--ease-spring) both;
+  animation: blur-reveal 0.7s var(--ease-spring) both;
 }
 .hero-inner > *:nth-child(1) { animation-delay:   0ms; }
-.hero-inner > *:nth-child(2) { animation-delay: 120ms; }
-.hero-inner > *:nth-child(3) { animation-delay: 240ms; }
-.hero-inner > *:nth-child(4) { animation-delay: 360ms; }
-.hero-inner > *:nth-child(5) { animation-delay: 480ms; }
+.hero-inner > *:nth-child(2) { animation-delay: 100ms; }
+.hero-inner > *:nth-child(3) { animation-delay: 200ms; }
+.hero-inner > *:nth-child(4) { animation-delay: 300ms; }
+.hero-inner > *:nth-child(5) { animation-delay: 400ms; }
 
 .hero-kicker {
   display: inline-block;
@@ -1160,17 +1162,25 @@ blockquote footer {
    Motion — Scroll Reveal States
    ======================================== */
 
-/* Elements start hidden; JS adds .is-visible via IntersectionObserver / GSAP ScrollTrigger */
+/* Elements start hidden; GSAP sets filter/transform as inline styles via fromTo().
+   The CSS class only holds opacity + transform so the fallback IntersectionObserver path works.
+   Filter is NOT set here — if it were, clearProps:'filter' would cause it to snap back blurry. */
 .reveal {
   opacity: 0;
   transform: translateY(12px);
-  filter: blur(3px);
 }
 
 .reveal-stagger > * {
   opacity: 0;
   transform: translateY(12px);
-  filter: blur(3px);
+}
+
+/* Fallback: when GSAP is unavailable, IntersectionObserver adds .is-visible */
+.reveal.is-visible,
+.reveal-stagger > *.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s var(--ease-spring), transform 0.5s var(--ease-spring);
 }
 
 /* ========================================
