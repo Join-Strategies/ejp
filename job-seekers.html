@@ -72,15 +72,24 @@
         <p>Select the option that best describes what you're looking for.</p>
       </div>
 
+      <!-- G2: Returning visitor banner (shown by JS if session exists) -->
+      <div id="returning-banner" class="returning-banner" style="display:none;">
+        <span id="returning-banner-msg"></span>
+        <div class="banner-actions">
+          <button id="returning-continue" class="btn btn-primary btn-sm">Start where you left off &rarr;</button>
+          <button id="returning-restart" class="btn btn-ghost btn-sm">Start over</button>
+        </div>
+      </div>
+
       <!-- Step 1: Intent -->
       <div class="wizard-step" id="wizard-step-1">
         <div class="wizard-cards">
-          <button class="wizard-card" data-next="wizard-step-jobs" onclick="wizardGo('wizard-step-jobs')">
+          <button class="wizard-card" onclick="wizardGo('wizard-step-jobs')">
             <div class="wizard-card-icon" aria-hidden="true">&#x1F4BC;</div>
             <h3>I'm Looking for a Job</h3>
             <p>Browse open healthcare positions and submit your resume to employers across New York.</p>
           </button>
-          <button class="wizard-card" data-next="wizard-step-2" onclick="wizardGo('wizard-step-2')">
+          <button class="wizard-card" onclick="wizardGo('wizard-step-2')">
             <div class="wizard-card-icon" aria-hidden="true">&#x1F4CB;</div>
             <h3>I'm Looking for Career Support</h3>
             <p>Access career counseling, resume help, interview prep, training programs, and more.</p>
@@ -88,33 +97,126 @@
         </div>
       </div>
 
-      <!-- Step 2: Membership (career support only) -->
+      <!-- Step 2: Membership check -->
       <div class="wizard-step wizard-step--hidden" id="wizard-step-2">
         <button class="wizard-back" onclick="wizardGo('wizard-step-1')">&larr; Back</button>
         <div class="wizard-cards">
-          <a href="#" class="wizard-card wizard-card--result">
+          <button class="wizard-card wizard-card--result" onclick="wizardGo('wizard-step-member')">
             <div class="wizard-card-icon" aria-hidden="true">&#x2705;</div>
             <h3>I'm a Union Member</h3>
             <span class="wizard-card-sub">Including CPT graduates</span>
-            <p>Log in to myTEF to access your full career services: counseling, job matching, workshops, and more.</p>
-            <span class="btn btn-primary">Log In to MyTEF &rarr;</span>
-          </a>
-          <a href="why-join.html" class="wizard-card wizard-card--result">
+            <p>Connect with a career counselor who can help with job placement, counseling, and more.</p>
+            <span class="btn btn-primary">Get Career Support &rarr;</span>
+          </button>
+          <button class="wizard-card wizard-card--result" onclick="wizardGo('wizard-step-nonmember')">
             <div class="wizard-card-icon" aria-hidden="true">&#x1F31F;</div>
             <h3>I'm Not a Union Member</h3>
             <p>Learn about the benefits of 1199SEIU membership and how to access career services.</p>
             <span class="btn btn-secondary">Learn More &rarr;</span>
-          </a>
+          </button>
         </div>
       </div>
 
-      <!-- Job browsing destination -->
+      <!-- Step: Job browsing destination -->
       <div class="wizard-step wizard-step--hidden" id="wizard-step-jobs">
         <button class="wizard-back" onclick="wizardGo('wizard-step-1')">&larr; Back</button>
         <div class="wizard-result">
           <h3>Browse Open Positions</h3>
           <p>Search healthcare job openings and submit your resume directly to employers.</p>
           <a href="https://www.1199careers.org/careers-home/jobs" class="btn btn-primary btn-lg" target="_blank">Browse Jobs &rarr;</a>
+        </div>
+      </div>
+
+      <!-- C1: Union member intake form -->
+      <div class="wizard-step wizard-step--hidden" id="wizard-step-member">
+        <button class="wizard-back" onclick="wizardGo('wizard-step-2')">&larr; Back</button>
+        <div class="wizard-form" id="member-form-container">
+          <h3>Let's connect you with career services</h3>
+          <p>Fill out the form below and a career counselor will reach out within 2 business days to get you started.</p>
+          <form id="member-intake-form" novalidate>
+            <input type="hidden" name="oid" value="00DdL00000rNMCb">
+            <input type="hidden" name="retURL" value="https://toolnyc.github.io/ejp/thank-you.html">
+            <input type="hidden" name="lead_source" value="Job Seeker - Union Member">
+            <input type="hidden" id="member-source-page" name="00NdL0000248yOf" value="job-seekers - wizard">
+            <input type="hidden" id="member-status-hidden" name="00NdL00002447vf" value="Member">
+            <input type="hidden" id="member-support-needs" name="00NdL0000248phx" value="">
+
+            <div class="form-group">
+              <label for="member-first-name">First Name <span aria-hidden="true">*</span></label>
+              <input type="text" id="member-first-name" name="first_name" required autocomplete="given-name">
+            </div>
+            <div class="form-group">
+              <label for="member-last-name">Last Name <span aria-hidden="true">*</span></label>
+              <input type="text" id="member-last-name" name="last_name" required autocomplete="family-name">
+            </div>
+            <div class="form-group">
+              <label for="member-email">Email <span aria-hidden="true">*</span></label>
+              <input type="email" id="member-email" name="email" required autocomplete="email">
+            </div>
+            <div class="form-group">
+              <label for="member-phone">Phone</label>
+              <input type="tel" id="member-phone" name="phone" autocomplete="tel">
+            </div>
+            <div class="form-group">
+              <label>Member Status <span aria-hidden="true">*</span></label>
+              <div class="form-group--radio-group">
+                <label><input type="radio" name="_memberStatus" value="Member" required> Active Union Member</label>
+                <label><input type="radio" name="_memberStatus" value="Member"> CPT Graduate</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>What kind of support are you looking for?</label>
+              <div class="form-group--checkbox-group">
+                <label><input type="checkbox" name="_support" value="Resume Assistance"> Resume Assistance</label>
+                <label><input type="checkbox" name="_support" value="Career Counseling"> Career Counseling</label>
+                <label><input type="checkbox" name="_support" value="Interview Preparation"> Interview Preparation</label>
+                <label><input type="checkbox" name="_support" value="Job Placement / Matching"> Job Placement / Matching</label>
+                <label><input type="checkbox" name="_support" value="Workshop / Training"> Workshop / Training</label>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Connect Me with a Counselor &rarr;</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- C2: Non-member capture form -->
+      <div class="wizard-step wizard-step--hidden" id="wizard-step-nonmember">
+        <button class="wizard-back" onclick="wizardGo('wizard-step-2')">&larr; Back</button>
+        <div class="wizard-form" id="nonmember-form-container">
+          <h3>You're in the right place</h3>
+          <p>Leave your email and we'll send you information about how to access career services &mdash; no membership required to start.</p>
+          <form id="nonmember-intake-form" novalidate>
+            <input type="hidden" name="oid" value="00DdL00000rNMCb">
+            <input type="hidden" name="retURL" value="https://toolnyc.github.io/ejp/thank-you.html">
+            <input type="hidden" name="lead_source" value="Job Seeker - Non-Member">
+            <input type="hidden" name="00NdL0000248yOf" value="job-seekers - wizard">
+            <input type="hidden" name="00NdL00002447vf" value="Non-Member">
+
+            <div class="form-group">
+              <label for="nonmember-first-name">First Name <span aria-hidden="true">*</span></label>
+              <input type="text" id="nonmember-first-name" name="first_name" required autocomplete="given-name">
+            </div>
+            <div class="form-group">
+              <label for="nonmember-email">Email <span aria-hidden="true">*</span></label>
+              <input type="email" id="nonmember-email" name="email" required autocomplete="email">
+            </div>
+            <div class="form-group">
+              <label for="nonmember-reason">What brought you here?</label>
+              <select id="nonmember-reason" name="description">
+                <option value="">-- Select one --</option>
+                <option value="I'm looking for a healthcare job">I'm looking for a healthcare job</option>
+                <option value="I want to explore training programs">I want to explore training programs</option>
+                <option value="I heard about 1199SEIU and want to learn more">I heard about 1199SEIU and want to learn more</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Send Me More Info &rarr;</button>
+              <a href="why-join.html" class="btn btn-ghost">Skip &mdash; just show me what's available &rarr;</a>
+            </div>
+          </form>
         </div>
       </div>
 
@@ -227,13 +329,118 @@
   </footer>
 
   <script src="nav.js"></script>
+  <script src="ejp-forms.js"></script>
   <script>
+    // ── Wizard navigation ─────────────────────────────────────────
     function wizardGo(stepId) {
       document.querySelectorAll('.wizard-step').forEach(function(step) {
         step.classList.add('wizard-step--hidden');
       });
       document.getElementById(stepId).classList.remove('wizard-step--hidden');
+      document.getElementById('get-started').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+
+    // ── G2: Returning visitor banner ──────────────────────────────
+    (function() {
+      var session = getSession();
+      if (!session || !session.firstName) return;
+
+      var banner = document.getElementById('returning-banner');
+      var msg    = document.getElementById('returning-banner-msg');
+      var contBtn = document.getElementById('returning-continue');
+      var restartBtn = document.getElementById('returning-restart');
+
+      var destStep = session.memberStatus === 'non-member' ? 'wizard-step-nonmember' : 'wizard-step-member';
+      var statusLabel = session.memberStatus === 'non-member' ? 'not a member yet' : 'a union member';
+
+      msg.textContent = 'Welcome back, ' + session.firstName + '. Last time you told us you\'re ' + statusLabel + '.';
+      banner.style.display = '';
+
+      contBtn.addEventListener('click', function() {
+        banner.style.display = 'none';
+        wizardGo(destStep);
+      });
+      restartBtn.addEventListener('click', function() {
+        banner.style.display = 'none';
+        wizardGo('wizard-step-1');
+      });
+    })();
+
+    // ── C1: Union member intake form ──────────────────────────────
+    document.getElementById('member-intake-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var form = this;
+
+      // Collect support needs from checkboxes into hidden field
+      var checked = Array.from(form.querySelectorAll('[name="_support"]:checked')).map(function(cb) { return cb.value; });
+      form.querySelector('#member-support-needs').value = checked.join(', ');
+
+      // Mirror radio to hidden field
+      var statusRadio = form.querySelector('[name="_memberStatus"]:checked');
+      if (statusRadio) form.querySelector('#member-status-hidden').value = statusRadio.value;
+
+      // Basic validation
+      if (!form.querySelector('#member-first-name').value.trim() ||
+          !form.querySelector('#member-last-name').value.trim() ||
+          !form.querySelector('#member-email').value.trim()) {
+        alert('Please fill in your first name, last name, and email.');
+        return;
+      }
+
+      submitToSalesforce(form, {
+        submissionType: 'job-seeker',
+        sourcePage: 'job-seekers - wizard',
+        onSuccess: function(data) {
+          saveSession({
+            firstName: data.first_name,
+            lastName: data.last_name,
+            email: data.email,
+            memberStatus: 'union-member'
+          });
+          var container = document.getElementById('member-form-container');
+          showFormSuccess(container,
+            'We\'ve got you, ' + data.first_name + '. A counselor will reach out within 2 business days.');
+          container.insertAdjacentHTML('beforeend',
+            '<p style="text-align:center;margin-top:1rem;">' +
+            '<a href="https://mytef.org" class="card-link" target="_blank">Already have a MyTEF account? Log in at mytef.org &rarr;</a>' +
+            '</p>');
+        }
+      });
+    });
+
+    // ── C2: Non-member intake form ────────────────────────────────
+    document.getElementById('nonmember-intake-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var form = this;
+
+      if (!form.querySelector('#nonmember-first-name').value.trim() ||
+          !form.querySelector('#nonmember-email').value.trim()) {
+        alert('Please fill in your first name and email.');
+        return;
+      }
+
+      submitToSalesforce(form, {
+        submissionType: 'job-seeker',
+        sourcePage: 'job-seekers - wizard',
+        onSuccess: function(data) {
+          saveSession({
+            firstName: data.first_name,
+            email: data.email,
+            memberStatus: 'non-member'
+          });
+          var container = document.getElementById('nonmember-form-container');
+          container.innerHTML =
+            '<div class="form-success">' +
+              '<div class="form-success-icon">✅</div>' +
+              '<h3>Got it, ' + data.first_name + '.</h3>' +
+              '<p>Taking you to learn more about membership&hellip;</p>' +
+            '</div>';
+          setTimeout(function() {
+            window.location.href = 'why-join.html';
+          }, 1500);
+        }
+      });
+    });
   </script>
 
 </body>

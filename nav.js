@@ -52,3 +52,23 @@
   window.addEventListener('scroll', updateActiveNav, { passive: true });
   updateActiveNav();
 })();
+
+// G1: Session personalization — update "My TEF" button for returning visitors
+(function() {
+  var session = null;
+  try {
+    var raw = localStorage.getItem('ejp_session');
+    if (raw) {
+      session = JSON.parse(raw);
+      var age = Date.now() - (session.timestamp || 0);
+      if (age > 30 * 24 * 60 * 60 * 1000) session = null;
+    }
+  } catch(e) {}
+
+  if (session && session.firstName) {
+    document.querySelectorAll('.nav-cta').forEach(function(el) {
+      el.textContent = 'Hi, ' + session.firstName + ' \u2192';
+      el.title = 'MyTEF portal coming soon';
+    });
+  }
+})();

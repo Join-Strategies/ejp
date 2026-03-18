@@ -144,8 +144,14 @@
       <div class="newsletter-block">
         <h2>Stay Connected</h2>
         <p>Not ready to join yet? Sign up for our newsletter to get updates on healthcare careers, events, and opportunities.</p>
-        <form class="newsletter-form" onsubmit="return false;">
-          <input type="email" placeholder="Your email address" class="newsletter-input" required>
+        <form class="newsletter-form" id="newsletter-form">
+          <input type="hidden" name="oid" value="00DdL00000rNMCb">
+          <input type="hidden" name="retURL" value="https://toolnyc.github.io/ejp/thank-you.html">
+          <input type="hidden" name="lead_source" value="Newsletter">
+          <input type="hidden" name="00NdL0000248yOf" value="why-join">
+          <input type="hidden" name="00NdL00002447vf" value="Non-Member">
+          <input type="text" name="first_name" placeholder="First name" class="newsletter-input" style="max-width:160px;" autocomplete="given-name">
+          <input type="email" name="email" placeholder="Your email address" class="newsletter-input" required autocomplete="email">
           <button type="submit" class="btn btn-primary btn-lg">Subscribe</button>
         </form>
         <p class="disclaimer-text">We respect your privacy. Unsubscribe at any time.</p>
@@ -190,6 +196,23 @@
   </footer>
 
   <script src="nav.js"></script>
+  <script src="ejp-forms.js"></script>
+  <script>
+    document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      submitToSalesforce(this, {
+        submissionType: 'newsletter',
+        sourcePage: 'why-join',
+        onSuccess: function(data) {
+          saveSession({ firstName: data.first_name, email: data.email, memberStatus: 'non-member' });
+          showFormSuccess(
+            document.querySelector('.newsletter-block'),
+            'You\'re subscribed! We\'ll keep you posted on healthcare careers and EJP events.'
+          );
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>

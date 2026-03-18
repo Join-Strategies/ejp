@@ -1160,4 +1160,194 @@ blockquote footer {
   .event-date-badge       { width: 60px; height: 60px; }
   .event-day              { font-size: var(--text-xl); }
   .event-meta             { flex-direction: column; gap: var(--space-xs); }
+  .form-actions           { flex-direction: column; }
+  .modal-box              { padding: var(--space-xl); }
+}
+
+
+/* ========================================
+   Modal Overlay — B3
+   ======================================== */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 15, 16, 0.6); /* neutral-900 at 60% */
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+}
+
+.modal-overlay.hidden {
+  display: none;
+}
+
+.modal-box {
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  max-width: 540px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-tertiary);
+  font-size: var(--text-xl);
+  line-height: 1;
+  padding: var(--space-xs);
+  border-radius: var(--radius-sm);
+  transition: color 0.15s;
+}
+
+.modal-close:hover {
+  color: var(--color-primary);
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+/* ── Form components ─────────────────── */
+
+.form-group {
+  margin-bottom: var(--space-lg);
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: var(--space-xs);
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  border: 2px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  font-family: 'Roboto', sans-serif;
+  font-size: var(--text-base);
+  color: var(--color-text-primary);
+  background: var(--color-surface);
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--color-accent-500);
+  outline: none;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-group--checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.form-group--checkbox-group label,
+.form-group--radio-group label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.form-group--radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.form-actions {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+/* ── Form success state ──────────────── */
+
+.form-success {
+  text-align: center;
+  padding: var(--space-2xl);
+}
+
+.form-success-icon {
+  font-size: 3rem;
+  margin-bottom: var(--space-md);
+}
+
+.form-success h3 {
+  color: var(--color-primary);
+  margin-bottom: var(--space-sm);
+}
+
+/* ── Inline wizard form ──────────────── */
+
+.wizard-form {
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  margin-top: var(--space-xl);
+}
+
+.wizard-form h3 {
+  margin-bottom: var(--space-sm);
+}
+
+.wizard-form > p {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xl);
+}
+
+/* ── Return visitor banner ───────────── */
+
+.returning-banner {
+  background: var(--color-accent-50);
+  border: 1px solid var(--color-accent-400);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md) var(--space-lg);
+  margin-bottom: var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.returning-banner .banner-actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.returning-banner .btn-sm {
+  font-size: var(--text-xs);
+  padding: var(--space-xs) var(--space-md);
 }
