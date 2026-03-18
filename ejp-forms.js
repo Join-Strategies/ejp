@@ -117,13 +117,24 @@
       document.body.appendChild(iframe);
     }
 
-    // ── Debug: watch the iframe for load/error events ──
-    // onload fires when SF responds (even with a redirect/error page).
-    // If it never fires, the network request itself was blocked.
+    // ── Wait for iframe to load before showing success to the user ──
+    // onload fires when SF responds and redirects back to retURL.
+    // Falls back after 15s so the user is never stuck waiting.
+    var successCalled = false;
+    function _callSuccess() {
+      if (successCalled) return;
+      successCalled = true;
+      _logSubmission(finalFormData, options, submissionId);
+      if (typeof options.onSuccess === 'function') {
+        options.onSuccess(finalFormData);
+      }
+    }
+
     var iframeLoadTimer = setTimeout(function () {
-      console.warn('[EJP SF] ⚠️  Iframe did not fire onload within 10s — request may be blocked by browser or network. Check: (1) tracker-blocking extensions, (2) network tab for the POST to webto.salesforce.com, (3) firewall/proxy.');
-      if (SF_DEBUG) _debugUpdateStatus(submissionId, 'TIMEOUT — iframe never loaded (>10s). Check network tab.');
-    }, 10000);
+      console.warn('[EJP SF] ⚠️  Iframe did not fire onload within 15s — request may be blocked by browser or network. Check: (1) tracker-blocking extensions, (2) network tab for the POST to webto.salesforce.com, (3) firewall/proxy.');
+      if (SF_DEBUG) _debugUpdateStatus(submissionId, 'TIMEOUT — iframe never loaded (>15s). Check network tab.');
+      _callSuccess(); // show success anyway so user isn't stuck
+    }, 15000);
 
     iframe.onload = function () {
       clearTimeout(iframeLoadTimer);
@@ -133,6 +144,7 @@
       if (SF_DEBUG) _debugUpdateStatus(submissionId, '✅ Iframe loaded — SF received the request at ' + new Date(loadTime).toISOString());
       iframe.onload = null;
       iframe.onerror = null;
+      _callSuccess();
     };
 
     iframe.onerror = function () {
@@ -141,6 +153,7 @@
       if (SF_DEBUG) _debugUpdateStatus(submissionId, '❌ Iframe onerror — POST was blocked or failed at network level.');
       iframe.onload = null;
       iframe.onerror = null;
+      _callSuccess(); // still show success — failure is network-level, not user error
     };
 
     var prevAction = formEl.action;
@@ -160,12 +173,6 @@
     formEl.target = prevTarget;
 
     console.groupEnd();
-
-    // Treat as success — SF Web-to-Lead gives no success signal cross-origin
-    _logSubmission(finalFormData, options, submissionId);
-    if (typeof options.onSuccess === 'function') {
-      options.onSuccess(finalFormData);
-    }
   };
 
   // Set or update a hidden input on formEl
