@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.3.1/dist/driver.css">
 </head>
 <body>
 
@@ -73,7 +74,7 @@
         <p data-i18n="emp-why-intro">We work with healthcare employers across New York to understand their specific staffing needs and match them with qualified candidates from our network.</p>
       </div>
 
-      <div class="services-grid reveal-stagger">
+      <div class="services-grid reveal-stagger" id="emp-why-partner">
         <div class="service-card service-card--centered">
           <div class="service-card-icon secondary" aria-hidden="true">&#x1F393;</div>
           <h3 data-i18n="emp-svc-cpt-h3">CPT-Trained Candidates</h3>
@@ -102,7 +103,7 @@
       </div>
 
       <div class="services-grid grid-2 reveal-stagger">
-        <div class="service-card employer-card">
+        <div class="service-card employer-card" id="emp-vacancy-card">
           <div class="service-card-icon secondary" aria-hidden="true">&#x1F4E4;</div>
           <h3 data-i18n="emp-vacancies-h3">Submit Job Openings</h3>
           <p data-i18n="emp-vacancies-p">Post your vacancies directly to our qualified candidate pool. We'll match you with CPT-trained professionals.</p>
@@ -117,7 +118,7 @@
           <a href="#" class="card-link" data-i18n="emp-partner-link">Apply to Be a Partner &rarr;</a>
         </div>
 
-        <div class="service-card employer-card">
+        <div class="service-card employer-card" id="emp-events-card">
           <div class="service-card-icon secondary" aria-hidden="true">&#x1F4C5;</div>
           <h3 data-i18n="emp-events-h3">Attend Hiring Events</h3>
           <p data-i18n="emp-events-p">Meet qualified candidates in person at our career fairs and hiring events throughout New York.</p>
@@ -385,6 +386,8 @@
   </script>
   <script src="animations.js"></script>
   <script src="lang.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/driver.js@1.3.1/dist/driver.js.iife.js"></script>
+  <script src="tour.js"></script>
 
 </body>
 </html>
