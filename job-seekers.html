@@ -84,7 +84,7 @@
       </div>
 
       <!-- Step 1: Intent -->
-      <div class="wizard-step" id="wizard-step-1">
+      <div class="wizard-step active" id="wizard-step-1">
         <div class="wizard-cards">
           <button class="wizard-card" onclick="wizardGo('wizard-step-jobs')">
             <div class="wizard-card-icon" aria-hidden="true">&#x1F4BC;</div>
@@ -341,8 +341,11 @@
     function wizardGo(stepId) {
       document.querySelectorAll('.wizard-step').forEach(function(step) {
         step.classList.add('wizard-step--hidden');
+        step.classList.remove('active');
       });
-      document.getElementById(stepId).classList.remove('wizard-step--hidden');
+      var target = document.getElementById(stepId);
+      target.classList.remove('wizard-step--hidden');
+      target.classList.add('active');
       document.getElementById('get-started').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
