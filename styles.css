@@ -568,6 +568,73 @@ a:hover { color: var(--color-brand-hover); }
   gap: var(--space-sm);
 }
 
+/* ── My TEF portal modal ─────────────────────────────────────── */
+.mytef-modal-box {
+  text-align: center;
+  max-width: 460px;
+}
+
+.mytef-modal-logo {
+  display: inline-block;
+  background: var(--color-brand);
+  color: #fff;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-lg);
+}
+
+.mytef-modal-title {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-sm);
+}
+
+.mytef-modal-body {
+  color: var(--color-text-secondary);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  margin-bottom: var(--space-lg);
+}
+
+.mytef-modal-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-2xl);
+  text-align: left;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xs) var(--space-lg);
+}
+
+.mytef-modal-features li {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  padding-left: var(--space-md);
+  position: relative;
+}
+
+.mytef-modal-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-brand);
+  font-weight: 700;
+}
+
+.mytef-modal-cta {
+  width: 100%;
+  justify-content: center;
+}
+
+.mytef-modal-footnote {
+  margin-top: var(--space-md);
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+}
+
 
 /* ========================================
    Buttons

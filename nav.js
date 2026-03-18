@@ -53,3 +53,64 @@
   updateActiveNav();
 })();
 
+// My TEF portal modal — injected on every page
+(function() {
+  var MYTEF_URL = 'https://1199seiutef.my.site.com/s/login/';
+
+  // Inject modal HTML once
+  var modalHTML = [
+    '<div id="mytef-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="mytef-modal-title">',
+    '  <div class="modal-box mytef-modal-box">',
+    '    <button class="modal-close" id="mytef-modal-close" aria-label="Close">&times;</button>',
+    '    <div class="mytef-modal-logo" aria-hidden="true">myTEF</div>',
+    '    <h2 class="mytef-modal-title" id="mytef-modal-title">My TEF Portal</h2>',
+    '    <p class="mytef-modal-body">Access your training records, class enrollments, program applications, resume, and reimbursement status — all in the secure myTEF member portal.</p>',
+    '    <ul class="mytef-modal-features">',
+    '      <li>Sign up for classes &amp; training programs</li>',
+    '      <li>Apply for career advancement opportunities</li>',
+    '      <li>Upload and manage your resume</li>',
+    '      <li>Check tuition &amp; expense reimbursements</li>',
+    '    </ul>',
+    '    <a href="' + MYTEF_URL + '" target="_blank" rel="noopener" class="btn btn-primary btn-lg mytef-modal-cta">Go to My TEF Portal &rarr;</a>',
+    '    <p class="mytef-modal-footnote">You\'ll be taken to the secure 1199SEIU TEF member portal to log in.</p>',
+    '  </div>',
+    '</div>'
+  ].join('');
+
+  var container = document.createElement('div');
+  container.innerHTML = modalHTML;
+  document.body.appendChild(container.firstChild);
+
+  var overlay  = document.getElementById('mytef-modal');
+  var closeBtn = document.getElementById('mytef-modal-close');
+
+  function openMyTEF() {
+    overlay.classList.remove('hidden');
+    requestAnimationFrame(function() {
+      overlay.classList.add('is-open');
+      document.body.classList.add('modal-open');
+    });
+  }
+
+  function closeMyTEF() {
+    overlay.classList.remove('is-open');
+    document.body.classList.remove('modal-open');
+    overlay.addEventListener('transitionend', function handler() {
+      overlay.classList.add('hidden');
+      overlay.removeEventListener('transitionend', handler);
+    });
+  }
+
+  closeBtn.addEventListener('click', closeMyTEF);
+  overlay.addEventListener('click', function(e) { if (e.target === overlay) closeMyTEF(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMyTEF(); });
+
+  // Wire up all .nav-cta links and any btn with js-mytef-btn class
+  document.addEventListener('click', function(e) {
+    var target = e.target.closest('.nav-cta, .js-mytef-btn');
+    if (!target) return;
+    e.preventDefault();
+    openMyTEF();
+  });
+})();
+
