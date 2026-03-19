@@ -1714,6 +1714,7 @@ body.modal-open {
   padding: var(--space-xs) var(--space-md) !important;
   cursor: pointer !important;
   transition: background var(--transition-base) !important;
+  text-shadow: none !important;
 }
 
 .driver-popover-next-btn {
