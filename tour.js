@@ -71,7 +71,7 @@
         element: '#emp-vacancy-card',
         popover: {
           title: 'Submit Job Openings',
-          description: 'Post vacancies directly to our candidate pool. We\'ll match you with qualified professionals and follow up within 48 hours.'
+          description: 'Post vacancies directly to our candidate pool. We\'ll match you with qualified professionals and follow up with you.'
         }
       },
       {

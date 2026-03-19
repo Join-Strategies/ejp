@@ -134,7 +134,7 @@
         <button class="wizard-back" onclick="wizardGo('wizard-step-2')" data-i18n="js-wizard-back">&larr; Back</button>
         <div class="wizard-form" id="member-form-container">
           <h3 data-i18n="js-form-member-h3">Let's connect you with career services</h3>
-          <p data-i18n="js-form-member-p">Fill out the form below and a career counselor will reach out within 2 business days to get you started.</p>
+          <p data-i18n="js-form-member-p">Fill out the form below and a career counselor will reach out to get you started.</p>
           <form id="member-intake-form" novalidate>
             <input type="hidden" name="oid" value="00DdL00000rNMCb">
             <input type="hidden" name="retURL" value="https://toolnyc.github.io/ejp/thank-you.html">
@@ -403,7 +403,7 @@
           });
           var container = document.getElementById('member-form-container');
           showFormSuccess(container,
-            'We\'ve got you, ' + data.first_name + '. A counselor will reach out within 2 business days.');
+            'We\'ve got you, ' + data.first_name + '. A counselor will be in touch soon.');
           container.insertAdjacentHTML('beforeend',
             '<p style="text-align:center;margin-top:1rem;">' +
             '<a href="#" class="card-link js-mytef-btn">Already have a MyTEF account? Log in &rarr;</a>' +

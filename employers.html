@@ -197,7 +197,7 @@
     <div class="modal-box">
       <button class="modal-close" onclick="closeModal('employer-vacancy-modal')" aria-label="Close">&times;</button>
       <h2 id="vacancy-modal-title" data-i18n="emp-vacancy-modal-h2">Tell Us About Your Opening</h2>
-      <p style="color:var(--color-text-secondary);margin-bottom:var(--space-xl);" data-i18n="emp-vacancy-modal-p">Submit your vacancy details and our employer relations team will follow up within 48 hours.</p>
+      <p style="color:var(--color-text-secondary);margin-bottom:var(--space-xl);" data-i18n="emp-vacancy-modal-p">Submit your vacancy details and our employer relations team will follow up with you.</p>
       <div id="vacancy-form-container">
         <form id="vacancy-form" novalidate>
           <input type="hidden" name="oid" value="00DdL00000rNMCb">
@@ -265,7 +265,7 @@
     <div class="modal-box">
       <button class="modal-close" onclick="closeModal('employer-contact-modal')" aria-label="Close">&times;</button>
       <h2 id="contact-modal-title" data-i18n="emp-contact-modal-h2">Contact Employer Relations</h2>
-      <p style="color:var(--color-text-secondary);margin-bottom:var(--space-xl);" data-i18n="emp-contact-modal-p">Have a question about partnering with EJP? We'll get back to you within 2 business days.</p>
+      <p style="color:var(--color-text-secondary);margin-bottom:var(--space-xl);" data-i18n="emp-contact-modal-p">Have a question about partnering with EJP? We'll get back to you soon.</p>
       <div id="contact-form-container">
         <form id="contact-form" novalidate>
           <input type="hidden" name="oid" value="00DdL00000rNMCb">
@@ -352,7 +352,7 @@
         onSuccess: function(data) {
           showFormSuccess(
             document.getElementById('vacancy-form-container'),
-            'Thank you, ' + (nameParts[0] || 'there') + '. Our employer relations team will be in touch within 48 hours.'
+            'Thank you, ' + (nameParts[0] || 'there') + '. Our employer relations team will be in touch soon.'
           );
         }
       });
@@ -378,7 +378,7 @@
         onSuccess: function(data) {
           showFormSuccess(
             document.getElementById('contact-form-container'),
-            'Message received, ' + data.first_name + '. We\'ll be in touch within 2 business days.'
+            'Message received, ' + data.first_name + '. We\'ll be in touch soon.'
           );
         }
       });
