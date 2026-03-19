@@ -788,6 +788,14 @@ a:hover { color: var(--color-brand-hover); }
 .employer-card .service-card-icon { background: var(--color-employer-subtle); color: var(--color-employer); }
 .employer-card .card-link { color: var(--color-secondary-600); }
 
+/* Allow <button> elements to use card-link styling without browser defaults */
+button.card-link {
+  background: none;
+  border: none;
+  font: inherit;
+  text-align: left;
+}
+
 
 /* ========================================
    Value / Stats Grid
@@ -1502,7 +1510,7 @@ body.modal-open {
   font-size: var(--text-sm);
 }
 
-.form-group input,
+.form-group input:not([type="checkbox"]):not([type="radio"]),
 .form-group select,
 .form-group textarea {
   width: 100%;
@@ -1517,7 +1525,7 @@ body.modal-open {
   box-sizing: border-box;
 }
 
-.form-group input:focus,
+.form-group input:not([type="checkbox"]):not([type="radio"]):focus,
 .form-group select:focus,
 .form-group textarea:focus {
   border-color: var(--color-accent-500);
@@ -1542,6 +1550,7 @@ body.modal-open {
   gap: var(--space-sm);
   font-weight: 400;
   cursor: pointer;
+  margin-bottom: 0;
 }
 
 .form-group--radio-group {
