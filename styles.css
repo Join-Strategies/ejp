@@ -390,7 +390,7 @@ a:hover { color: var(--color-brand-hover); }
   font-weight: var(--font-weight-medium);
 }
 
-.nav-links a { color: var(--color-brand); }   /* Burgundy on light header */
+.nav-links a { color: var(--color-brand); white-space: nowrap; }   /* Burgundy on light header */
 .nav-links a:hover { color: var(--color-brand-hover); }
 .nav-links .active { color: var(--color-brand-hover); border-bottom: 2px solid var(--color-accent); padding-bottom: 2px; }
 
@@ -399,11 +399,9 @@ a:hover { color: var(--color-brand-hover); }
   color: var(--color-text-on-accent);
   padding: 7px 20px;      /* Smaller padding for nav CTA per Figma */
   border-radius: 10px;
-  font-weight: var(--font-weight-bold);
-  font-size: 17px;
-  border-radius: var(--btn-radius);
   font-weight: var(--btn-font-weight);
   font-size: var(--btn-font-size);
+  white-space: nowrap;
 }
 
 .nav-links .nav-cta:hover { background: var(--color-accent-hover); color: var(--color-text-on-accent); }
@@ -1213,6 +1211,7 @@ blockquote footer {
   gap: var(--space-sm);
   max-width: 480px;
   margin: 0 auto;
+  flex-wrap: wrap; /* Allow wrapping on narrow containers */
 }
 
 .newsletter-input {
