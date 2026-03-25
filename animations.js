@@ -50,12 +50,12 @@
   revealWithScrollTrigger({ duration: 0.6, y: 16, filter: 'blur(3px)' });
 
   // ─── Page-level fade-in for non-hero pages ─────────────────────────────────
-  // When navigating to a new page, the main content fades in.
+  // CSS hides main:not(:has(.hero)) with opacity: 0 by default to prevent flicker.
   var main = document.querySelector('main');
-  if (main && !document.querySelector('.hero')) {
-    gsap.from(main, {
-      opacity: 0,
-      y: 10,
+  if (main && !document.querySelector('.hero') && !document.querySelector('.page-hero')) {
+    gsap.to(main, {
+      opacity: 1,
+      y: 0,
       duration: 0.45,
       ease: 'power2.out'
     });

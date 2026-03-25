@@ -76,16 +76,16 @@
   --font-weight-extrabold: 800;
 
   /* — Typography: Scale — Updated March 2026 to match Figma design */
-  --text-xs:   0.75rem;    /* 12px — kickers, fine print, event-month */
-  --text-sm:   0.875rem;   /* 14px — buttons, card-link, small body */
-  --text-base: 1rem;       /* 16px — body default */
-  --text-md:   1.125rem;   /* 18px — section body copy (was 17px) */
-  --text-lg:   1.3125rem;  /* 21px — card h3, body copy (was 18px) */
-  --text-xl:   1.5rem;     /* 24px — wizard h3, prominent labels (was 20px) */
-  --text-2xl:  2.5rem;     /* 40px — sub-heading h3 (was 28px) */
-  --text-3xl:  4.0625rem;  /* 65px — section h2 (was 36px) */
-  --text-4xl:  4.375rem;   /* 70px — hero h1 (was 40px) */
-  --text-5xl:  1.25rem;    /* 20px — nav items (new) */
+  --text-xs:   0.675rem;    /* ~11px — kickers, fine print, event-month */
+  --text-sm:   0.7875rem;   /* ~12.6px — buttons, card-link, small body */
+  --text-base: 0.9rem;      /* ~14.4px — body default */
+  --text-md:   1rem;        /* 16px — section body copy */
+  --text-lg:   1.18rem;     /* ~19px — card h3, body copy */
+  --text-xl:   1.35rem;     /* ~21.6px — wizard h3, prominent labels */
+  --text-2xl:  clamp(1.25rem, 4vw, 2rem);    /* ~32px sub-heading h3 */
+  --text-3xl:  clamp(1.6rem, 6vw, 3.25rem);   /* ~52px section h2 */
+  --text-4xl:  clamp(2rem, 8vw, 3.5rem);      /* ~56px hero h1 */
+  --text-5xl:  clamp(1rem, 1.8vw, 1.125rem);   /* ~18px nav items */
 
   /* — Typography: Line Height — */
   --leading-none:    1;
@@ -228,20 +228,21 @@
   --btn-font-size-lg: 1.25rem;       /* 20px */
   --btn-font-weight:  var(--font-weight-semibold);
   --btn-radius:       var(--radius-pill);  /* Pill shape */
-  --btn-padding-y:    1.25rem;       /* 20px — larger padding */
-  --btn-padding-x:    2.375rem;      /* 38px — larger padding */
-  --btn-padding-y-lg: 1.25rem;       /* 20px */
-  --btn-padding-x-lg: 3.75rem;       /* 60px */
+  --btn-padding-y:    1.125rem;       /* 18px */
+  --btn-padding-x:    2.125rem;       /* 34px */
+  --btn-padding-y-lg: 1.125rem;       /* 18px */
+  --btn-padding-x-lg: 3.375rem;       /* 54px */
 
   /* ========================================
      Layer 3: Component Tokens — Cards
      ======================================== */
-  --card-padding:      var(--space-xl);
+  --card-padding:      var(--space-lg);
   --card-radius:       var(--radius-xl);
   --card-border:       1px solid var(--color-border);
-  --card-shadow-hover: var(--shadow-card);
-  --card-icon-size-sm: 44px;
-  --card-icon-size-lg: 56px;
+  --card-shadow:       var(--shadow-md);
+  --card-shadow-hover: var(--shadow-card-lift);
+  --card-icon-size-sm: 40px;
+  --card-icon-size-lg: 50px;
   --card-icon-radius:  var(--radius-lg);
 
   /* ========================================
@@ -358,35 +359,33 @@ a:hover { color: var(--color-brand-hover); }
 }
 
 .logo {
-  font-size: clamp(1.125rem, 1.125rem + 0.37vw, 1.375rem);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-brand);           /* Burgundy text on light header */
+  text-decoration: none;
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
-  text-decoration: none;
+  gap: var(--space-md);
 }
 
-.logo:hover { color: var(--color-brand-hover); }
+.logo img {
+  height: 80px;
+  width: auto;
+  display: block;
+}
+
+.logo span {
+  display: none; /* Removed sub-text per feedback */
+}
+
+.logo:hover { opacity: 0.8; }
 
 .logo-mark {
-  width: 36px;
-  height: 36px;
-  background: var(--color-accent);
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: var(--font-weight-extrabold);
-  font-size: var(--text-base);
-  color: var(--color-text-on-accent);
+  display: none; /* Replaced by SVG img */
 }
 
 .nav-links {
   display: flex;
-  gap: 3.375rem;          /* 54px — wider spacing per Figma */
+  gap: clamp(1rem, 2vw, 3rem);
   list-style: none;
-  font-size: var(--text-5xl);  /* 20px */
+  font-size: var(--text-5xl);
   font-weight: var(--font-weight-medium);
 }
 
@@ -519,8 +518,8 @@ a:hover { color: var(--color-brand-hover); }
     var(--hero-gradient),
     var(--hero-image) center 20%/cover no-repeat;
   color: var(--color-text-inverse);
-  padding: var(--space-3xl) var(--space-lg);
-  min-height: 500px;          /* Taller per Figma */
+  padding: var(--space-3xl) var(--space-3xl) var(--space-2xl); /* Standardized to match main hero */
+  min-height: 400px;
   display: flex;
   align-items: center;
 }
@@ -528,6 +527,9 @@ a:hover { color: var(--color-brand-hover); }
 .page-hero-inner {
   max-width: var(--max-width);
   margin: 0 auto;
+  width: 100%;
+  text-align: left;
+  padding-left: var(--space-2xl); /* Standardized padding-left */
 }
 
 .page-hero h1 {
@@ -777,59 +779,73 @@ a:hover { color: var(--color-brand-hover); }
   border-color: var(--color-brand-muted);
 }
 
-.service-card-icon {
-  width: var(--card-icon-size-sm);
-  height: var(--card-icon-size-sm);
-  border-radius: var(--card-icon-radius);
+/* Base Card Component — Standardized */
+.service-card, .value-item, .contact-card, .employer-card, .wizard-card, .pillar-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--card-radius);
+  padding: var(--card-padding);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  box-shadow: var(--shadow-md); /* Slightly more prominent default shadow */
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.service-card:hover, .value-item:hover, .contact-card:hover, .employer-card:hover, .wizard-card:hover, .pillar-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--color-brand-muted);
+}
+
+.service-card-icon, .value-item-icon, .contact-card-icon, .employer-card-icon, .wizard-card-icon {
+  width: var(--card-icon-size-lg);
+  height: var(--card-icon-size-lg);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--text-xl);
   margin-bottom: var(--space-md);
+  background: transparent !important; /* Removed backgrounds */
+  color: var(--color-brand);
 }
 
-.service-card-icon.primary   { background: var(--color-brand-subtle);    color: var(--color-brand); }
-.service-card-icon.secondary { background: var(--color-employer-subtle); color: var(--color-employer); }
-.service-card-icon.accent    { background: var(--color-accent-subtle);   color: var(--color-accent-700); }
+.service-card-icon img, .wizard-card-icon img {
+  width: 100%;
+  height: auto;
+  max-width: 40px;
+}
 
-.service-card h3 { font-size: var(--text-2xl); color: var(--color-heading); margin-bottom: var(--space-sm); letter-spacing: var(--tracking-tight); }
-.service-card p  { color: var(--color-text-secondary); font-size: var(--text-lg); line-height: var(--leading-base); }
+.service-card--centered, .value-item--centered, .contact-card--centered {
+  text-align: center;
+  align-items: center;
+}
 
-.service-card ul { list-style: none; margin-top: var(--space-md); }
-.service-card ul li {
-  padding: var(--space-xs) 0;
-  font-size: var(--text-sm);
+.service-card h3, .value-item h3, .contact-card h3, .employer-card h3, .wizard-card h3 {
+  font-size: var(--text-xl);
+  color: var(--color-heading);
+  margin-bottom: var(--space-sm);
+  letter-spacing: var(--tracking-tight);
+}
+
+.service-card p, .value-item p, .contact-card p, .employer-card p, .wizard-card p {
   color: var(--color-text-secondary);
-  border-bottom: 1px solid var(--color-surface-sunken);
+  font-size: var(--text-base);
+  line-height: var(--leading-base);
 }
-.service-card ul li::before { content: "\2192\00a0"; color: var(--color-primary-400); }
 
-.service-card .card-link {
+.service-card .card-link, .employer-card .card-link {
   display: inline-block;
   margin-top: auto;
   padding-top: var(--space-md);
   font-size: var(--text-sm);
   font-weight: var(--font-weight-semibold);
   color: var(--color-brand-hover);
+  text-decoration: none;
 }
 
-.service-card .btn { margin-top: auto; margin-block-start: var(--space-lg); }
-
-.service-card--centered { text-align: center; }
-.service-card--centered .service-card-icon { margin: 0 auto var(--space-md); }
-
-.service-card--accent-top   { border-top: 3px solid var(--color-accent); }
-.service-card--primary-top  { border-top: 3px solid var(--color-brand-hover); }
-.service-card--secondary-top { border-top: 3px solid var(--color-secondary-600); }
-
-
-/* ========================================
-   Employer Section
-   ======================================== */
-.employer-section { background: var(--color-employer-subtle); }
-.employer-card { background: var(--color-surface); border-left: 3px solid var(--color-employer); }
-.employer-card .service-card-icon { background: var(--color-employer-subtle); color: var(--color-employer); }
-.employer-card .card-link { color: var(--color-secondary-600); }
+.service-card .card-link:hover, .employer-card .card-link:hover {
+  text-decoration: underline;
+}
 
 /* Allow <button> elements to use card-link styling without browser defaults */
 button.card-link {
@@ -1117,8 +1133,13 @@ blockquote footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--text-xl);
   margin-bottom: var(--space-lg);
+}
+
+.wizard-card-icon img {
+  width: 32px;
+  height: 32px;
+  display: block;
 }
 
 .wizard-card h3 {
@@ -1324,6 +1345,11 @@ blockquote footer {
   transform: translateY(12px);
 }
 
+/* Prevent GSAP flicker on non-hero pages */
+main:not(:has(.hero)):not(:has(.page-hero)) {
+  opacity: 0;
+}
+
 /* Fallback: when GSAP is unavailable, IntersectionObserver adds .is-visible */
 .reveal.is-visible,
 .reveal-stagger > *.is-visible {
@@ -1372,9 +1398,22 @@ blockquote footer {
   gap: var(--space-lg);
 }
 
-.footer-brand { display: flex; align-items: center; gap: var(--space-sm); }
-.footer-brand .logo-mark { width: 28px; height: 28px; font-size: var(--text-xs); }
-.footer-brand span { font-weight: var(--font-weight-semibold); color: var(--color-text-inverse); font-size: var(--text-sm); }
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  text-decoration: none;
+}
+
+.footer-logo {
+  height: 48px;
+  width: auto;
+  filter: brightness(0) invert(1); /* Make logo white for dark footer */
+}
+
+.footer-brand span {
+  display: none; /* Removed sub-text per feedback */
+}
 
 .footer-links { display: flex; gap: var(--space-lg); list-style: none; font-size: var(--text-sm); }
 .footer-links a { color: var(--color-footer-muted); }

@@ -308,7 +308,7 @@
   <!-- AUTH: Login screen — visible by default, hidden after authentication -->
   <div id="login-screen" class="login-screen">
     <div class="login-box">
-      <div class="logo-mark">EJP</div>
+      <img src="assets/branding/logos/full-logo.svg" alt="EJP Logo">
       <h1>Demo Dashboard</h1>
       <p class="login-sub">Sign in with your Salesforce account to access the EJP demo dashboard.</p>
       <button class="btn-sf" onclick="sfLogin()">
@@ -333,8 +333,8 @@
     </div>
     <div class="header-main">
       <a href="index.html" class="logo">
-        <div class="logo-mark">EJP</div>
-        Employment &amp; Job Placement
+        <img src="assets/branding/logos/full-logo.svg" alt="EJP Logo">
+        <span data-i18n="logo-sub">Employment &amp; Job Placement</span>
         <span class="admin-badge">Demo Admin</span>
       </a>
       <nav aria-label="Main navigation">
@@ -484,18 +484,18 @@
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="logo-mark">EJP</div>
-        <span>Employment &amp; Job Placement</span>
-      </div>
+      <a href="index.html" class="footer-brand">
+        <img src="assets/branding/logos/word.svg" alt="EJP Logo" class="footer-logo">
+        <span data-i18n="footer-brand-sub">Employment &amp; Job Placement</span>
+      </a>
       <ul class="footer-links">
-        <li><a href="#">1199SEIU Funds</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Use</a></li>
-        <li><a href="#">Accessibility</a></li>
+        <li><a href="#" data-i18n="footer-funds">1199SEIU Funds</a></li>
+        <li><a href="#" data-i18n="footer-privacy">Privacy Policy</a></li>
+        <li><a href="#" data-i18n="footer-terms">Terms of Use</a></li>
+        <li><a href="#" data-i18n="footer-a11y">Accessibility</a></li>
       </ul>
     </div>
-    <div class="footer-bottom">
+    <div class="footer-bottom" data-i18n="footer-copy">
       &copy; 2026 1199SEIU Training &amp; Employment Funds. All rights reserved.
     </div>
   </footer>

@@ -24,7 +24,7 @@
     </div>
     <div class="header-main">
       <a href="index.html" class="logo">
-        <div class="logo-mark">EJP</div>
+        <img src="assets/branding/logos/full-logo.svg" alt="EJP Logo">
         <span data-i18n="logo-sub">Employment &amp; Job Placement</span>
       </a>
       <nav aria-label="Main navigation">
@@ -87,12 +87,16 @@
       <div class="wizard-step active" id="wizard-step-1">
         <div class="wizard-cards">
           <button class="wizard-card" onclick="wizardGo('wizard-step-jobs')">
-            <div class="wizard-card-icon" aria-hidden="true">&#x1F4BC;</div>
+            <div class="wizard-card-icon" aria-hidden="true">
+              <img src="assets/branding/icons/resume-white.svg" alt="Icon">
+            </div>
             <h3 data-i18n="js-wizard-jobs-h3">I'm Looking for a Job</h3>
             <p data-i18n="js-wizard-jobs-p">Browse open healthcare positions and submit your resume to employers across New York.</p>
           </button>
           <button class="wizard-card" onclick="wizardGo('wizard-step-2')">
-            <div class="wizard-card-icon" aria-hidden="true">&#x1F4CB;</div>
+            <div class="wizard-card-icon" aria-hidden="true">
+              <img src="assets/branding/icons/career-yellow.svg" alt="Icon">
+            </div>
             <h3 data-i18n="js-wizard-support-h3">I'm Looking for Career Support</h3>
             <p data-i18n="js-wizard-support-p">Access career counseling, resume help, interview prep, training programs, and more.</p>
           </button>
@@ -104,7 +108,9 @@
         <button class="wizard-back" onclick="wizardGo('wizard-step-1')" data-i18n="js-wizard-back">&larr; Back</button>
         <div class="wizard-cards">
           <button class="wizard-card wizard-card--result" onclick="wizardGo('wizard-step-member')">
-            <div class="wizard-card-icon" aria-hidden="true">&#x2705;</div>
+            <div class="wizard-card-icon" aria-hidden="true">
+              <img src="assets/branding/icons/mytef-yellow.svg" alt="Icon">
+            </div>
             <h3 data-i18n="js-wizard-member-h3">I'm a Union Member</h3>
             <span class="wizard-card-sub" data-i18n="js-wizard-member-sub">Including CPT graduates</span>
             <p data-i18n="js-wizard-member-p">Connect with a career counselor who can help with job placement, counseling, and more.</p>
@@ -314,10 +320,10 @@
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="logo-mark">EJP</div>
+      <a href="index.html" class="footer-brand">
+        <img src="assets/branding/logos/word.svg" alt="EJP Logo" class="footer-logo">
         <span data-i18n="footer-brand-sub">Employment &amp; Job Placement</span>
-      </div>
+      </a>
       <ul class="footer-links">
         <li><a href="#" data-i18n="footer-funds">1199SEIU Funds</a></li>
         <li><a href="#" data-i18n="footer-privacy">Privacy Policy</a></li>
