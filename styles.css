@@ -3,18 +3,18 @@
    ======================================== */
 :root {
 
-  /* — Color Palette: Primary (Burgundy) — */
+  /* — Color Palette: Primary (Deep Burgundy) — Updated March 2026 — */
   --color-primary-950: #3a0f16;
-  --color-primary-900: #4e1520;
-  --color-primary-800: #6b1e2b;
-  --color-primary-700: #852633;
-  --color-primary-600: #a03040;
-  --color-primary-500: #b8404f;
-  --color-primary-400: #cc6170;
-  --color-primary-300: #dd8e99;
-  --color-primary-200: #eab8bf;
-  --color-primary-100: #f4d8dc;
-  --color-primary-50:  #fbeff1;
+  --color-primary-900: #920607;     /* NEW: deeper, more saturated */
+  --color-primary-800: #961010;     /* NEW: main brand red */
+  --color-primary-700: #ae4543;     /* NEW: lighter variant */
+  --color-primary-600: #c45452;     /* NEW: hover state */
+  --color-primary-500: #d46b69;     /* NEW */
+  --color-primary-400: #e0918f;     /* NEW */
+  --color-primary-300: #eab8bf;
+  --color-primary-200: #f4d8dc;
+  --color-primary-100: #fbeff1;
+  --color-primary-50:  #fff5f5;     /* NEW: warm tint */
 
   /* — Color Palette: Secondary (Navy) — */
   --color-secondary-800: #031f73;
@@ -24,15 +24,15 @@
   --color-secondary-100: #d4e3fb;
   --color-secondary-50:  #eef4fd;
 
-  /* — Color Palette: Accent (Gold) — */
-  --color-accent-700: #a68400;
-  --color-accent-600: #d4a900;
-  --color-accent-500: #fecb00;
-  --color-accent-400: #fed733;
+  /* — Color Palette: Accent (Vibrant Gold) — Updated March 2026 — */
+  --color-accent-700: #c4a000;     /* NEW: darker gold */
+  --color-accent-600: #e0b800;     /* NEW */
+  --color-accent-500: #fdd201;     /* NEW: main gold - warmer, brighter */
+  --color-accent-400: #fdd929;     /* NEW */
   --color-accent-100: #fef4c4;
   --color-accent-50:  #fffbe6;
 
-  /* — Color Palette: Neutral (warm undertone) — */
+  /* — Color Palette: Neutral (warm cream undertone) — Updated March 2026 — */
   --color-neutral-950: #1a0f10;
   --color-neutral-900: #2d2122;
   --color-neutral-800: #3d3233;
@@ -41,9 +41,20 @@
   --color-neutral-500: #897b7c;
   --color-neutral-400: #a69899;
   --color-neutral-300: #c4b9ba;
-  --color-neutral-200: #ddd5d6;
-  --color-neutral-100: #eee9ea;
-  --color-neutral-50:  #f8f6f6;
+  --color-neutral-200: #f7eae2;    /* NEW: warm light neutral */
+  --color-neutral-100: #fffceb;    /* NEW: warm off-white */
+  --color-neutral-50:  #fffdf4;    /* NEW: warm cream background */
+
+  /* — Color Palette: Orange (Secondary Accent) — NEW March 2026 — */
+  --color-orange-600: #b34206;
+  --color-orange-500: #cb4908;     /* Primary orange */
+  --color-orange-400: #eb8e04;
+  --color-orange-300: #ffa64d;
+
+  /* — Color Palette: Rose/Coral (Tertiary Accent) — NEW March 2026 — */
+  --color-rose-400: #c8817d;       /* Icons, accents */
+  --color-rose-300: #e0b8b2;       /* Dividers, subtle backgrounds */
+  --color-rose-200: #ecd1ca;       /* Very subtle backgrounds */
 
   /* — Spacing Scale — */
   --space-xs:  4px;
@@ -55,8 +66,8 @@
   --space-3xl: 64px;
   --space-4xl: 96px;
 
-  /* — Typography: Font — */
-  --font-family:          'Roboto', sans-serif;
+  /* — Typography: Font — Poppins (March 2026 design update) */
+  --font-family:          'Poppins', sans-serif;
   --font-weight-light:    300;
   --font-weight-regular:  400;
   --font-weight-medium:   500;
@@ -64,16 +75,17 @@
   --font-weight-bold:     700;
   --font-weight-extrabold: 800;
 
-  /* — Typography: Scale — */
+  /* — Typography: Scale — Updated March 2026 to match Figma design */
   --text-xs:   0.75rem;    /* 12px — kickers, fine print, event-month */
   --text-sm:   0.875rem;   /* 14px — buttons, card-link, small body */
   --text-base: 1rem;       /* 16px — body default */
-  --text-md:   1.0625rem;  /* 17px — section body copy */
-  --text-lg:   1.125rem;   /* 18px — card h3, event titles */
-  --text-xl:   1.25rem;    /* 20px — wizard h3, prominent labels */
-  --text-2xl:  1.75rem;    /* 28px — section h2 min, page hero h1 min */
-  --text-3xl:  2.25rem;    /* 36px — section h2 max */
-  --text-4xl:  2.5rem;     /* 40px — stat numbers */
+  --text-md:   1.125rem;   /* 18px — section body copy (was 17px) */
+  --text-lg:   1.3125rem;  /* 21px — card h3, body copy (was 18px) */
+  --text-xl:   1.5rem;     /* 24px — wizard h3, prominent labels (was 20px) */
+  --text-2xl:  2.5rem;     /* 40px — sub-heading h3 (was 28px) */
+  --text-3xl:  4.0625rem;  /* 65px — section h2 (was 36px) */
+  --text-4xl:  4.375rem;   /* 70px — hero h1 (was 40px) */
+  --text-5xl:  1.25rem;    /* 20px — nav items (new) */
 
   /* — Typography: Line Height — */
   --leading-none:    1;
@@ -82,21 +94,22 @@
   --leading-base:    1.5;   /* body */
   --leading-relaxed: 1.6;   /* hero deck, event descriptions */
 
-  /* — Typography: Letter Spacing — */
-  --tracking-tighter: -1px;    /* hero h1 */
-  --tracking-tight:   -0.5px;  /* hero subtitle */
-  --tracking-normal:  -0.1px;  /* body default */
+  /* — Typography: Letter Spacing — Updated March 2026 */
+  --tracking-tighter: -3px;    /* hero h1, section h2 (was -1px) */
+  --tracking-tight:   -1px;    /* hero subtitle, h3 (was -0.5px) */
+  --tracking-normal:  -0.127px; /* body default (was -0.1px) */
   --tracking-wide:    1px;     /* event-month */
   --tracking-wider:   2px;     /* kickers / eyebrows */
 
-  /* — Border Radius — */
+  /* — Border Radius — Updated March 2026 for pill buttons */
   --radius-xs:   2px;       /* dividers, thin strips */
   --radius-sm:   6px;       /* logo-mark, small chips */
-  --radius-md:   8px;       /* buttons, form inputs, small cards */
+  --radius-md:   8px;       /* form inputs, small cards */
   --radius-lg:   10px;      /* service-card icons */
   --radius-xl:   12px;      /* cards */
   --radius-2xl:  14px;      /* wizard card icons */
-  --radius-full: 9999px;    /* pills */
+  --radius-pill: 50px;      /* buttons (new — pill shape) */
+  --radius-full: 9999px;    /* fully rounded elements */
 
   /* — Shadows — */
   --shadow-sm:        0 1px 2px rgba(26, 15, 16, 0.05);
@@ -133,15 +146,18 @@
 
   /* ========================================
      Layer 2: Semantic Tokens — Surfaces
+     Updated March 2026 — Warm backgrounds
      ======================================== */
-  --color-bg:               var(--color-neutral-50);
-  --color-surface:          #ffffff;
+  --color-bg:               var(--color-neutral-50);     /* Warm cream */
+  --color-surface:          #fffef5;                     /* Warm white */
   --color-surface-sunken:   var(--color-neutral-50);
   --color-surface-primary:  var(--color-primary-50);
   --color-surface-employer: var(--color-secondary-50);
+  --color-surface-warm:     var(--color-neutral-200);    /* NEW: warm section background */
 
   /* ========================================
      Layer 2: Semantic Tokens — Text
+     Updated March 2026
      ======================================== */
   --color-text-primary:       var(--color-neutral-900);
   --color-text-secondary:     var(--color-neutral-600);
@@ -150,18 +166,19 @@
   --color-text-inverse:       #ffffff;
   --color-text-inverse-muted: rgba(255, 255, 255, 0.8);
   --color-text-on-accent:     var(--color-primary-900);
-  --color-heading:            var(--color-primary-800);
+  --color-heading:            var(--color-primary-800);   /* Updated to new burgundy */
 
   /* ========================================
      Layer 2: Semantic Tokens — Brand / Interactive
+     Updated March 2026
      ======================================== */
-  --color-brand:          var(--color-primary-700);
-  --color-brand-hover:    var(--color-primary-600);
+  --color-brand:          var(--color-primary-800);     /* Updated: main burgundy */
+  --color-brand-hover:    var(--color-primary-700);     /* Updated */
   --color-brand-muted:    var(--color-primary-100);
   --color-brand-subtle:   var(--color-primary-50);
 
-  --color-accent:          var(--color-accent-500);
-  --color-accent-hover:    var(--color-accent-400);
+  --color-accent:          var(--color-accent-500);     /* Updated: new gold */
+  --color-accent-hover:    var(--color-accent-400);     /* Updated */
   --color-accent-subtle:   var(--color-accent-50);
   --color-accent-on-dark:  var(--color-accent-400);
 
@@ -169,6 +186,14 @@
   --color-employer-hover:  var(--color-secondary-700);
   --color-employer-subtle: var(--color-secondary-50);
   --color-employer-muted:  var(--color-secondary-100);
+
+  /* NEW: Orange accent aliases */
+  --color-accent-orange:       var(--color-orange-500);
+  --color-accent-orange-hover: var(--color-orange-400);
+
+  /* NEW: Rose accent aliases */
+  --color-accent-rose:       var(--color-rose-400);
+  --color-accent-rose-subtle: var(--color-rose-300);
 
   /* ========================================
      Layer 2: Semantic Tokens — Borders
@@ -183,9 +208,10 @@
 
   /* ========================================
      Layer 2: Semantic Tokens — Chrome
+     Updated March 2026
      ======================================== */
-  --color-header-bg:      var(--color-primary-800);
-  --color-header-top-bg:  var(--color-primary-900);
+  --color-header-bg:      var(--color-primary-800);     /* Updated: new burgundy */
+  --color-header-top-bg:  var(--color-primary-900);     /* Updated */
   --color-header-text:    var(--color-primary-100);
   --color-header-active:  #ffffff;
 
@@ -196,16 +222,16 @@
 
 
   /* ========================================
-     Layer 3: Component Tokens — Buttons
+     Layer 3: Component Tokens — Buttons — Updated March 2026
      ======================================== */
-  --btn-font-size:    var(--text-sm);
-  --btn-font-size-lg: var(--text-base);
+  --btn-font-size:    var(--text-base);
+  --btn-font-size-lg: 1.25rem;       /* 20px */
   --btn-font-weight:  var(--font-weight-semibold);
-  --btn-radius:       var(--radius-md);
-  --btn-padding-y:    var(--space-sm);
-  --btn-padding-x:    var(--space-lg);
-  --btn-padding-y-lg: var(--space-md);
-  --btn-padding-x-lg: var(--space-2xl);
+  --btn-radius:       var(--radius-pill);  /* Pill shape */
+  --btn-padding-y:    1.25rem;       /* 20px — larger padding */
+  --btn-padding-x:    2.375rem;      /* 38px — larger padding */
+  --btn-padding-y-lg: 1.25rem;       /* 20px */
+  --btn-padding-x-lg: 3.75rem;       /* 60px */
 
   /* ========================================
      Layer 3: Component Tokens — Cards
@@ -246,9 +272,9 @@
      ======================================== */
   --hero-gradient: linear-gradient(
     135deg,
-    rgba(78, 21, 32, 0.92) 0%,
-    rgba(58, 15, 22, 0.88) 50%,
-    rgba(3, 31, 115, 0.85) 100%
+    rgba(150, 16, 16, 0.92) 0%,     /* Updated: new burgundy */
+    rgba(146, 6, 7, 0.88) 50%,      /* Updated */
+    rgba(58, 15, 22, 0.85) 100%
   );
   --hero-image: url('https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=1600&q=75&auto=format&fit=crop');
 }
@@ -261,7 +287,7 @@
 
 body {
   font-family: var(--font-family);
-  font-weight: var(--font-weight-light);
+  font-weight: var(--font-weight-regular);  /* Updated to match Figma */
   color: var(--color-text-primary);
   background: var(--color-bg);
   line-height: var(--leading-base);
@@ -270,7 +296,7 @@ body {
 }
 
 h1, h2, h3, h4, h5 {
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-medium);  /* Updated per Figma */
   line-height: var(--leading-tight);
 }
 
@@ -298,18 +324,19 @@ a:hover { color: var(--color-brand-hover); }
 
 
 /* ========================================
-   Header / Navigation
+   Header / Navigation — Updated March 2026 (light background)
    ======================================== */
 .site-header {
-  background: var(--color-header-bg);
-  color: var(--color-text-inverse);
+  background: var(--color-bg);           /* Warm cream background */
+  color: var(--color-brand);             /* Burgundy text */
   position: sticky;
   top: 0;
   z-index: var(--z-sticky);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .header-top {
-  background: var(--color-header-top-bg);
+  background: var(--color-neutral-100);  /* Slightly warmer */
   padding: var(--space-sm) var(--space-lg);
   font-size: 13px;
   display: flex;
@@ -319,7 +346,7 @@ a:hover { color: var(--color-brand-hover); }
   margin: 0 auto;
 }
 
-.header-top a { color: var(--color-header-text); }
+.header-top a { color: var(--color-brand); }
 
 .header-main {
   max-width: var(--max-width);
@@ -333,14 +360,14 @@ a:hover { color: var(--color-brand-hover); }
 .logo {
   font-size: clamp(1.125rem, 1.125rem + 0.37vw, 1.375rem);
   font-weight: var(--font-weight-bold);
-  color: var(--color-text-inverse);
+  color: var(--color-brand);           /* Burgundy text on light header */
   display: flex;
   align-items: center;
   gap: var(--space-sm);
   text-decoration: none;
 }
 
-.logo:hover { color: var(--color-text-inverse); }
+.logo:hover { color: var(--color-brand-hover); }
 
 .logo-mark {
   width: 36px;
@@ -357,20 +384,23 @@ a:hover { color: var(--color-brand-hover); }
 
 .nav-links {
   display: flex;
-  gap: var(--space-lg);
+  gap: 3.375rem;          /* 54px — wider spacing per Figma */
   list-style: none;
-  font-size: 0.9375rem;
+  font-size: var(--text-5xl);  /* 20px */
   font-weight: var(--font-weight-medium);
 }
 
-.nav-links a { color: var(--color-header-text); }
-.nav-links a:hover { color: var(--color-header-active); }
-.nav-links .active { color: var(--color-header-active); border-bottom: 2px solid var(--color-accent); padding-bottom: 2px; }
+.nav-links a { color: var(--color-brand); }   /* Burgundy on light header */
+.nav-links a:hover { color: var(--color-brand-hover); }
+.nav-links .active { color: var(--color-brand-hover); border-bottom: 2px solid var(--color-accent); padding-bottom: 2px; }
 
 .nav-links .nav-cta {
   background: var(--color-accent);
   color: var(--color-text-on-accent);
-  padding: var(--btn-padding-y) var(--btn-padding-x);
+  padding: 7px 20px;      /* Smaller padding for nav CTA per Figma */
+  border-radius: 10px;
+  font-weight: var(--font-weight-bold);
+  font-size: 17px;
   border-radius: var(--btn-radius);
   font-weight: var(--btn-font-weight);
   font-size: var(--btn-font-size);
@@ -441,8 +471,8 @@ a:hover { color: var(--color-brand-hover); }
 }
 
 .hero h1 {
-  font-size: clamp(2.5rem, 2.5rem + 2vw, 4.25rem);
-  font-weight: var(--font-weight-extrabold);
+  font-size: clamp(2.5rem, 2.5rem + 3vw, 4.375rem);  /* Up to 70px per Figma */
+  font-weight: var(--font-weight-medium);
   line-height: 1.05; /* intentional: tighter than --leading-tight for display scale */
   margin-bottom: var(--space-lg);
   letter-spacing: var(--tracking-tighter);
@@ -459,7 +489,7 @@ a:hover { color: var(--color-brand-hover); }
 }
 
 .hero .hero-deck {
-  font-size: clamp(1.05rem, 1.05rem + 0.25vw, 1.3rem);
+  font-size: clamp(1.125rem, 1.125rem + 0.25vw, 1.3125rem);  /* ~21px body per Figma */
   color: var(--color-text-inverse-muted);
   margin-bottom: var(--space-2xl);
   font-weight: var(--font-weight-regular);
@@ -485,13 +515,16 @@ a:hover { color: var(--color-brand-hover); }
   color: var(--color-text-inverse);
 }
 
-/* Page-level hero (inner pages) */
+/* Page-level hero (inner pages) — Updated March 2026 */
 .page-hero {
   background:
     var(--hero-gradient),
     var(--hero-image) center 20%/cover no-repeat;
   color: var(--color-text-inverse);
-  padding: var(--space-2xl) var(--space-lg);
+  padding: var(--space-3xl) var(--space-lg);
+  min-height: 500px;          /* Taller per Figma */
+  display: flex;
+  align-items: center;
 }
 
 .page-hero-inner {
@@ -500,9 +533,10 @@ a:hover { color: var(--color-brand-hover); }
 }
 
 .page-hero h1 {
-  font-size: clamp(var(--text-2xl), 1.75rem + 0.75vw, 2.5rem);
-  font-weight: var(--font-weight-bold);
-  margin-bottom: var(--space-sm);
+  font-size: clamp(2.5rem, 2.5rem + 2vw, 4.375rem);  /* Up to 70px per Figma */
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-md);
+  letter-spacing: var(--tracking-tighter);
 }
 
 .page-hero p {
@@ -642,7 +676,7 @@ a:hover { color: var(--color-brand-hover); }
 .btn {
   display: inline-block;
   padding: var(--btn-padding-y) var(--btn-padding-x);
-  border-radius: var(--btn-radius);
+  border-radius: var(--btn-radius);  /* Pill shape */
   font-weight: var(--btn-font-weight);
   font-size: var(--btn-font-size);
   cursor: pointer;
@@ -652,14 +686,23 @@ a:hover { color: var(--color-brand-hover); }
 
 .btn:active { transform: scale(0.98); }
 
+/* Primary button: Burgundy background, white text */
 .btn-primary { background: var(--color-brand); color: var(--color-text-inverse); }
 .btn-primary:hover { background: var(--color-brand-hover); color: var(--color-text-inverse); }
 
+/* Accent button: Gold background, dark text */
 .btn-accent { background: var(--color-accent); color: var(--color-text-on-accent); }
 .btn-accent:hover { background: var(--color-accent-hover); color: var(--color-text-on-accent); }
 
-.btn-outline { background: transparent; border: 2px solid var(--color-brand); color: var(--color-brand); }
-.btn-outline:hover { background: var(--color-brand-subtle); }
+/* Outline button: Gold border, dark text per Figma */
+.btn-outline {
+  background: transparent;
+  border: 4px solid var(--color-accent);
+  color: var(--color-text-primary);
+}
+.btn-outline:hover {
+  background: rgba(253, 210, 1, 0.1);
+}
 
 .btn-secondary { background: var(--color-employer); color: var(--color-text-inverse); }
 .btn-secondary:hover { background: var(--color-employer-hover); color: var(--color-text-inverse); }
@@ -680,18 +723,20 @@ a:hover { color: var(--color-brand-hover); }
 .section[id] { scroll-margin-top: 100px; }
 .section--neutral { background: var(--color-surface-sunken); }
 .section--secondary { background: var(--color-employer-subtle); }
+.section--accent { background: var(--color-accent); }  /* Gold background per Figma */
 
 .section-header { margin-bottom: var(--space-xl); }
 
 .section-header h2 {
-  font-size: clamp(var(--text-2xl), 1.75rem + 0.37vw, var(--text-3xl));
+  font-size: clamp(2.5rem, 2.5rem + 1.5vw, 4.0625rem);  /* 40px to 65px per Figma */
   color: var(--color-heading);
   margin-bottom: var(--space-sm);
+  letter-spacing: var(--tracking-tighter);
 }
 
 .section-header p {
   color: var(--color-text-secondary);
-  font-size: var(--text-md);
+  font-size: var(--text-lg);  /* 21px body copy per Figma */
   max-width: 600px;
 }
 
@@ -749,8 +794,8 @@ a:hover { color: var(--color-brand-hover); }
 .service-card-icon.secondary { background: var(--color-employer-subtle); color: var(--color-employer); }
 .service-card-icon.accent    { background: var(--color-accent-subtle);   color: var(--color-accent-700); }
 
-.service-card h3 { font-size: var(--text-lg); color: var(--color-text-primary); margin-bottom: var(--space-sm); }
-.service-card p  { color: var(--color-text-secondary); font-size: var(--text-sm); }
+.service-card h3 { font-size: var(--text-2xl); color: var(--color-heading); margin-bottom: var(--space-sm); letter-spacing: var(--tracking-tight); }
+.service-card p  { color: var(--color-text-secondary); font-size: var(--text-lg); line-height: var(--leading-base); }
 
 .service-card ul { list-style: none; margin-top: var(--space-md); }
 .service-card ul li {
@@ -1348,7 +1393,7 @@ blockquote footer {
 
 
 /* ========================================
-   Mobile Navigation
+   Mobile Navigation — Updated March 2026
    ======================================== */
 .mobile-nav-toggle {
   display: none;
@@ -1358,21 +1403,21 @@ blockquote footer {
   padding: var(--space-sm);
   margin-right: calc(-1 * var(--space-sm));
 }
-.mobile-nav-toggle span { display: block; width: 24px; height: 2px; background: var(--color-text-inverse); border-radius: var(--radius-xs); transition: transform var(--transition-xslow) var(--ease-spring), opacity var(--transition-base); }
+.mobile-nav-toggle span { display: block; width: 24px; height: 2px; background: var(--color-brand); border-radius: var(--radius-xs); transition: transform var(--transition-xslow) var(--ease-spring), opacity var(--transition-base); }
 .mobile-nav-toggle span + span { margin-top: 6px; }
 .mobile-nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
 .mobile-nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .mobile-nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-.mobile-nav { display: none; background: var(--color-header-top-bg); }
+.mobile-nav { display: none; background: var(--color-bg); }
 .mobile-nav-inner { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--transition-nav); overflow: hidden; }
 .mobile-nav.is-open .mobile-nav-inner { grid-template-rows: 1fr; }
 .mobile-nav-inner > ul { overflow: hidden; }
 .mobile-nav ul { list-style: none; padding: var(--space-sm) var(--space-lg) var(--space-lg); }
-.mobile-nav li { border-bottom: 1px solid var(--color-header-bg); }
+.mobile-nav li { border-bottom: 1px solid var(--color-border); }
 .mobile-nav li:last-child { border-bottom: none; padding-top: var(--space-sm); }
-.mobile-nav a { display: block; padding: var(--space-md) 0; color: var(--color-header-text); font-size: var(--text-base); font-weight: var(--font-weight-medium); }
-.mobile-nav a:hover { color: var(--color-header-active); }
+.mobile-nav a { display: block; padding: var(--space-md) 0; color: var(--color-brand); font-size: var(--text-base); font-weight: var(--font-weight-medium); }
+.mobile-nav a:hover { color: var(--color-brand-hover); }
 .mobile-nav .nav-cta { display: inline-block; text-align: center; width: 100%; }
 
 
@@ -1408,9 +1453,11 @@ blockquote footer {
 @media (max-width: 480px) {
   .container              { padding: 0 var(--space-md); }
   .value-grid             { grid-template-columns: 1fr; }
-  .hero h1                { font-size: var(--text-2xl); }
+  .hero h1                { font-size: 2rem; }
   .hero                   { min-height: auto; }
-  .section-header h2      { font-size: 1.5rem; }
+  .section-header h2      { font-size: 2rem; }
+  .page-hero h1           { font-size: 2rem; }
+  .service-card h3        { font-size: 1.25rem; }
   .mytef-features         { flex-direction: column; }
   .mytef-feature          { min-width: unset; }
   .event-card             { flex-direction: column; gap: var(--space-md); }
@@ -1419,6 +1466,7 @@ blockquote footer {
   .event-meta             { flex-direction: column; gap: var(--space-xs); }
   .form-actions           { flex-direction: column; }
   .modal-box              { padding: var(--space-xl); }
+  .btn                    { padding: 0.875rem 1.5rem; font-size: 0.9375rem; }
 }
 
 
