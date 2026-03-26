@@ -274,10 +274,10 @@
      ======================================== */
   --hero-gradient: linear-gradient(
     to right,
-    rgba(100, 10, 10, 0.93) 0%,
-    rgba(120, 12, 12, 0.80) 40%,
-    rgba(90, 18, 15, 0.50) 75%,
-    rgba(60, 20, 18, 0.35) 100%
+    rgba(150, 16, 16, 0.93) 0%,
+    rgba(146, 6, 7, 0.78) 40%,
+    rgba(150, 16, 16, 0.45) 75%,
+    rgba(120, 12, 12, 0.30) 100%
   );
   --hero-image: url('https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=1600&q=75&auto=format&fit=crop');
 }
