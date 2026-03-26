@@ -75,17 +75,17 @@
   --font-weight-bold:     700;
   --font-weight-extrabold: 800;
 
-  /* — Typography: Scale — Updated March 2026 to match Figma design */
-  --text-xs:   0.675rem;    /* ~11px — kickers, fine print, event-month */
-  --text-sm:   0.7875rem;   /* ~12.6px — buttons, card-link, small body */
-  --text-base: 0.9rem;      /* ~14.4px — body default */
-  --text-md:   1rem;        /* 16px — section body copy */
-  --text-lg:   1.18rem;     /* ~19px — card h3, body copy */
-  --text-xl:   1.35rem;     /* ~21.6px — wizard h3, prominent labels */
-  --text-2xl:  clamp(1.25rem, 4vw, 2rem);    /* ~32px sub-heading h3 */
-  --text-3xl:  clamp(1.6rem, 6vw, 3.25rem);   /* ~52px section h2 */
-  --text-4xl:  clamp(2rem, 8vw, 3.5rem);      /* ~56px hero h1 */
-  --text-5xl:  clamp(1rem, 1.8vw, 1.125rem);   /* ~18px nav items */
+  /* — Typography: Scale — Updated March 2026, audit-corrected */
+  --text-xs:   0.75rem;     /* 12px — kickers, fine print, event-month */
+  --text-sm:   0.8125rem;   /* 13px — buttons, card-link, small body */
+  --text-base: 1rem;        /* 16px — body default */
+  --text-md:   1.0625rem;   /* 17px — section body copy */
+  --text-lg:   1.1875rem;   /* 19px — card h3, intro copy */
+  --text-xl:   1.375rem;    /* 22px — wizard h3, prominent labels */
+  --text-2xl:  clamp(1.375rem, 1.375rem + 1vw, 1.75rem);   /* 22–28px sub-heading */
+  --text-3xl:  clamp(1.625rem, 1.625rem + 1.5vw, 3rem);    /* 26–48px section h2 */
+  --text-4xl:  clamp(2rem, 2rem + 3vw, 4.375rem);           /* 32–70px hero h1 */
+  --text-nav:  clamp(1rem, 1.8vw, 1.125rem);                /* 16–18px nav items */
 
   /* — Typography: Line Height — */
   --leading-none:    1;
@@ -385,7 +385,7 @@ a:hover { color: var(--color-brand-hover); }
   display: flex;
   gap: clamp(1rem, 2vw, 3rem);
   list-style: none;
-  font-size: var(--text-5xl);
+  font-size: var(--text-nav);
   font-weight: var(--font-weight-medium);
 }
 
@@ -728,7 +728,7 @@ a:hover { color: var(--color-brand-hover); }
 .section-header { margin-bottom: var(--space-xl); }
 
 .section-header h2 {
-  font-size: clamp(2.5rem, 2.5rem + 1.5vw, 4.0625rem);  /* 40px to 65px per Figma */
+  font-size: var(--text-3xl);  /* 26–48px — clear step below hero h1 */
   color: var(--color-heading);
   margin-bottom: var(--space-sm);
   letter-spacing: var(--tracking-tighter);
@@ -736,7 +736,7 @@ a:hover { color: var(--color-brand-hover); }
 
 .section-header p {
   color: var(--color-text-secondary);
-  font-size: var(--text-lg);  /* 21px body copy per Figma */
+  font-size: var(--text-md);  /* 17px section intro */
   max-width: 600px;
 }
 
@@ -890,7 +890,7 @@ button.card-link {
   margin-bottom: var(--space-sm);
 }
 
-.value-item h3 { font-size: var(--text-base); margin-bottom: var(--space-xs); color: var(--color-neutral-800); }
+.value-item h3 { font-size: var(--text-lg); margin-bottom: var(--space-xs); color: var(--color-neutral-800); }
 .value-item p  { font-size: var(--text-sm); color: var(--color-text-tertiary); }
 
 .value-item--secondary { border-color: var(--color-employer-muted); }
@@ -943,7 +943,7 @@ button.card-link {
   flex-direction: column;
   align-items: center;
 }
-.contact-card h3 { font-size: var(--text-base); color: var(--color-neutral-800); margin-bottom: var(--space-sm); }
+.contact-card h3 { font-size: var(--text-lg); color: var(--color-neutral-800); margin-bottom: var(--space-sm); }
 .contact-card p  { font-size: var(--text-sm); color: var(--color-text-tertiary); margin-bottom: var(--space-md); flex: 1; }
 .contact-card .btn { margin-top: auto; }
 
@@ -1491,11 +1491,11 @@ main:not(:has(.hero)):not(:has(.page-hero)) {
 @media (max-width: 480px) {
   .container              { padding: 0 var(--space-md); }
   .value-grid             { grid-template-columns: 1fr; }
-  .hero h1                { font-size: 2rem; }
+  .hero h1                { font-size: 2.25rem; }
   .hero                   { min-height: auto; }
-  .section-header h2      { font-size: 2rem; }
+  .section-header h2      { font-size: 1.75rem; }
   .page-hero h1           { font-size: 2rem; }
-  .service-card h3        { font-size: 1.25rem; }
+  .service-card h3        { font-size: 1.125rem; }
   .mytef-features         { flex-direction: column; }
   .mytef-feature          { min-width: unset; }
   .event-card             { flex-direction: column; gap: var(--space-md); }
