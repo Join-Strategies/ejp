@@ -92,6 +92,9 @@
     var tourInstance = window.driver.js.driver({
       showProgress: true,
       allowClose:   true,
+      stagePadding: 6,
+      stageRadius: 8,
+      overlayColor: 'rgba(0, 0, 0, 0.6)',
       steps: TOURS[pageKey],
       onDestroyed: function () {
         if (isEmp) document.body.classList.remove('employer-tour');
