@@ -1,0 +1,19 @@
+<svg width="56" height="64" viewBox="0 0 56 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<!-- Palm -->
+<rect x="8" y="28" width="36" height="24" rx="10" fill="#FFFDF4"/>
+<!-- Wrist -->
+<rect x="14" y="48" width="24" height="16" rx="6" fill="#FFFDF4"/>
+<!-- Thumb -->
+<rect x="0" y="26" width="10" height="20" rx="5" transform="rotate(-20 0 26)" fill="#FFFDF4"/>
+<!-- Index finger -->
+<rect x="10" y="2" width="8" height="30" rx="4" fill="#FFFDF4"/>
+<!-- Middle finger -->
+<rect x="20" y="0" width="8" height="32" rx="4" fill="#FFFDF4"/>
+<!-- Ring finger -->
+<rect x="30" y="4" width="8" height="28" rx="4" fill="#FFFDF4"/>
+<!-- Pinky -->
+<rect x="39" y="10" width="7" height="22" rx="3.5" fill="#FFFDF4"/>
+<!-- Motion lines -->
+<rect x="50" y="8" width="3" height="14" rx="1.5" transform="rotate(15 50 8)" fill="#FFFDF4" opacity="0.6"/>
+<rect x="52" y="24" width="3" height="10" rx="1.5" transform="rotate(10 52 24)" fill="#FFFDF4" opacity="0.5"/>
+</svg>

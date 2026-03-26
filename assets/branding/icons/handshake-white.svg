@@ -1,0 +1,12 @@
+<svg width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<!-- Left ring -->
+<path fill-rule="evenodd" clip-rule="evenodd"
+  d="M2 20 A16 16 0 1 1 34 20 A16 16 0 1 1 2 20 Z
+     M9 20 A9 9 0 1 0 27 20 A9 9 0 1 0 9 20 Z"
+  fill="#FFFDF4"/>
+<!-- Right ring -->
+<path fill-rule="evenodd" clip-rule="evenodd"
+  d="M26 20 A16 16 0 1 1 58 20 A16 16 0 1 1 26 20 Z
+     M33 20 A9 9 0 1 0 51 20 A9 9 0 1 0 33 20 Z"
+  fill="#FFFDF4"/>
+</svg>

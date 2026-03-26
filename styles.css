@@ -241,8 +241,8 @@
   --card-border:       1px solid var(--color-border);
   --card-shadow:       var(--shadow-md);
   --card-shadow-hover: var(--shadow-card-lift);
-  --card-icon-size-sm: 40px;
-  --card-icon-size-lg: 50px;
+  --card-icon-size-sm: 48px;
+  --card-icon-size-lg: 56px;
   --card-icon-radius:  var(--radius-lg);
 
   /* ========================================
@@ -812,7 +812,7 @@ a:hover { color: var(--color-brand-hover); }
 .service-card-icon img, .wizard-card-icon img {
   width: 100%;
   height: auto;
-  max-width: 40px;
+  max-width: 48px;
 }
 
 .service-card--centered, .value-item--centered, .contact-card--centered {
@@ -1137,8 +1137,8 @@ blockquote footer {
 }
 
 .wizard-card-icon img {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   display: block;
 }
 
