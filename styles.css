@@ -861,7 +861,7 @@ button.card-link {
 /* ========================================
    Value / Stats Grid
    ======================================== */
-.value-prop { background: var(--color-surface-sunken); }
+.value-prop { background: var(--color-accent-50); }
 
 .value-grid {
   display: grid;
@@ -1061,7 +1061,7 @@ button.card-link {
 /* ========================================
    MyTEF Portal Integration
    ======================================== */
-.mytef-section { background: var(--color-surface-primary); }
+.mytef-section { background: var(--color-accent-50); }
 
 .mytef-features { display: flex; gap: var(--space-lg); flex-wrap: wrap; }
 .mytef-feature {
