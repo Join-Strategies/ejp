@@ -25,7 +25,7 @@
   --color-secondary-50:  #fffbe6;
 
   /* — Color Palette: Accent (Vibrant Gold) — Updated March 2026 — */
-  --color-accent-700: #c4a000;
+  --color-accent-700: #d4a800;     /* warmer dark gold, not olive */
   --color-accent-600: #e0b800;
   --color-accent-500: #fdd201;     /* main gold - warmer, brighter */
   --color-accent-400: #fdd929;
@@ -517,7 +517,7 @@ a:hover { color: var(--color-brand-hover); }
 /* Page-level hero (inner pages) — Updated March 2026 */
 .page-hero {
   background:
-    linear-gradient(135deg, rgba(150, 16, 16, 0.92) 0%, rgba(146, 6, 7, 0.88) 50%, rgba(58, 15, 22, 0.85) 100%),
+    linear-gradient(135deg, rgba(150, 16, 16, 0.92) 0%, rgba(146, 6, 7, 0.88) 50%, rgba(120, 12, 12, 0.85) 100%),
     var(--hero-image) center 20%/cover no-repeat;
   color: var(--color-text-inverse);
   padding: var(--space-3xl) var(--space-3xl) var(--space-2xl); /* Standardized to match main hero */
@@ -861,7 +861,7 @@ button.card-link {
 /* ========================================
    Value / Stats Grid
    ======================================== */
-.value-prop { background: var(--color-surface-primary); }
+.value-prop { background: var(--color-surface-sunken); }
 
 .value-grid {
   display: grid;
