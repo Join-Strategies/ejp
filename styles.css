@@ -5,30 +5,30 @@
 
   /* — Color Palette: Primary (Deep Burgundy) — Updated March 2026 — */
   --color-primary-950: #3a0f16;
-  --color-primary-900: #920607;     /* NEW: deeper, more saturated */
-  --color-primary-800: #961010;     /* NEW: main brand red */
-  --color-primary-700: #ae4543;     /* NEW: lighter variant */
-  --color-primary-600: #c45452;     /* NEW: hover state */
-  --color-primary-500: #d46b69;     /* NEW */
-  --color-primary-400: #e0918f;     /* NEW */
+  --color-primary-900: #920607;     /* deeper, more saturated */
+  --color-primary-800: #961010;     /* main brand red */
+  --color-primary-700: #ae4543;     /* lighter variant */
+  --color-primary-600: #c45452;     /* hover state */
+  --color-primary-500: #d46b69;
+  --color-primary-400: #e0918f;
   --color-primary-300: #eab8bf;
   --color-primary-200: #f4d8dc;
   --color-primary-100: #fbeff1;
-  --color-primary-50:  #fff5f5;     /* NEW: warm tint */
+  --color-primary-50:  #fff5f5;
 
-  /* — Color Palette: Secondary (Navy) — */
-  --color-secondary-800: #031f73;
-  --color-secondary-700: #0a2e8a;
-  --color-secondary-600: #1240a8;
-  --color-secondary-500: #1a54c4;
-  --color-secondary-100: #d4e3fb;
-  --color-secondary-50:  #eef4fd;
+  /* — Color Palette: Secondary (Gold — replaces Navy) — */
+  --color-secondary-800: #8a6d00;
+  --color-secondary-700: #a68400;
+  --color-secondary-600: #c4a000;
+  --color-secondary-500: #e0b800;
+  --color-secondary-100: #fef4c4;
+  --color-secondary-50:  #fffbe6;
 
   /* — Color Palette: Accent (Vibrant Gold) — Updated March 2026 — */
-  --color-accent-700: #c4a000;     /* NEW: darker gold */
-  --color-accent-600: #e0b800;     /* NEW */
-  --color-accent-500: #fdd201;     /* NEW: main gold - warmer, brighter */
-  --color-accent-400: #fdd929;     /* NEW */
+  --color-accent-700: #c4a000;
+  --color-accent-600: #e0b800;
+  --color-accent-500: #fdd201;     /* main gold - warmer, brighter */
+  --color-accent-400: #fdd929;
   --color-accent-100: #fef4c4;
   --color-accent-50:  #fffbe6;
 
@@ -83,7 +83,7 @@
   --text-lg:   1.1875rem;   /* 19px — card h3, intro copy */
   --text-xl:   1.375rem;    /* 22px — wizard h3, prominent labels */
   --text-2xl:  clamp(1.375rem, 1.375rem + 1vw, 1.75rem);   /* 22–28px sub-heading */
-  --text-3xl:  clamp(1.625rem, 1.625rem + 1.5vw, 3rem);    /* 26–48px section h2 */
+  --text-3xl:  clamp(1.5rem, 1.5rem + 1vw, 2.375rem);      /* 24–38px section h2 — reduced for Poppins */
   --text-4xl:  clamp(2rem, 2rem + 3vw, 4.375rem);           /* 32–70px hero h1 */
   --text-nav:  clamp(1rem, 1.8vw, 1.125rem);                /* 16–18px nav items */
 
@@ -95,8 +95,8 @@
   --leading-relaxed: 1.6;   /* hero deck, event descriptions */
 
   /* — Typography: Letter Spacing — Updated March 2026 */
-  --tracking-tighter: -3px;    /* hero h1, section h2 (was -1px) */
-  --tracking-tight:   -1px;    /* hero subtitle, h3 (was -0.5px) */
+  --tracking-tighter: -1.5px;  /* hero h1, section h2 — loosened for Poppins */
+  --tracking-tight:   -0.5px;  /* hero subtitle, h3 — loosened for Poppins */
   --tracking-normal:  -0.127px; /* body default (was -0.1px) */
   --tracking-wide:    1px;     /* event-month */
   --tracking-wider:   2px;     /* kickers / eyebrows */
@@ -150,9 +150,10 @@
      ======================================== */
   --color-bg:               var(--color-neutral-50);     /* Warm cream */
   --color-surface:          #fffef5;                     /* Warm white */
+  --color-surface-raised:   var(--color-neutral-100);    /* Slightly elevated surface */
   --color-surface-sunken:   var(--color-neutral-50);
   --color-surface-primary:  var(--color-primary-50);
-  --color-surface-employer: var(--color-secondary-50);
+  --color-surface-employer: var(--color-accent-50);
   --color-surface-warm:     var(--color-neutral-200);    /* NEW: warm section background */
 
   /* ========================================
@@ -182,10 +183,10 @@
   --color-accent-subtle:   var(--color-accent-50);
   --color-accent-on-dark:  var(--color-accent-400);
 
-  --color-employer:        var(--color-secondary-800);
-  --color-employer-hover:  var(--color-secondary-700);
-  --color-employer-subtle: var(--color-secondary-50);
-  --color-employer-muted:  var(--color-secondary-100);
+  --color-employer:        var(--color-accent-700);
+  --color-employer-hover:  var(--color-accent-600);
+  --color-employer-subtle: var(--color-accent-50);
+  --color-employer-muted:  var(--color-accent-100);
 
   /* NEW: Orange accent aliases */
   --color-accent-orange:       var(--color-orange-500);
@@ -225,13 +226,13 @@
      Layer 3: Component Tokens — Buttons — Updated March 2026
      ======================================== */
   --btn-font-size:    var(--text-base);
-  --btn-font-size-lg: 1.25rem;       /* 20px */
+  --btn-font-size-lg: 1.125rem;      /* 18px — reduced */
   --btn-font-weight:  var(--font-weight-semibold);
   --btn-radius:       var(--radius-pill);  /* Pill shape */
-  --btn-padding-y:    1.125rem;       /* 18px */
-  --btn-padding-x:    2.125rem;       /* 34px */
-  --btn-padding-y-lg: 1.125rem;       /* 18px */
-  --btn-padding-x-lg: 3.375rem;       /* 54px */
+  --btn-padding-y:    0.875rem;       /* 14px — reduced */
+  --btn-padding-x:    1.75rem;        /* 28px — reduced */
+  --btn-padding-y-lg: 1rem;           /* 16px — reduced */
+  --btn-padding-x-lg: 2.5rem;         /* 40px — reduced */
 
   /* ========================================
      Layer 3: Component Tokens — Cards
@@ -248,8 +249,8 @@
   /* ========================================
      Layer 3: Component Tokens — Sections
      ======================================== */
-  --section-padding-y:    var(--space-2xl);
-  --section-padding-y-sm: var(--space-xl);
+  --section-padding-y:    var(--space-3xl);   /* 64px — more breathing room */
+  --section-padding-y-sm: var(--space-2xl);  /* 48px — more breathing room */
 
   /* ========================================
      Layer 3: Component Tokens — Kicker / Eyebrow
@@ -273,8 +274,8 @@
      ======================================== */
   --hero-gradient: linear-gradient(
     135deg,
-    rgba(150, 16, 16, 0.92) 0%,     /* Updated: new burgundy */
-    rgba(146, 6, 7, 0.88) 50%,      /* Updated */
+    rgba(150, 16, 16, 0.92) 0%,
+    rgba(146, 6, 7, 0.88) 50%,
     rgba(58, 15, 22, 0.85) 100%
   );
   --hero-image: url('https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=1600&q=75&auto=format&fit=crop');
@@ -468,16 +469,16 @@ a:hover { color: var(--color-brand-hover); }
 }
 
 .hero h1 {
-  font-size: clamp(2.5rem, 2.5rem + 3vw, 4.375rem);  /* Up to 70px per Figma */
+  font-size: clamp(2.25rem, 2.25rem + 2vw, 3.25rem);  /* 36–52px — reduced for Poppins */
   font-weight: var(--font-weight-medium);
-  line-height: 1.05; /* intentional: tighter than --leading-tight for display scale */
+  line-height: 1.1;
   margin-bottom: var(--space-lg);
   letter-spacing: var(--tracking-tighter);
   max-width: 700px;
 }
 
 .hero .hero-subtitle {
-  font-size: clamp(1.75rem, 1.75rem + 1vw, 2.75rem);
+  font-size: clamp(1.375rem, 1.375rem + 0.75vw, 2rem);  /* 22–32px — reduced */
   font-weight: var(--font-weight-light);
   color: var(--color-accent-on-dark);
   margin-bottom: var(--space-lg);
@@ -486,7 +487,7 @@ a:hover { color: var(--color-brand-hover); }
 }
 
 .hero .hero-deck {
-  font-size: clamp(1.125rem, 1.125rem + 0.25vw, 1.3125rem);  /* ~21px body per Figma */
+  font-size: clamp(1rem, 1rem + 0.15vw, 1.125rem);  /* 16–18px — reduced */
   color: var(--color-text-inverse-muted);
   margin-bottom: var(--space-2xl);
   font-weight: var(--font-weight-regular);
@@ -533,7 +534,7 @@ a:hover { color: var(--color-brand-hover); }
 }
 
 .page-hero h1 {
-  font-size: clamp(2.5rem, 2.5rem + 2vw, 4.375rem);  /* Up to 70px per Figma */
+  font-size: clamp(2rem, 2rem + 1.5vw, 3rem);  /* 32–48px — reduced for Poppins */
   font-weight: var(--font-weight-medium);
   margin-bottom: var(--space-md);
   letter-spacing: var(--tracking-tighter);
@@ -704,8 +705,8 @@ a:hover { color: var(--color-brand-hover); }
   background: rgba(253, 210, 1, 0.1);
 }
 
-.btn-secondary { background: var(--color-employer); color: var(--color-text-inverse); }
-.btn-secondary:hover { background: var(--color-employer-hover); color: var(--color-text-inverse); }
+.btn-secondary { background: var(--color-accent-500); color: var(--color-primary-900); }
+.btn-secondary:hover { background: var(--color-accent-400); color: var(--color-primary-900); }
 
 .btn-lg { padding: var(--btn-padding-y-lg) var(--btn-padding-x-lg); font-size: var(--btn-font-size-lg); }
 
@@ -887,14 +888,14 @@ button.card-link {
 .value-item-icon {
   font-size: var(--text-2xl);
   line-height: var(--leading-none);
-  margin-bottom: var(--space-sm);
+  margin: 0 auto var(--space-sm);
 }
 
 .value-item h3 { font-size: var(--text-lg); margin-bottom: var(--space-xs); color: var(--color-neutral-800); }
 .value-item p  { font-size: var(--text-sm); color: var(--color-text-tertiary); }
 
 .value-item--secondary { border-color: var(--color-employer-muted); }
-.value-item--secondary .value-item-number { color: var(--color-secondary-700); }
+.value-item--secondary .value-item-number { color: var(--color-primary-700); }
 
 
 /* ========================================
@@ -915,6 +916,114 @@ button.card-link {
 }
 .about-content h3:first-child { margin-top: 0; }
 .about-content p { color: var(--color-text-secondary); font-size: var(--text-base); }
+
+/* ========================================
+   Success Stories Carousel
+   ======================================== */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+  padding: 0 var(--space-lg);
+  box-sizing: border-box;
+}
+
+.carousel-image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  line-height: 0;
+  font-size: 0;
+}
+
+.carousel-image img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  object-position: center top;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: top;
+}
+
+.carousel-content blockquote {
+  border-left: 4px solid var(--color-gold);
+  padding-left: var(--space-lg);
+  margin: 0;
+  font-size: var(--text-lg);
+  font-style: italic;
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.carousel-content blockquote footer {
+  margin-top: var(--space-md);
+  font-style: normal;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+}
+
+.carousel-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-size: var(--text-lg);
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.carousel-btn:hover {
+  color: var(--color-brand);
+  background: var(--color-surface);
+}
+
+.carousel-dots {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--color-brand);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease;
+}
+
+.carousel-dot.active {
+  background: var(--color-brand);
+}
 
 .about-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
 
@@ -1474,6 +1583,8 @@ main:not(:has(.hero)):not(:has(.page-hero)) {
   .mobile-nav-toggle  { display: block; }
   .mobile-nav         { display: block; }
   .about-grid         { grid-template-columns: 1fr; }
+  .carousel-slide     { grid-template-columns: 1fr; gap: var(--space-lg); }
+  .carousel-image img { height: 320px; }
   .contact-grid       { grid-template-columns: 1fr; }
   .wizard-cards       { grid-template-columns: 1fr; }
   .services-grid,
@@ -1796,8 +1907,8 @@ body.modal-open {
   font-family: var(--font-family) !important;
   font-size: var(--text-sm) !important;
   font-weight: var(--font-weight-semibold) !important;
-  border-radius: var(--radius-md) !important;
-  padding: var(--space-xs) var(--space-md) !important;
+  border-radius: var(--radius-pill) !important;
+  padding: var(--space-xs) var(--space-lg) !important;
   cursor: pointer !important;
   transition: background var(--transition-base) !important;
   text-shadow: none !important;

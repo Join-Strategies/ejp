@@ -1,0 +1,7 @@
+<svg width="64" height="64" viewBox="-8 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+<!-- Location pin = placement -->
+<path fill-rule="evenodd" clip-rule="evenodd"
+  d="M22 0C9.85 0 0 9.85 0 22C0 38.5 22 60 22 60C22 60 44 38.5 44 22C44 9.85 34.15 0 22 0Z
+     M22 13 A9 9 0 1 0 22 31 A9 9 0 1 0 22 13Z"
+  fill="#FFD203"/>
+</svg>

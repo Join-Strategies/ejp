@@ -134,27 +134,63 @@
     </div>
   </section>
 
-  <!-- SUCCESS STORIES (About) -->
+  <!-- SUCCESS STORIES CAROUSEL -->
   <section id="about" class="section section--neutral">
     <div class="container">
-      <div class="section-header reveal">
+      <div class="section-header section-header--centered reveal">
         <h2 data-i18n="index-about-h2">Success Stories</h2>
         <div class="section-divider"></div>
       </div>
 
-      <div class="about-grid">
-        <div class="about-image reveal">
-          <img src="https://placehold.co/800x600/003b71/white?text=Success+Story+Photo" alt="EJP Success Story Placeholder" class="img-responsive" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); width: 100%; height: auto;">
+      <div class="carousel" aria-roledescription="carousel" aria-label="Success stories">
+        <div class="carousel-track">
+          <!-- Slide 1 -->
+          <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="1 of 3">
+            <div class="carousel-image">
+              <img src="photos/AshleyOra-8 2.png" alt="Ashley Ora, EJP graduate" loading="lazy">
+            </div>
+            <div class="carousel-content">
+              <blockquote>
+                "EJP provided me with the guidance and support I needed to take the next step in my healthcare career. The career counseling and resume assistance were invaluable."
+                <footer>&mdash; <strong>Ashley Ora</strong>, CPT Graduate</footer>
+              </blockquote>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 3">
+            <div class="carousel-image">
+              <img src="photos/DavidGudiel-7 3.png" alt="David Gudiel, EJP graduate" loading="lazy">
+            </div>
+            <div class="carousel-content">
+              <blockquote>
+                "The training I received through the program gave me the confidence and skills to land a role I'm truly proud of. I couldn't have done it without the team at EJP."
+                <footer>&mdash; <strong>David Gudiel</strong>, CPT Graduate</footer>
+              </blockquote>
+            </div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="3 of 3">
+            <div class="carousel-image">
+              <img src="photos/image 17.png" alt="EJP success story" loading="lazy" style="transform: scale(1.08);">
+            </div>
+            <div class="carousel-content">
+              <blockquote>
+                "From my first meeting with a career counselor to my placement, every step felt supported. EJP truly invests in your future."
+                <footer>&mdash; <strong>Name TBD</strong>, CPT Graduate</footer>
+              </blockquote>
+            </div>
+          </div>
         </div>
-        <div class="about-content">
-          <blockquote>
-            <em class="text-placeholder">[Placeholder &mdash; real testimonial TBD, possibly from Danielle]</em><br><br>
-            "EJP provided me with the guidance and support I needed to take the next step in my healthcare career. The career counseling and resume assistance were invaluable."
-            <footer>
-              &mdash; <strong>Name TBD</strong>, Role, CPT Class of 20XX
-            </footer>
-          </blockquote>
-          <p data-i18n="index-about-mission-p" style="margin-top: var(--space-xl);">The Employment and Job Placement Center is dedicated to helping job seekers build lasting careers and employers build stronger teams through tailored career services and hands-on employer partnerships.</p>
+
+        <!-- Controls -->
+        <div class="carousel-controls">
+          <button class="carousel-btn carousel-btn--prev" aria-label="Previous story">&larr;</button>
+          <div class="carousel-dots" role="tablist" aria-label="Choose a story">
+            <button class="carousel-dot active" role="tab" aria-selected="true" aria-label="Story 1"></button>
+            <button class="carousel-dot" role="tab" aria-selected="false" aria-label="Story 2"></button>
+            <button class="carousel-dot" role="tab" aria-selected="false" aria-label="Story 3"></button>
+          </div>
+          <button class="carousel-btn carousel-btn--next" aria-label="Next story">&rarr;</button>
         </div>
       </div>
     </div>
@@ -249,6 +285,48 @@
   </footer>
 
   <!-- GSAP Animation Library -->
+  <script>
+    // Success Stories Carousel
+    (function() {
+      var track = document.querySelector('.carousel-track');
+      var slides = document.querySelectorAll('.carousel-slide');
+      var dots = document.querySelectorAll('.carousel-dot');
+      var prevBtn = document.querySelector('.carousel-btn--prev');
+      var nextBtn = document.querySelector('.carousel-btn--next');
+      var current = 0;
+      var total = slides.length;
+      var interval = 5000;
+      var timer;
+
+      function goTo(index) {
+        current = (index + total) % total;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        dots.forEach(function(dot, i) {
+          dot.classList.toggle('active', i === current);
+          dot.setAttribute('aria-selected', i === current ? 'true' : 'false');
+        });
+      }
+
+      function next() { goTo(current + 1); }
+      function prev() { goTo(current - 1); }
+
+      function startAuto() { timer = setInterval(next, interval); }
+      function stopAuto() { clearInterval(timer); }
+
+      prevBtn.addEventListener('click', function() { stopAuto(); prev(); startAuto(); });
+      nextBtn.addEventListener('click', function() { stopAuto(); next(); startAuto(); });
+      dots.forEach(function(dot, i) {
+        dot.addEventListener('click', function() { stopAuto(); goTo(i); startAuto(); });
+      });
+
+      // Pause on hover
+      var carousel = document.querySelector('.carousel');
+      carousel.addEventListener('mouseenter', stopAuto);
+      carousel.addEventListener('mouseleave', startAuto);
+
+      startAuto();
+    })();
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="ejp-forms.js"></script>
