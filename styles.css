@@ -1949,13 +1949,13 @@ body.modal-open {
   color: var(--color-text-tertiary) !important;
 }
 
-/* Employer tour — blue next button */
+/* Employer tour — burgundy next button (matches job-seeker tour) */
 .employer-tour .driver-popover-next-btn {
-  background: var(--color-employer) !important;
+  background: var(--color-brand) !important;
 }
 
 .employer-tour .driver-popover-next-btn:hover {
-  background: var(--color-employer-hover) !important;
+  background: var(--color-brand-hover) !important;
 }
 
 @media (max-width: 480px) {
