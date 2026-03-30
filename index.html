@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
 
@@ -65,9 +65,11 @@
       <p class="hero-deck" data-i18n="index-hero-deck">The Employment and Job Placement Center is dedicated to helping job seekers build lasting careers and employers build stronger teams through tailored career services and hands-on employer partnerships.</p>
       <div class="hero-actions">
         <a href="job-seekers.html" class="btn btn-accent btn-lg" data-i18n="index-hero-btn-primary">Explore Career Services &rarr;</a>
-        <a href="employers.html" class="btn btn-hero-outline btn-lg" data-i18n="index-hero-btn-secondary">Access Partner Resources</a>
+        <a href="employers.html" class="btn btn-hero-outline btn-lg" data-i18n="index-hero-btn-secondary">Access Employer Resources</a>
       </div>
     </div>
+    <!-- Decorative: soft elliptical glow at hero bottom (Figma node 1:34) -->
+    <div class="hero-glow" aria-hidden="true"></div>
   </section>
 
   <!-- CPT CALLOUT -->
@@ -94,110 +96,133 @@
   </div>
 
   <!-- WHAT EJP DOES -->
-  <section class="section">
+  <section class="section pillars-section">
     <div class="container">
-      <div class="section-header section-header--centered reveal">
-        <span class="section-kicker" data-i18n="index-services-kicker">What We Do</span>
-        <h2 data-i18n="index-services-h2">Supporting Healthcare Employment</h2>
-        <div class="section-divider"></div>
-        <p data-i18n="index-services-intro">Whether you're looking for your next role or trying to fill one, EJP has the resources, and guidance to help you get there.</p>
-      </div>
-
-      <div class="services-grid reveal-stagger">
-        <div class="service-card service-card--centered">
-          <div class="service-card-icon primary" aria-hidden="true">
-            <img src="assets/branding/icons/career-yellow.svg" alt="Icon">
-          </div>
-          <h3 data-i18n="index-svc-1-h3">Career Services &amp; Support</h3>
-          <p data-i18n="index-svc-1-p">Whether you're starting out or making a change, EJP offers career support and skills training to help you secure a role.</p>
-          <a href="job-seekers.html" class="card-link" data-i18n="index-svc-1-link">Explore Career Services &rarr;</a>
+      <div class="pillars-layout">
+        <div class="pillars-intro reveal">
+          <span class="section-kicker" data-i18n="index-services-kicker">What We Do</span>
+          <h2 data-i18n="index-services-h2">Supporting Healthcare Employment</h2>
+          <p data-i18n="index-services-intro">Whether you're looking for your next role or trying to fill one, EJP has the resources, and guidance to help you get there.</p>
         </div>
 
-        <div class="service-card service-card--centered">
-          <div class="service-card-icon secondary" aria-hidden="true">
-            <img src="assets/branding/icons/placement-yellow.svg" alt="Icon">
+        <div class="pillars-list reveal-stagger">
+          <div class="pillar-item">
+            <div class="pillar-icon" aria-hidden="true">
+              <img src="assets/branding/icons/career-yellow.svg" alt="">
+            </div>
+            <div class="pillar-text">
+              <h3 data-i18n="index-svc-1-h3">Career Services &amp; Support</h3>
+              <p data-i18n="index-svc-1-p">Whether you're starting out or making a change, EJP offers career support and skills training to help you secure a role.</p>
+              <a href="job-seekers.html" class="pillar-link pillar-link--gold" data-i18n="index-svc-1-link">Explore Career Services &rarr;</a>
+            </div>
           </div>
-          <h3 data-i18n="index-svc-2-h3">Employer Partnerships</h3>
-          <p data-i18n="index-svc-2-p">We work with healthcare employers across New York to understand their staffing needs and match them with qualified candidates.</p>
-          <a href="employers.html" class="card-link" data-i18n="index-svc-2-link">For Employers &rarr;</a>
-        </div>
 
-        <div class="service-card service-card--centered">
-          <div class="service-card-icon accent" aria-hidden="true">
-            <img src="assets/branding/icons/training-yellow.svg" alt="Icon">
+          <div class="pillar-item">
+            <div class="pillar-icon" aria-hidden="true">
+              <img src="assets/branding/icons/placement-yellow.svg" alt="">
+            </div>
+            <div class="pillar-text">
+              <h3 data-i18n="index-svc-2-h3">Employer Partnerships</h3>
+              <p data-i18n="index-svc-2-p">We work with healthcare employers across New York to understand their staffing needs and match them with qualified candidates.</p>
+              <a href="employers.html" class="pillar-link pillar-link--burgundy" data-i18n="index-svc-2-link">For Employers &rarr;</a>
+            </div>
           </div>
-          <h3 data-i18n="index-svc-3-h3">Training-to-Career Pipeline</h3>
-          <p data-i18n="index-svc-3-p">From CPT training through placement, we support the full journey from education to meaningful healthcare employment.</p>
-          <a href="job-seekers.html#cpt" class="card-link" data-i18n="index-svc-3-link">Learn More &rarr;</a>
+
+          <div class="pillar-item">
+            <div class="pillar-icon" aria-hidden="true">
+              <img src="assets/branding/icons/training-yellow.svg" alt="">
+            </div>
+            <div class="pillar-text">
+              <h3 data-i18n="index-svc-3-h3">Training-to-Career Pipeline</h3>
+              <p data-i18n="index-svc-3-p">From CPT training through placement, we support the full journey from education to meaningful healthcare employment.</p>
+              <a href="job-seekers.html#cpt" class="pillar-link pillar-link--dark" data-i18n="index-svc-3-link">Learn More &rarr;</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <!-- Decorative: gold arc blending into testimonial section (Figma node 35:410) -->
+    <!-- Gold arc now handled by CSS ::before pseudo-element for a crisp edge -->
   </section>
 
   <!-- SUCCESS STORIES CAROUSEL -->
-  <section id="about" class="section section--neutral">
-    <div class="container">
-      <div class="section-header section-header--centered reveal">
-        <h2 data-i18n="index-about-h2">Success Stories</h2>
-        <div class="section-divider"></div>
-      </div>
-
-      <div class="carousel" aria-roledescription="carousel" aria-label="Success stories">
-        <div class="carousel-track">
+  <section id="about" class="section section--accent testimonial-section">
+    <div class="testimonial-carousel" aria-roledescription="carousel" aria-label="Success stories">
+        <div class="testimonial-track">
           <!-- Slide 1 -->
-          <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="1 of 3">
-            <div class="carousel-image">
-              <img src="photos/AshleyOra-8 2.png" alt="Ashley Ora, EJP graduate" loading="lazy">
-            </div>
-            <div class="carousel-content">
-              <blockquote>
-                "EJP provided me with the guidance and support I needed to take the next step in my healthcare career. The career counseling and resume assistance were invaluable."
-                <footer>&mdash; <strong>Ashley Ora</strong>, CPT Graduate</footer>
+          <div class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="1 of 3">
+            <div class="testimonial-slide-content">
+              <div>
+                <span class="testimonial-kicker">Success Stories</span>
+                <div class="testimonial-kicker-line"></div>
+              </div>
+              <blockquote class="testimonial-quote">
+                &ldquo;EJP provided me with the guidance and support I needed to take the next step in my healthcare career. The career counseling and resume assistance were invaluable.&rdquo;
               </blockquote>
+              <div class="testimonial-attribution">
+                <span class="testimonial-name">Ashley Ora&mdash;CPT Graduate</span>
+                <strong class="testimonial-org">Healthcare Professional</strong>
+              </div>
+            </div>
+            <div class="testimonial-image">
+              <img src="photos/AshleyOra-8 2.png" alt="Ashley Ora, EJP graduate" loading="lazy">
             </div>
           </div>
           <!-- Slide 2 -->
-          <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 3">
-            <div class="carousel-image">
-              <img src="photos/DavidGudiel-7 3.png" alt="David Gudiel, EJP graduate" loading="lazy">
-            </div>
-            <div class="carousel-content">
-              <blockquote>
-                "The training I received through the program gave me the confidence and skills to land a role I'm truly proud of. I couldn't have done it without the team at EJP."
-                <footer>&mdash; <strong>David Gudiel</strong>, CPT Graduate</footer>
+          <div class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="2 of 3">
+            <div class="testimonial-slide-content">
+              <div>
+                <span class="testimonial-kicker">Success Stories</span>
+                <div class="testimonial-kicker-line"></div>
+              </div>
+              <blockquote class="testimonial-quote">
+                &ldquo;The training I received through the program gave me the confidence and skills to land a role I&rsquo;m truly proud of. I couldn&rsquo;t have done it without the team at EJP.&rdquo;
               </blockquote>
+              <div class="testimonial-attribution">
+                <span class="testimonial-name">David Gudiel&mdash;CPT Graduate</span>
+                <strong class="testimonial-org">NYC Health + Hospitals</strong>
+              </div>
+            </div>
+            <div class="testimonial-image">
+              <img src="photos/DavidGudiel-7 3.png" alt="David Gudiel, EJP graduate" loading="lazy">
             </div>
           </div>
           <!-- Slide 3 -->
-          <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="3 of 3">
-            <div class="carousel-image">
-              <img src="photos/image 17.png" alt="EJP success story" loading="lazy" style="transform: scale(1.08);">
-            </div>
-            <div class="carousel-content">
-              <blockquote>
-                "From my first meeting with a career counselor to my placement, every step felt supported. EJP truly invests in your future."
-                <footer>&mdash; <strong>Name TBD</strong>, CPT Graduate</footer>
+          <div class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="3 of 3">
+            <div class="testimonial-slide-content">
+              <div>
+                <span class="testimonial-kicker">Success Stories</span>
+                <div class="testimonial-kicker-line"></div>
+              </div>
+              <blockquote class="testimonial-quote">
+                &ldquo;From my first meeting with a career counselor to my placement, every step felt supported. EJP truly invests in your future.&rdquo;
               </blockquote>
+              <div class="testimonial-attribution">
+                <span class="testimonial-name">Eric Sanchez&mdash;Registered Nurse</span>
+                <strong class="testimonial-org">NYU Langone</strong>
+              </div>
+            </div>
+            <div class="testimonial-image">
+              <img src="photos/image 17.png" alt="EJP success story" loading="lazy">
             </div>
           </div>
         </div>
 
         <!-- Controls -->
-        <div class="carousel-controls">
-          <button class="carousel-btn carousel-btn--prev" aria-label="Previous story">&larr;</button>
-          <div class="carousel-dots" role="tablist" aria-label="Choose a story">
-            <button class="carousel-dot active" role="tab" aria-selected="true" aria-label="Story 1"></button>
-            <button class="carousel-dot" role="tab" aria-selected="false" aria-label="Story 2"></button>
-            <button class="carousel-dot" role="tab" aria-selected="false" aria-label="Story 3"></button>
+        <div class="testimonial-controls">
+          <button class="testimonial-btn testimonial-btn--prev" aria-label="Previous story">&larr;</button>
+          <div class="testimonial-dots" role="tablist" aria-label="Choose a story">
+            <button class="testimonial-dot active" role="tab" aria-selected="true" aria-label="Story 1"></button>
+            <button class="testimonial-dot" role="tab" aria-selected="false" aria-label="Story 2"></button>
+            <button class="testimonial-dot" role="tab" aria-selected="false" aria-label="Story 3"></button>
           </div>
-          <button class="carousel-btn carousel-btn--next" aria-label="Next story">&rarr;</button>
+          <button class="testimonial-btn testimonial-btn--next" aria-label="Next story">&rarr;</button>
         </div>
       </div>
-    </div>
   </section>
 
   <!-- EVENTS -->
-  <section id="events" class="section value-prop">
+  <section id="events" class="section value-prop events-section">
     <div class="container">
       <div class="section-header section-header--centered reveal">
         <span class="section-kicker" data-i18n="index-events-kicker">Events</span>
@@ -205,26 +230,27 @@
         <div class="section-divider"></div>
         <p data-i18n="index-events-intro">Connect with EJP career counselors and employers at upcoming events.</p>
       </div>
-      <div class="value-grid reveal-stagger">
-        <div class="value-item">
-          <div class="value-item-icon" aria-hidden="true"><img src="assets/branding/icons/calendar-yellow.svg" alt=""></div>
-          <h3 data-i18n="index-evt-1-h3">Spring Career Fair</h3>
-          <p data-i18n="index-evt-1-p">Date TBD &mdash; Location TBD</p>
+      <div class="event-photo-cards reveal-stagger">
+        <div class="event-photo-card">
+          <div class="event-photo-placeholder" aria-hidden="true"></div>
+          <div class="event-photo-card-body">
+            <h3 data-i18n="index-evt-1-h3">Spring Career Fair</h3>
+            <p data-i18n="index-evt-1-p">Date TBD &mdash; Location TBD</p>
+          </div>
         </div>
-        <div class="value-item">
-          <div class="value-item-icon" aria-hidden="true"><img src="assets/branding/icons/calendar-yellow.svg" alt=""></div>
-          <h3 data-i18n="index-evt-2-h3">Healthcare Hiring Event</h3>
-          <p data-i18n="index-evt-2-p">Date TBD &mdash; Location TBD</p>
+        <div class="event-photo-card">
+          <div class="event-photo-placeholder" aria-hidden="true"></div>
+          <div class="event-photo-card-body">
+            <h3 data-i18n="index-evt-2-h3">Healthcare Hiring Event</h3>
+            <p data-i18n="index-evt-2-p">Date TBD &mdash; Location TBD</p>
+          </div>
         </div>
-        <div class="value-item">
-          <div class="value-item-icon" aria-hidden="true"><img src="assets/branding/icons/calendar-yellow.svg" alt=""></div>
-          <h3 data-i18n="index-evt-3-h3">CPT Graduation &amp; Placement</h3>
-          <p data-i18n="index-evt-3-p">Date TBD &mdash; Location TBD</p>
-        </div>
-        <div class="value-item">
-          <div class="value-item-icon" aria-hidden="true"><img src="assets/branding/icons/calendar-yellow.svg" alt=""></div>
-          <h3 data-i18n="index-evt-4-h3">Resume Workshop</h3>
-          <p data-i18n="index-evt-4-p">Date TBD &mdash; Location TBD</p>
+        <div class="event-photo-card">
+          <div class="event-photo-placeholder" aria-hidden="true"></div>
+          <div class="event-photo-card-body">
+            <h3 data-i18n="index-evt-3-h3">CPT Graduation &amp; Placement</h3>
+            <p data-i18n="index-evt-3-p">Date TBD &mdash; Location TBD</p>
+          </div>
         </div>
       </div>
       <div class="text-center">
@@ -286,20 +312,24 @@
 
   <!-- GSAP Animation Library -->
   <script>
-    // Success Stories Carousel
+    // Success Stories Carousel (Figma testimonial layout)
     (function() {
-      var track = document.querySelector('.carousel-track');
-      var slides = document.querySelectorAll('.carousel-slide');
-      var dots = document.querySelectorAll('.carousel-dot');
-      var prevBtn = document.querySelector('.carousel-btn--prev');
-      var nextBtn = document.querySelector('.carousel-btn--next');
+      var track = document.querySelector('.testimonial-track');
+      var slides = document.querySelectorAll('.testimonial-slide');
+      var dots = document.querySelectorAll('.testimonial-dot');
+      var prevBtn = document.querySelector('.testimonial-btn--prev');
+      var nextBtn = document.querySelector('.testimonial-btn--next');
+      if (!track || !slides.length) return;
       var current = 0;
       var total = slides.length;
-      var interval = 5000;
+      var interval = 8000;   // 8s between slides — unhurried
       var timer;
 
       function goTo(index) {
-        current = (index + total) % total;
+        // Always forward-wrap: after last slide, go back to first
+        if (index >= total) index = 0;
+        if (index < 0) index = total - 1;
+        current = index;
         track.style.transform = 'translateX(-' + (current * 100) + '%)';
         dots.forEach(function(dot, i) {
           dot.classList.toggle('active', i === current);
@@ -319,8 +349,7 @@
         dot.addEventListener('click', function() { stopAuto(); goTo(i); startAuto(); });
       });
 
-      // Pause on hover
-      var carousel = document.querySelector('.carousel');
+      var carousel = document.querySelector('.testimonial-carousel');
       carousel.addEventListener('mouseenter', stopAuto);
       carousel.addEventListener('mouseleave', startAuto);
 

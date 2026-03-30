@@ -24,9 +24,10 @@
   --color-secondary-100: #fef4c4;
   --color-secondary-50:  #fffbe6;
 
-  /* — Color Palette: Accent (Vibrant Gold) — Updated March 2026 — */
+  /* — Color Palette: Accent (Vibrant Gold) — Updated per Figma — */
   --color-accent-700: #d4a800;     /* warmer dark gold, not olive */
   --color-accent-600: #e0b800;
+  --color-accent-550: #fecb00;     /* Figma MyTEF button, CPT border */
   --color-accent-500: #fdd201;     /* main gold - warmer, brighter */
   --color-accent-400: #fdd929;
   --color-accent-100: #fef4c4;
@@ -44,6 +45,9 @@
   --color-neutral-200: #f7eae2;    /* NEW: warm light neutral */
   --color-neutral-100: #fffceb;    /* NEW: warm off-white */
   --color-neutral-50:  #fffdf4;    /* NEW: warm cream background */
+
+  /* — Color Palette: Dark Burgundy (Figma outline variant) — */
+  --color-primary-dark: #852633;
 
   /* — Color Palette: Orange (Secondary Accent) — NEW March 2026 — */
   --color-orange-600: #b34206;
@@ -75,17 +79,17 @@
   --font-weight-bold:     700;
   --font-weight-extrabold: 800;
 
-  /* — Typography: Scale — Updated March 2026, audit-corrected */
+  /* — Typography: Scale — Updated per Figma March 2026 reference */
   --text-xs:   0.75rem;     /* 12px — kickers, fine print, event-month */
   --text-sm:   0.8125rem;   /* 13px — buttons, card-link, small body */
   --text-base: 1rem;        /* 16px — body default */
-  --text-md:   1.0625rem;   /* 17px — section body copy */
+  --text-md:   1.05rem;     /* 16.8px — section body copy (Figma) */
   --text-lg:   1.1875rem;   /* 19px — card h3, intro copy */
-  --text-xl:   1.375rem;    /* 22px — wizard h3, prominent labels */
+  --text-xl:   1.5625rem;   /* 25px — pillar titles (Figma) */
   --text-2xl:  clamp(1.375rem, 1.375rem + 1vw, 1.75rem);   /* 22–28px sub-heading */
-  --text-3xl:  clamp(1.5rem, 1.5rem + 1vw, 2.375rem);      /* 24–38px section h2 — reduced for Poppins */
-  --text-4xl:  clamp(2rem, 2rem + 3vw, 4.375rem);           /* 32–70px hero h1 */
-  --text-nav:  clamp(1rem, 1.8vw, 1.125rem);                /* 16–18px nav items */
+  --text-3xl:  clamp(2rem, 2rem + 1.5vw, 3.125rem);         /* 32–50px section h2 (Figma) */
+  --text-4xl:  clamp(2.5rem, 2.5rem + 2vw, 4.0625rem);      /* 40–65px hero h1 (Figma) */
+  --text-nav:  clamp(1rem, 1.8vw, 1.1875rem);                /* 16–19px nav items (Figma) */
 
   /* — Typography: Line Height — */
   --leading-none:    1;
@@ -94,10 +98,10 @@
   --leading-base:    1.5;   /* body */
   --leading-relaxed: 1.6;   /* hero deck, event descriptions */
 
-  /* — Typography: Letter Spacing — Updated March 2026 */
-  --tracking-tighter: -1.5px;  /* hero h1, section h2 — loosened for Poppins */
-  --tracking-tight:   -0.5px;  /* hero subtitle, h3 — loosened for Poppins */
-  --tracking-normal:  -0.127px; /* body default (was -0.1px) */
+  /* — Typography: Letter Spacing — Updated per Figma March 2026 */
+  --tracking-tighter: -1.2px;  /* hero h1 (Figma: -1px at 65px) */
+  --tracking-tight:   -0.1px;  /* body/h3 default (Figma) */
+  --tracking-normal:  -0.127px; /* body default (Figma nav links) */
   --tracking-wide:    1px;     /* event-month */
   --tracking-wider:   2px;     /* kickers / eyebrows */
 
@@ -211,28 +215,29 @@
      Layer 2: Semantic Tokens — Chrome
      Updated March 2026
      ======================================== */
-  --color-header-bg:      var(--color-primary-800);     /* Updated: new burgundy */
-  --color-header-top-bg:  var(--color-primary-900);     /* Updated */
-  --color-header-text:    var(--color-primary-100);
-  --color-header-active:  #ffffff;
+  --color-header-bg:      var(--color-neutral-50);       /* Figma: warm cream */
+  --color-header-top-bg:  var(--color-primary-800);     /* Figma: burgundy top bar */
+  --color-header-top-text: #ffffff;                      /* Figma: white text on burgundy */
+  --color-header-text:    var(--color-primary-800);      /* Figma: burgundy nav text */
+  --color-header-active:  var(--color-primary-700);
 
-  --color-footer-bg:      var(--color-primary-950);
-  --color-footer-text:    var(--color-primary-200);
-  --color-footer-muted:   var(--color-primary-300);
-  --color-footer-divider: var(--color-primary-900);
+  --color-footer-bg:      var(--color-primary-800);     /* Figma: burgundy (not darker) */
+  --color-footer-text:    var(--color-neutral-50);      /* Figma: cream text */
+  --color-footer-muted:   rgba(255, 253, 240, 0.7);    /* Figma: faded cream */
+  --color-footer-divider: rgba(255, 255, 255, 0.15);   /* Figma: subtle line */
 
 
   /* ========================================
      Layer 3: Component Tokens — Buttons — Updated March 2026
      ======================================== */
-  --btn-font-size:    var(--text-base);
-  --btn-font-size-lg: 1.125rem;      /* 18px — reduced */
-  --btn-font-weight:  var(--font-weight-semibold);
-  --btn-radius:       var(--radius-pill);  /* Pill shape */
-  --btn-padding-y:    0.875rem;       /* 14px — reduced */
-  --btn-padding-x:    1.75rem;        /* 28px — reduced */
-  --btn-padding-y-lg: 1rem;           /* 16px — reduced */
-  --btn-padding-x-lg: 2.5rem;         /* 40px — reduced */
+  --btn-font-size:    0.875rem;          /* Figma: 14px contact buttons */
+  --btn-font-size-lg: 1rem;             /* Figma: 16px hero/CTA buttons */
+  --btn-font-weight:  var(--font-weight-semibold);  /* Figma: Poppins SemiBold */
+  --btn-radius:       var(--radius-pill);  /* Figma: pill shape (100px) */
+  --btn-padding-y:    0.5rem;            /* Figma: 8px compact */
+  --btn-padding-x:    1.5rem;            /* Figma: 24px compact */
+  --btn-padding-y-lg: 1rem;             /* Figma: 16px hero */
+  --btn-padding-x-lg: 3rem;              /* Figma: 48px hero */
 
   /* ========================================
      Layer 3: Component Tokens — Cards
@@ -255,11 +260,11 @@
   /* ========================================
      Layer 3: Component Tokens — Kicker / Eyebrow
      ======================================== */
-  --kicker-font-size:      var(--text-xs);
-  --kicker-font-weight:    var(--font-weight-bold);
-  --kicker-letter-spacing: var(--tracking-wider);
+  --kicker-font-size:      var(--text-xs);             /* Figma: 12px */
+  --kicker-font-weight:    var(--font-weight-semibold); /* Figma: Poppins SemiBold */
+  --kicker-letter-spacing: var(--tracking-wider);       /* Figma: 2px */
   --kicker-color:          var(--color-accent-on-dark);
-  --kicker-color-light:    var(--color-accent-600);
+  --kicker-color-light:    var(--color-neutral-800);    /* Figma: #3d3233 on light bg */
 
   /* ========================================
      Layer 3: Component Tokens — Section Divider
@@ -272,12 +277,12 @@
   /* ========================================
      Layer 3: Component Tokens — Hero
      ======================================== */
+  /* Figma: dark overlay (40%) + burgundy tint (60%) over photo */
   --hero-gradient: linear-gradient(
-    to right,
-    rgba(150, 16, 16, 0.93) 0%,
-    rgba(146, 6, 7, 0.78) 40%,
-    rgba(150, 16, 16, 0.45) 75%,
-    rgba(120, 12, 12, 0.30) 100%
+    to bottom,
+    rgba(0, 0, 0, 0.40) 0%,
+    rgba(150, 16, 16, 0.60) 50%,
+    rgba(150, 16, 16, 0.70) 100%
   );
   --hero-image: url('https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=1600&q=75&auto=format&fit=crop');
 }
@@ -298,8 +303,18 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5 {
-  font-weight: var(--font-weight-medium);  /* Updated per Figma */
+h1 {
+  font-weight: var(--font-weight-bold);     /* Figma: Poppins Bold */
+  line-height: 1.1;                         /* Figma: ~71.4/65 = 1.098 */
+}
+
+h2 {
+  font-weight: var(--font-weight-semibold); /* Figma: Poppins SemiBold */
+  line-height: var(--leading-tight);
+}
+
+h3, h4, h5 {
+  font-weight: var(--font-weight-medium);   /* Figma: Poppins Medium */
   line-height: var(--leading-tight);
 }
 
@@ -339,7 +354,8 @@ a:hover { color: var(--color-brand-hover); }
 }
 
 .header-top {
-  background: var(--color-neutral-100);  /* Slightly warmer */
+  background: var(--color-header-top-bg);  /* Figma: burgundy */
+  color: var(--color-header-top-text);     /* Figma: white text */
   padding: var(--space-sm) var(--space-lg);
   font-size: 13px;
   display: flex;
@@ -349,7 +365,7 @@ a:hover { color: var(--color-brand-hover); }
   margin: 0 auto;
 }
 
-.header-top a { color: var(--color-brand); }
+.header-top a { color: var(--color-header-top-text); }  /* Figma: white links on burgundy */
 
 .header-main {
   max-width: var(--max-width);
@@ -396,12 +412,12 @@ a:hover { color: var(--color-brand-hover); }
 .nav-links .active { color: var(--color-brand-hover); border-bottom: 2px solid var(--color-accent); padding-bottom: 2px; }
 
 .nav-links .nav-cta {
-  background: var(--color-accent);
-  color: var(--color-text-on-accent);
-  padding: 7px 20px;      /* Smaller padding for nav CTA per Figma */
-  border-radius: 10px;
-  font-weight: var(--btn-font-weight);
-  font-size: var(--btn-font-size);
+  background: var(--color-accent-550);     /* Figma: #fecb00 */
+  color: var(--color-primary-800);         /* Figma: burgundy text */
+  padding: 7px 20px;                      /* Figma: compact nav CTA */
+  border-radius: 10px;                    /* Figma: rounded-[10.159px] */
+  font-weight: var(--font-weight-medium); /* Figma: Poppins Medium */
+  font-size: 1.111rem;                    /* Figma: 17.778px */
   white-space: nowrap;
 }
 
@@ -416,8 +432,8 @@ a:hover { color: var(--color-brand-hover); }
     var(--hero-gradient),
     var(--hero-image) center 20%/cover no-repeat;
   color: var(--color-text-inverse);
-  padding: var(--space-3xl) var(--space-3xl) var(--space-2xl);
-  min-height: 520px;
+  padding: var(--space-3xl) var(--space-3xl) var(--space-3xl);
+  min-height: 560px;
   display: flex;
   align-items: center;
   position: relative;
@@ -441,8 +457,10 @@ a:hover { color: var(--color-brand-hover); }
   max-width: var(--max-width);
   margin: 0 auto;
   width: 100%;
-  text-align: left;
-  padding-left: var(--space-2xl);
+  text-align: center;                      /* Figma: centered hero text */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Hero entry stagger — CSS-only fallback when GSAP is unavailable.
@@ -458,60 +476,48 @@ a:hover { color: var(--color-brand-hover); }
 .hero-inner > *:nth-child(5) { animation-delay: 400ms; }
 
 .hero-kicker {
-  display: inline-block;
-  font-size: var(--kicker-font-size);
-  font-weight: var(--kicker-font-weight);
-  text-transform: uppercase;
-  letter-spacing: var(--kicker-letter-spacing);
-  color: var(--kicker-color);
-  margin-bottom: var(--space-lg);
-  border-bottom: 2px solid var(--color-accent);
-  padding-bottom: var(--space-xs);
+  display: none;                           /* Figma: no kicker in hero */
 }
 
 .hero h1 {
-  font-size: clamp(2.25rem, 2.25rem + 2vw, 3.25rem);  /* 36–52px — reduced for Poppins */
-  font-weight: var(--font-weight-medium);
-  line-height: 1.1;
+  font-size: var(--text-4xl);              /* Figma: 65px Poppins Bold */
+  font-weight: var(--font-weight-bold);
+  line-height: 1.1;                        /* Figma: 71.4/65 ≈ 1.098 */
   margin-bottom: var(--space-lg);
-  letter-spacing: var(--tracking-tighter);
+  letter-spacing: -1px;                    /* Figma: -1px at full size */
   max-width: 700px;
 }
 
 .hero .hero-subtitle {
-  font-size: clamp(1.375rem, 1.375rem + 0.75vw, 2rem);  /* 22–32px — reduced */
-  font-weight: var(--font-weight-light);
-  color: var(--color-accent-on-dark);
-  margin-bottom: var(--space-lg);
-  letter-spacing: var(--tracking-tight);
-  font-style: italic;
+  display: none;                           /* Figma: no separate subtitle line */
 }
 
 .hero .hero-deck {
-  font-size: clamp(1rem, 1rem + 0.15vw, 1.125rem);  /* 16–18px — reduced */
+  font-size: clamp(1.125rem, 1.125rem + 0.25vw, 1.2875rem);  /* 18–20.6px Figma */
   color: var(--color-text-inverse-muted);
   margin-bottom: var(--space-2xl);
   font-weight: var(--font-weight-regular);
-  max-width: 560px;
-  line-height: var(--leading-relaxed);
+  max-width: 660px;                        /* Figma: wider container */
+  line-height: var(--leading-relaxed);     /* Figma: ~1.6 */
 }
 
 .hero-actions {
   display: flex;
   gap: var(--space-md);
   flex-wrap: wrap;
+  justify-content: center;                 /* Figma: centered buttons */
 }
 
+/* Hero secondary CTA: burgundy bg, cream text (Figma) */
 .btn-hero-outline {
-  background: transparent;
-  border: 2px solid var(--color-border-inverse);
-  color: var(--color-text-inverse);
+  background: var(--color-brand);
+  border: none;
+  color: var(--color-neutral-50);          /* Figma: #fffdf4 */
 }
 
 .btn-hero-outline:hover {
-  background: var(--color-surface-inverse-hover);
-  border-color: var(--color-border-inverse-hover);
-  color: var(--color-text-inverse);
+  background: var(--color-brand-hover);
+  color: var(--color-neutral-50);
 }
 
 /* Page-level hero (inner pages) — Updated March 2026 */
@@ -535,10 +541,10 @@ a:hover { color: var(--color-brand-hover); }
 }
 
 .page-hero h1 {
-  font-size: clamp(2rem, 2rem + 1.5vw, 3rem);  /* 32–48px — reduced for Poppins */
-  font-weight: var(--font-weight-medium);
+  font-size: clamp(2rem, 2rem + 1.5vw, 3rem);  /* 32–48px */
+  font-weight: var(--font-weight-bold);         /* Figma: Bold */
   margin-bottom: var(--space-md);
-  letter-spacing: var(--tracking-tighter);
+  letter-spacing: -1px;                         /* Figma heading tracking */
 }
 
 .page-hero p {
@@ -554,7 +560,7 @@ a:hover { color: var(--color-brand-hover); }
    ======================================== */
 .cpt-banner {
   background: var(--color-accent-subtle);
-  border-bottom: 2px solid var(--color-accent);
+  border-bottom: 5px solid var(--color-accent-550);  /* Figma: 5px #fecb00 */
   padding: var(--space-md) var(--space-lg);
   text-align: center;
 }
@@ -570,8 +576,20 @@ a:hover { color: var(--color-brand-hover); }
 }
 
 .cpt-banner strong {
-  color: var(--color-brand);
-  font-weight: var(--font-weight-semibold);
+  color: black;                            /* Figma: black text */
+  font-weight: var(--font-weight-semibold); /* Figma: Poppins SemiBold */
+}
+
+.cpt-banner .btn {
+  /* Figma: "Start Here >" inline text link, not a button */
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.875rem;                    /* Figma: 14px */
+  font-weight: var(--font-weight-medium); /* Figma: Poppins Medium */
+  color: black;
+  text-decoration: underline;
+  border-radius: 0;
 }
 
 .returning-modal-box {
@@ -696,18 +714,29 @@ a:hover { color: var(--color-brand-hover); }
 .btn-accent { background: var(--color-accent); color: var(--color-text-on-accent); }
 .btn-accent:hover { background: var(--color-accent-hover); color: var(--color-text-on-accent); }
 
-/* Outline button: Gold border, dark text per Figma */
+/* Outline button: Burgundy border per Figma reference */
 .btn-outline {
   background: transparent;
-  border: 2px solid var(--color-accent);
-  color: var(--color-text-primary);
+  border: 2px solid var(--color-primary-800);  /* Figma: burgundy border */
+  color: var(--color-primary-800);
 }
 .btn-outline:hover {
-  background: rgba(253, 210, 1, 0.1);
+  background: rgba(150, 16, 16, 0.06);
 }
 
-.btn-secondary { background: var(--color-accent-500); color: var(--color-primary-900); }
-.btn-secondary:hover { background: var(--color-accent-400); color: var(--color-primary-900); }
+/* Dark outline variant for partnership buttons */
+.btn-outline-dark {
+  background: transparent;
+  border: 2px solid var(--color-primary-dark);  /* Figma: #852633 */
+  color: var(--color-primary-dark);
+}
+.btn-outline-dark:hover {
+  background: rgba(133, 38, 51, 0.06);
+}
+
+/* Secondary button: Burgundy bg, white text per Figma hero CTA */
+.btn-secondary { background: var(--color-brand); color: var(--color-text-inverse); }
+.btn-secondary:hover { background: var(--color-brand-hover); color: var(--color-text-inverse); }
 
 .btn-lg { padding: var(--btn-padding-y-lg) var(--btn-padding-x-lg); font-size: var(--btn-font-size-lg); }
 
@@ -725,21 +754,26 @@ a:hover { color: var(--color-brand-hover); }
 .section[id] { scroll-margin-top: 100px; }
 .section--neutral { background: var(--color-surface-sunken); }
 .section--secondary { background: var(--color-employer-subtle); }
-.section--accent { background: var(--color-accent); }  /* Gold background per Figma */
+.section--accent { background: var(--color-accent-500); }  /* Figma: full gold #fdd201 */
+.section--accent .section-kicker { color: var(--color-primary-800); } /* Figma: burgundy on gold */
+.section--accent .section-header h2 { color: var(--color-primary-800); }
 
 .section-header { margin-bottom: var(--space-xl); }
 
 .section-header h2 {
-  font-size: var(--text-3xl);  /* 26–48px — clear step below hero h1 */
+  font-size: var(--text-3xl);  /* 32–50px Figma: Poppins SemiBold */
+  font-weight: var(--font-weight-semibold);
   color: var(--color-heading);
   margin-bottom: var(--space-sm);
-  letter-spacing: var(--tracking-tighter);
+  letter-spacing: var(--tracking-tight);   /* Figma: -0.1px */
 }
 
 .section-header p {
-  color: var(--color-text-secondary);
-  font-size: var(--text-md);  /* 17px section intro */
+  color: var(--color-neutral-800);           /* Figma: #3d3233 */
+  font-size: var(--text-md);                 /* Figma: 16.8px */
+  font-weight: var(--font-weight-regular);   /* Figma: Poppins Regular */
   max-width: 600px;
+  line-height: var(--leading-base);          /* Figma: 25.2/16.8 ≈ 1.5 */
 }
 
 .section-header--centered { text-align: center; }
@@ -747,11 +781,7 @@ a:hover { color: var(--color-brand-hover); }
 .section-header--centered .section-divider { margin: var(--space-md) auto; }
 
 .section-divider {
-  width: var(--divider-width);
-  height: var(--divider-height);
-  background: var(--divider-color);
-  border-radius: var(--divider-radius);
-  margin: var(--space-md) 0;
+  display: none;                           /* Figma: no divider bars under headings */
 }
 
 
@@ -822,26 +852,35 @@ a:hover { color: var(--color-brand-hover); }
   align-items: center;
 }
 
-.service-card h3, .value-item h3, .contact-card h3, .employer-card h3, .wizard-card h3 {
-  font-size: var(--text-xl);
-  color: var(--color-heading);
+.service-card h3, .employer-card h3, .wizard-card h3 {
+  font-size: var(--text-xl);                 /* Figma: 25px */
+  font-weight: var(--font-weight-medium);    /* Figma: Poppins Medium */
+  color: var(--color-neutral-900);           /* Figma: #2d2122 */
   margin-bottom: var(--space-sm);
   letter-spacing: var(--tracking-tight);
 }
 
-.service-card p, .value-item p, .contact-card p, .employer-card p, .wizard-card p {
-  color: var(--color-text-secondary);
-  font-size: var(--text-base);
-  line-height: var(--leading-base);
+.value-item h3 {
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-neutral-800);
+  margin-bottom: var(--space-xs);
+}
+
+.service-card p, .value-item p, .employer-card p, .wizard-card p {
+  color: var(--color-neutral-800);            /* Figma: #3d3233 */
+  font-size: 0.9375rem;                       /* Figma: 15px */
+  font-weight: var(--font-weight-regular);    /* Figma: Poppins Regular */
+  line-height: 1.44;                          /* Figma: 21.6/15 */
 }
 
 .service-card .card-link, .employer-card .card-link {
   display: inline-block;
   margin-top: auto;
   padding-top: var(--space-md);
-  font-size: var(--text-sm);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-brand-hover);
+  font-size: var(--text-base);              /* Figma: 16px */
+  font-weight: var(--font-weight-semibold); /* Figma: Poppins SemiBold */
+  color: var(--color-accent-500);           /* Figma: gold #fdd201 */
   text-decoration: none;
 }
 
@@ -855,6 +894,142 @@ button.card-link {
   border: none;
   font: inherit;
   text-align: left;
+}
+
+
+/* ========================================
+   Three Pillars — Listicle Layout (Figma)
+   ======================================== */
+.pillars-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: var(--space-3xl);
+  align-items: start;
+}
+
+.pillars-intro {
+  position: sticky;
+  top: 120px;
+}
+
+.pillars-intro .section-kicker {
+  display: block;
+  margin-bottom: var(--space-sm);
+}
+
+.pillars-intro h2 {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-neutral-900);
+  line-height: var(--leading-tight);
+  margin-bottom: var(--space-md);
+}
+
+.pillars-intro p {
+  font-size: var(--text-md);
+  color: var(--color-neutral-700);
+  line-height: var(--leading-base);
+}
+
+.pillars-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+.pillar-item {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: flex-start;
+}
+
+.pillar-icon {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pillar-icon img {
+  width: 48px;
+  height: auto;
+}
+
+.pillar-text h3 {
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-neutral-900);
+  margin-bottom: var(--space-xs);
+  letter-spacing: var(--tracking-tight);
+}
+
+.pillar-text p {
+  font-size: 0.9375rem;
+  color: var(--color-neutral-800);
+  line-height: 1.44;
+  margin-bottom: var(--space-sm);
+}
+
+.pillar-link {
+  display: inline-block;
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+}
+
+.pillar-link:hover { text-decoration: underline; }
+.pillar-link--gold     { color: var(--color-accent-500); }
+.pillar-link--burgundy { color: var(--color-primary-800); }
+.pillar-link--dark     { color: var(--color-neutral-900); }
+
+
+/* ========================================
+   Event Photo Cards (Figma)
+   ======================================== */
+.event-photo-cards {
+  display: flex;
+  justify-content: center;
+  gap: 45px;
+  margin-bottom: var(--space-2xl);
+}
+
+.event-photo-card {
+  width: 229px;
+  background: var(--color-surface);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.event-photo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.event-photo-placeholder {
+  height: 166px;
+  background: linear-gradient(135deg, var(--color-accent-100) 0%, var(--color-accent-500) 100%);
+}
+
+.event-photo-card-body {
+  padding: var(--space-md);
+  text-align: center;
+}
+
+.event-photo-card-body h3 {
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-neutral-900);
+  margin-bottom: var(--space-xs);
+}
+
+.event-photo-card-body p {
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-light);
+  color: var(--color-neutral-600);
 }
 
 
@@ -876,6 +1051,7 @@ button.card-link {
   background: var(--color-surface);
   border-radius: var(--card-radius);
   border: 1px solid var(--color-brand-muted);
+  box-shadow: var(--shadow-md);
 }
 
 .value-item-number {
@@ -892,7 +1068,7 @@ button.card-link {
   margin: 0 auto var(--space-sm);
 }
 
-.value-item h3 { font-size: var(--text-lg); margin-bottom: var(--space-xs); color: var(--color-neutral-800); }
+/* value-item h3 defined above with card h3 rules */
 .value-item p  { font-size: var(--text-sm); color: var(--color-text-tertiary); }
 
 .value-item--secondary { border-color: var(--color-employer-muted); }
@@ -919,74 +1095,153 @@ button.card-link {
 .about-content p { color: var(--color-text-secondary); font-size: var(--text-base); }
 
 /* ========================================
-   Success Stories Carousel
+   Success Stories / Testimonial Carousel — high-fidelity Figma (node 8:3)
    ======================================== */
-.carousel {
+.testimonial-section {
   position: relative;
   overflow: hidden;
-  max-width: 960px;
-  margin: 0 auto;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
-.carousel-track {
+.testimonial-kicker {
+  display: inline-block;
+  font-size: 0.75rem;                     /* Figma: 12px */
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-primary-800);
+}
+
+.testimonial-kicker-line {
+  width: 46px;                            /* Figma: 46.259px */
+  height: 3px;
+  background: var(--color-primary-800);
+  margin: 10px 0 var(--space-lg);
+  border-radius: var(--radius-xs);
+}
+
+/* Carousel mechanics */
+.testimonial-carousel {
+  position: relative;
+  overflow: hidden;                    /* clip off-screen slides */
+}
+
+.testimonial-track {
   display: flex;
-  transition: transform 0.5s ease;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.carousel-slide {
+.testimonial-slide {
   min-width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-2xl);
-  align-items: center;
-  padding: 0 var(--space-lg);
-  box-sizing: border-box;
+  position: relative;
+  min-height: 600px;                 /* Figma: ~639px section height */
 }
 
-.carousel-image {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  line-height: 0;
-  font-size: 0;
+/* Slide content — left side, aligned to container position */
+.testimonial-slide-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: max(var(--space-lg), calc((100vw - var(--max-width)) / 2 + var(--space-lg)));
+  padding-right: var(--space-3xl);
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-3xl);
+  max-width: 45%;                    /* Figma: text occupies ~40% of section width */
 }
 
-.carousel-image img {
-  width: 100%;
-  height: 480px;
-  object-fit: cover;
-  object-position: center top;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  vertical-align: top;
-}
-
-.carousel-content blockquote {
-  border-left: 4px solid var(--color-gold);
-  padding-left: var(--space-lg);
-  margin: 0;
-  font-size: var(--text-lg);
-  font-style: italic;
-  color: var(--color-text);
-  line-height: 1.6;
-}
-
-.carousel-content blockquote footer {
-  margin-top: var(--space-md);
+.testimonial-quote {
+  font-size: clamp(1.25rem, 0.9rem + 1.25vw, 2rem); /* 20–32px — scaled for viewport */
+  font-weight: var(--font-weight-medium);
   font-style: normal;
-  font-size: var(--text-sm);
-  color: var(--color-text-secondary);
+  color: var(--color-primary-800);
+  line-height: 1.27;                      /* Figma: 1.273 */
+  letter-spacing: -1.2px;                 /* Figma: -1.2px */
+  border: none;
+  padding: 0;
+  margin: 0 0 var(--space-2xl);
+  max-width: 522px;
 }
 
-.carousel-controls {
+.testimonial-attribution {
+  color: var(--color-primary-800);
+}
+
+.testimonial-name {
+  display: block;
+  font-size: 0.9375rem;                   /* Figma: 15px */
+  font-weight: var(--font-weight-regular);
+  line-height: 1.73;
+  letter-spacing: -0.6px;
+}
+
+.testimonial-org {
+  display: block;
+  font-size: 1.25rem;                     /* Figma: 20px */
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.3;
+  letter-spacing: -0.6px;
+}
+
+/* Slide image — absolute positioned, organic feathered mask (Figma node 8:13)
+   Uses CSS mask-image with an SVG containing feGaussianBlur to create the
+   soft blended edge where the photo meets the gold background. */
+.testimonial-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40%;                        /* ~25% smaller than original 55% for better framing */
+  line-height: 0;
+  overflow: hidden;
+  z-index: 1;
+  /* Organic mask — clean curved edge without blur (Figma node 8:13) */
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 640' preserveAspectRatio='none'%3E%3Cpath d='M160 0C60 65 10 165 10 320S75 575 185 640H600V0z' fill='%23fff'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 640' preserveAspectRatio='none'%3E%3Cpath d='M160 0C60 65 10 165 10 320S75 575 185 640H600V0z' fill='%23fff'/%3E%3C/svg%3E");
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.testimonial-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;       /* Center faces within mask opening */
+}
+
+/* Warm radial overlay — approximates Figma mix-blend-multiply ellipse (node 8:17) */
+.testimonial-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 90% 70% at 15% 35%,
+    rgba(150, 16, 16, 0.22) 0%,
+    transparent 65%
+  );
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Controls — overlaid at bottom-left, aligned to container */
+.testimonial-controls {
+  position: absolute;
+  bottom: var(--space-lg);
+  left: max(var(--space-lg), calc((100vw - var(--max-width)) / 2 + var(--space-lg)));
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: var(--space-md);
-  margin-top: var(--space-xl);
+  z-index: 3;
 }
 
-.carousel-btn {
+.testimonial-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -996,34 +1251,33 @@ button.card-link {
   cursor: pointer;
   border: none;
   background: transparent;
-  color: var(--color-text-secondary);
+  color: var(--color-primary-800);
   font-size: var(--text-lg);
   transition: color 0.2s ease, background 0.2s ease;
 }
 
-.carousel-btn:hover {
-  color: var(--color-brand);
-  background: var(--color-surface);
+.testimonial-btn:hover {
+  background: rgba(150, 16, 16, 0.1);
 }
 
-.carousel-dots {
+.testimonial-dots {
   display: flex;
   gap: var(--space-xs);
 }
 
-.carousel-dot {
+.testimonial-dot {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  border: 2px solid var(--color-brand);
+  border: 2px solid var(--color-primary-800);
   background: transparent;
   cursor: pointer;
   padding: 0;
   transition: background 0.2s ease;
 }
 
-.carousel-dot.active {
-  background: var(--color-brand);
+.testimonial-dot.active {
+  background: var(--color-primary-800);
 }
 
 .about-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
@@ -1041,21 +1295,38 @@ button.card-link {
 /* ========================================
    Contact / Get Help
    ======================================== */
-.contact-section { background: var(--color-surface); }
+.contact-section { background: var(--color-neutral-50); }  /* Figma: #fffdf4 */
 .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); }
 
 .contact-card {
-  padding: var(--card-padding);
+  padding: var(--space-xl);                /* Figma: 32px */
   border-radius: var(--card-radius);
-  border: var(--card-border);
+  border: none;                            /* Figma: no border, shadow only */
+  background: var(--color-neutral-50);     /* Figma: #fffdf4 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Figma shadow */
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 }
-.contact-card h3 { font-size: var(--text-lg); color: var(--color-neutral-800); margin-bottom: var(--space-sm); }
-.contact-card p  { font-size: var(--text-sm); color: var(--color-text-tertiary); margin-bottom: var(--space-md); flex: 1; }
-.contact-card .btn { margin-top: auto; }
+.contact-card h3 {
+  font-size: 1.25rem;                     /* Figma: 20px Poppins SemiBold */
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-neutral-800);
+  margin-bottom: var(--space-sm);
+}
+.contact-card p  {
+  font-size: 0.875rem;                    /* Figma: 14px */
+  color: var(--color-neutral-500);        /* Figma: #897b7c */
+  margin-bottom: var(--space-md);
+  flex: 1;
+}
+.contact-card .btn {
+  margin-top: auto;
+  border-radius: 20px;                    /* Figma: rounded-[20px] */
+  font-weight: var(--font-weight-medium); /* Figma: Poppins Medium */
+}
 
 
 /* ========================================
@@ -1526,9 +1797,9 @@ main:not(:has(.hero)):not(:has(.page-hero)) {
   display: none; /* Removed sub-text per feedback */
 }
 
-.footer-links { display: flex; gap: var(--space-lg); list-style: none; font-size: var(--text-sm); }
-.footer-links a { color: var(--color-footer-muted); }
-.footer-links a:hover { color: var(--color-text-inverse); }
+.footer-links { display: flex; gap: var(--space-lg); list-style: none; font-size: 0.67rem; } /* Figma: ~10.7px */
+.footer-links a { color: var(--color-footer-muted); font-weight: var(--font-weight-light); } /* Figma: Poppins Light */
+.footer-links a:hover { color: var(--color-footer-text); }
 
 .footer-bottom {
   max-width: var(--max-width);
@@ -1539,6 +1810,108 @@ main:not(:has(.hero)):not(:has(.page-hero)) {
   color: var(--color-footer-muted);
   text-align: center;
 }
+
+
+/* ========================================
+   Section SVG Masks / Curve Transitions — per Figma reference
+   Organic curved shapes between sections
+   ======================================== */
+.section-curve {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top curve mask — elliptical arc entering from above */
+.section-curve::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 80px;
+  background: var(--color-bg);
+  border-radius: 0 0 50% 50%;
+  z-index: 1;
+}
+
+/* Bottom curve mask — elliptical arc exiting below */
+.section-curve::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 80px;
+  background: var(--color-bg);
+  border-radius: 50% 50% 0 0;
+  z-index: 1;
+}
+
+/* Hero bottom glow — soft elliptical rose/burgundy (Figma node 1:34) */
+.hero-glow {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 240px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(150, 16, 16, 0.25) 0%,
+    rgba(150, 16, 16, 0.10) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Pillars section — positioned for gold arc (no overflow-x clip so arc reaches viewport edge) */
+.pillars-section {
+  position: relative;
+  overflow-y: hidden;
+  overflow-x: visible;
+  padding-bottom: 120px;             /* Room for gold arc below text */
+}
+
+/* Gold arc — crisp-edged elliptical sweep from bottom-left, blending pillars
+   into the gold testimonial section. Single solid-gold ellipse with a short
+   linear-gradient fade on top so only the outer rim dissolves. */
+.pillars-arc {
+  display: none; /* replaced by ::before pseudo-element */
+}
+
+.pillars-section::before {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  left: -20vw;
+  width: 85vw;
+  height: 550px;
+  background: radial-gradient(
+    ellipse 55% 75% at 25% 100%,
+    var(--color-accent-500) 0%,
+    var(--color-accent-500) 35%,
+    rgba(253, 210, 1, 0.5) 55%,
+    rgba(253, 210, 1, 0.15) 70%,
+    transparent 85%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pillars-section::after {
+  display: none;
+}
+
+/* Events section — positioned for starburst */
+.events-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Starburst removed per design direction */
 
 
 /* ========================================
@@ -1584,9 +1957,27 @@ main:not(:has(.hero)):not(:has(.page-hero)) {
   .header-top         { display: none; }
   .mobile-nav-toggle  { display: block; }
   .mobile-nav         { display: block; }
-  .about-grid         { grid-template-columns: 1fr; }
-  .carousel-slide     { grid-template-columns: 1fr; gap: var(--space-lg); }
-  .carousel-image img { height: 320px; }
+  .pillars-layout          { grid-template-columns: 1fr; gap: var(--space-xl); }
+  .pillars-intro           { position: static; }
+  .event-photo-cards       { flex-direction: column; align-items: center; gap: var(--space-lg); }
+  .event-photo-card        { width: 280px; }
+  .about-grid              { grid-template-columns: 1fr; }
+  /* Mobile testimonial: explicit carousel height → track stretches → slide
+     becomes a flex column → image fills all remaining space after text.
+     Photo crops at the section's bottom edge; controls overlay the photo. */
+  /* Mobile testimonial: fixed-height slide with absolutely positioned photo
+     anchored to bottom edge. No flex height chain needed. */
+  .testimonial-section     { overflow: hidden; padding: 0 !important; }
+  .testimonial-carousel    { overflow: hidden; }
+  .testimonial-slide       { height: 640px; min-height: 640px; position: relative; }
+  .testimonial-slide-content { position: relative; z-index: 2; max-width: 100%; padding: var(--space-xl) var(--space-lg) var(--space-sm); }
+  .testimonial-controls    { bottom: var(--space-sm); left: var(--space-lg); z-index: 4; }
+  .testimonial-image       { position: absolute; left: 0; right: 0; top: auto; bottom: 0; height: 65%; width: 100%; -webkit-mask-image: none; mask-image: none; overflow: hidden; border-radius: 0; }
+  .testimonial-image img   { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; transform: scale(0.75); transform-origin: center bottom; }
+  .testimonial-image::after { display: none; }
+
+  /* Hide gold arc on mobile — it doesn't work at small widths */
+  .pillars-section::before { display: none; }
   .contact-grid       { grid-template-columns: 1fr; }
   .wizard-cards       { grid-template-columns: 1fr; }
   .services-grid,
