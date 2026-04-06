@@ -284,7 +284,7 @@
     rgba(150, 16, 16, 0.75) 50%,
     rgba(150, 16, 16, 0.85) 100%
   );
-  --hero-image: url('assets/page-hero-bg.png');
+  --hero-image: url('assets/page-hero-bg.webp');
 }
 
 
