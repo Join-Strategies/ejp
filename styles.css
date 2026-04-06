@@ -280,11 +280,11 @@
   /* Figma: dark overlay (40%) + burgundy tint (60%) over photo */
   --hero-gradient: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.40) 0%,
-    rgba(150, 16, 16, 0.60) 50%,
-    rgba(150, 16, 16, 0.70) 100%
+    rgba(0, 0, 0, 0.50) 0%,
+    rgba(150, 16, 16, 0.75) 50%,
+    rgba(150, 16, 16, 0.85) 100%
   );
-  --hero-image: url('https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=1600&q=75&auto=format&fit=crop');
+  --hero-image: url('assets/page-hero-bg.png');
 }
 
 
@@ -800,14 +800,14 @@ a:hover { color: var(--color-brand-hover); }
 
 /* Hero secondary CTA: burgundy bg, cream text (Figma) */
 .btn-hero-outline {
-  background: var(--color-brand);
+  background: var(--color-neutral-50);
   border: none;
-  color: var(--color-neutral-50);          /* Figma: #fffdf4 */
+  color: var(--color-brand);
 }
 
 .btn-hero-outline:hover {
-  background: var(--color-brand-hover);
-  color: var(--color-neutral-50);
+  background: #fff;
+  color: var(--color-brand-hover);
 }
 
 /* Page-level hero (inner pages) — Updated March 2026 */
@@ -883,6 +883,7 @@ a:hover { color: var(--color-brand-hover); }
 }
 
 .cpt-banner .btn:hover {
+  background: none;
   color: var(--color-brand-hover);
 }
 
@@ -1198,12 +1199,10 @@ button.card-link {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   gap: var(--space-3xl);
-  align-items: center;
+  align-items: start;
 }
 
 .pillars-intro {
-  position: sticky;
-  top: 120px;
 }
 
 .pillars-intro .section-kicker {
