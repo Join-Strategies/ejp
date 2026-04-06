@@ -292,6 +292,7 @@
    Reset & Base
    ======================================== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scrollbar-gutter: stable; }
 
 body {
   font-family: var(--font-family);
@@ -881,6 +882,10 @@ a:hover { color: var(--color-brand-hover); }
   border-radius: 0;
 }
 
+.cpt-banner .btn:hover {
+  color: var(--color-brand-hover);
+}
+
 .returning-modal-box {
   text-align: center;
   max-width: 420px;
@@ -1193,7 +1198,7 @@ button.card-link {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   gap: var(--space-3xl);
-  align-items: start;
+  align-items: center;
 }
 
 .pillars-intro {
@@ -1768,11 +1773,15 @@ blockquote footer {
   gap: var(--space-lg);
 }
 
+#wizard-step-1 .wizard-cards {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .wizard-card {
   background: var(--color-surface);
   border: 2px solid var(--color-border);
   border-radius: var(--card-radius);
-  padding: var(--space-2xl) var(--space-xl);
+  padding: var(--space-xl) var(--space-lg);
   text-align: center;
   cursor: pointer;
   transition:
@@ -1832,6 +1841,7 @@ blockquote footer {
 }
 
 .wizard-card .btn { margin-top: auto; }
+
 
 .wizard-back {
   background: none;
@@ -2268,7 +2278,8 @@ main:not(:has(.hero)):not(:has(.page-hero)) {
   /* Hide gold arc on mobile — it doesn't work at small widths */
   .pillars-section::before { display: none; }
   .contact-grid       { grid-template-columns: 1fr; }
-  .wizard-cards       { grid-template-columns: 1fr; }
+  .wizard-cards,
+  #wizard-step-1 .wizard-cards { grid-template-columns: 1fr; }
   .services-grid,
   .services-grid.grid-2 { grid-template-columns: 1fr; }
   .cpt-banner-inner   { flex-direction: column; text-align: center; }
