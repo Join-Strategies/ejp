@@ -27,7 +27,10 @@
         </div>
       </div>
       <div class="header-top-right">
-        <button class="header-search-btn" onclick="openModal('search-modal')"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></button>
+        <div class="header-search-inline">
+          <input type="text" placeholder="Search EJP..." autocomplete="off" aria-label="Search EJP">
+          <span class="header-search-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+        </div>
       </div>
     </div>
     <!-- Main white navigation bar -->
@@ -154,27 +157,6 @@
     </div>
   </footer>
 
-  <!-- SEARCH MODAL -->
-  <div id="search-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="search-modal-title">
-    <div class="modal-box search-modal-box">
-      <button class="modal-close" onclick="closeModal('search-modal')" aria-label="Close">&times;</button>
-      <h2 class="search-modal-title" id="search-modal-title" data-i18n="search-modal-title">Search EJP</h2>
-      <div class="search-modal-form">
-        <input type="text" id="search-modal-input" placeholder="Search for services, events, resources..." data-i18n-placeholder="search-placeholder" autocomplete="off">
-        <button class="btn btn-primary" onclick="document.getElementById('search-modal-input').focus()">Search</button>
-      </div>
-      <div class="search-modal-links">
-        <h3 data-i18n="search-quick-links">Quick Links</h3>
-        <ul>
-          <li><a href="job-seekers.html">Career Services &amp; Support</a></li>
-          <li><a href="employers.html">Employer Resources</a></li>
-          <li><a href="events.html">Upcoming Events</a></li>
-          <li><a href="job-seekers.html#get-started">Get Started</a></li>
-          <li><a href="why-join.html">Why Join 1199SEIU</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
 
   <script src="nav.js"></script>
   <script src="ejp-forms.js"></script>
