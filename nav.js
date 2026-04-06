@@ -114,3 +114,12 @@
   });
 })();
 
+// Nav dropdown — prevent default on parent link click (Employment + top bar Funds)
+(function() {
+  document.querySelectorAll('.nav-dropdown > a[href="#"], .top-dropdown > a[href="#"]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+    });
+  });
+})();
+

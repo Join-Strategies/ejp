@@ -6,34 +6,68 @@
   <title>For Employers — EJP</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.3.1/dist/driver.css">
+  <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
 
   <!-- HEADER -->
   <header class="site-header">
+    <!-- Top maroon bar — mirrors 1199seiubenefits.org -->
     <div class="header-top">
-      <span data-i18n="header-tagline">An 1199SEIU Training &amp; Employment Funds Program</span>
-      <div>
-        <a href="#" class="nav-cta">MyTEF Portal</a>
-        &nbsp;&nbsp;|&nbsp;&nbsp;
-        <a href="#" class="js-lang-toggle">Espa&ntilde;ol</a>
+      <div class="header-top-left">
+        <div class="top-dropdown">
+          <a href="#">Funds &amp; Resources <span class="nav-dropdown-arrow" aria-hidden="true"></span></a>
+          <ul class="top-dropdown-menu">
+            <li><a href="https://www.1199seiubenefits.org/funds-and-services/healthcare/">Healthcare</a></li>
+            <li><a href="https://www.1199seiubenefits.org/pension-retirement/">Pension and Retirement</a></li>
+            <li><a href="https://www.1199seiubenefits.org/training/">Training and Employment</a></li>
+            <li><a href="https://www.1199seiubenefits.org/childcare/">Child Care and Youth Services</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="header-top-right">
+        <button class="header-search-btn" onclick="openModal('search-modal')"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></button>
       </div>
     </div>
+    <!-- Main white navigation bar -->
     <div class="header-main">
       <a href="index.html" class="logo">
-        <div class="logo-mark">EJP</div>
+        <img src="assets/branding/logos/full-logo.svg" alt="EJP Logo">
         <span data-i18n="logo-sub">Employment &amp; Job Placement</span>
       </a>
       <nav aria-label="Main navigation">
         <ul class="nav-links">
-          <li><a href="job-seekers.html" data-i18n="nav-job-seekers">For Job Seekers</a></li>
-          <li><a href="employers.html" class="active" data-i18n="nav-employers">For Employers</a></li>
-          <li><a href="index.html#about" data-i18n="nav-about">About</a></li>
-          <li><a href="events.html" data-i18n="nav-events">Events</a></li>
-          <li><a href="index.html#contact" data-i18n="nav-contact">Contact</a></li>
+          <li class="nav-dropdown">
+            <a href="https://www.1199seiubenefits.org/training-and-education/">Training &amp; Education <span class="nav-dropdown-arrow" aria-hidden="true"></span></a>
+            <ul class="nav-dropdown-menu">
+              <li><a href="https://www.1199seiubenefits.org/pre-college-programs/">Pre-college Programs</a></li>
+              <li><a href="https://www.1199seiubenefits.org/college-level-programs/">College-level Programs</a></li>
+              <li><a href="https://www.1199seiubenefits.org/continuing-ed/">Continuing Education</a></li>
+              <li><a href="https://www.1199seiubenefits.org/occupational-certifications/">Occupational Certifications</a></li>
+              <li><a href="https://www.1199seiubenefits.org/home-care-workers-training/">Training for Home Care Workers</a></li>
+              <li><a href="https://www.1199seiubenefits.org/rn-training/">Training for Registered Nurses</a></li>
+            </ul>
+          </li>
+          <li class="nav-dropdown">
+            <a href="#" class="active" data-i18n="nav-employment">Employment <span class="nav-dropdown-arrow" aria-hidden="true"></span></a>
+            <ul class="nav-dropdown-menu">
+              <li><a href="job-seekers.html" data-i18n="nav-job-seekers">For Job Seekers</a></li>
+              <li><a href="employers.html" data-i18n="nav-employers">For Employers</a></li>
+              <li><a href="index.html#about" data-i18n="nav-about">About</a></li>
+              <li><a href="events.html" data-i18n="nav-events">Events</a></li>
+              <li><a href="index.html#contact" data-i18n="nav-contact">Contact</a></li>
+            </ul>
+          </li>
+          <li class="nav-dropdown">
+            <a href="https://www.1199seiubenefits.org/citizenship-and-english/">Citizenship &amp; English <span class="nav-dropdown-arrow" aria-hidden="true"></span></a>
+            <ul class="nav-dropdown-menu">
+              <li><a href="https://www.1199seiubenefits.org/citizenship-program/">Citizenship Program</a></li>
+              <li><a href="https://www.1199seiubenefits.org/esol/">ESOL</a></li>
+            </ul>
+          </li>
+          <li><a href="https://www.1199seiubenefits.org/member-resources/">Member Resources</a></li>
           <li><a href="#" class="nav-cta" data-i18n="nav-mytef">My TEF</a></li>
         </ul>
       </nav>
@@ -60,8 +94,8 @@
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="page-hero-inner">
-      <h1 data-i18n="emp-hero-h1">Find Qualified Healthcare Staff</h1>
-      <p data-i18n="emp-hero-p">Every year, thousands of New Yorkers choose healthcare not because it's a job, but because it's a calling. EJP connects you with qualified candidates who are motivated, vetted, and ready to fill your open roles.</p>
+      <h1 data-i18n="emp-hero-h1">Build a Qualified Healthcare Workforce</h1>
+      <p data-i18n="emp-hero-p">The Employment and Job Placement Center partners with healthcare employers across New York to support their recruitment needs by matching them with qualified candidates</p>
     </div>
   </section>
 
@@ -71,22 +105,24 @@
       <div class="section-header reveal">
         <h2 data-i18n="emp-why-h2">Why Partner with EJP</h2>
         <div class="section-divider"></div>
-        <p data-i18n="emp-why-intro">We work with healthcare employers across New York to understand their specific staffing needs and match them with qualified candidates from our network.</p>
+        <p data-i18n="emp-why-intro">As part of EJP's partner network, healthcare employers receive dedicated recruitment support and direct access to a pipeline of recent graduates ready to fill open roles.</p>
       </div>
 
       <div class="services-grid reveal-stagger" id="emp-why-partner">
         <div class="service-card service-card--centered">
-          <div class="service-card-icon secondary" aria-hidden="true">&#x1F393;</div>
-          <h3 data-i18n="emp-svc-cpt-h3">CPT-Trained Candidates</h3>
-          <p data-i18n="emp-svc-cpt-p">Access a pipeline of graduates trained across 10 healthcare occupations &mdash; from nursing and allied health to technical and administrative roles.</p>
+          <div class="service-card-icon secondary" aria-hidden="true">
+            <img src="assets/branding/icons/training-yellow.svg" alt="Icon">
+          </div>
+          <h3 data-i18n="emp-svc-cpt-h3">Over 7,000 CPT Participants</h3>
+          <p data-i18n="emp-svc-cpt-p">Access a pipeline of recent graduates trained across a variety of healthcare occupations &mdash; from nursing and allied health to technical and administrative roles.</p>
         </div>
         <div class="service-card service-card--centered">
-          <div class="service-card-icon secondary" aria-hidden="true">&#x2705;</div>
+          <div class="service-card-icon secondary" aria-hidden="true"><img src="assets/branding/icons/checkmark-yellow.svg" alt=""></div>
           <h3 data-i18n="emp-svc-screened-h3">Pre-Screened &amp; Prepared</h3>
           <p data-i18n="emp-svc-screened-p">Our candidates have completed training, received career counseling, and are ready to work. No cold applicants &mdash; motivated professionals.</p>
         </div>
         <div class="service-card service-card--centered">
-          <div class="service-card-icon secondary" aria-hidden="true">&#x1F91D;</div>
+          <div class="service-card-icon secondary" aria-hidden="true"><img src="assets/branding/icons/partnership-yellow.svg" alt=""></div>
           <h3 data-i18n="emp-svc-partner-h3">Ongoing Partnership</h3>
           <p data-i18n="emp-svc-partner-p">EJP isn't a one-time service. We build lasting relationships with employers to support continuous staffing and workforce development needs.</p>
         </div>
@@ -104,29 +140,31 @@
 
       <div class="services-grid grid-2 reveal-stagger">
         <div class="service-card employer-card" id="emp-vacancy-card">
-          <div class="service-card-icon secondary" aria-hidden="true">&#x1F4E4;</div>
+          <div class="service-card-icon secondary" aria-hidden="true"><img src="assets/branding/icons/upload-yellow.svg" alt=""></div>
           <h3 data-i18n="emp-vacancies-h3">Submit Job Openings</h3>
-          <p data-i18n="emp-vacancies-p">Post your vacancies directly to our qualified candidate pool. We'll match you with CPT-trained professionals.</p>
+          <p data-i18n="emp-vacancies-p">Post your vacancies directly to our pool of qualified candidates.</p>
           <!-- D1: wired to modal -->
           <button class="card-link" onclick="openModal('employer-vacancy-modal')" data-i18n="emp-vacancies-btn">Submit a Vacancy &rarr;</button>
         </div>
 
         <div class="service-card employer-card">
-          <div class="service-card-icon secondary" aria-hidden="true">&#x1F3E2;</div>
+          <div class="service-card-icon secondary" aria-hidden="true">
+            <img src="assets/branding/icons/job-placement-support-yellow.svg" alt="Icon">
+          </div>
           <h3 data-i18n="emp-partner-h3">Become a Partner Provider</h3>
-          <p data-i18n="emp-partner-p">Join our network of healthcare employers committed to workforce development and community hiring.</p>
+          <p data-i18n="emp-partner-p">Receive dedicated recruitment support and access to EJP's pipeline of recent graduates.</p>
           <a href="#" class="card-link" data-i18n="emp-partner-link">Apply to Be a Partner &rarr;</a>
         </div>
 
         <div class="service-card employer-card" id="emp-events-card">
-          <div class="service-card-icon secondary" aria-hidden="true">&#x1F4C5;</div>
+          <div class="service-card-icon secondary" aria-hidden="true"><img src="assets/branding/icons/calendar-yellow.svg" alt=""></div>
           <h3 data-i18n="emp-events-h3">Attend Hiring Events</h3>
           <p data-i18n="emp-events-p">Meet qualified candidates in person at our career fairs and hiring events throughout New York.</p>
           <a href="events.html" class="card-link" data-i18n="emp-events-link">View Upcoming Events &rarr;</a>
         </div>
 
         <div class="service-card employer-card">
-          <div class="service-card-icon secondary" aria-hidden="true">&#x1F4DE;</div>
+          <div class="service-card-icon secondary" aria-hidden="true"><img src="assets/branding/icons/phone-yellow.svg" alt=""></div>
           <h3 data-i18n="emp-contact-h3">Contact Employer Relations</h3>
           <p data-i18n="emp-contact-p">Have questions about partnering with EJP? Our employer relations team is here to help.</p>
           <!-- D2: wired to modal -->
@@ -175,10 +213,10 @@
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="logo-mark">EJP</div>
+      <a href="index.html" class="footer-brand">
+        <img src="assets/branding/logos/word.svg" alt="EJP Logo" class="footer-logo">
         <span data-i18n="footer-brand-sub">Employment &amp; Job Placement</span>
-      </div>
+      </a>
       <ul class="footer-links">
         <li><a href="#" data-i18n="footer-funds">1199SEIU Funds</a></li>
         <li><a href="#" data-i18n="footer-privacy">Privacy Policy</a></li>
@@ -191,6 +229,28 @@
       &copy; 2026 1199SEIU Training &amp; Employment Funds. All rights reserved.
     </div>
   </footer>
+
+  <!-- SEARCH MODAL -->
+  <div id="search-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="search-modal-title">
+    <div class="modal-box search-modal-box">
+      <button class="modal-close" onclick="closeModal('search-modal')" aria-label="Close">&times;</button>
+      <h2 class="search-modal-title" id="search-modal-title" data-i18n="search-modal-title">Search EJP</h2>
+      <div class="search-modal-form">
+        <input type="text" id="search-modal-input" placeholder="Search for services, events, resources..." data-i18n-placeholder="search-placeholder" autocomplete="off">
+        <button class="btn btn-primary" onclick="document.getElementById('search-modal-input').focus()">Search</button>
+      </div>
+      <div class="search-modal-links">
+        <h3 data-i18n="search-quick-links">Quick Links</h3>
+        <ul>
+          <li><a href="job-seekers.html">Career Services &amp; Support</a></li>
+          <li><a href="employers.html">Employer Resources</a></li>
+          <li><a href="events.html">Upcoming Events</a></li>
+          <li><a href="job-seekers.html#get-started">Get Started</a></li>
+          <li><a href="why-join.html">Why Join 1199SEIU</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
   <!-- D1: Submit a Vacancy modal -->
   <div id="employer-vacancy-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="vacancy-modal-title">

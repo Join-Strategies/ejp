@@ -20,7 +20,7 @@
       {
         popover: {
           title: 'Career Services for You',
-          description: 'This page connects 1199SEIU members and CPT graduates with career support — from job placement to counseling to training. Let\'s take a quick look around.'
+          description: 'This page connects 1199SEIU members and CPT participants with career support — from job placement to counseling to training. Let\'s take a quick look around.'
         }
       },
       {
@@ -41,7 +41,7 @@
         element: '#member-benefits',
         popover: {
           title: 'What Members Get',
-          description: 'Union members and CPT graduates get the full suite: resume assistance, career counseling, interview prep, placement support, and more.'
+          description: 'Union members and CPT participants get the full suite: resume assistance, career counseling, interview prep, placement support, and more.'
         }
       },
       {
@@ -92,6 +92,9 @@
     var tourInstance = window.driver.js.driver({
       showProgress: true,
       allowClose:   true,
+      stagePadding: 6,
+      stageRadius: 8,
+      overlayColor: 'rgba(0, 0, 0, 0.6)',
       steps: TOURS[pageKey],
       onDestroyed: function () {
         if (isEmp) document.body.classList.remove('employer-tour');

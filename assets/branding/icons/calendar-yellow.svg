@@ -1,0 +1,15 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<!-- Calendar frame: solid header band, date area cut out -->
+<path fill-rule="evenodd" d="M10 14C10 11.8 11.8 10 14 10H50C52.2 10 54 11.8 54 14V56C54 58.2 52.2 60 50 60H14C11.8 60 10 58.2 10 56V14ZM14 28H50V56H14V28Z" fill="#FFD203"/>
+<!-- Tab left -->
+<rect x="22" y="4" width="4" height="12" rx="2" fill="#FFD203"/>
+<!-- Tab right -->
+<rect x="38" y="4" width="4" height="12" rx="2" fill="#FFD203"/>
+<!-- Date dots row 1 -->
+<circle cx="22" cy="36" r="3" fill="#FFD203"/>
+<circle cx="32" cy="36" r="3" fill="#FFD203"/>
+<circle cx="42" cy="36" r="3" fill="#FFD203"/>
+<!-- Date dots row 2 -->
+<circle cx="22" cy="48" r="3" fill="#FFD203"/>
+<circle cx="32" cy="48" r="3" fill="#FFD203"/>
+</svg>
