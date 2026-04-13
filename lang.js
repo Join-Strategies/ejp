@@ -37,8 +37,8 @@
     'mytef-modal-footnote':  'Serás llevado al portal seguro de miembros de 1199SEIU TEF para iniciar sesión.',
     // ── index.html ────────────────────────────────────────────────
     'index-hero-kicker':     'Su Socio en el Empleo en Salud',
-    'index-hero-h1-1':       'Más Que',
-    'index-hero-h1-2':       'Solo un Trabajo.',
+    'index-hero-h1-1':       'Centro de Empleo y',
+    'index-hero-h1-2':       'Ubicación Laboral',
     'index-hero-subtitle':   'Construimos carreras.',
     'index-hero-deck':       'Como parte del sindicato 1199SEIU, ayudamos a los buscadores de empleo a construir carreras duraderas y a los empleadores a formar equipos más fuertes desarrollando una fuente de puestos disponibles y candidatos calificados.',
     'index-hero-btn-primary':   'Buscando Trabajo →',
