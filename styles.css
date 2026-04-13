@@ -1154,6 +1154,11 @@ a:hover { color: var(--color-brand-hover); }
 }
 
 .services-grid.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.services-grid.grid-2 > :last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  max-width: 50%;
+  margin: 0 auto;
+}
 
 .service-card {
   background: var(--color-surface);
@@ -1836,7 +1841,10 @@ blockquote footer {
   gap: var(--space-lg);
 }
 
-#wizard-step-1 .wizard-cards,
+#wizard-step-1 .wizard-cards {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 #wizard-step-2 .wizard-cards {
   grid-template-columns: repeat(3, 1fr);
 }
@@ -1887,7 +1895,7 @@ blockquote footer {
 
 .wizard-card h3 {
   font-size: var(--text-xl);
-  color: var(--color-heading);
+  color: var(--color-neutral-900);
   margin-bottom: var(--space-sm);
 }
 
@@ -2725,6 +2733,208 @@ body.modal-open {
     padding: var(--space-xs) var(--space-sm);
     font-size: var(--text-xs);
   }
+}
+
+/* ========================================
+   Language Toggle (header)
+   ======================================== */
+.header-lang-toggle {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: var(--radius-md);
+  color: var(--color-header-top-text);
+  font-size: 13px;
+  font-family: inherit;
+  font-weight: 500;
+  padding: 4px 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.header-lang-toggle:hover {
+  background: rgba(255,255,255,0.25);
+  border-color: rgba(255,255,255,0.4);
+}
+
+/* ========================================
+   FAQ Section
+   ======================================== */
+.faq-section {
+  background: var(--color-surface-warm, var(--color-neutral-200));
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.faq-item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong, #e5e5e5);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.faq-item summary {
+  padding: var(--space-lg) var(--space-xl);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-base);
+  color: var(--color-neutral-900);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-md);
+  transition: color var(--transition-base);
+}
+
+.faq-item summary:hover {
+  color: var(--color-primary-800);
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: '+';
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--color-primary-800);
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-100);
+  transition: transform 0.3s var(--ease-spring), background 0.2s ease;
+}
+
+.faq-item[open] summary::after {
+  content: '\2212';
+  transform: rotate(180deg);
+  background: var(--color-primary-800);
+  color: #fff;
+}
+
+.faq-item-body {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.35s var(--ease-spring), opacity 0.25s ease;
+}
+
+.faq-item[open] .faq-item-body {
+  opacity: 1;
+}
+
+.faq-item p {
+  padding: 0 var(--space-xl) var(--space-lg);
+  color: var(--color-neutral-700);
+  line-height: 1.7;
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+/* ========================================
+   Wizard myTEF Callout
+   ======================================== */
+.wizard-mytef-callout {
+  text-align: center;
+  margin-top: var(--space-lg);
+  padding: var(--space-md);
+  background: var(--color-surface, #f8f8f8);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border, #e5e5e5);
+}
+
+.wizard-mytef-callout a {
+  font-weight: 500;
+  color: var(--color-primary-800);
+}
+
+.wizard-mytef-callout a:hover {
+  color: var(--color-primary-700);
+  text-decoration: underline;
+}
+
+/* ========================================
+   CPT Page — CTA Block
+   ======================================== */
+.cpt-cta-section {
+  background: var(--color-primary-900);
+  color: #fff;
+}
+
+.cpt-cta-block {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cpt-cta-block h2 {
+  color: #fff;
+  margin-bottom: var(--space-md);
+}
+
+.cpt-cta-block p {
+  color: rgba(255,255,255,0.85);
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-xl);
+}
+
+.cpt-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  justify-content: center;
+}
+
+.cpt-cta-actions .btn-outline {
+  border-color: rgba(255,255,255,0.5);
+  color: #fff;
+}
+
+.cpt-cta-actions .btn-outline:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: #fff;
+}
+
+.cpt-expectations-body {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cpt-expectations-body p {
+  font-size: var(--text-lg, 1.125rem);
+  line-height: 1.7;
+  color: var(--color-neutral-700);
+}
+
+.cpt-training-link {
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--color-neutral-300);
+}
+
+.cpt-training-link p {
+  font-size: var(--text-base);
+  color: var(--color-neutral-600);
+  margin-bottom: var(--space-md);
+}
+
+.cpt-cta-section {
+  padding: var(--space-3xl) 0;
 }
 
 /* ========================================
