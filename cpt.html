@@ -97,8 +97,8 @@
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="page-hero-inner">
-      <h1 data-i18n="cpt-hero-h1">Have you created your iCIMS account yet?</h1>
-      <p data-i18n="cpt-hero-p">As a CPT participant, you have access to dedicated career services including resume assistance, career counseling, interview preparation, and job placement support. Your first step is creating your iCIMS profile so our recruitment team can connect you with opportunities at partner healthcare facilities across New York.</p>
+      <h1 data-i18n="cpt-hero-h1">Create Your iCIMS Account</h1>
+      <p data-i18n="cpt-hero-p">As a CPT participant, you have access to dedicated career services including resume assistance, career counseling, interview preparation, and job placement support. To get started, create your iCIMS account.</p>
     </div>
   </section>
 
@@ -155,20 +155,35 @@
     </div>
   </section>
 
-  <!-- EXPECTATIONS -->
+  <!-- EXPECTATIONS / FAQ -->
   <section class="section section--neutral" id="cpt-expectations">
     <div class="container">
       <div class="section-header reveal">
         <span class="section-kicker" data-i18n="cpt-expect-kicker">What to Expect</span>
-        <h2 data-i18n="cpt-expect-h2">How Career Services Work</h2>
+        <h2 data-i18n="cpt-expect-h2">Frequently Asked Questions</h2>
         <div class="section-divider"></div>
       </div>
-      <div class="cpt-expectations-body reveal">
-        <p data-i18n="cpt-expect-p">Career services are available to all CPT participants &mdash; before and after graduation. When a vacancy opens at a partner facility, our recruitment team reviews the candidate pool for the best match. Placement depends on available openings and employer requirements.</p>
-        <div class="cpt-training-link">
-          <p data-i18n="cpt-training-link-p">Looking for information about the CPT training program itself?</p>
-          <a href="https://www.tefcpt.org/employment-and-job-placement/" target="_blank" rel="noopener" class="btn btn-secondary btn-lg" data-i18n="cpt-training-link-btn">Visit the CPT Training Site &rarr;</a>
-        </div>
+
+      <div class="faq-list reveal-stagger">
+        <details class="faq-item">
+          <summary data-i18n="cpt-faq-q1">What&rsquo;s the difference between MyTEF and iCIMS?</summary>
+          <p data-i18n="cpt-faq-a1">MyTEF is your portal to access career services while iCIMS is your portal to access jobs and see what&rsquo;s available.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary data-i18n="cpt-faq-q2">How do I contact CPT staff with a question?</summary>
+          <p data-i18n="cpt-faq-a2">Use the Case Comments section in MyTEF to reach CPT staff directly. You can ask about eligibility, document submissions, or your account status.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary data-i18n="cpt-faq-q3">Can I access in-person help and guidance?</summary>
+          <p data-i18n="cpt-faq-a3">Yes, the Digital Drop-In Lab is a free resource where you can get hands-on support with your job search, resume, and career services tools.</p>
+        </details>
+      </div>
+
+      <div class="cpt-training-link reveal">
+        <p data-i18n="cpt-training-link-p">Looking for information about the CPT training program itself?</p>
+        <a href="https://www.tefcpt.org/employment-and-job-placement/" target="_blank" rel="noopener" class="btn btn-secondary btn-lg" data-i18n="cpt-training-link-btn">Visit the CPT Training Site &rarr;</a>
       </div>
     </div>
   </section>
@@ -200,6 +215,44 @@
   <script src="nav.js"></script>
   <script src="animations.js"></script>
   <script src="lang.js"></script>
+  <script>
+    // FAQ accordion animation
+    (function() {
+      document.querySelectorAll('.faq-item').forEach(function(item) {
+        var summary = item.querySelector('summary');
+        var content = item.querySelector('p');
+        if (!summary || !content) return;
+
+        var wrapper = document.createElement('div');
+        wrapper.className = 'faq-item-body';
+        content.parentNode.insertBefore(wrapper, content);
+        wrapper.appendChild(content);
+
+        summary.addEventListener('click', function(e) {
+          e.preventDefault();
+
+          if (item.open) {
+            wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
+            wrapper.style.opacity = '1';
+            requestAnimationFrame(function() {
+              wrapper.style.maxHeight = '0';
+              wrapper.style.opacity = '0';
+            });
+            setTimeout(function() { item.open = false; }, 350);
+          } else {
+            item.open = true;
+            wrapper.style.maxHeight = '0';
+            wrapper.style.opacity = '0';
+            requestAnimationFrame(function() {
+              wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
+              wrapper.style.opacity = '1';
+            });
+            setTimeout(function() { wrapper.style.maxHeight = 'none'; }, 350);
+          }
+        });
+      });
+    })();
+  </script>
 
 </body>
 </html>
