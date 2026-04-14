@@ -19,36 +19,29 @@
     'job-seekers': [
       {
         popover: {
-          title: 'Career Services for You',
-          description: 'This page connects 1199SEIU members and CPT participants with career support — from job placement to counseling to training. Let\'s take a quick look around.'
+          title: 'Your Next Step Starts Here',
+          description: 'This page helps you find healthcare jobs and connect with EJP\'s career services. Let\'s take a quick look around.'
         }
       },
       {
         element: '#get-started',
         popover: {
-          title: 'Where to Begin',
-          description: 'This section routes you to the right services in about 30 seconds. Tell us whether you\'re looking for a job or need career support and we\'ll point you to the right path.'
+          title: 'Tell Us Who You Are',
+          description: 'Let us know whether you\'re a CPT participant or not, and we\'ll point you to the right resources.'
         }
       },
       {
         element: '#wizard-step-1',
         popover: {
           title: 'Two Paths',
-          description: 'Looking for a job? Or need career support like counseling or resume help? Choose the option that fits — you can always come back and choose the other.'
+          description: 'Are you a Career Pathways Training participant? Or looking to browse jobs and submit your resume? Choose the option that fits — you can always come back.'
         }
       },
       {
-        element: '#member-benefits',
+        element: '#why-1199',
         popover: {
-          title: 'What Members Get',
-          description: 'Union members and CPT participants get the full suite: resume assistance, career counseling, interview prep, placement support, and more.'
-        }
-      },
-      {
-        element: '#mytef-portal',
-        popover: {
-          title: 'MyTEF Portal',
-          description: 'Already a member? Log in to sign up for classes, upload your resume, apply for programs, and check reimbursement status — all in one place.'
+          title: 'The Power of an 1199 Career',
+          description: 'Livable wages, career ladders, worker protections, and healthcare benefits — here\'s what 1199SEIU members have won together.'
         }
       }
     ],
@@ -56,29 +49,29 @@
     'employers': [
       {
         popover: {
-          title: 'Hiring Healthcare Professionals',
-          description: 'EJP connects you with CPT-trained, pre-screened candidates from the 1199SEIU network. Here\'s how it works.'
+          title: 'Build Your Healthcare Workforce',
+          description: 'EJP partners with healthcare employers across New York to match them with qualified candidates. Here\'s how it works.'
         }
       },
       {
         element: '#emp-why-partner',
         popover: {
           title: 'Why Partner with EJP',
-          description: 'Our candidates are CPT-trained across 10 healthcare occupations, have received career counseling, and are ready to work — not cold applicants.'
+          description: 'Access over 7,000 CPT-trained candidates across a variety of healthcare occupations — pre-screened, prepared, and ready to work.'
         }
       },
       {
         element: '#emp-vacancy-card',
         popover: {
           title: 'Submit Job Openings',
-          description: 'Post vacancies directly to our candidate pool. We\'ll match you with qualified professionals and follow up with you.'
+          description: 'Post your vacancies directly to our pool of qualified candidates. Our employer relations team will follow up with you.'
         }
       },
       {
         element: '#emp-events-card',
         popover: {
           title: 'Attend Hiring Events',
-          description: 'Meet candidates in person at career fairs and hiring events throughout New York — a faster way to find the right fit.'
+          description: 'Meet qualified candidates in person at career fairs and hiring events throughout New York.'
         }
       }
     ]
