@@ -834,12 +834,12 @@ a:hover { color: var(--color-brand-hover); }
 }
 
 .hero h1 {
-  font-size: var(--text-4xl);              /* Figma: 65px Poppins Bold */
+  font-size: clamp(2rem, 2rem + 1.5vw, 3.5rem); /* sized to fit one line on desktop */
   font-weight: var(--font-weight-bold);
-  line-height: 1.1;                        /* Figma: 71.4/65 ≈ 1.098 */
+  line-height: 1.1;
   margin-bottom: var(--space-lg);
-  letter-spacing: -1px;                    /* Figma: -1px at full size */
-  max-width: 700px;
+  letter-spacing: -0.5px;
+  max-width: none;
 }
 
 .hero .hero-subtitle {
