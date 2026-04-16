@@ -12,13 +12,31 @@
   var es = {
     // ── Shared header ─────────────────────────────────────────────
     'header-tagline':        'Un Programa del Fondo de Capacitación y Empleo de 1199SEIU',
+    'nav-funds-resources':   'Fondos y Recursos',
+    'nav-fund-healthcare':   'Atención Médica',
+    'nav-fund-pension':      'Pensión y Jubilación',
+    'nav-fund-training':     'Capacitación y Empleo',
+    'nav-fund-childcare':    'Cuidado Infantil y Servicios Juveniles',
+    'nav-training-education':'Capacitación y Educación',
+    'nav-te-precollege':     'Programas Pre-Universitarios',
+    'nav-te-college':        'Programas Universitarios',
+    'nav-te-continuing':     'Educación Continua',
+    'nav-te-certifications': 'Certificaciones Ocupacionales',
+    'nav-te-homecare':       'Capacitación para Trabajadores de Cuidado Domiciliario',
+    'nav-te-rn':             'Capacitación para Enfermeras Registradas',
+    'nav-employment':        'Empleo',
     'nav-job-seekers':       'Para Buscadores de Empleo',
     'nav-employers':         'Para Empleadores',
     'nav-about':             'Acerca de',
     'nav-events':            'Eventos',
     'nav-contact':           'Contacto',
+    'nav-citizenship':       'Ciudadanía e Inglés',
+    'nav-cit-program':       'Programa de Ciudadanía',
+    'nav-cit-esol':          'ESOL',
+    'nav-member-resources':  'Recursos para Miembros',
     'nav-mytef':             'Mi TEF',
     'logo-sub':              'Empleo y Colocación Laboral',
+    'search-placeholder':    'Buscar en EJP...',
     // ── Shared footer ─────────────────────────────────────────────
     'footer-brand-sub':      'Empleo y Colocación Laboral',
     'footer-funds':          'Fondos 1199SEIU',
@@ -362,6 +380,13 @@
     'ty-card-3-h3':          'Conoce los Beneficios de Membresía',
     'ty-card-3-p':           'Ve todos los beneficios disponibles para los miembros de 1199SEIU.',
     'ty-disclaimer':         'Si enviaste un registro de evento, recibirás un correo de confirmación más cerca de la fecha del evento.',
+    'ty-personalized':       'Hemos guardado tu información, {name}.',
+    // ── Inline form success (showFormSuccess) ─────────────────────
+    'form-success-heading':  'Todo listo',
+    'success-newsletter':    'Te has suscrito. Te mantendremos informado sobre carreras en salud y eventos de EJP.',
+    'success-vacancy':       'Gracias, {name}. Nuestro equipo de relaciones con empleadores se comunicará pronto.',
+    'success-emp-contact':   'Mensaje recibido, {name}. Nos comunicaremos pronto.',
+    'success-event':         '¡Estás registrado/a, {name}! Te enviaremos los detalles de confirmación más cerca del evento.',
   };
 
   // Captured English strings (populated from DOM before first translation).

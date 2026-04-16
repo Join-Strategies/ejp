@@ -276,13 +276,17 @@
   // ─── showFormSuccess ──────────────────────────────────────────────────────
   // Replaces the contents of containerEl with a success state.
 
-  window.showFormSuccess = function (containerEl, message) {
+  window.showFormSuccess = function (containerEl, message, esMessage) {
     if (!containerEl) return;
+    var isEs = false;
+    try { isEs = localStorage.getItem('ejp_lang') === 'es'; } catch (e) {}
+    var heading = isEs ? 'Todo listo' : 'You\'re all set';
+    var body = (isEs && esMessage) ? esMessage : message;
     containerEl.innerHTML =
       '<div class="form-success">' +
         '<div class="form-success-icon">✅</div>' +
-        '<h3>You\'re all set</h3>' +
-        '<p>' + message + '</p>' +
+        '<h3>' + heading + '</h3>' +
+        '<p>' + body + '</p>' +
       '</div>';
   };
 
