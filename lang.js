@@ -27,7 +27,7 @@
     'nav-employment':        'Empleo',
     'nav-job-seekers':       'Para Buscadores de Empleo',
     'nav-employers':         'Para Empleadores',
-    'nav-about':             'Acerca de',
+    'nav-cpt':               'Para CPT',
     'nav-events':            'Eventos',
     'nav-contact':           'Contacto',
     'nav-citizenship':       'Ciudadanía e Inglés',
