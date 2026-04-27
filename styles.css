@@ -944,6 +944,8 @@ a:hover { color: var(--color-brand-hover); }
   color: black;
   text-decoration: underline;
   border-radius: 0;
+  min-width: 0;
+  height: auto;
 }
 
 .cpt-banner .btn:hover {
@@ -1059,7 +1061,7 @@ a:hover { color: var(--color-brand-hover); }
   min-width: 180px;
   height: 48px;
   padding: 0 var(--btn-padding-x);
-  border-radius: var(--btn-radius);
+  border-radius: var(--radius-pill);       /* Figma: rounded-[50px] */
   font-weight: var(--btn-font-weight);
   font-size: var(--btn-font-size);
   cursor: pointer;
@@ -1127,7 +1129,12 @@ a:hover { color: var(--color-brand-hover); }
 .section--accent .section-kicker { color: var(--color-primary-800); } /* Figma: burgundy on gold */
 .section--accent .section-header h2 { color: var(--color-primary-800); }
 
-.section-header { margin-bottom: var(--space-xl); }
+.section-header { 
+  margin-bottom: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 
 .section-header h2 {
   font-size: var(--text-3xl);  /* 32–50px Figma: Poppins SemiBold */
@@ -1141,16 +1148,34 @@ a:hover { color: var(--color-brand-hover); }
   color: var(--color-neutral-800);           /* Figma: #3d3233 */
   font-size: var(--text-md);                 /* Figma: 16.8px */
   font-weight: var(--font-weight-regular);   /* Figma: Poppins Regular */
-  max-width: 600px;
+  max-width: 640px;
   line-height: var(--leading-base);          /* Figma: 25.2/16.8 ≈ 1.5 */
 }
 
-.section-header--centered { text-align: center; }
+.section-header--centered { 
+  text-align: center;
+  align-items: center;
+}
 .section-header--centered p { margin: 0 auto; }
 .section-header--centered .section-divider { margin: var(--space-md) auto; }
 
 .section-divider {
   display: none;                           /* Figma: no divider bars under headings */
+}
+
+.section-cta {
+  margin-top: var(--space-xl);
+  display: flex;
+  justify-content: flex-start;
+}
+
+.section--centered .section-cta,
+.text-center.section-cta {
+  justify-content: center;
+}
+
+.text-center .btn {
+  margin-top: var(--space-xl);
 }
 
 
