@@ -1053,14 +1053,25 @@ a:hover { color: var(--color-brand-hover); }
    Buttons
    ======================================== */
 .btn {
-  display: inline-block;
-  padding: var(--btn-padding-y) var(--btn-padding-x);
-  border-radius: var(--btn-radius);  /* Pill shape */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 180px;
+  height: 48px;
+  padding: 0 var(--btn-padding-x);
+  border-radius: var(--btn-radius);
   font-weight: var(--btn-font-weight);
   font-size: var(--btn-font-size);
   cursor: pointer;
   border: none;
   transition: background var(--transition-base), transform var(--transition-fast);
+}
+
+.btn-lg {
+  min-width: 260px;
+  height: 64px;
+  padding: 0 var(--btn-padding-x-lg);
+  font-size: var(--btn-font-size-lg);
 }
 
 .btn:active { transform: scale(0.98); }
@@ -1079,6 +1090,7 @@ a:hover { color: var(--color-brand-hover); }
   border: 2px solid var(--color-primary-800);  /* Figma: burgundy border */
   color: var(--color-primary-800);
 }
+.driver-popover .btn-outline,
 .btn-outline:hover {
   background: rgba(150, 16, 16, 0.06);
 }
@@ -1096,8 +1108,6 @@ a:hover { color: var(--color-brand-hover); }
 /* Secondary button: Burgundy bg, white text per Figma hero CTA */
 .btn-secondary { background: var(--color-brand); color: var(--color-text-inverse); }
 .btn-secondary:hover { background: var(--color-brand-hover); color: var(--color-text-inverse); }
-
-.btn-lg { padding: var(--btn-padding-y-lg) var(--btn-padding-x-lg); font-size: var(--btn-font-size-lg); }
 
 
 /* ========================================
@@ -1156,8 +1166,7 @@ a:hover { color: var(--color-brand-hover); }
 .services-grid.grid-2 { grid-template-columns: repeat(2, 1fr); }
 .services-grid.grid-2 > :last-child:nth-child(odd) {
   grid-column: 1 / -1;
-  max-width: 50%;
-  margin: 0 auto;
+  max-width: none;
 }
 
 .service-card {
@@ -1238,17 +1247,25 @@ a:hover { color: var(--color-brand-hover); }
   line-height: 1.44;                          /* Figma: 21.6/15 */
 }
 
-.service-card .card-link, .employer-card .card-link {
-  display: inline-block;
-  margin-top: auto;
-  padding-top: var(--space-md);
-  font-size: var(--text-base);              /* Figma: 16px */
-  font-weight: var(--font-weight-semibold); /* Figma: Poppins SemiBold */
-  color: var(--color-accent-500);           /* Figma: gold #fdd201 */
-  text-decoration: none;
+.service-card .card-link, .employer-card .card-link, .service-card .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--space-xl);
+  font-size: 1rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary-800);           /* Maroon */
+  text-decoration: underline;
+  background: transparent;
+  border: none;
+  padding: 0;
+  transition: color var(--transition-base);
+  width: fit-content;
+  cursor: pointer;
 }
 
-.service-card .card-link:hover, .employer-card .card-link:hover {
+.service-card .card-link:hover, .employer-card .card-link:hover, .service-card .btn:hover {
+  color: var(--color-brand-hover);
   text-decoration: underline;
 }
 
