@@ -127,6 +127,3 @@
   updateActiveNav();
 })();
 
-// My TEF portal modal — injected on every page
-(function() {
-

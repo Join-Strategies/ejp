@@ -93,5 +93,8 @@
   }
 
   // Dispatch event for other scripts to know header is ready
-  window.dispatchEvent(new CustomEvent('ejp:header-ready'));
+  // Use setTimeout(0) to ensure nav.js's deferred script runs first and registers its listener
+  setTimeout(function() {
+    window.dispatchEvent(new CustomEvent('ejp:header-ready'));
+  }, 0);
 })();
