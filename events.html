@@ -255,7 +255,7 @@
             !document.getElementById('event-last-name').value.trim() ||
             !document.getElementById('event-email').value.trim() ||
             !statusRadio) {
-          alert('Please fill in your name, email, and membership status.');
+          alert(window.ejpI18n('alert-event-required'));
           return;
         }
 
@@ -271,8 +271,8 @@
             });
             showFormSuccess(
               document.getElementById('event-form-container'),
-              'You\'re registered, ' + data.first_name + '! We\'ll send confirmation details closer to the event.',
-              '¡Estás registrado/a, ' + data.first_name + '! Te enviaremos los detalles de confirmación más cerca del evento.'
+              'success-event',
+              { name: data.first_name }
             );
           }
         });

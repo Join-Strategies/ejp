@@ -11,7 +11,6 @@
   // Spanish translations only — English is captured live from the DOM on first load.
   var es = {
     // ── Shared header ─────────────────────────────────────────────
-    'header-tagline':        'Un Programa del Fondo de Capacitación y Empleo de 1199SEIU',
     'nav-funds-resources':   'Fondos y Recursos',
     'nav-fund-healthcare':   'Atención Médica',
     'nav-fund-pension':      'Pensión y Jubilación',
@@ -67,6 +66,7 @@
     'index-returning-body':  'Qué bueno verte de nuevo. EJP está aquí cuando estés listo — ya sea para conocer más sobre tus beneficios sindicales o mantenerte conectado con lo que está pasando.',
     'index-returning-btn1':  'Conoce los Beneficios de Membresía →',
     'index-returning-btn2':  'Mantente en Contacto',
+    'index-returning-title': 'Bienvenido/a de nuevo',
     'index-services-kicker': 'Lo Que Hacemos',
     'index-services-h2':     'Apoyando el Empleo en Salud',
     'index-services-intro':  'Ya sea que estés buscando tu próximo rol o tratando de cubrir uno, EJP apoya a buscadores de empleo y empleadores por igual para crear una fuerza laboral donde el talento y la oportunidad en salud se alinean de manera fluida.',
@@ -79,18 +79,7 @@
     'index-svc-3-p':         'Como parte de 1199SEIU, EJP trabaja activamente con instalaciones de salud para apoyar el desarrollo de la fuerza laboral en toda Nueva York. Puede que no siempre nos veas, pero estamos aquí trabajando en tu nombre.',
     'index-svc-2-link':      'Para Empleadores →',
     'index-svc-3-link':      'Conoce la Membresía de 1199 →',
-    'index-svc-how-to-join': 'Cómo Unirse →',
-    'index-about-h2':        'Historias de Éxito',
-    'index-about-mission-p':   'El Centro de Empleo y Ubicación Laboral se dedica a ayudar a los buscadores de empleo a construir carreras duraderas y a los empleadores a formar equipos más fuertes a través de servicios de carrera personalizados y asociaciones directas con empleadores.',
     'index-about-stories-h3':  'Historias de Éxito',
-    'index-pillar-1-h4':     'Colaborar',
-    'index-pillar-1-p':      'Asociándonos con empleadores, programas de capacitación y sistemas de apoyo sindical',
-    'index-pillar-2-h4':     'Empoderar',
-    'index-pillar-2-p':      'Dando a los buscadores de empleo las herramientas, preparación y confianza para triunfar',
-    'index-pillar-3-h4':     'Innovar',
-    'index-pillar-3-p':      'Modernizando la colocación de la fuerza laboral en salud a través de la tecnología',
-    'index-pillar-4-h4':     'Impacto',
-    'index-pillar-4-p':      'Resultados medibles — colocaciones, retención, crecimiento profesional',
     'index-faq-kicker':      'Preguntas Frecuentes',
     'index-faq-h2':          'Preguntas Frecuentes',
     'index-faq-q1':          '¿Qué es EJP?',
@@ -141,42 +130,9 @@
     'js-wizard-cpt-p':       '¿Actualmente inscrito o completando el programa de Capacitación en Carreras Profesionales? Accede a recursos y apoyo dedicados para tu futura carrera en salud.',
     'js-wizard-mytef-callout': '¿Ya eres miembro de 1199? Inicia sesión en myTEF para apoyo de carrera →',
     'js-wizard-back':        '← Atrás',
-    'js-wizard-member-h3':   'Soy Miembro del Sindicato',
-    'js-wizard-member-sub':  'Incluyendo graduados de CPT',
-    'js-wizard-member-p':    'Conéctate con un consejero de carrera que puede ayudar con colocación, asesoramiento y más.',
-    'js-wizard-member-btn':  'Obtener Apoyo de Carrera →',
-    'js-wizard-nonmember-h3':  'No Soy Miembro del Sindicato',
-    'js-wizard-nonmember-p':   'Conoce los beneficios de la membresía en 1199SEIU y cómo acceder a los servicios de carrera.',
-    'js-wizard-nonmember-btn': 'Más Información →',
     'js-wizard-browse-h3':   'Explorar Puestos Disponibles',
     'js-wizard-browse-p':    'Busca vacantes de salud y envía tu currículum directamente a los empleadores.',
     'js-wizard-browse-btn':  'Ver Empleos →',
-    'js-form-member-h3':     'Te conectamos con los servicios de carrera',
-    'js-form-member-p':      'Completa el formulario y un consejero de carrera te contactará para empezar.',
-    'js-label-first-name':   'Nombre',
-    'js-label-last-name':    'Apellido',
-    'js-label-email':        'Correo Electrónico',
-    'js-label-phone':        'Teléfono',
-    'js-label-member-status':  'Estado de Membresía',
-    'js-radio-active-member':  'Miembro Activo del Sindicato',
-    'js-radio-cpt-grad':       'Graduado de CPT',
-    'js-label-support-type':   '¿Qué tipo de apoyo buscas?',
-    'js-checkbox-resume':      'Ayuda con Currículum',
-    'js-checkbox-counseling':  'Asesoramiento de Carrera',
-    'js-checkbox-interview':   'Preparación para Entrevistas',
-    'js-checkbox-placement':   'Colocación / Emparejamiento de Empleo',
-    'js-checkbox-workshop':    'Taller / Capacitación',
-    'js-btn-connect':          'Conectarme con un Consejero →',
-    'js-form-nonmember-h3':    'Estás en el lugar correcto',
-    'js-form-nonmember-p':     'Deja tu correo y te enviaremos información sobre cómo acceder a los servicios de carrera — no necesitas membresía para comenzar.',
-    'js-label-what-brought':   '¿Qué te trajo aquí?',
-    'js-opt-select-one':       '-- Selecciona una opción --',
-    'js-opt-looking-job':      'Estoy buscando un empleo en salud',
-    'js-opt-training':         'Quiero explorar programas de capacitación',
-    'js-opt-heard':            'Escuché sobre 1199SEIU y quiero saber más',
-    'js-opt-other':            'Otro',
-    'js-btn-send-info':        'Enviarme Más Información →',
-    'js-btn-skip':             'Saltar — solo mostrarme lo disponible →',
     'js-benefits-kicker':      'Por qué unirse a 1199SEIU',
     'js-benefits-h2':          'El Poder de una Carrera con 1199',
     'js-benefits-intro':       'Con más de 450,000 miembros fuertes, los trabajadores de 1199 negocian juntos contratos sólidos que garantizan un salario justo, buenos beneficios y oportunidades educativas mientras lideran la lucha por apoyar a los trabajadores en todo Estados Unidos.',
@@ -188,20 +144,6 @@
     'js-svc-protections-p':    'Los miembros de 1199 han ganado protecciones laborales como la prohibición de subcontratación, procesos disciplinarios más justos, proporciones específicas de trabajador-paciente y seguridad de jubilación mientras aprovechan nuestra fuerza colectiva para evitar despidos.',
     'js-svc-benefits-h3':      'Beneficios de Salud',
     'js-svc-benefits-p':       'Los miembros elegibles de 1199, tanto a tiempo completo como parcial, tienen acceso a seguro de salud de bajo costo o sin costo para ellos y sus familias.',
-    'js-svc-how-to-join':      'Cómo Unirse →',
-    'js-member-btn-login':     '¿Ya eres miembro? Inicia sesión en MyTEF →',
-    'js-member-btn-browse':    'Ver Puestos Disponibles →',
-    'js-mytef-h2':             'Portal MyTEF',
-    'js-mytef-intro':          'Tu centro de capacitación y empleo — gestiona tus herramientas de desarrollo profesional en un solo lugar.',
-    'js-mytef-f1-h3':          'Inscríbete en Clases',
-    'js-mytef-f1-p':           'Explora e inscríbete en programas de capacitación disponibles',
-    'js-mytef-f2-h3':          'Solicita Programas',
-    'js-mytef-f2-p':           'Envía solicitudes para oportunidades de avance profesional',
-    'js-mytef-f3-h3':          'Sube tu Currículum',
-    'js-mytef-f3-p':           'Mantén tu currículum en archivo para emparejamiento con empleadores',
-    'js-mytef-f4-h3':          'Consulta Reembolsos',
-    'js-mytef-f4-p':           'Verifica el estado de tus reembolsos de matrícula y gastos',
-    'js-mytef-login-btn':      'Iniciar Sesión en el Portal MyTEF →',
     // ── cpt.html ─────────────────────────────────────────────────
     'cpt-hero-h1':           'Crea Tu Cuenta de iCIMS',
     'cpt-hero-btn':          'Crea Tu Cuenta de iCIMS →',
@@ -394,11 +336,26 @@
     'success-vacancy':       'Gracias, {name}. Nuestro equipo de relaciones con empleadores se comunicará pronto.',
     'success-emp-contact':   'Mensaje recibido, {name}. Nos comunicaremos pronto.',
     'success-event':         '¡Estás registrado/a, {name}! Te enviaremos los detalles de confirmación más cerca del evento.',
+    'alert-required-fields': 'Por favor completa todos los campos obligatorios.',
+    'alert-event-required':  'Por favor completa tu nombre, correo electrónico y estado de membresía.',
   };
 
   // Captured English strings (populated from DOM before first translation).
   var _en = {};
   var _enPh = {};
+
+  // English defaults for keys never present in the DOM (used programmatically).
+  var EN_DEFAULTS = {
+    'form-success-heading':  'You\'re all set',
+    'success-newsletter':    'You\'re subscribed! We\'ll keep you posted on healthcare careers and EJP events.',
+    'success-vacancy':       'Thank you, {name}. Our employer relations team will be in touch soon.',
+    'success-emp-contact':   'Message received, {name}. We\'ll be in touch soon.',
+    'success-event':         'You\'re registered, {name}! We\'ll send confirmation details closer to the event.',
+    'alert-required-fields': 'Please fill in all required fields.',
+    'alert-event-required':  'Please fill in your name, email, and membership status.',
+    'ty-personalized':       'We\'ve saved your information, {name}.',
+    'index-returning-title': 'Welcome back'
+  };
 
   function capture() {
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
@@ -441,6 +398,10 @@
 
   function init() {
     capture();
+    // Merge programmatic English defaults so programmatic lookups never fail.
+    Object.keys(EN_DEFAULTS).forEach(function(k) {
+      if (!_en[k]) _en[k] = EN_DEFAULTS[k];
+    });
     var lang = getLang();
     if (lang === 'es') applyTranslations('es');
 
@@ -460,4 +421,7 @@
   } else {
     window.addEventListener('ejp:header-ready', init);
   }
+
+  // Expose dictionaries for programmatic lookup (e.g. inline scripts, alerts)
+  window._ejpI18n = { es: es, en: _en, enPh: _enPh };
 })();

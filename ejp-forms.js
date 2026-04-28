@@ -273,20 +273,45 @@
     }, 320);
   };
 
-  // ─── showFormSuccess ──────────────────────────────────────────────────────
-  // Replaces the contents of containerEl with a success state.
-
-  window.showFormSuccess = function (containerEl, message, esMessage) {
-    if (!containerEl) return;
+  // ─── i18n helper for programmatic strings (alerts, inline messages) ───────
+  window.ejpI18n = function(key, replacements) {
     var isEs = false;
     try { isEs = localStorage.getItem('ejp_lang') === 'es'; } catch (e) {}
-    var heading = isEs ? 'Todo listo' : 'You\'re all set';
-    var body = (isEs && esMessage) ? esMessage : message;
+    var dict = (window._ejpI18n && window._ejpI18n.es) || {};
+    var enDict = (window._ejpI18n && window._ejpI18n.en) || {};
+    var template = isEs ? (dict[key] || '') : (enDict[key] || '');
+    if (!template) template = key;
+    if (replacements) {
+      Object.keys(replacements).forEach(function(rk) {
+        template = template.replace(new RegExp('\\{' + rk + '\\}', 'g'), replacements[rk]);
+      });
+    }
+    return template;
+  };
+
+  // ─── showFormSuccess ──────────────────────────────────────────────────────
+  // Replaces the contents of containerEl with a success state.
+  // Supports legacy calls: showFormSuccess(container, enMessage, esMessage)
+  // Supports keyed calls:  showFormSuccess(container, messageKey, replacements)
+
+  window.showFormSuccess = function (containerEl, messageOrKey, esMessageOrReplacements) {
+    if (!containerEl) return;
+    var heading = window.ejpI18n('form-success-heading');
+    var body;
+    if (typeof esMessageOrReplacements === 'string') {
+      // Legacy call: (container, enMessage, esMessage)
+      var isEs = false;
+      try { isEs = localStorage.getItem('ejp_lang') === 'es'; } catch (e) {}
+      body = isEs ? esMessageOrReplacements : messageOrKey;
+    } else {
+      // New call: (container, messageKey, replacements)
+      body = window.ejpI18n(messageOrKey, esMessageOrReplacements);
+    }
     containerEl.innerHTML =
       '<div class="form-success">' +
-        '<div class="form-success-icon">✅</div>' +
-        '<h3>' + heading + '</h3>' +
-        '<p>' + body + '</p>' +
+        '<div class="form-success-icon">&#x2705;</div>' +
+        '<h3>' + _esc(heading) + '</h3>' +
+        '<p>' + _esc(body) + '</p>' +
       '</div>';
   };
 

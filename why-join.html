@@ -185,8 +185,7 @@
           saveSession({ firstName: data.first_name, email: data.email, memberStatus: 'non-member' });
           showFormSuccess(
             document.querySelector('.newsletter-block'),
-            'You\'re subscribed! We\'ll keep you posted on healthcare careers and EJP events.',
-            'Te has suscrito. Te mantendremos informado sobre carreras en salud y eventos de EJP.'
+            'success-newsletter'
           );
         }
       });

@@ -322,7 +322,7 @@
           !document.getElementById('vacancy-name').value.trim() ||
           !document.getElementById('vacancy-email').value.trim() ||
           !roleVal || !countVal) {
-        alert('Please fill in all required fields.');
+        alert(window.ejpI18n('alert-required-fields'));
         return;
       }
 
@@ -332,8 +332,8 @@
         onSuccess: function(data) {
           showFormSuccess(
             document.getElementById('vacancy-form-container'),
-            'Thank you, ' + (nameParts[0] || 'there') + '. Our employer relations team will be in touch soon.',
-            'Gracias, ' + (nameParts[0] || '') + '. Nuestro equipo de relaciones con empleadores se comunicará pronto.'
+            'success-vacancy',
+            { name: nameParts[0] || 'there' }
           );
         }
       });
@@ -349,7 +349,7 @@
           !document.getElementById('contact-org').value.trim() ||
           !document.getElementById('contact-email').value.trim() ||
           !document.getElementById('contact-message').value.trim()) {
-        alert('Please fill in all required fields.');
+        alert(window.ejpI18n('alert-required-fields'));
         return;
       }
 
@@ -359,8 +359,8 @@
         onSuccess: function(data) {
           showFormSuccess(
             document.getElementById('contact-form-container'),
-            'Message received, ' + data.first_name + '. We\'ll be in touch soon.',
-            'Mensaje recibido, ' + data.first_name + '. Nos comunicaremos pronto.'
+            'success-emp-contact',
+            { name: data.first_name }
           );
         }
       });
