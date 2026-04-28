@@ -125,6 +125,7 @@
     'js-kicker-get-started': 'Comenzar',
     'js-wizard-h2':          'Dinos Quién Eres',
     'js-wizard-intro':       'Déjanos saber quién eres para poder dirigirte mejor.',
+    'js-wizard-cpt-h3':      'Soy Participante de CPT',
     'js-wizard-jobs-h3':     'No Soy Participante de CPT',
     'js-wizard-jobs-p':      'Explora puestos de salud disponibles y envía tu currículum a empleadores en toda Nueva York. Se te notificará cuando los empleadores publiquen roles que coincidan con tus cualificaciones y preferencias laborales.',
     'js-wizard-cpt-p':       '¿Actualmente inscrito o completando el programa de Capacitación en Carreras Profesionales? Accede a recursos y apoyo dedicados para tu futura carrera en salud.',
