@@ -127,3 +127,93 @@
   updateActiveNav();
 })();
 
+// My TEF portal modal — injected on every page
+(function() {
+  var MYTEF_URL = 'https://1199seiutef.my.site.com/s/login/';
+
+  function injectMyTEFModal() {
+    if (document.getElementById('mytef-modal')) return;
+
+    var modalHTML = [
+      '<div id="mytef-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="mytef-modal-title">',
+      '  <div class="modal-box mytef-modal-box">',
+      '    <button class="modal-close" id="mytef-modal-close" aria-label="Close">&times;</button>',
+      '    <div class="mytef-modal-logo" aria-hidden="true">myTEF</div>',
+      '    <h2 class="mytef-modal-title" id="mytef-modal-title" data-i18n="mytef-modal-title">My TEF Portal</h2>',
+      '    <p class="mytef-modal-body" data-i18n="mytef-modal-body">Access your training records, class enrollments, program applications, resume, and reimbursement status — all in the secure myTEF member portal.</p>',
+      '    <ul class="mytef-modal-features">',
+      '      <li data-i18n="mytef-modal-li-1">Sign up for classes &amp; training programs</li>',
+      '      <li data-i18n="mytef-modal-li-2">Apply for career advancement opportunities</li>',
+      '      <li data-i18n="mytef-modal-li-3">Upload and manage your resume</li>',
+      '      <li data-i18n="mytef-modal-li-4">Check tuition &amp; expense reimbursements</li>',
+      '    </ul>',
+      '    <a href="' + MYTEF_URL + '" target="_blank" rel="noopener" class="btn btn-primary btn-lg mytef-modal-cta" data-i18n="mytef-modal-cta">Go to My TEF Portal →</a>',
+      '    <p class="mytef-modal-footnote" data-i18n="mytef-modal-footnote">You&rsquo;ll be taken to the secure 1199SEIU TEF member portal to log in.</p>',
+      '  </div>',
+      '</div>'
+    ].join('');
+
+    var container = document.createElement('div');
+    container.innerHTML = modalHTML;
+    document.body.appendChild(container.firstChild);
+
+    var closeBtn = document.getElementById('mytef-modal-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeMyTEF);
+    }
+  }
+
+  function openMyTEF() {
+    injectMyTEFModal();
+
+    var overlay = document.getElementById('mytef-modal');
+    if (!overlay) return;
+
+    overlay.classList.remove('hidden');
+    requestAnimationFrame(function() {
+      overlay.classList.add('is-open');
+      document.body.classList.add('modal-open');
+    });
+  }
+
+  function closeMyTEF() {
+    var overlay = document.getElementById('mytef-modal');
+    if (!overlay) return;
+
+    overlay.classList.remove('is-open');
+    document.body.classList.remove('modal-open');
+    setTimeout(function() {
+      if (!overlay.classList.contains('is-open')) {
+        overlay.classList.add('hidden');
+      }
+    }, 320);
+  }
+
+  if (document.body) {
+    injectMyTEFModal();
+  } else {
+    document.addEventListener('DOMContentLoaded', injectMyTEFModal);
+  }
+
+  document.addEventListener('click', function(e) {
+    var modal = document.getElementById('mytef-modal');
+
+    if (modal && e.target === modal) {
+      closeMyTEF();
+      return;
+    }
+
+    var target = e.target.closest('.nav-cta, .js-mytef-btn');
+    if (!target) return;
+
+    e.preventDefault();
+    openMyTEF();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeMyTEF();
+    }
+  });
+})();
+
