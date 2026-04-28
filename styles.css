@@ -1241,6 +1241,10 @@ a:hover { color: var(--color-brand-hover); }
   max-width: 91px;
 }
 
+.events-page .service-card-icon img {
+  transform: scaleX(-1);
+}
+
 .service-card--centered, .value-item--centered, .contact-card--centered {
   text-align: center;
   align-items: center;
