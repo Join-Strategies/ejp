@@ -454,9 +454,10 @@
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
+  // If header is already injected
+  if (document.querySelector('.site-header')) {
     init();
+  } else {
+    window.addEventListener('ejp:header-ready', init);
   }
 })();

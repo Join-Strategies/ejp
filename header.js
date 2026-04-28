@@ -91,4 +91,7 @@
     div.innerHTML = headerHTML.trim();
     document.body.prepend(div.firstChild);
   }
+
+  // Dispatch event for other scripts to know header is ready
+  window.dispatchEvent(new CustomEvent('ejp:header-ready'));
 })();
