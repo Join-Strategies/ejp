@@ -247,8 +247,8 @@
   --card-border:       1px solid var(--color-border);
   --card-shadow:       var(--shadow-md);
   --card-shadow-hover: var(--shadow-card-lift);
-  --card-icon-size-sm: 48px;
-  --card-icon-size-lg: 56px;
+  --card-icon-size-sm: 91px;
+  --card-icon-size-lg: 106px;
   --card-icon-radius:  var(--radius-lg);
 
   /* ========================================
@@ -277,14 +277,7 @@
   /* ========================================
      Layer 3: Component Tokens — Hero
      ======================================== */
-  /* Figma: dark overlay (40%) + burgundy tint (60%) over photo */
-  --hero-gradient: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.50) 0%,
-    rgba(150, 16, 16, 0.75) 50%,
-    rgba(150, 16, 16, 0.85) 100%
-  );
-  --hero-image: url('assets/page-hero-bg.webp');
+  --hero-image: url('assets/page-hero-new.png');
 }
 
 
@@ -782,9 +775,7 @@ a:hover { color: var(--color-brand-hover); }
    Hero Section
    ======================================== */
 .hero {
-  background:
-    var(--hero-gradient),
-    var(--hero-image) center 20%/cover no-repeat;
+  background: var(--hero-image) center 20%/cover no-repeat;
   color: var(--color-text-inverse);
   padding: var(--space-3xl) var(--space-3xl) var(--space-3xl);
   min-height: 560px;
@@ -876,9 +867,7 @@ a:hover { color: var(--color-brand-hover); }
 
 /* Page-level hero (inner pages) — Updated March 2026 */
 .page-hero {
-  background:
-    linear-gradient(135deg, rgba(150, 16, 16, 0.92) 0%, rgba(146, 6, 7, 0.88) 50%, rgba(120, 12, 12, 0.85) 100%),
-    var(--hero-image) center 20%/cover no-repeat;
+  background: var(--hero-image) center 20%/cover no-repeat;
   color: var(--color-text-inverse);
   padding: var(--space-3xl) var(--space-3xl) var(--space-2xl); /* Standardized to match main hero */
   min-height: 400px;
@@ -959,9 +948,16 @@ a:hover { color: var(--color-brand-hover); }
 }
 
 .returning-modal-icon {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   margin-bottom: var(--space-md);
   line-height: 1;
+}
+
+.returning-modal-icon img {
+  width: 91px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 .returning-modal-title {
@@ -1242,7 +1238,7 @@ a:hover { color: var(--color-brand-hover); }
 .service-card-icon img, .wizard-card-icon img {
   width: 100%;
   height: auto;
-  max-width: 48px;
+  max-width: 91px;
 }
 
 .service-card--centered, .value-item--centered, .contact-card--centered {
@@ -1349,15 +1345,15 @@ button.card-link {
 
 .pillar-icon {
   flex-shrink: 0;
-  width: 60px;
-  height: 60px;
+  width: 113px;
+  height: 113px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .pillar-icon img {
-  width: 48px;
+  width: 91px;
   height: auto;
 }
 
@@ -1415,7 +1411,14 @@ button.card-link {
 
 .event-photo-placeholder {
   height: 166px;
-  background: linear-gradient(135deg, var(--color-accent-100) 0%, var(--color-accent-500) 100%);
+  background: var(--color-accent-100);
+}
+
+.event-photo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .event-photo-card-body {
@@ -1930,8 +1933,8 @@ blockquote footer {
 }
 
 .wizard-card-icon img {
-  width: 40px;
-  height: 40px;
+  width: 76px;
+  height: 76px;
   display: block;
 }
 
@@ -2580,7 +2583,7 @@ body.modal-open {
 }
 
 .form-success-icon {
-  font-size: 3rem;
+  font-size: 4.2rem;
   margin-bottom: var(--space-md);
 }
 
