@@ -85,9 +85,9 @@
 
         <div class="service-card employer-card" id="emp-events-card">
           <div class="service-card-icon secondary" aria-hidden="true"><img src="assets/branding/icons/new/ICON_Attending hiring events.svg" alt=""></div>
-          <h3 data-i18n="emp-events-h3">Attend Hiring Events</h3>
-          <p data-i18n="emp-events-p">Meet qualified candidates in person at our career fairs and hiring events throughout New York.</p>
-          <a href="events.html" class="card-link" data-i18n="emp-events-link">View Upcoming Events &rarr;</a>
+          <h3 data-i18n="emp-events-h3">Host a Hiring Event</h3>
+          <p data-i18n="emp-events-p">Partner with EJP to host a hiring event and meet qualified candidates in person.</p>
+          <button class="card-link" onclick="openModal('employer-hiring-modal')" data-i18n="emp-events-link">Host an Event &rarr;</button>
         </div>
 
         <div class="service-card employer-card">
@@ -240,6 +240,51 @@
     </div>
   </div>
 
+  <!-- D3: Host a Hiring Event modal -->
+  <div id="employer-hiring-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="hiring-modal-title">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('employer-hiring-modal')" aria-label="Close">&times;</button>
+      <h2 id="hiring-modal-title" data-i18n="emp-hiring-modal-h2">Host a Hiring Event</h2>
+      <p style="color:var(--color-text-secondary);margin-bottom:var(--space-xl);" data-i18n="emp-hiring-modal-p">Interested in hosting a hiring event with EJP? Tell us about your organization and we'll be in touch.</p>
+      <div id="hiring-form-container">
+        <form id="hiring-form" novalidate>
+          <input type="hidden" name="oid" value="00DdL00000rNMCb">
+          <input type="hidden" name="retURL" value="https://toolnyc.github.io/ejp/thank-you.html">
+          <input type="hidden" name="lead_source" value="Employer - Hiring Event Inquiry">
+          <input type="hidden" name="00NdL0000248yOf" value="employers">
+
+          <div class="form-group">
+            <label for="hiring-org"><span data-i18n="emp-label-org">Organization Name</span> <span aria-hidden="true">*</span></label>
+            <input type="text" id="hiring-org" name="company" required>
+          </div>
+          <div class="form-group">
+            <label for="hiring-name"><span data-i18n="emp-label-your-name">Your Name</span> <span aria-hidden="true">*</span></label>
+            <input type="text" id="hiring-name" name="_fullname" required data-i18n-placeholder="emp-placeholder-name" placeholder="First and last name">
+          </div>
+          <div class="form-group">
+            <label for="hiring-title"><span data-i18n="emp-label-job-title">Job Title</span> <span aria-hidden="true">*</span></label>
+            <input type="text" id="hiring-title" name="title" required>
+          </div>
+          <div class="form-group">
+            <label for="hiring-email"><span data-i18n="emp-label-work-email">Work Email</span> <span aria-hidden="true">*</span></label>
+            <input type="email" id="hiring-email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="hiring-phone" data-i18n="emp-label-phone">Phone</label>
+            <input type="tel" id="hiring-phone" name="phone">
+          </div>
+          <div class="form-group">
+            <label for="hiring-notes" data-i18n="emp-label-notes">Additional Notes</label>
+            <textarea id="hiring-notes" name="description" rows="3"></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" data-i18n="emp-btn-submit-event">Submit Request &rarr;</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <!-- D2: Contact Employer Relations modal -->
   <div id="employer-contact-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
     <div class="modal-box">
@@ -333,6 +378,48 @@
           showFormSuccess(
             document.getElementById('vacancy-form-container'),
             'success-vacancy',
+            { name: nameParts[0] || 'there' }
+          );
+        }
+      });
+    });
+
+    // ── D3: Hiring event form ─────────────────────────────────────
+    document.getElementById('hiring-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var form = this;
+
+      // Split full name into first/last
+      var nameParts = (document.getElementById('hiring-name').value.trim()).split(' ');
+      var hiddenFirst = form.querySelector('[name="first_name"]');
+      var hiddenLast  = form.querySelector('[name="last_name"]');
+      if (!hiddenFirst) {
+        var f = document.createElement('input'); f.type='hidden'; f.name='first_name'; form.appendChild(f);
+        hiddenFirst = f;
+      }
+      if (!hiddenLast) {
+        var l = document.createElement('input'); l.type='hidden'; l.name='last_name'; form.appendChild(l);
+        hiddenLast = l;
+      }
+      hiddenFirst.value = nameParts[0] || '';
+      hiddenLast.value  = nameParts.slice(1).join(' ') || '';
+
+      // Validate required
+      if (!document.getElementById('hiring-org').value.trim() ||
+          !document.getElementById('hiring-name').value.trim() ||
+          !document.getElementById('hiring-title').value.trim() ||
+          !document.getElementById('hiring-email').value.trim()) {
+        alert(window.ejpI18n('alert-required-fields'));
+        return;
+      }
+
+      submitToSalesforce(form, {
+        submissionType: 'employer',
+        sourcePage: 'employers',
+        onSuccess: function(data) {
+          showFormSuccess(
+            document.getElementById('hiring-form-container'),
+            'success-hiring-event',
             { name: nameParts[0] || 'there' }
           );
         }
